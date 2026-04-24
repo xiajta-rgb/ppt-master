@@ -50,7 +50,7 @@
     <style>
         body {
             font-family: system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1a1a2e;
             min-height: 100vh;
         }
 
@@ -220,7 +220,7 @@
         }
 
         .view-mode-btn.active {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #2a2a3a;
             color: white;
         }
 
@@ -443,7 +443,7 @@
                 id: 'ppt169_顶级咨询风_心理治疗中的依恋',
                 title: '心理治疗中的依恋',
                 description: '探索依恋理论在心理治疗中的应用',
-                icon: '🧠',
+                icon: '',
                 color: '#6366f1',
                 folder: 'ppt169_顶级咨询风_心理治疗中的依恋/svg_final',
                 slides: [
@@ -485,7 +485,7 @@
                 id: 'ppt169_顶级咨询风_重庆市区域报告_ppt169_20251213',
                 title: '重庆市区域报告',
                 description: '重庆市经济财政分析报告',
-                icon: '🏙️',
+                icon: '',
                 color: '#0ea5e9',
                 folder: 'ppt169_顶级咨询风_重庆市区域报告_ppt169_20251213/svg_final',
                 slides: [
@@ -515,7 +515,7 @@
                 id: 'ppt169_顶级咨询风_构建有效AI代理_Anthropic',
                 title: '构建有效AI代理',
                 description: 'Anthropic AI 代理构建指南',
-                icon: '🤖',
+                icon: '',
                 color: '#8b5cf6',
                 folder: 'ppt169_顶级咨询风_构建有效AI代理_Anthropic/svg_final',
                 slides: [
@@ -645,7 +645,7 @@
                 id: 'ppt169_易理风_地山谦卦深度研究',
                 title: '地山谦卦深度研究',
                 description: '易经谦卦的深度解读与应用',
-                icon: '☯️',
+                icon: '',
                 color: '#78716c',
                 folder: 'ppt169_易理风_地山谦卦深度研究/svg_final',
                 slides: [
@@ -760,7 +760,7 @@
                 id: 'ppt169_general_dark_tech_claude_code_auto_mode',
                 title: 'Claude Code Auto Mode',
                 description: 'Anthropic AI safety engineering — classifier-based permissions',
-                icon: '🛡️',
+                icon: '',
                 color: '#D4A574',
                 folder: 'ppt169_general_dark_tech_claude_code_auto_mode/svg_final',
                 slides: [
@@ -801,7 +801,7 @@
                 id: 'demo_project_intro_ppt169_20251211',
                 title: 'PPT Master 项目介绍',
                 description: '项目演示与功能介绍',
-                icon: '🎯',
+                icon: '',
                 color: '#f97316',
                 folder: 'demo_project_intro_ppt169_20251211/svg_final',
                 slides: [
@@ -815,6 +815,25 @@
                     { file: 'slide_08_tools.svg', title: '工具', desc: '配套工具' },
                     { file: 'slide_09_quickstart.svg', title: '快速开始', desc: '入门指南' },
                     { file: 'slide_10_cta.svg', title: '行动号召', desc: '结束' }
+                ]
+            },
+            {
+                id: 'ppt169_战术服装_市场分析',
+                title: '亚马逊战术服装市场分析',
+                description: '亚马逊美国站休闲工装战术服装市场深度分析',
+                icon: '',
+                color: '#2a2a3a',
+                folder: 'ppt169_战术服装_市场分析/svg_final',
+                slides: [
+                    { file: 'P01_封面.svg', title: '封面', desc: '市场分析' },
+                    { file: 'P02_目录.svg', title: '目录', desc: '内容概览' },
+                    { file: 'P03_市场分析_章节页.svg', title: '市场现状与趋势', desc: 'Chapter 01' },
+                    { file: 'P04_产品设计DNA.svg', title: '核心产品设计DNA', desc: 'Chapter 02' },
+                    { file: 'P05_辅料五金.svg', title: '辅料与五金体系', desc: 'Chapter 03' },
+                    { file: 'P06_视觉呈现.svg', title: '产品视觉呈现', desc: 'Chapter 04' },
+                    { file: 'P07_品牌竞争.svg', title: '品牌竞争格局', desc: 'Chapter 05' },
+                    { file: 'P08_未来机遇.svg', title: '未来机遇与战略建议', desc: 'Chapter 06' },
+                    { file: 'P04_感谢.svg', title: '感谢', desc: '结束页' }
                 ]
             }
         ];
@@ -855,18 +874,10 @@
                 const coverPath = encodeURI(`examples/${collection.folder}/${collection.slides[0].file}`);
                 return `
                 <div class="collection-card glass rounded-2xl overflow-hidden" onclick='openCollection(${JSON.stringify(collection).replace(/'/g, "&#39;")})'>
-                    <div class="relative h-48 bg-gradient-to-br" style="background: linear-gradient(135deg, ${collection.color}22 0%, ${collection.color}44 100%)">
+                    <div class="relative h-48 bg-gray-800">
                         <object data="${coverPath}" type="image/svg+xml" class="w-full h-full object-contain p-4" style="pointer-events:none">
-                            <div class="w-full h-full flex items-center justify-center text-4xl">${collection.icon}</div>
+                            <div class="w-full h-full flex items-center justify-center text-4xl"></div>
                         </object>
-                        <div class="absolute top-4 left-4 w-12 h-12 rounded-xl flex items-center justify-center text-2xl" 
-                             style="background: ${collection.color}22">
-                            ${collection.icon}
-                        </div>
-                        <div class="absolute bottom-4 right-4 px-3 py-1 rounded-full text-xs font-medium text-white"
-                             style="background: ${collection.color}">
-                            ${collection.slides.length} slides
-                        </div>
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-gray-800 text-lg mb-2">${collection.title}</h3>
@@ -939,7 +950,7 @@
             document.getElementById('fullscreenTotal').textContent = collection.slides.length;
 
             // Set theme color
-            document.getElementById('progressBar').style.background = `linear-gradient(90deg, ${collection.color} 0%, ${collection.color}cc 100%)`;
+            document.getElementById('progressBar').style.background = '#4a4a5a';
 
             generateThumbnails();
             generateOverview();

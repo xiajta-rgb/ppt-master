@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 60)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">CHAPTER 05</text>
+  </g>
+
+  <text x="60" y="120" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="36" font-weight="700">品牌竞争格局</text>
+
+  <rect x="60" y="140" width="80" height="3" fill="url(#accentGradient)"/>
+
+  <text x="60" y="180" fill="#86868b" font-family="Inter, sans-serif" font-size="14" max-width="1100">从$25 Dickies到$322 Crye Precision，市场存在清晰的价格阶梯和对应的消费群体——品牌分层是品类成熟的核心标志</text>
+
+  <text x="60" y="230" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">价格分层与定位矩阵</text>
+
+  <g transform="translate(60, 260)">
+    <rect x="0" y="0" width="280" height="150" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="280" height="8" fill="#4a9f6a"/>
+    <text x="20" y="45" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">$20-40 大众工装</text>
+    <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">Dickies, Wrangler, Carhartt</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="11">性价比、实用性、品牌认知</text>
+    <text x="20" y="125" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">目标客群：蓝领工人、日常休闲</text>
+  </g>
+
+  <g transform="translate(360, 260)">
+    <rect x="0" y="0" width="280" height="150" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="280" height="8" fill="#c9a962"/>
+    <text x="20" y="45" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">$40-80 中端战术</text>
+    <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">5.11 Tactical, Condor</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="11">功能性强、面料可靠、款式多样</text>
+    <text x="20" y="125" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">目标客群：户外爱好者、执法从业者</text>
+  </g>
+
+  <g transform="translate(660, 260)">
+    <rect x="0" y="0" width="280" height="150" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="280" height="8" fill="#c9a962"/>
+    <text x="20" y="45" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">$80-150 专业战术</text>
+    <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">Vertx, First Tactical</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="11">顶级面料、精密版型、细节工艺</text>
+    <text x="20" y="125" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">目标客群：专业用户、城市战术爱好者</text>
+  </g>
+
+  <g transform="translate(960, 260)">
+    <rect x="0" y="0" width="260" height="150" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="260" height="8" fill="#c9a962"/>
+    <text x="20" y="45" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">$150+ 顶级军规</text>
+    <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">Crye Precision, Arc'teryx LEAF</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="11">军事级别耐用性、轻量化</text>
+    <text x="20" y="125" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">目标客群：特种部队、高端装备玩家</text>
+  </g>
+
+  <rect x="60" y="450" width="1160" height="120" rx="8" fill="#1a1a20" stroke="#c9a962" stroke-opacity="0.3"/>
+  <text x="80" y="485" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">竞争启示</text>
+  <text x="80" y="515" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13"><tspan fill="#c9a962" font-weight="600">中端市场 ($40-80) 是品牌入局的最佳切入点</tspan>——既有足够的利润空间支撑品牌建设，又能通过功能差异化与大众工装拉开距离。这个价格带的消费者既有功能诉求，又有消费能力。</text>
+  <text x="80" y="545" fill="#86868b" font-family="Inter, sans-serif" font-size="12">代表品牌：5.11 Tactical, Condor — 功能性强、面料可靠、款式多样</text>
+
+  <g transform="translate(60, 600)">
+    <rect x="0" y="0" width="1160" height="80" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">品牌差异化策略建议</text>
+    <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">面料：Ripstop防撕裂 + DWR防泼水 | 五金：YKK拉链 + Cobra扣具 | 版型：Athletic Fit为主</text>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

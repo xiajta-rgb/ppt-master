@@ -103,5 +103,10 @@
     "label": "Chongqing University Template",
     "summary": "A university-exclusive template for academic defenses and research presentations",
     "keywords": ["Chongqing University", "Academic", "Defense", "University"]
+  },
+  "tactical_clothing": {
+    "label": "Tactical Business Template",
+    "summary": "A dark luxury tactical template for tactical industry reports, outdoor equipment analysis, and e-commerce market research",
+    "keywords": ["Tactical", "Outdoor", "Military style", "Dark luxury", "E-commerce", "Market research", "Amazon", "Business consulting"]
   }
 }

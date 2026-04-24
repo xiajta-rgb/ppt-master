@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#141419"/>
+      <stop offset="100%" stop-color="#0a0a0f"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+
+  <g transform="translate(640, 100)">
+    <text x="0" y="0" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="4">CONTENTS</text>
+    <text x="0" y="50" text-anchor="middle" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="36" font-weight="700">报告目录</text>
+  </g>
+
+  <g transform="translate(140, 220)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">01</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">市场现状与趋势</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">规模数据 / 增长驱动 / Gorpcore浪潮</text>
+    </g>
+    <g transform="translate(380, 0)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">02</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">核心产品设计DNA</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">面料科技 / 版型工学 / 功能细节</text>
+    </g>
+    <g transform="translate(760, 0)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">03</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">辅料与五金体系</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">拉链 / 扣具 / 织带 / 工艺标准</text>
+    </g>
+    <g transform="translate(0, 140)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">04</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">产品视觉呈现</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">Listing优化 / 色彩体系 / 摄影美学</text>
+    </g>
+    <g transform="translate(380, 140)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">05</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">品牌竞争格局</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">头部品牌 / 定位矩阵 / 差异化策略</text>
+    </g>
+    <g transform="translate(760, 140)">
+      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
+      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">06</text>
+      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">未来机遇与战略建议</text>
+      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">市场切入 / 产品策略 / 品牌定位</text>
+    </g>
+  </g>
+</svg>

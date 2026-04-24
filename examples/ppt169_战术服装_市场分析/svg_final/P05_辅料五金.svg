@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 60)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="2">CHAPTER 03</text>
+  </g>
+
+  <text x="60" y="120" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="36" font-weight="700">辅料与五金体系</text>
+
+  <rect x="60" y="140" width="80" height="3" fill="url(#accentGradient)"/>
+
+  <text x="60" y="180" fill="#86868b" font-family="Inter, sans-serif" font-size="14" max-width="1100">拉链、扣具、织带、魔术贴——辅料五金是战术服装"专业感"与"可靠性"的具象化表达</text>
+
+  <text x="60" y="230" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">五金类型与行业标杆</text>
+
+  <g transform="translate(60, 260)">
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">拉链</text>
+    <text x="20" y="55" fill="#86868b" font-family="Inter, sans-serif" font-size="12">YKK（70%市占率）、SBS</text>
+    <text x="20" y="75" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">树脂/金属，抗腐蚀</text>
+    <text x="20" y="100" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">$0.5-3/pcs</text>
+  </g>
+
+  <g transform="translate(360, 260)">
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">扣具</text>
+    <text x="20" y="55" fill="#86868b" font-family="Inter, sans-serif" font-size="12">ITW Nexus、Cobra（军规）</text>
+    <text x="20" y="75" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">acetyl、锌合金</text>
+    <text x="20" y="100" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">$1-8/pcs</text>
+  </g>
+
+  <g transform="translate(660, 260)">
+    <rect x="0" y="0" width="280" height="120" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">织带</text>
+    <text x="20" y="55" fill="#86868b" font-family="Inter, sans-serif" font-size="12">YKK（织带）</text>
+    <text x="20" y="75" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">尼龙/聚酯，军规级抗拉</text>
+    <text x="20" y="100" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">$0.2-1/meter</text>
+  </g>
+
+  <g transform="translate(960, 260)">
+    <rect x="0" y="0" width="260" height="120" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">魔术贴</text>
+    <text x="20" y="55" fill="#86868b" font-family="Inter, sans-serif" font-size="12">3M Scotchcal</text>
+    <text x="20" y="75" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">尼龙</text>
+    <text x="20" y="100" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">$0.3-2/pcs</text>
+  </g>
+
+  <rect x="60" y="420" width="1160" height="140" rx="8" fill="#1a1a20" stroke="#c9a962" stroke-opacity="0.3"/>
+  <text x="80" y="455" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">服装人专业洞察</text>
+  <text x="80" y="485" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">辅料五金是消费者感知"专业感"最直接的触点。YKK拉链的Logo、COBRA扣具的机械感、D型环的金属光泽——这些细节在产品图片和实物体验中都会产生强烈的品质暗示。</text>
+  <text x="80" y="515" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">对于新入局品牌，<tspan fill="#c9a962" font-weight="600">在辅料上对标行业标杆（YKK + 军规织带 + 不锈钢五金）是最小成本建立专业形象的有效策略</tspan>。</text>
+
+  <g transform="translate(60, 590)">
+    <rect x="0" y="0" width="1160" height="80" rx="6" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">采购建议</text>
+    <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">建立辅料清单：YKK拉链 + ITW Nexus扣具 + 军规尼龙织带 + 3M魔术贴 + YKK铆钉/气眼</text>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>
