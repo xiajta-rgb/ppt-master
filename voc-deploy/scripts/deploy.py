@@ -254,7 +254,7 @@ def upload_wsgi():
         'Authorization': f'Token {API_TOKEN}',
         'Content-Type': f'multipart/form-data; boundary={boundary}'
     }
-    body = f'--{boundary}\\r\\nContent-Disposition: form-data; name="content"; filename="wsgi.py"\\r\\nContent-Type: text/plain\\r\\n\\r\\n{WSGI_CONTENT}\\r\\n--{boundary}--\\r\\n'
+    body = f'--{boundary}\r\nContent-Disposition: form-data; name="content"; filename="wsgi.py"\r\nContent-Type: text/plain\r\n\r\n{WSGI_CONTENT}\r\n--{boundary}--\r\n'
 
     url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
     resp = requests.post(url, headers=headers, data=body.encode('utf-8'), timeout=60)
@@ -284,26 +284,26 @@ def main():
     print("PPT Master Deploy (with Export API)")
     print("="*50)
 
-    print("\\n[Step 1] 上传 WSGI...")
+    print("\n[Step 1] 上传 WSGI...")
     if upload_wsgi():
         print("[OK] WSGI 上传成功")
     else:
         print("[X] WSGI 上传失败")
         return
 
-    print("\\n[Step 2] Reload Webapp...")
+    print("\n[Step 2] Reload Webapp...")
     if reload_webapp():
         print("[OK] Reload 成功")
     else:
         print("[!] Reload 失败，请手动Reload")
 
-    print("\\n[Step 3] 验证网站...")
+    print("\n[Step 3] 验证网站...")
     verify()
 
-    print("\\n" + "="*50)
+    print("\n" + "="*50)
     print("部署完成!")
     print("="*50)
-    print("\\n访问: https://ppt.pythonanywhere.com/")
+    print("\n访问: https://ppt.pythonanywhere.com/")
     print("导出API: https://ppt.pythonanywhere.com/api/export?project=项目名")
 
 if __name__ == '__main__':

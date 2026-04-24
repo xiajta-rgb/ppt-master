@@ -1,0 +1,15 @@
+API 长度: 22960
+网站长度: 21178
+差异位置: 21178
+
+--- API @ 21178 ---
+nt.createElement('img');
+                img.src = coverUrl;
+                img.alt = project.title;
+                img.onerror = function () {
+                    this.onerror = null;
+             
+--- 网站 @ 21178 ---
+nt.createElement('img');
+                img.src = coverUrl;
+                img.alt = project.title
