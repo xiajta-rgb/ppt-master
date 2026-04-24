@@ -1,6 +1,6 @@
 ---
 name: "ppt-master-deploy"
-description: "Deploy PPT Master to PythonAnywhere: upload WSGI file and provide manual reload instructions."
+description: "Deploy PPT Master to PythonAnywhere with export functionality."
 ---
 
 # PPT Master Deploy
@@ -17,34 +17,58 @@ description: "Deploy PPT Master to PythonAnywhere: upload WSGI file and provide 
 
 ## 部署步骤
 
-### Step 1: 执行部署脚本
+### Step 1: Git Pull (拉取最新代码)
+在 PythonAnywhere Console 中执行：
+```bash
+cd /home/ppt/ppt-master && git pull
+```
+
+### Step 2: 执行部署脚本
 ```bash
 python "voc-deploy/scripts/deploy.py"
 ```
 
-### Step 2: 手动重载 Webapp
-由于 PythonAnywhere Reload API 返回 405 错误，需要手动重载：
-
+### Step 3: Reload Webapp
 1. 访问 https://www.pythonanywhere.com/
 2. 登录后进入 **Web** 选项卡
 3. 点击 **Reload** 按钮刷新 `ppt.pythonanywhere.com`
 
-### Step 3: 验证
+### Step 4: 验证
 访问 https://ppt.pythonanywhere.com/ 确认网站正常运行
+
+## 导出功能
+
+### 前端使用
+在 viewer.html 页面中，点击右上角的 PowerPoint 图标按钮即可导出当前项目为 PPTX 文件。
+
+### API 端点
+```
+GET /api/export?project=项目名称
+```
+
+返回 PPTX 文件流（Content-Type: application/vnd.openxmlformats-officedocument.presentationml.presentation）
+
+## 已知问题与解决方案
+
+### UTF-8 乱码问题
+- **现象**: 中文字符显示为乱码，如 `ppt169_é¡¶çº§å¨è¯¢é£_å¿çæ²»çä¸­çä¾æ`
+- **原因**: WSGI 响应头缺少 `charset=utf-8`
+- **解决**: WSGI 中所有 Content-Type 都添加 `; charset=utf-8`
+
+### git clone 导致超时
+- **现象**: Reload 后网站返回 500 错误
+- **原因**: WSGI 启动时执行 git clone 超时
+- **解决**: 先通过其他方式（如 PythonAnywhere Console）执行 git clone，WSGI 只负责服务文件
+
+### python-pptx 未安装
+- **现象**: 导出 API 返回 `Import failed: pip failed`
+- **原因**: python-pptx 库未安装
+- **解决**: 在 PythonAnywhere Console 中执行 `pip install python-pptx --user`
 
 ## 项目状态
 
-- ✅ 项目已克隆到 `/home/ppt/ppt-master`
-- ✅ WSGI 已配置服务该目录
-- ⚠️ 需要手动 Reload 使配置生效
-
-## 验证网站
-
-**URL**: https://ppt.pythonanywhere.com/
-
-## 故障排除
-
-如果网站仍返回 500 错误：
-1. 确认已在 PythonAnywhere Web 界面点击 Reload
-2. 检查 `/home/ppt/ppt-master/index.html` 是否存在
-3. 查看 PythonAnywhere 错误日志
+- ✅ WSGI 已配置 (charset=utf-8)
+- ✅ 项目目录 `/home/ppt/ppt-master` 已存在
+- ✅ 网站 https://ppt.pythonanywhere.com/ 正常运行
+- ✅ 导出 API 已部署 (/api/export)
+- ⚠️ python-pptx 需手动安装
