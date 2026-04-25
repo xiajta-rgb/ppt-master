@@ -3,12 +3,30 @@ import sys
 import urllib.parse
 import json
 import time
+import threading
 from pathlib import Path
 
 from config import PROJECT_DIR, STATIC_DIR, SCRIPTS_DIR, PROJECT_ALIASES
 
 _file_watch_cache = {}
 _last_reload_time = time.time()
+
+SCAN_CACHE_TTL = 60
+_scan_cache = {'data': None, 'timestamp': 0}
+_cache_lock = threading.Lock()
+
+def _get_valid_cache():
+    with _cache_lock:
+        if _scan_cache['data'] is None:
+            return None
+        if time.time() - _scan_cache['timestamp'] > SCAN_CACHE_TTL:
+            return None
+        return _scan_cache['data']
+
+def _set_cache(data):
+    with _cache_lock:
+        _scan_cache['data'] = data
+        _scan_cache['timestamp'] = time.time()
 
 def resolve_project_alias(project_id):
     if project_id in PROJECT_ALIASES:
@@ -89,6 +107,11 @@ def broadcast_reload(project_id=None, file_path=None):
     global _last_reload_time
     _last_reload_time = time.time()
 
+def invalidate_scan_cache():
+    with _cache_lock:
+        _scan_cache['data'] = None
+        _scan_cache['timestamp'] = 0
+
 def handle_api_path(path, environ, start_response):
     if path == '/api/debug-path':
         content = f"path={path}".encode('utf-8')
@@ -97,33 +120,55 @@ def handle_api_path(path, environ, start_response):
 
     if path == '/api/check-changes':
         changed = scan_project_files()
+        if changed:
+            invalidate_scan_cache()
         content = json.dumps({'changed': len(changed) > 0, 'files': changed, 'timestamp': _last_reload_time}, ensure_ascii=False).encode('utf-8')
         start_response('200 OK', [('Content-Type', 'application/json'), ('Cache-Control', 'no-cache')])
         return [content]
 
+    if path == '/api/invalidate-cache':
+        invalidate_scan_cache()
+        content = json.dumps({'success': True, 'message': 'Cache invalidated'}, ensure_ascii=False).encode('utf-8')
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Cache-Control', 'no-cache')])
+        return [content]
+
     if path == '/api/scan-projects':
-        examples_dir = PROJECT_DIR / 'examples'
-        projects = []
-        if examples_dir.exists():
-            for item in examples_dir.iterdir():
-                if item.is_dir():
-                    svg_final = item / 'svg_final'
-                    slides = []
-                    if svg_final.exists():
-                        for svg_file in sorted(svg_final.glob('*.svg')):
-                            slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
-                    projects.append({
-                        'id': item.name,
-                        'folder': item.name,
-                        'slides': slides,
-                        'alias': [k for k, v in PROJECT_ALIASES.items() if v == item.name]
-                    })
-        content = json.dumps({'projects': projects, 'timestamp': time.time()}, ensure_ascii=False).encode('utf-8')
+        cached = _get_valid_cache()
+        if cached is not None:
+            content = cached
+        else:
+            examples_dir = PROJECT_DIR / 'examples'
+            projects = []
+            if examples_dir.exists():
+                for item in examples_dir.iterdir():
+                    if item.is_dir():
+                        svg_final = item / 'svg_final'
+                        slides = []
+                        if svg_final.exists():
+                            for svg_file in sorted(svg_final.glob('*.svg')):
+                                slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+                        projects.append({
+                            'id': item.name,
+                            'folder': item.name,
+                            'slides': slides,
+                            'alias': [k for k, v in PROJECT_ALIASES.items() if v == item.name]
+                        })
+            content = json.dumps({'projects': projects, 'timestamp': time.time()}, ensure_ascii=False).encode('utf-8')
+            _set_cache(content)
         start_response('200 OK', [('Content-Type', 'application/json'), ('Cache-Control', 'no-cache')])
         return [content]
 
     if path.startswith('/api/export'):
         return handle_export(path, environ, start_response)
+
+    if path == '/api/edit-svg':
+        return handle_edit_svg(environ, start_response)
+
+    if path == '/api/save-project':
+        return handle_save_project(environ, start_response)
+
+    if path == '/api/projects-data':
+        return handle_get_projects_data(start_response)
 
     return None
 
@@ -178,6 +223,137 @@ def handle_export(path, environ, start_response):
         start_response('500 Internal Server Error', [('Content-Type', 'text/plain'), ('Content-Length', str(len(content)))])
         return [content]
 
+def handle_edit_svg(environ, start_response):
+    try:
+        content_length = int(environ.get('CONTENT_LENGTH', 0))
+        request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
+        data = json.loads(request_body)
+
+        file_name = data.get('file')
+        folder = data.get('folder')
+        old_text = data.get('oldText')
+        new_text = data.get('newText')
+        element_index = data.get('elementIndex')
+
+        if not all([file_name, folder, old_text is not None, new_text is not None]):
+            content = json.dumps({'success': False, 'error': 'Missing required parameters'}).encode('utf-8')
+            start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            return [content]
+
+        svg_path = PROJECT_DIR / folder / file_name
+        if not svg_path.exists():
+            content = json.dumps({'success': False, 'error': f'File not found: {svg_path}'}).encode('utf-8')
+            start_response('404 Not Found', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            return [content]
+
+        backup_path = svg_path.with_suffix('.svg.bak')
+        if backup_path.exists():
+            backup_path.unlink()
+        svg_path.rename(backup_path)
+
+        content_svg = backup_path.read_text(encoding='utf-8')
+
+        if element_index is not None:
+            try:
+                import xml.etree.ElementTree as ET
+                ns = {'svg': 'http://www.w3.org/2000/svg'}
+                root = ET.fromstring(content_svg)
+                text_elements = root.findall('.//svg:text', ns) or root.findall('.//text')
+                idx = int(element_index)
+                if 0 <= idx < len(text_elements):
+                    text_elem = text_elements[idx]
+                    if text_elem.text == old_text:
+                        text_elem.text = new_text
+                        content_svg = ET.tostring(root, encoding='unicode')
+                        if content_svg.startswith('<?xml'):
+                            content_svg = content_svg[content_svg.index('?>') + 2:].strip()
+                        content_svg = '<?xml version="1.0" encoding="utf-8"?>\n' + content_svg
+                    else:
+                        backup_path.rename(svg_path)
+                        content = json.dumps({'success': False, 'error': 'Text content mismatch'}).encode('utf-8')
+                        start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+                        return [content]
+                else:
+                    backup_path.rename(svg_path)
+                    content = json.dumps({'success': False, 'error': f'Invalid element index: {idx}'}).encode('utf-8')
+                    start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+                    return [content]
+            except ET.ParseError as e:
+                backup_path.rename(svg_path)
+                content = json.dumps({'success': False, 'error': f'XML parse error: {str(e)}'}).encode('utf-8')
+                start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+                return [content]
+        else:
+            content_svg = content_svg.replace(old_text, new_text)
+
+        svg_path.write_text(content_svg, encoding='utf-8')
+        invalidate_scan_cache()
+
+        content = json.dumps({'success': True, 'message': 'Text updated successfully'}).encode('utf-8')
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+    except json.JSONDecodeError as e:
+        content = json.dumps({'success': False, 'error': f'Invalid JSON: {str(e)}'}).encode('utf-8')
+        start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+    except Exception as e:
+        import traceback
+        content = json.dumps({'success': False, 'error': str(e), 'trace': traceback.format_exc()}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+def handle_save_project(environ, start_response):
+    try:
+        content_length = int(environ.get('CONTENT_LENGTH', 0))
+        request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
+        data = json.loads(request_body)
+
+        project_id = data.get('id')
+        if not project_id:
+            content = json.dumps({'success': False, 'error': 'Missing project id'}).encode('utf-8')
+            start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            return [content]
+
+        data_file = PROJECT_DIR / 'examples' / 'projects_data.json'
+        projects_data = {}
+        if data_file.exists():
+            projects_data = json.loads(data_file.read_text(encoding='utf-8'))
+
+        projects_data[project_id] = {
+            'title': data.get('title'),
+            'desc': data.get('desc'),
+            'tags': data.get('tags', [])
+        }
+
+        data_file.write_text(json.dumps(projects_data, ensure_ascii=False, indent=2), encoding='utf-8')
+
+        content = json.dumps({'success': True, 'message': 'Project saved'}).encode('utf-8')
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+    except Exception as e:
+        import traceback
+        content = json.dumps({'success': False, 'error': str(e), 'trace': traceback.format_exc()}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+def handle_get_projects_data(start_response):
+    try:
+        data_file = PROJECT_DIR / 'examples' / 'projects_data.json'
+        if data_file.exists():
+            content = data_file.read_text(encoding='utf-8')
+        else:
+            content = '{}'
+
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Cache-Control', 'no-cache'), ('Content-Length', str(len(content)))])
+        return [content.encode('utf-8')]
+
+    except Exception as e:
+        content = json.dumps({'error': str(e)}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
 def handle_static_file(path):
     path_clean = path.lstrip('/').split('?')[0]
     path_parts = path_clean.split('/')
@@ -200,7 +376,7 @@ def handle_static_file(path):
     return None, None
 
 def handle_examples_file(path):
-    path_clean = path.lstrip('/')
+    path_clean = path.lstrip('/').split('?')[0]
     examples_file = PROJECT_DIR / path_clean
 
     if not examples_file.exists() or not examples_file.is_file():
@@ -217,7 +393,7 @@ def handle_examples_file(path):
             else:
                 path_parts[1] = resolved
 
-            examples_file = Path(*path_parts)
+            examples_file = PROJECT_DIR.joinpath(*path_parts)
 
     if examples_file.exists() and examples_file.is_file():
         return examples_file.read_bytes(), '200 OK', examples_file.suffix
@@ -265,7 +441,10 @@ def application(environ, start_response):
 
     response_headers = [
         ('Content-Type', content_type),
-        ('Content-Length', str(len(content)))
+        ('Content-Length', str(len(content))),
+        ('Cache-Control', 'no-cache, no-store, must-revalidate'),
+        ('Pragma', 'no-cache'),
+        ('Expires', '0')
     ]
     start_response(status, response_headers)
     return [content]

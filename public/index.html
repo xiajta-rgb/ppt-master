@@ -290,16 +290,15 @@
 
         .card-meta {
             display: flex;
-            gap: 15px;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 12px;
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        .card-meta span {
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .card-meta > span:first-child {
+            margin-right: 0;
         }
 
         .card-desc {
@@ -329,17 +328,17 @@
 
         .tag.style-consulting {
             background: rgba(99, 102, 241, 0.2);
-            color: var(--primary-light);
+            color: #d0d0d0;
         }
 
         .tag.style-general {
             background: rgba(6, 182, 212, 0.2);
-            color: var(--secondary);
+            color: #d0d0d0;
         }
 
         .tag.style-creative {
             background: rgba(245, 194, 231, 0.2);
-            color: var(--accent);
+            color: #d0d0d0;
         }
 
         /* Footer */
@@ -416,15 +415,15 @@
             </div>
             <div class="stats">
                 <div class="stat">
-                    <div class="stat-value">15</div>
+                    <div class="stat-value" id="stat-examples">--</div>
                     <div class="stat-label">Examples</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">229+</div>
+                    <div class="stat-value" id="stat-pages">--</div>
                     <div class="stat-label">Pages</div>
                 </div>
                 <div class="stat">
-                    <div class="stat-value">20</div>
+                    <div class="stat-value" id="stat-templates">--</div>
                     <div class="stat-label">Templates</div>
                 </div>
             </div>
@@ -457,6 +456,17 @@
     </footer>
 
     <script>
+        // Update stats with actual data
+        function updateStats() {
+            const examplesCount = projects.length;
+            const totalPages = projects.reduce((sum, p) => sum + (p.pages || 0), 0);
+            const uniqueStyles = new Set(projects.map(p => p.styleName)).size;
+
+            document.getElementById('stat-examples').textContent = examplesCount;
+            document.getElementById('stat-pages').textContent = totalPages + '+';
+            document.getElementById('stat-templates').textContent = uniqueStyles;
+        }
+
         // Project data
         const projects = [
             {
@@ -665,10 +675,6 @@
             filtered.forEach(project => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
-                card.onclick = () => {
-                    const projectId = project.alias || project.id;
-                    window.location.href = `viewer.html?project=${encodeURIComponent(projectId)}`;
-                };
 
                 const styleClass = project.style === 'consulting' ? 'style-consulting'
                     : project.style === 'general' ? 'style-general'
@@ -684,29 +690,169 @@
                 };
 
                 card.innerHTML = `
-                    <div class="card-preview">
+                    <div class="card-preview" data-project-id="${project.alias || project.id}">
                         ${project.isNew ? '<span class="card-badge new">NEW</span>' : ''}
                     </div>
-                    <div class="card-content">
+                    <div class="card-content" data-edit-project="${project.alias || project.id}">
                         <h3 class="card-title">${project.title}</h3>
                         <div class="card-meta">
                             <span>${project.pages} pages</span>
-                            <span>${project.styleName}</span>
-                        </div>
-                        <p class="card-desc">${project.desc}</p>
-                        <div class="card-tags">
-                            <span class="tag ${styleClass}">${project.styleName}</span>
                             ${project.tags.map(t => `<span class="tag">${t}</span>`).join('')}
                         </div>
+                        <p class="card-desc">${project.desc}</p>
                     </div>
                 `;
 
-                // Insert image into card-preview
+                // Click on image → navigate to viewer
                 const preview = card.querySelector('.card-preview');
+                preview.addEventListener('click', () => {
+                    const projectId = project.alias || project.id;
+                    window.location.href = `viewer.html?project=${encodeURIComponent(projectId)}`;
+                });
+
+                // Click on text → show edit dialog
+                const content = card.querySelector('.card-content');
+                content.addEventListener('click', (e) => {
+                    console.log('Content clicked:', project.title);
+                    e.stopPropagation();
+                    showEditDialog(project);
+                });
+
+                // Prevent card click from triggering when clicking content
+                card.addEventListener('click', (e) => {
+                    console.log('Card clicked:', e.target.className);
+                });
+
+                // Insert image into card-preview
                 preview.insertBefore(img, preview.firstChild);
 
                 grid.appendChild(card);
             });
+        }
+
+        // Edit dialog functions
+        function showEditDialog(project) {
+            console.log('showEditDialog called for:', project.title);
+            try {
+                const existing = document.getElementById('editDialog');
+                if (existing) existing.remove();
+
+                const overlay = document.createElement('div');
+                overlay.id = 'editDialog';
+                overlay.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 9999; display: flex; align-items: center; justify-content: center;';
+                overlay.innerHTML = `
+                    <div style="background: white; border-radius: 12px; padding: 24px; width: 100%; max-width: 500px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                        <h2 style="font-size: 20px; font-weight: bold; margin-bottom: 16px;">Edit Project</h2>
+                        <div style="display: flex; flex-direction: column; gap: 16px;">
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #374151; margin-bottom: 4px;">Title</label>
+                                <input type="text" id="editTitle" value="${project.title}" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; outline: none;">
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #374151; margin-bottom: 4px;">Description</label>
+                                <textarea id="editDesc" rows="3" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; outline: none; resize: vertical;">${project.desc}</textarea>
+                            </div>
+                            <div>
+                                <label style="display: block; font-size: 14px; font-weight: 500; color: #374151; margin-bottom: 4px;">Tags (comma separated)</label>
+                                <input type="text" id="editTags" value="${project.tags.join(', ')}" style="width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; outline: none;">
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+                            <button id="cancelEdit" style="padding: 8px 16px; color: #6b7280; background: #f3f4f6; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">Cancel</button>
+                            <button id="saveEdit" style="padding: 8px 16px; background: #3b82f6; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px;">Save</button>
+                        </div>
+                    </div>
+                `;
+
+                document.body.appendChild(overlay);
+                console.log('Dialog added to DOM');
+
+                // Close on cancel (only on click, not on mousedown to avoid closing when dragging)
+                document.getElementById('cancelEdit').addEventListener('click', () => overlay.remove());
+
+                // Flag to track if mouse down was inside the dialog
+                let mouseDownInside = false;
+                overlay.addEventListener('mousedown', (e) => {
+                    if (e.target === overlay) {
+                        mouseDownInside = false;
+                    } else {
+                        mouseDownInside = true;
+                    }
+                });
+                overlay.addEventListener('click', (e) => {
+                    // Only close if mousedown was on the overlay background
+                    if (e.target === overlay && !mouseDownInside) {
+                        overlay.remove();
+                    }
+                });
+
+                // Save
+                document.getElementById('saveEdit').addEventListener('click', async () => {
+                    const newTitle = document.getElementById('editTitle').value;
+                    const newDesc = document.getElementById('editDesc').value;
+                    const newTags = document.getElementById('editTags').value.split(',').map(t => t.trim()).filter(t => t);
+
+                    // Update project data
+                    project.title = newTitle;
+                    project.desc = newDesc;
+                    project.tags = newTags;
+
+                    // Save to backend
+                    try {
+                        const response = await fetch('/api/save-project', {
+                            method: 'POST',
+                            headers: {'Content-Type': 'application/json'},
+                            body: JSON.stringify({
+                                id: project.alias || project.id,
+                                title: newTitle,
+                                desc: newDesc,
+                                tags: newTags
+                            })
+                        });
+                        const result = await response.json();
+                        if (result.success) {
+                            showToast('Project saved successfully', 'success');
+                        } else {
+                            showToast('Save failed: ' + result.error, 'error');
+                        }
+                    } catch (err) {
+                        showToast('Save error: ' + err.message, 'error');
+                    }
+
+                    // Re-render
+                    renderProjects();
+                    updateStats();
+                    overlay.remove();
+                });
+            } catch (err) {
+                console.error('Error in showEditDialog:', err);
+            }
+        }
+
+        // Toast notification
+        function showToast(message, type = 'success') {
+            const existing = document.getElementById('toast');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'toast';
+            toast.style.cssText = 'position: fixed; top: 20px; left: 50%; transform: translateX(-50%); padding: 12px 24px; border-radius: 8px; font-size: 14px; font-weight: 500; z-index: 10000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: opacity 0.3s;';
+
+            if (type === 'success') {
+                toast.style.background = '#10b981';
+                toast.style.color = 'white';
+            } else {
+                toast.style.background = '#ef4444';
+                toast.style.color = 'white';
+            }
+
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
         }
 
         // Filter buttons
@@ -718,8 +864,38 @@
             });
         });
 
+        // Load saved project data from backend
+        async function loadSavedProjectData() {
+            try {
+                const response = await fetch('/api/projects-data');
+                if (response.ok) {
+                    return await response.json();
+                }
+            } catch (err) {
+                console.log('No saved project data found');
+            }
+            return {};
+        }
+
+        // Merge saved data into projects
+        async function initProjects() {
+            const savedData = await loadSavedProjectData();
+
+            projects.forEach(project => {
+                const key = project.alias || project.id;
+                if (savedData[key]) {
+                    project.title = savedData[key].title || project.title;
+                    project.desc = savedData[key].desc || project.desc;
+                    project.tags = savedData[key].tags || project.tags;
+                }
+            });
+
+            renderProjects();
+            updateStats();
+        }
+
         // Initial render
-        renderProjects();
+        initProjects();
     </script>
 </body>
 

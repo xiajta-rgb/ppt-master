@@ -31,8 +31,14 @@
       <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">丹宁 · 帆布 · 做旧工艺 · 经典版型复刻</text>
       <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">标志单品</text>
       <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">底特律夹克、谷仓夹克、伐木裤、工程师靴</text>
-      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 复古工装风格图 3:4竖版 ]</text>
+      <rect x="20" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">丹宁夹克</text>
+      <rect x="275" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">伐木裤</text>
+      <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">工程师靴</text>
+      <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">帆布工装裙</text>
     </g>
 
     <g transform="translate(560, 0)">
@@ -45,8 +51,14 @@
       <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩印花 · 战术口袋 · 硬朗剪裁</text>
       <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">标志单品</text>
       <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩工装衬衫、M65野战夹克、MA1飞行夹克</text>
-      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 军事工装风格图 3:4竖版 ]</text>
+      <rect x="20" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">M65野战夹克</text>
+      <rect x="275" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">MA1飞行夹克</text>
+      <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">战术工装裤</text>
+      <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">迷彩背包</text>
     </g>
   </g>
 

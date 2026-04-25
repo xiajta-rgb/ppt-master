@@ -1,44 +1,83 @@
 ---
 name: "start-server"
-description: "Starts the PPT Master web server on port 5001. Invoke when user asks to start the frontend or server."
+description: "Starts both PPT Master backend (5001) and Vite frontend (5373). Invoke when user asks to start, restart, or refresh the server."
 ---
 
 # Start PPT Master Server
 
-启动 PPT Master 前端服务器（端口 5001）。
+启动 PPT Master 双服务器架构（后端 API + 前端开发服务器）。
 
-## 使用命令
+## 启动命令
 
+### 1. 后端服务器 (端口 5001)
+
+```bash
+python -c "from wsgiref.simple_server import make_server; from WSGI_local import application; srv = make_server('localhost', 5001, application); srv.serve_forever()"
+```
+
+或使用启动脚本：
 ```bash
 python .trae/skills/start-server/start_server.py
 ```
 
-## 启动步骤
-
-1. 在项目根目录运行 `python .trae/skills/start-server/start_server.py`
-2. 服务启动后访问：http://localhost:5001/viewer.html
-
-## 功能特性
-
-- 自动检测并终止占用端口 5001 的进程
-- PID 文件管理（`.server_pid`）
-- 服务器后台运行，启动脚本立即返回
-- 启动成功/失败有明确提示
-
-## 停止服务器
+### 2. 前端开发服务器 (端口 5373)
 
 ```bash
-python .trae/skills/start-server/start_server.py stop
+npx vite --port 5373
 ```
 
 ## 架构说明
 
-- 使用 `WSGI_local.py` 处理跨目录路由（public/ 和 examples/）
-- 中文路径自动正确编解码
-- 使用 `subprocess.DEVNULL` 避免管道阻塞
+| 服务 | 端口 | 用途 |
+|------|------|------|
+| 后端 WSGI | 5001 | API 请求、SVG 文件服务 |
+| Vite 前端 | 5373 | 热重载开发服务器、代理 |
+
+## 访问地址
+
+- 前端：http://localhost:5373/viewer.html
+- 后端 API：http://localhost:5001/api/scan-projects
+
+## 重启步骤
+
+如果服务器无响应，按顺序执行：
+
+1. **停止所有相关进程**
+```bash
+Get-Process python -ErrorAction SilentlyContinue | Where-Object { $_.CommandLine -like "*5001*" -or $_.CommandLine -like "*WSGI*" } | Stop-Process -Force
+Get-Process node -ErrorAction SilentlyContinue | Stop-Process -Force
+```
+
+2. **重启后端**
+```bash
+python -c "from wsgiref.simple_server import make_server; from WSGI_local import application; srv = make_server('localhost', 5001, application); srv.serve_forever()"
+```
+
+3. **重启前端**
+```bash
+npx vite --port 5373
+```
+
+## 常见问题
+
+### ERR_ABORTED 错误
+- 通常是浏览器快速切换导致请求取消
+- 尝试刷新页面
+- 如果持续出现，重启服务器
+
+### API 超时
+- 后端服务器可能卡住
+- 执行重启步骤
+
+### 端口占用
+```bash
+# Windows 查找占用端口的进程
+netstat -ano | findstr :5001
+netstat -ano | findstr :5373
+```
 
 ## 注意事项
 
 - 项目根目录：`c:\Users\xiajt\Documents\trae_projects\ppt-master`
-- 端口 5001 用于避免与其他服务冲突
-- 推荐直接用浏览器打开 http://localhost:5001/viewer.html
+- Vite 代理配置：将 `/api` 和 `/examples` 请求转发到后端 5001
+- 中文路径自动正确编解码

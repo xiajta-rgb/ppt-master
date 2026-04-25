@@ -22,32 +22,35 @@
 
   <text x="60" y="165" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">战略机遇窗口</text>
 
-  <g transform="translate(60, 190)">
+  <g transform="translate(60, 195)">
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="370" height="500" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
-      <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">城市战术渗透</text>
-      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">Gorpcore风潮持续扩张，"看起来像战术装备"比"真的是战术装备"有更广阔的市场。城市战术风格溢价空间大。</text>
-      <rect x="20" y="75" width="330" height="410" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="185" y="290" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 城市战术产品图 3:4竖版 ]</text>
+      <rect x="0" y="0" width="360" height="490" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="360" height="6" fill="#c9a962"/>
+      <text x="18" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">城市战术渗透</text>
+      <text x="18" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">Gorpcore风潮持续扩张，"看起来像战术装备"比"真的是战术装备"有更广阔的市场。城市战术风格溢价空间大。</text>
+      <rect x="18" y="75" width="324" height="400" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="180" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 城市战术产品图 3:4 ]</text>
+      <text x="180" y="315" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">324×400</text>
     </g>
 
     <g transform="translate(390, 0)">
-      <rect x="0" y="0" width="370" height="500" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
-      <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">可持续升级</text>
-      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">40-45%消费者表示环保材料影响购买决策。再生面料、有机棉认证可以成为差异化切入点。</text>
-      <rect x="20" y="75" width="330" height="410" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="185" y="290" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 环保可持续产品图 3:4竖版 ]</text>
+      <rect x="0" y="0" width="360" height="490" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="360" height="6" fill="#c9a962"/>
+      <text x="18" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">可持续升级</text>
+      <text x="18" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">40-45%消费者表示环保材料影响购买决策。再生面料、有机棉认证可以成为差异化切入点。</text>
+      <rect x="18" y="75" width="324" height="400" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="180" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 环保可持续产品图 3:4 ]</text>
+      <text x="180" y="315" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">324×400</text>
     </g>
 
     <g transform="translate(780, 0)">
-      <rect x="0" y="0" width="370" height="500" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
-      <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">智能功能融合</text>
-      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">抗菌面料、温度调节、智能收纳——科技赋能的面料创新是下一个十年的核心竞争维度。</text>
-      <rect x="20" y="75" width="330" height="410" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="185" y="290" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 智能功能产品图 3:4竖版 ]</text>
+      <rect x="0" y="0" width="360" height="490" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="360" height="6" fill="#c9a962"/>
+      <text x="18" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">智能功能融合</text>
+      <text x="18" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">抗菌面料、温度调节、智能收纳——科技赋能的面料创新是下一个十年的核心竞争维度。</text>
+      <rect x="18" y="75" width="324" height="400" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="180" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 智能功能产品图 3:4 ]</text>
+      <text x="180" y="315" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">324×400</text>
     </g>
   </g>
 

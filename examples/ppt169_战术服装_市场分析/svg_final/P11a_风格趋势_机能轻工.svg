@@ -31,8 +31,14 @@
       <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">GORE-TEX、3M反光材质，具备高活动性、多重收纳、防水挡风特性</text>
       <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心优势</text>
       <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能性远超传统工装，满足现代消费者功能与时尚双重需求</text>
-      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 机能工装风格图 3:4竖版 ]</text>
+      <rect x="20" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">GORE-TEX夹克</text>
+      <rect x="275" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">3M反光工装裤</text>
+      <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">战术背包</text>
+      <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">防护手套</text>
     </g>
 
     <g transform="translate(560, 0)">
@@ -45,8 +51,14 @@
       <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">简化功能，融合通勤+休闲场景，面料选择更多元</text>
       <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">市场定位</text>
       <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">都市青年日常穿搭首选，多场景适配性极强，市场地位持续提升</text>
-      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 轻工装风格图 3:4竖版 ]</text>
+      <rect x="20" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">简约工装衬衫</text>
+      <rect x="275" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">休闲工装裤</text>
+      <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">轻便马甲</text>
+      <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">通勤背包</text>
     </g>
   </g>
 

@@ -21,28 +21,38 @@
   <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">织带、魔术贴——战术服装功能性与耐用性的关键支撑</text>
 
   <g transform="translate(60, 155)">
-    <text x="0" y="0" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">织带与魔术贴行业标杆</text>
-
-    <g transform="translate(0, 25)">
-      <rect x="0" y="0" width="560" height="520" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="530" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
       <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
       <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">织带</text>
-      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">YKK（织带）</text>
-      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">尼龙/聚酯，军规级抗拉</text>
-      <text x="20" y="105" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">$0.2-1/meter</text>
-      <rect x="20" y="120" width="520" height="380" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="280" y="320" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 军规织带产品图 3:4竖版 ]</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">YKK（织带）| 尼龙/聚酯，军规级抗拉</text>
+      <text x="20" y="80" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$0.2-1/meter</text>
+      <rect x="20" y="95" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="195" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">尼龙织带</text>
+      <rect x="275" y="95" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="195" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">聚酯织带</text>
+      <rect x="20" y="285" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="385" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">PP织带</text>
+      <rect x="275" y="285" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="385" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">反光织带</text>
+      <text x="280" y="505" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">245×180 4:3</text>
     </g>
 
-    <g transform="translate(580, 25)">
-      <rect x="0" y="0" width="560" height="520" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="530" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
       <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
       <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">魔术贴</text>
-      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">3M Scotchcal</text>
-      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">尼龙</text>
-      <text x="20" y="105" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">$0.3-2/pcs</text>
-      <rect x="20" y="120" width="520" height="380" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="280" y="320" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 3M魔术贴产品图 3:4竖版 ]</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">3M Scotchcal | 尼龙</text>
+      <text x="20" y="80" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$0.3-2/pcs</text>
+      <rect x="20" y="95" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="195" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">3M工业魔术贴</text>
+      <rect x="275" y="95" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="195" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">射出钩</text>
+      <rect x="20" y="285" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="142" y="385" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">蘑菇头</text>
+      <rect x="275" y="285" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="397" y="385" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">不织布</text>
+      <text x="280" y="505" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">245×180 4:3</text>
     </g>
   </g>
 

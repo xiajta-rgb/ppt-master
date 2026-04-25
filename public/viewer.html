@@ -260,13 +260,21 @@
             font-family: 'SF Mono', 'Fira Code', monospace;
             border-radius: 4px;
         }
+
+        .edit-mode .slide-container {
+            border: 2px dashed #3498db;
+        }
+
+        .edit-mode #slideWrapper {
+            position: relative;
+        }
     </style>
 </head>
 
 <body class="antialiased">
     <!-- Header -->
-    <header class="glass shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+    <header class="glass shadow-lg sticky top-0 z-50 text-sm">
+        <div class="max-w-7xl mx-auto px-4 py-2">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-4">
                     <a href="index.html" class="text-gray-600 hover:text-brand-600 transition-colors">
@@ -278,7 +286,7 @@
                 <!-- Collection Selector (shown when viewing slides) -->
                 <div id="collectionSelector" class="hidden relative">
                     <button onclick="toggleDropdown()"
-                        class="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow border border-gray-200 hover:border-brand-400 transition-colors">
+                        class="flex items-center space-x-2 px-4 py-2 bg-white rounded-lg shadow border border-gray-200 hover:border-brand-400 transition-colors text-sm">
                         <span id="currentCollectionIcon" class="seq-id-badge">--</span>
                         <span id="currentCollectionName" class="font-medium text-gray-700">Select Collection</span>
                         <i class="fas fa-chevron-down text-gray-400"></i>
@@ -289,31 +297,26 @@
                     </div>
                 </div>
 
-                <div id="keyboardHints" class="hidden items-center space-x-2 text-sm">
+                <div id="keyboardHints" class="hidden items-center space-x-2 text-xs">
                     <!-- View Mode Toggle -->
                     <div class="flex items-center space-x-1 mr-4 bg-gray-100 rounded-lg p-1">
                         <button onclick="setViewMode('normal')" id="normalModeBtn"
-                            class="view-mode-btn px-3 py-1 rounded-md text-xs font-medium text-gray-600 hover:bg-white"
+                            class="view-mode-btn px-2 py-1 rounded text-xs font-medium text-gray-600 hover:bg-white active"
                             title="Normal View">
                             <i class="fas fa-columns"></i>
                         </button>
                         <button onclick="setViewMode('theater')" id="theaterModeBtn"
-                            class="view-mode-btn px-3 py-1 rounded-md text-xs font-medium text-gray-600 hover:bg-white"
+                            class="view-mode-btn px-2 py-1 rounded text-xs font-medium text-gray-600 hover:bg-white"
                             title="Theater Mode (T)">
                             <i class="fas fa-tv"></i>
                         </button>
                     </div>
-                    <span class="text-gray-500">Shortcuts:</span>
-                    <kbd class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border">←→</kbd>
-                    <span class="text-gray-500">Slides</span>
-                    <kbd class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border ml-2">↑↓</kbd>
-                    <span class="text-gray-500">Scroll</span>
-                    <kbd class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border ml-2">T</kbd>
-                    <span class="text-gray-500">Theater</span>
-                    <kbd class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border ml-2">F</kbd>
-                    <span class="text-gray-500">Fullscreen</span>
-                    <kbd class="px-2 py-1 bg-gray-100 text-gray-600 text-xs rounded border ml-2">ESC</kbd>
-                    <span class="text-gray-500">Back</span>
+                    <span class="text-gray-500 text-xs">←→</span>
+                    <kbd class="px-1 py-0.5 bg-gray-100 text-gray-600 text-xs rounded border">←→</kbd>
+                    <kbd class="px-1 py-0.5 bg-gray-100 text-gray-600 text-xs rounded border ml-1">↑↓</kbd>
+                    <kbd class="px-1 py-0.5 bg-gray-100 text-gray-600 text-xs rounded border ml-1">T</kbd>
+                    <kbd class="px-1 py-0.5 bg-gray-100 text-gray-600 text-xs rounded border ml-1">F</kbd>
+                    <kbd class="px-1 py-0.5 bg-gray-100 text-gray-600 text-xs rounded border ml-1">ESC</kbd>
                 </div>
             </div>
         </div>
@@ -350,30 +353,33 @@
         <!-- Slide Viewer (Hidden by default) -->
         <div id="viewerView" class="hidden">
             <!-- Title Section -->
-            <div class="text-center mb-8 slide-enter">
-                <button onclick="backToLibrary()"
-                    class="inline-flex items-center px-4 py-2 mb-4 text-white/80 hover:text-white transition-colors">
-                    <i class="fas fa-th-large mr-2"></i>
-                    Back to Gallery
-                </button>
-                <h1 id="viewerTitle" class="text-3xl font-bold text-white mb-2 drop-shadow-lg">
+            <div class="text-center mb-4 slide-enter">
+                <h1 id="viewerTitle" class="text-2xl font-bold text-white mb-1 drop-shadow-lg">
                     Slide Title
                 </h1>
-                <p id="viewerDescription" class="text-white/70">
+                <p id="viewerDescription" class="text-white/60 text-sm">
                     Slide Description
                 </p>
             </div>
 
             <!-- Slide Viewer -->
             <div id="slideViewerContainer" class="flex flex-col lg:flex-row gap-6 slide-enter">
-                <!-- Main Slide -->
-                <div class="main-slide-area flex-1">
+                <!-- Main Slide with Navigation -->
+                <div class="main-slide-area flex-1 flex flex-col">
                     <div class="glass rounded-2xl p-4 slide-container" id="slideContainer">
-                        <img id="mainSlide" src="" class="w-full rounded-lg fade-in cursor-pointer" onclick="toggleFullscreen()">
+                        <div id="slideWrapper" class="relative w-full" style="aspect-ratio: 16/9;">
+                            <div id="editToolbar" class="hidden absolute top-2 right-2 flex items-center space-x-2 bg-white rounded-lg shadow-lg p-2 z-10">
+                                <button onclick="toggleEditMode()" class="flex items-center space-x-1 px-3 py-1.5 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors" title="Edit Mode (E)">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Edit</span>
+                                </button>
+                                <span id="editHint" class="text-xs text-gray-500 hidden">Double-click text to edit</span>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Navigation Controls -->
-                    <div class="flex items-center justify-center mt-6 space-x-4">
+                    <div class="flex items-center justify-center mt-4 space-x-4">
                         <button id="prevBtn" onclick="prevSlide()"
                             class="nav-btn w-12 h-12 rounded-full glass shadow-md flex items-center justify-center text-gray-600 border border-gray-200 hover:bg-brand-500 hover:text-white hover:border-brand-500">
                             <i class="fas fa-chevron-left"></i>
@@ -405,7 +411,7 @@
 
                 <!-- Thumbnail Sidebar -->
                 <div class="sidebar-panel lg:w-64 xl:w-72">
-                    <div class="glass rounded-2xl p-4 shadow-lg">
+                    <div class="glass rounded-2xl p-4 shadow-lg h-full">
                         <h3 class="text-sm font-semibold text-gray-600 mb-3 flex items-center">
                             <i class="fas fa-th-large mr-2 text-brand-600"></i>
                             Slide Index
@@ -413,16 +419,6 @@
                         <div id="thumbnailContainer" class="space-y-3 max-h-[60vh] overflow-y-auto pr-2">
                             <!-- Thumbnails will be generated by JavaScript -->
                         </div>
-                    </div>
-
-                    <!-- Slide Info -->
-                    <div class="glass rounded-2xl p-4 shadow-lg mt-4">
-                        <h3 class="text-sm font-semibold text-gray-600 mb-3 flex items-center">
-                            <i class="fas fa-info-circle mr-2 text-brand-600"></i>
-                            Current Slide
-                        </h3>
-                        <p id="slideTitle" class="text-gray-800 font-medium">Title</p>
-                        <p id="slideDesc" class="text-sm text-gray-500 mt-1">Description</p>
                     </div>
                 </div>
             </div>
@@ -482,6 +478,12 @@
         let slideUpdateTimeout = null;
         let isSlideUpdating = false;
         let pendingSlideIndex = null;
+        let isEditMode = false;
+        let editingElement = null;
+        let currentEditingSlidePath = null;
+        let undoStack = [];
+        const MAX_UNDO = 50;
+        const svgCache = new Map();
 
         // Hot reload check
         let hotReloadInFlight = false;
@@ -764,6 +766,324 @@
             setViewMode(viewMode === 'normal' ? 'theater' : 'normal');
         }
 
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            const toolbar = document.getElementById('editToolbar');
+            const editHint = document.getElementById('editHint');
+            const slideContainer = document.getElementById('slideContainer');
+
+            if (isEditMode) {
+                toolbar.classList.remove('hidden');
+                editHint.classList.remove('hidden');
+                slideContainer.classList.add('edit-mode');
+                document.body.classList.add('edit-mode');
+                setupTextEditListeners();
+            } else {
+                toolbar.classList.add('hidden');
+                editHint.classList.add('hidden');
+                slideContainer.classList.remove('edit-mode');
+                document.body.classList.remove('edit-mode');
+                removeEditOverlay();
+            }
+        }
+
+        function setupTextEditListeners(svgEl) {
+            // Use the passed svg element, or find in DOM
+            const svgElement = svgEl || document.querySelector('#slideWrapper svg');
+            if (!svgElement) return;
+
+            const textElements = svgElement.querySelectorAll('text');
+            textElements.forEach((el, index) => {
+                el.style.cursor = 'text';
+                el.setAttribute('data-text-index', index);
+                el.addEventListener('dblclick', handleTextDoubleClick);
+                el.addEventListener('mouseenter', () => {
+                    if (isEditMode) {
+                        el.style.fill = '#3498db';
+                        el.style.stroke = '#3498db';
+                        el.style.strokeWidth = '0.5';
+                    }
+                });
+                el.addEventListener('mouseleave', () => {
+                    if (isEditMode) {
+                        el.style.fill = '';
+                        el.style.stroke = '';
+                    }
+                });
+            });
+        }
+
+        function handleTextDoubleClick(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const textElement = e.target;
+            const bbox = textElement.getBoundingClientRect();
+            const slideWrapper = document.getElementById('slideWrapper').getBoundingClientRect();
+
+            const x = bbox.left - slideWrapper.left;
+            const y = bbox.top - slideWrapper.top;
+
+            removeEditOverlay();
+
+            editingElement = textElement;
+            const currentText = textElement.textContent;
+            const elementIndex = textElement.getAttribute('data-text-index');
+            textElement.setAttribute('data-original-text', currentText);
+
+            const overlay = document.createElement('div');
+            overlay.id = 'textEditOverlay';
+            overlay.className = 'absolute bg-white rounded-lg shadow-xl border-2 border-blue-500 p-3 z-20';
+            overlay.style.left = x + 'px';
+            overlay.style.top = y + 'px';
+            overlay.style.minWidth = Math.max(250, bbox.width) + 'px';
+            overlay.style.maxWidth = '400px';
+
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'text-xs text-gray-500 mb-2 flex items-center justify-between';
+            headerDiv.innerHTML = `<span>#${elementIndex}</span><span class="text-gray-400">Press Ctrl+Enter to save</span>`;
+
+            const textarea = document.createElement('textarea');
+            textarea.id = 'editInput';
+            textarea.value = currentText;
+            textarea.className = 'w-full px-2 py-1 text-sm border border-gray-300 rounded focus:outline-none focus:border-blue-500 resize-y';
+            textarea.style.font = window.getComputedStyle(textElement).font;
+            textarea.style.color = textElement.getAttribute('fill') || '#6e6e73';
+            textarea.style.minHeight = '60px';
+            textarea.rows = 2;
+
+            const previewDiv = document.createElement('div');
+            previewDiv.id = 'editPreview';
+            previewDiv.className = 'mt-2 p-2 bg-gray-50 rounded text-xs text-gray-600 hidden';
+
+            const btnGroup = document.createElement('div');
+            btnGroup.className = 'flex items-center justify-between mt-2';
+
+            const undoBtn = document.createElement('button');
+            undoBtn.className = 'px-3 py-1 text-xs bg-gray-100 text-gray-700 rounded hover:bg-gray-200';
+            undoBtn.textContent = 'Undo';
+            undoBtn.onclick = () => {
+                textarea.value = currentText;
+                updatePreview();
+            };
+
+            const rightBtns = document.createElement('div');
+            rightBtns.className = 'flex items-center space-x-2';
+
+            const cancelBtn = document.createElement('button');
+            cancelBtn.className = 'px-3 py-1 text-xs bg-gray-200 text-gray-700 rounded hover:bg-gray-300';
+            cancelBtn.textContent = 'Cancel';
+            cancelBtn.onclick = removeEditOverlay;
+
+            const saveBtn = document.createElement('button');
+            saveBtn.id = 'saveEditBtn';
+            saveBtn.className = 'px-3 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600 disabled:bg-gray-300 disabled:cursor-not-allowed';
+            saveBtn.textContent = 'Save';
+            saveBtn.onclick = () => saveTextEdit(textElement, textarea.value, elementIndex);
+
+            rightBtns.appendChild(cancelBtn);
+            rightBtns.appendChild(saveBtn);
+
+            btnGroup.appendChild(undoBtn);
+            btnGroup.appendChild(rightBtns);
+
+            overlay.appendChild(headerDiv);
+            overlay.appendChild(textarea);
+            overlay.appendChild(previewDiv);
+            overlay.appendChild(btnGroup);
+
+            document.getElementById('slideWrapper').appendChild(overlay);
+
+            textarea.focus();
+
+            // 点击弹窗外关闭
+            setTimeout(() => {
+                document.addEventListener('click', function closeOverlay(e) {
+                    const textEditOverlay = document.getElementById('textEditOverlay');
+                    if (textEditOverlay && !textEditOverlay.contains(e.target)) {
+                        removeEditOverlay();
+                        document.removeEventListener('click', closeOverlay);
+                    }
+                });
+            }, 0);
+
+            textarea.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && e.ctrlKey) {
+                    e.preventDefault();
+                    saveTextEdit(textElement, textarea.value, elementIndex);
+                }
+                if (e.key === 'Escape') {
+                    e.preventDefault();
+                    removeEditOverlay();
+                }
+            });
+
+            function updatePreview() {
+                const oldText = currentText;
+                const newVal = textarea.value;
+                if (oldText !== newVal) {
+                    const oldSpan = `<span class="bg-red-100 line-through">${escapeHtml(oldText)}</span>`;
+                    const newSpan = `<span class="bg-green-100 font-semibold">${escapeHtml(newVal)}</span>`;
+                    previewDiv.innerHTML = `Changed: ${oldSpan} → ${newSpan}`;
+                    previewDiv.classList.remove('hidden');
+                    saveBtn.disabled = false;
+                } else {
+                    previewDiv.classList.add('hidden');
+                    saveBtn.disabled = true;
+                }
+            }
+
+            function escapeHtml(str) {
+                const div = document.createElement('div');
+                div.textContent = str;
+                return div.innerHTML;
+            }
+
+            textarea.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = Math.max(60, this.scrollHeight) + 'px';
+                updatePreview();
+            });
+
+            updatePreview();
+        }
+
+        function removeEditOverlay() {
+            const existing = document.getElementById('textEditOverlay');
+            if (existing) existing.remove();
+            editingElement = null;
+        }
+
+        function showToast(message, type = 'success') {
+            const existing = document.getElementById('toastNotification');
+            if (existing) existing.remove();
+
+            const toast = document.createElement('div');
+            toast.id = 'toastNotification';
+            toast.className = `fixed bottom-6 right-6 px-6 py-3 rounded-lg shadow-xl z-50 flex items-center space-x-3 transform transition-all duration-300 translate-y-0 opacity-0`;
+
+            const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
+            const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
+
+            toast.innerHTML = `
+                <i class="fas ${icon} text-white text-lg"></i>
+                <span class="text-white font-medium">${message}</span>
+            `;
+            toast.classList.add(bgColor);
+
+            document.body.appendChild(toast);
+
+            requestAnimationFrame(() => {
+                toast.classList.remove('translate-y-0', 'opacity-0');
+            });
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-0', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        async function saveTextEdit(textElement, newText, elementIndex) {
+            if (!editingElement) return;
+
+            const slidePath = currentEditingSlidePath;
+            const originalText = textElement.getAttribute('data-original-text') || textElement.textContent;
+
+            if (!newText || newText === originalText) {
+                removeEditOverlay();
+                return;
+            }
+
+            textElement.textContent = newText;
+            removeEditOverlay();
+
+            undoStack.push({
+                slidePath: slidePath,
+                elementIndex: elementIndex,
+                oldText: originalText,
+                newText: newText,
+                timestamp: Date.now()
+            });
+            if (undoStack.length > MAX_UNDO) undoStack.shift();
+
+            try {
+                const response = await fetch('/api/edit-svg', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        file: decodeURIComponent(slidePath.replace(/.*\//, '')),
+                        folder: decodeURIComponent(slidePath.replace(/\/[^/]+$/, '')).replace(/.*examples/, 'examples'),
+                        oldText: originalText,
+                        newText: newText,
+                        elementIndex: elementIndex
+                    })
+                });
+
+                const text = await response.text();
+                let data;
+                try {
+                    data = JSON.parse(text);
+                } catch {
+                    showToast('Server error: ' + (text.substring(0, 100) || 'Invalid response'), 'error');
+                    return;
+                }
+
+                if (response.ok && data.success) {
+                    showToast('Text updated successfully', 'success');
+                    if (slidePath) svgCache.delete(slidePath);
+                } else {
+                    showToast(data.error || 'Failed to save changes', 'error');
+                }
+            } catch (err) {
+                console.error('Save error:', err);
+                showToast('Network error: ' + err.message, 'error');
+            }
+        }
+
+        async function undoLastEdit() {
+            if (undoStack.length === 0) {
+                showToast('Nothing to undo', 'info');
+                return;
+            }
+            const last = undoStack.pop();
+            try {
+                const response = await fetch('/api/edit-svg', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        file: decodeURIComponent(last.slidePath.replace(/.*\//, '')),
+                        folder: decodeURIComponent(last.slidePath.replace(/\/[^/]+$/, '')).replace(/.*examples/, 'examples'),
+                        oldText: last.newText,
+                        newText: last.oldText,
+                        elementIndex: last.elementIndex
+                    })
+                });
+                const data = await response.json();
+                if (response.ok && data.success) {
+                    showToast('Undo successful', 'success');
+                    refreshCurrentSlide();
+                } else {
+                    showToast(data.error || 'Undo failed', 'error');
+                }
+            } catch (err) {
+                showToast('Undo error: ' + err.message, 'error');
+            }
+        }
+
+        function refreshCurrentSlide() {
+            const mainSlide = document.getElementById('mainSlide');
+            if (currentSlideIndex !== null && currentCollection) {
+                goToSlide(currentSlideIndex);
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'z' && (e.ctrlKey || e.metaKey) && isEditMode) {
+                e.preventDefault();
+                undoLastEdit();
+            }
+        });
+
         // Generate thumbnail sidebar
         function generateThumbnails() {
             if (!currentCollection) return;
@@ -834,36 +1154,76 @@
             const basePath = `${currentCollection.folder}/`;
             const slidePath = encodeURI(basePath + slide.file);
 
-            const mainSlide = document.getElementById('mainSlide');
+            const slideWrapper = document.getElementById('slideWrapper');
             const fullscreenImage = document.getElementById('fullscreenImage');
 
             const targetSlide = currentSlide;
             isSlideUpdating = true;
 
-            // Update main slide - set handler BEFORE changing data
-            mainSlide.onload = mainSlide.onerror = function() {
-                if (targetSlide !== currentSlide) return;
-                isSlideUpdating = false;
-                mainSlide.onload = mainSlide.onerror = null;
-                if (pendingSlideIndex !== null) {
-                    const nextIndex = pendingSlideIndex;
-                    pendingSlideIndex = null;
-                    goToSlide(nextIndex);
+            // Remove old svg container if exists
+            const oldSvg = slideWrapper.querySelector('svg');
+            if (oldSvg) {
+                oldSvg.remove();
+            }
+
+            // Fetch SVG content - use cache if available
+            const loadSVG = (path) => {
+                if (svgCache.has(path)) {
+                    return Promise.resolve(svgCache.get(path));
                 }
+                return fetch(path)
+                    .then(res => {
+                        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                        return res.text();
+                    })
+                    .then(content => {
+                        svgCache.set(path, content);
+                        return content;
+                    });
             };
 
-            // Fallback timeout in case events don't fire
-            setTimeout(() => {
-                if (targetSlide === currentSlide && isSlideUpdating) {
+            loadSVG(slidePath)
+                .then(svgContent => {
+                    if (targetSlide !== currentSlide) return;
+                    
+                    // Parse SVG
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(svgContent, 'image/svg+xml');
+                    const svgEl = doc.documentElement;
+                    svgEl.classList.add('w-full', 'h-full', 'rounded-lg', 'fade-in', 'cursor-pointer');
+                    svgEl.style.aspectRatio = '16/9';
+                    
+                    // Add data attribute for identification
+                    svgEl.setAttribute('data-slide-path', slidePath);
+                    
+                    // Replace in DOM
+                    slideWrapper.insertBefore(svgEl, slideWrapper.firstChild);
+                    
+                    // Setup edit handlers (same as before)
+                    svgEl.addEventListener('load', () => {
+                        setupTextEditListeners(svgEl);
+                    });
+                    // Call setup immediately (sometimes load event might not fire for inline SVG)
+                    setTimeout(() => setupTextEditListeners(svgEl), 50);
+                    
+                    currentEditingSlidePath = slidePath;
                     isSlideUpdating = false;
-                    mainSlide.onload = mainSlide.onerror = null;
-                }
-            }, 2000);
-
-            mainSlide.classList.remove('fade-in');
-            void mainSlide.offsetWidth;
-            mainSlide.classList.add('fade-in');
-            mainSlide.src = slidePath;
+                    
+                    if (pendingSlideIndex !== null) {
+                        const nextIndex = pendingSlideIndex;
+                        pendingSlideIndex = null;
+                        goToSlide(nextIndex);
+                    }
+                })
+                .catch(err => {
+                    console.error('Error loading SVG:', slidePath, err);
+                    isSlideUpdating = false;
+                    if (pendingSlideIndex !== null) {
+                        const nextIndex = pendingSlideIndex;
+                        pendingSlideIndex = null;
+                        goToSlide(nextIndex);
+                    }
+                });
 
             // Update fullscreen
             fullscreenImage.src = slidePath;
@@ -871,10 +1231,6 @@
             // Update page numbers
             document.getElementById('currentPage').textContent = currentSlide + 1;
             document.getElementById('fullscreenPage').textContent = currentSlide + 1;
-
-            // Update slide info
-            document.getElementById('slideTitle').textContent = slide.title;
-            document.getElementById('slideDesc').textContent = slide.desc;
 
             // Update progress bar
             const progress = ((currentSlide + 1) / currentCollection.slides.length) * 100;
@@ -951,6 +1307,17 @@
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
             if (!currentCollection && e.key !== 'Escape') return;
+
+            // ESC优先关闭textEditOverlay
+            if (e.key === 'Escape') {
+                const textEditOverlay = document.getElementById('textEditOverlay');
+                if (textEditOverlay) {
+                    e.preventDefault();
+                    removeEditOverlay();
+                    return;
+                }
+            }
+
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
 
             switch (e.key) {
@@ -969,7 +1336,9 @@
                     scrollThumbnailIndex(1);
                     break;
                 case 'Escape':
-                    if (isFullscreen) {
+                    if (isEditMode) {
+                        toggleEditMode();
+                    } else if (isFullscreen) {
                         toggleFullscreen();
                     } else if (currentCollection) {
                         backToLibrary();
@@ -982,6 +1351,10 @@
                 case 't':
                 case 'T':
                     if (currentCollection && !isFullscreen) toggleViewMode();
+                    break;
+                case 'e':
+                case 'E':
+                    if (currentCollection && !isFullscreen) toggleEditMode();
                     break;
             }
         });

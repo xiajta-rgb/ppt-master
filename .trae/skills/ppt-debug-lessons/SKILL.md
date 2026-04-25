@@ -59,6 +59,32 @@ slides: staticData?.slides?.length
 - Add version query strings: `?v=YYYYMMDD`
 - Clear browser cache
 
+### 5. Vite Dev Server Proxy Issues
+
+**Symptom**: `net::ERR_ABORTED http://localhost:5373/api/scan-projects`
+
+**Root Cause**: Backend server (port 5001) was stopped, or Vite proxy not configured correctly.
+
+**Solution**:
+```bash
+# 1. Ensure backend is running
+python .trae/skills/start-server/start_server.py
+
+# 2. Ensure Vite proxy is configured in vite.config.js:
+proxy: {
+  '/api': {
+    target: 'http://localhost:5001',
+    changeOrigin: true
+  },
+  '/examples': {
+    target: 'http://localhost:5001',
+    changeOrigin: true
+  }
+}
+```
+
+**Prevention**: Always start backend before frontend when doing development.
+
 ## Debug Checklist
 
 1. **Verify SVG files exist**: Check file count in `svg_final/` folder
