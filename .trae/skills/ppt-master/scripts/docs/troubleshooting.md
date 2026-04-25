@@ -60,3 +60,19 @@ Important optional packages:
 - `numpy` for watermark removal
 - `PyMuPDF` for PDF conversion
 - `google-genai` / `openai` for image generation backends
+
+## Viewer ERR_ABORTED Errors
+
+When previewing SVGs in the browser viewer, rapid navigation between slides may cause `net::ERR_ABORTED` errors. This occurs because `<object>` elements abort pending loads when their `data` attribute is rapidly changed.
+
+**Solution**: Use `<img>` elements with `src` attributes instead of `<object>` elements with `data` attributes. The browser's preload and cache mechanisms handle `src` changes more gracefully under rapid navigation.
+
+```html
+<!-- Avoid -->
+<object data="slide.svg" type="image/svg+xml"></object>
+
+<!-- Prefer -->
+<img src="slide.svg" alt="Slide">
+```
+
+Additionally, implement a loading state guard to prevent concurrent slide updates and queue pending navigation requests.

@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 50)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 05</text>
+  </g>
+  <text x="60" y="100" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">工装风格生命周期分析</text>
+  <rect x="60" y="118" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="150" fill="#86868b" font-family="Inter, sans-serif" font-size="13">基于社媒热度、市场数据与行业观察的周期判断</text>
+
+  <g transform="translate(60, 185)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="220" height="6" fill="#e74c3c"/>
+    <text x="20" y="35" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">2023-2024</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">爆发阶段</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">巴恩风等社媒声量暴涨</text>
+    <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="12">工装产品市场飞速增长</text>
+    <text x="20" y="150" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">#巴恩风穿搭 7.5亿+浏览</text>
+    <text x="20" y="172" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">#工装穿搭 1715万+浏览</text>
+  </g>
+
+  <g transform="translate(295, 185)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="220" height="6" fill="#f39c12"/>
+    <text x="20" y="35" fill="#f39c12" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">2025</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">中期阶段</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">品牌创新与市场分化</text>
+    <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="12">秀场工装露出绑定品牌</text>
+    <text x="20" y="150" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">创新设计驱动增长</text>
+    <text x="20" y="172" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">季度主题化运营</text>
+  </g>
+
+  <g transform="translate(530, 185)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="220" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">2026-2027</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">后期阶段</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">全面渗透多场景生活方式</text>
+    <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="12">进入成熟阶段</text>
+    <text x="20" y="150" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">设计升级</text>
+    <text x="20" y="172" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">多元材质应用</text>
+  </g>
+
+  <g transform="translate(765, 185)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="220" height="6" fill="#6b7c5e"/>
+    <text x="20" y="35" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">2028+</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">长期阶段</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">经典风格延续</text>
+    <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="12">技术升级+文化赋能</text>
+    <text x="20" y="150" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">形成"新工装"生态</text>
+    <text x="20" y="172" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">持续迭代发展</text>
+  </g>
+
+  <g transform="translate(1000, 185)">
+    <rect x="0" y="0" width="220" height="200" rx="8" fill="rgba(201,169,98,0.1)" stroke="#c9a962" stroke-opacity="0.5"/>
+    <rect x="0" y="0" width="220" height="6" fill="#3498db"/>
+    <text x="20" y="35" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">品牌周期</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">产品周期</text>
+    <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">工装类产品市场露出</text>
+    <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="12">可延续</text>
+    <text x="20" y="165" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">3-5季</text>
+  </g>
+
+  <text x="60" y="430" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="20" font-weight="600">工装未来核心发展策略</text>
+
+  <g transform="translate(60, 460)">
+    <rect x="0" y="0" width="560" height="130" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="6" height="130" fill="#c9a962"/>
+    <text x="25" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">产品端：创新功能与设计融合</text>
+    <text x="25" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">创意设计：混搭多元风格元素，邀请消费者参与设计共创</text>
+    <text x="25" y="85" fill="#86868b" font-family="Inter, sans-serif" font-size="12">可持续升级：提升再生纤维使用比例，推广可回收工装</text>
+    <text x="25" y="110" fill="#86868b" font-family="Inter, sans-serif" font-size="12">建立闭环回收机制</text>
+  </g>
+
+  <g transform="translate(640, 460)">
+    <rect x="0" y="0" width="560" height="130" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="6" height="130" fill="#c9a962"/>
+    <text x="25" y="30" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">营销端：精准触达与价值观共鸣</text>
+    <text x="25" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="12">品牌塑造：深挖工装历史、地域、行业文化，打造"工匠精神"</text>
+    <text x="25" y="85" fill="#86868b" font-family="Inter, sans-serif" font-size="12">社群连接：构建场景化+圈层化社群体系</text>
+    <text x="25" y="110" fill="#86868b" font-family="Inter, sans-serif" font-size="12">强化品牌与用户情感连接</text>
+  </g>
+
+  <rect x="60" y="610" width="1160" height="80" rx="8" fill="rgba(201,169,98,0.08)" stroke="rgba(201,169,98,0.3)"/>
+  <text x="80" y="645" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="600">行业前景判断</text>
+  <text x="80" y="670" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">工装行业前景广阔、潜力巨大，<tspan fill="#c9a962">技术创新、市场需求、政策支持</tspan>将推动行业高质量发展</text>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

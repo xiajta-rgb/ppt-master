@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "ppt169_像素风_git_introduction",
+  "title": "ppt169_像素风_git_introduction",
+  "description": "像素复古游戏风 (Pixel Retro Gaming Style)",
+  "icon": "",
+  "color": "#0D1117",
+  "folder": "examples/ppt169_像素风_git_introduction",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_navigation.svg",
+      "title": "Navigation",
+      "desc": "Navigation"
+    },
+    {
+      "file": "slide_03_what_is_git.svg",
+      "title": "What Is Git",
+      "desc": "What Is Git"
+    },
+    {
+      "file": "slide_04_vcs_features.svg",
+      "title": "Vcs Features",
+      "desc": "Vcs Features"
+    },
+    {
+      "file": "slide_05_save_point.svg",
+      "title": "Save Point",
+      "desc": "Save Point"
+    },
+    {
+      "file": "slide_06_version_hell.svg",
+      "title": "Version Hell",
+      "desc": "Version Hell"
+    },
+    {
+      "file": "slide_07_workflow.svg",
+      "title": "Workflow",
+      "desc": "Workflow"
+    },
+    {
+      "file": "slide_08_history.svg",
+      "title": "History",
+      "desc": "History"
+    },
+    {
+      "file": "slide_09_git_vs_github.svg",
+      "title": "Git Vs Github",
+      "desc": "Git Vs Github"
+    },
+    {
+      "file": "slide_10_summary.svg",
+      "title": "Summary",
+      "desc": "Summary"
+    }
+  ],
+  "seqId": "PPT-003"
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 40)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 03</text>
+  </g>
+  <text x="60" y="85" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">需求演变路径</text>
+  <rect x="60" y="100" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">从单一功能到情感体验式的需求演变路径</text>
+
+  <g transform="translate(60, 155)">
+    <rect x="0" y="0" width="1160" height="80" rx="6" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+    <text x="575" y="50" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 需求演变趋势图 16:9 ]</text>
+  </g>
+
+  <g transform="translate(60, 250)">
+    <rect x="0" y="0" width="220" height="40" rx="20" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="110" y="26" text-anchor="middle" fill="#6e6e73" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">单一功能性</text>
+    <text x="235" y="26" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16">→</text>
+    <rect x="270" y="0" width="220" height="40" rx="20" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="380" y="26" text-anchor="middle" fill="#86868b" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">时尚个性化</text>
+    <text x="505" y="26" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16">→</text>
+    <rect x="540" y="0" width="220" height="40" rx="20" fill="#1a1a20" stroke="#2a2a35"/>
+    <text x="650" y="26" text-anchor="middle" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">环保智能化</text>
+    <text x="775" y="26" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16">→</text>
+    <rect x="810" y="0" width="220" height="40" rx="20" fill="rgba(201,169,98,0.1)" stroke="#c9a962"/>
+    <text x="920" y="26" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">情感体验式</text>
+  </g>
+
+  <text x="60" y="340" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="14" font-weight="600">五大核心需求</text>
+
+  <g transform="translate(60, 365)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="540" height="340" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="540" height="6" fill="#3498db"/>
+      <text x="20" y="40" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="700">04</text>
+      <text x="20" y="75" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">功能场景切换</text>
+      <text x="20" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">专业领域重防护</text>
+      <text x="20" y="130" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">都市一衣多穿</text>
+      <rect x="20" y="145" width="500" height="180" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="270" y="245" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">[ 功能场景图 3:4竖版 ]</text>
+    </g>
+
+    <g transform="translate(560, 0)">
+      <rect x="0" y="0" width="540" height="340" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="540" height="6" fill="#c9a962"/>
+      <text x="20" y="40" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="24" font-weight="700">05</text>
+      <text x="20" y="75" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="600">品牌认同</text>
+      <text x="20" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">社群归属感</text>
+      <text x="20" y="130" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">品牌故事溢价</text>
+      <rect x="20" y="145" width="500" height="180" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="270" y="245" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">[ 品牌认同图 3:4竖版 ]</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "ppt169_通用灵活+代码_debug六步法",
+  "title": "ppt169_通用灵活+代码_debug六步法",
+  "description": "",
+  "icon": "",
+  "color": "#0d1117",
+  "folder": "examples/ppt169_通用灵活+代码_debug六步法",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_core_concept.svg",
+      "title": "Core Concept",
+      "desc": "Core Concept"
+    },
+    {
+      "file": "slide_03_step1_clarify_flow.svg",
+      "title": "Step1 Clarify Flow",
+      "desc": "Step1 Clarify Flow"
+    },
+    {
+      "file": "slide_04_step2_locate_bug.svg",
+      "title": "Step2 Locate Bug",
+      "desc": "Step2 Locate Bug"
+    },
+    {
+      "file": "slide_05_step3_elimination.svg",
+      "title": "Step3 Elimination",
+      "desc": "Step3 Elimination"
+    },
+    {
+      "file": "slide_06_step4_verify.svg",
+      "title": "Step4 Verify",
+      "desc": "Step4 Verify"
+    },
+    {
+      "file": "slide_07_step5_side_effects.svg",
+      "title": "Step5 Side Effects",
+      "desc": "Step5 Side Effects"
+    },
+    {
+      "file": "slide_08_step6_test_document.svg",
+      "title": "Step6 Test Document",
+      "desc": "Step6 Test Document"
+    },
+    {
+      "file": "slide_09_summary.svg",
+      "title": "Summary",
+      "desc": "Summary"
+    },
+    {
+      "file": "slide_10_end.svg",
+      "title": "End",
+      "desc": "End"
+    }
+  ],
+  "seqId": "PPT-008"
+}

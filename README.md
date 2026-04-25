@@ -1,21 +1,21 @@
 # PPT Master — AI generates natively editable PPTX from any document
 
-[![Version](https://img.shields.io/badge/version-v2.3.0-blue.svg)](https://github.com/hugohe3/ppt-master/releases)
+[![Version](https://img.shields.io/badge/version-v2.3.0-blue.svg)](https://github.com/xiajta-rgb/ppt-master/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/hugohe3/ppt-master.svg)](https://github.com/hugohe3/ppt-master/stargazers)
-[![AtomGit stars](https://atomgit.com/hugohe3/ppt-master/star/badge.svg)](https://atomgit.com/hugohe3/ppt-master)
+[![GitHub stars](https://img.shields.io/github/stars/xiajta-rgb/ppt-master.svg)](https://github.com/xiajta-rgb/ppt-master/stargazers)
+[![AtomGit stars](https://atomgit.com/xiajta-rgb/ppt-master/star/badge.svg)](https://atomgit.com/xiajta-rgb/ppt-master)
 
 English | [中文](./README_CN.md)
 
 <p align="center">
-  <a href="https://hugohe3.github.io/ppt-master/"><strong>Live Demo</strong></a> ·
-  <a href="https://www.hehugo.com/"><strong>About Hugo He</strong></a> ·
+  <a href="https://xiajta-rgb.github.io/ppt-master/"><strong>Live Demo</strong></a> ·
+  <a href="https://github.com/xiajta-rgb/ppt-master"><strong>About summerjt</strong></a> ·
   <a href="./examples/"><strong>Examples</strong></a> ·
   <a href="./docs/faq.md"><strong>FAQ</strong></a> ·
   <a href="mailto:heyug3@gmail.com"><strong>Contact</strong></a>
 </p>
 
-> **Official channels —** this project is published **only** on [GitHub](https://github.com/hugohe3/ppt-master) (primary) and [AtomGit](https://atomgit.com/hugohe3/ppt-master) (auto-synced mirror). Redistributions on any other platform are unofficial and not maintained by the author. Licensed under MIT — attribution required.
+> **Official channels —** this project is published **only** on [GitHub](https://github.com/xiajta-rgb/ppt-master) (primary) and [AtomGit](https://atomgit.com/xiajta-rgb/ppt-master) (auto-synced mirror). Redistributions on any other platform are unofficial and not maintained by the author. Licensed under MIT — attribution required.
 
 ---
 
@@ -28,7 +28,7 @@ English | [中文](./README_CN.md)
 </p>
 
 <p align="center">
-  <sub>🛡️ New: <a href="https://hugohe3.github.io/ppt-master/viewer.html?project=ppt169_general_dark_tech_claude_code_auto_mode">10-page dark-tech deck</a> generated from <a href="https://www.anthropic.com/engineering/claude-code-auto-mode">Anthropic's Claude Code Auto Mode engineering blog</a> — see it in the <a href="./examples/ppt169_general_dark_tech_claude_code_auto_mode/">examples</a>.</sub>
+  <sub>🛡️ New: <a href="https://xiajta-rgb.github.io/ppt-master/viewer.html?project=ppt169_general_dark_tech_claude_code_auto_mode">10-page dark-tech deck</a> generated from <a href="https://www.anthropic.com/engineering/claude-code-auto-mode">Anthropic's Claude Code Auto Mode engineering blog</a> — see it in the <a href="./examples/ppt169_general_dark_tech_claude_code_auto_mode/">examples</a>.</sub>
 </p>
 
 ---
@@ -50,7 +50,7 @@ PPT Master is different:
 - **Data stays local** — your files shouldn't have to be uploaded to someone else's server just to make a presentation. Apart from AI model communication, the entire pipeline runs on your machine
 - **No platform lock-in** — your workflow shouldn't be held hostage by any single company. Works with Claude Code, Cursor, VS Code Copilot, and more; supports Claude, GPT, Gemini, Kimi, and other models
 
-**[See live examples →](https://hugohe3.github.io/ppt-master/)** · [`examples/`](./examples/) — 15 projects, 229 pages
+**[See live examples →](https://xiajta-rgb.github.io/ppt-master/)** · [`examples/`](./examples/) — 15 projects, 229 pages
 
 ## Gallery
 
@@ -71,37 +71,9 @@ PPT Master is different:
 
 ---
 
-## Built by Hugo He
+## Built by summerjt
 
-I'm a finance professional (CPA · CPV · Consulting Engineer (Investment)) who got tired of spending hours on presentations that could be automated. So I built this.
-
-PPT Master started from a simple frustration: existing AI slide tools export images, not editable shapes. As someone who reviews and edits hundreds of slides in investment and consulting work, that was unacceptable. I wanted real DrawingML — click on any element and change it, just like you built it by hand.
-
-This project is my attempt to bridge the gap between **domain expertise** and **product engineering** — turning a complex professional pain point into an open-source tool that anyone can use.
-
-🌐 [Personal website](https://www.hehugo.com/) · 📧 [heyug3@gmail.com](mailto:heyug3@gmail.com) · 🐙 [@hugohe3](https://github.com/hugohe3)
-
----
-
-## Support This Project
-
-PPT Master is built and maintained by one person, fully self-funded. Every new template, bug fix, and documentation update runs through AI models that cost real money — and right now those token bills come out of my own pocket.
-
-If PPT Master has been helpful to you, consider chipping in. Sponsorship directly funds more templates, faster fixes, and keeps this project free and open-source.
-
-**Individual sponsorship**
-
-<a href="https://paypal.me/hugohe3"><img src="https://img.shields.io/badge/PayPal-Sponsor-00457C?style=for-the-badge&logo=paypal&logoColor=white" alt="Sponsor via PayPal" /></a>
-
-<img src="docs/assets/alipay-qr.jpg" alt="Alipay QR Code" width="220" />
-
-Any amount is appreciated.
-
-**Enterprise / Custom work**
-
-Need a custom industry template, private deployment, or integration consulting? I take on a limited number of paid engagements each quarter.
-
-📧 [heyug3@gmail.com](mailto:heyug3@gmail.com)
+🌐 [GitHub](https://github.com/xiajta-rgb) · 📧 [heyug3@gmail.com](mailto:heyug3@gmail.com)
 
 ---
 
@@ -172,12 +144,12 @@ sudo apt install pandoc
 
 ### 3. Set Up
 
-**Option A — Download ZIP** (no Git required): click **Code → Download ZIP** on the [GitHub page](https://github.com/hugohe3/ppt-master), then unzip.
+**Option A — Download ZIP** (no Git required): click **Code → Download ZIP** on the [GitHub page](https://github.com/xiajta-rgb/ppt-master), then unzip.
 
 **Option B — Git clone** (requires [Git](https://git-scm.com/downloads) installed):
 
 ```bash
-git clone https://github.com/hugohe3/ppt-master.git
+git clone https://github.com/xiajta-rgb/ppt-master.git
 cd ppt-master
 ```
 
@@ -270,22 +242,17 @@ See [CONTRIBUTING.md](./CONTRIBUTING.md) for how to get involved.
 
 Looking to collaborate, integrate PPT Master into your workflow, or just have questions?
 
-- 💬 **Questions & sharing** — [GitHub Discussions](https://github.com/hugohe3/ppt-master/discussions)
-- 🐛 **Bug reports & feature requests** — [GitHub Issues](https://github.com/hugohe3/ppt-master/issues)
-- 🌐 **Learn more about the author** — [www.hehugo.com](https://www.hehugo.com/)
-
-> For enterprise / consulting / custom-template work, see the **[Support This Project](#support-this-project)** section above.
+- 💬 **Questions & sharing** — [GitHub Discussions](https://github.com/xiajta-rgb/ppt-master/discussions)
+- 🐛 **Bug reports & feature requests** — [GitHub Issues](https://github.com/xiajta-rgb/ppt-master/issues)
 
 ---
 
 ## Star History
 
-<a href="https://star-history.com/#hugohe3/ppt-master&Date">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=hugohe3/ppt-master&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=hugohe3/ppt-master&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=hugohe3/ppt-master&type=Date" />
- </picture>
+<a href="https://star-history.com/#xiajta-rgb/ppt-master&Date">
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=xiajta-rgb/ppt-master&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=xiajta-rgb/ppt-master&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=xiajta-rgb/ppt-master&type=Date" />
 </a>
 
 ---
@@ -301,6 +268,6 @@ Looking to collaborate, integrate PPT Master into your workflow, or just have qu
 
 ---
 
-Made with ❤️ by [Hugo He](https://www.hehugo.com/) — if this project helps you, please give it a ⭐ and consider [sponsoring](#support-this-project).
+Made with ❤️ by [summerjt](https://github.com/xiajta-rgb/ppt-master) — if this project helps you, please give it a ⭐.
 
 [⬆ Back to Top](#ppt-master--ai-generates-natively-editable-pptx-from-any-document)

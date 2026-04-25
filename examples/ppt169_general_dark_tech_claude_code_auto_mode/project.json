@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "ppt169_general_dark_tech_claude_code_auto_mode",
+  "title": "ppt169_general_dark_tech_claude_code_auto_mode",
+  "description": "",
+  "icon": "",
+  "color": "#0D1117",
+  "folder": "examples/ppt169_general_dark_tech_claude_code_auto_mode",
+  "slides": [
+    {
+      "file": "01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "02_approval_fatigue.svg",
+      "title": "Approval Fatigue",
+      "desc": "Approval Fatigue"
+    },
+    {
+      "file": "03_auto_mode.svg",
+      "title": "Auto Mode",
+      "desc": "Auto Mode"
+    },
+    {
+      "file": "04_architecture.svg",
+      "title": "Architecture",
+      "desc": "Architecture"
+    },
+    {
+      "file": "05_threat_model.svg",
+      "title": "Threat Model",
+      "desc": "Threat Model"
+    },
+    {
+      "file": "06_permissions.svg",
+      "title": "Permissions",
+      "desc": "Permissions"
+    },
+    {
+      "file": "07_classifier.svg",
+      "title": "Classifier",
+      "desc": "Classifier"
+    },
+    {
+      "file": "08_results.svg",
+      "title": "Results",
+      "desc": "Results"
+    },
+    {
+      "file": "09_design_decisions.svg",
+      "title": "Design Decisions",
+      "desc": "Design Decisions"
+    },
+    {
+      "file": "10_closing.svg",
+      "title": "Closing",
+      "desc": "Closing"
+    }
+  ],
+  "seqId": "PPT-002"
+}

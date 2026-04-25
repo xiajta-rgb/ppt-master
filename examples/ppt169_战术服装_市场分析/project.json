@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "id": "ppt169_战术服装_市场分析",
+  "title": "战术服装市场分析",
+  "description": "全球战术服装市场深度分析报告",
+  "icon": "🪖",
+  "color": "#2a2a3a",
+  "folder": "examples/ppt169_战术服装_市场分析",
+  "slides": [
+    {
+      "file": "P01_封面.svg",
+      "title": "封面",
+      "desc": "市场分析"
+    },
+    {
+      "file": "P02_目录.svg",
+      "title": "目录",
+      "desc": "内容概览"
+    },
+    {
+      "file": "P03_市场分析_章节页.svg",
+      "title": "市场现状与趋势",
+      "desc": "Chapter 01"
+    },
+    {
+      "file": "P04_产品设计DNA.svg",
+      "title": "工装文化概况",
+      "desc": "Chapter 02"
+    },
+    {
+      "file": "P05_辅料五金.svg",
+      "title": "辅料与五金体系",
+      "desc": "Chapter 03"
+    },
+    {
+      "file": "P06_视觉呈现.svg",
+      "title": "产品视觉呈现",
+      "desc": "Chapter 04"
+    },
+    {
+      "file": "P07_品牌竞争.svg",
+      "title": "品牌竞争格局",
+      "desc": "Chapter 05"
+    },
+    {
+      "file": "P08_未来机遇.svg",
+      "title": "未来机遇与战略建议",
+      "desc": "Chapter 06"
+    },
+    {
+      "file": "P09_消费人群.svg",
+      "title": "消费人群画像",
+      "desc": "消费者洞察"
+    },
+    {
+      "file": "P10_需求演变.svg",
+      "title": "需求演变路径",
+      "desc": "五大核心需求"
+    },
+    {
+      "file": "P11_风格趋势.svg",
+      "title": "风格趋势分析",
+      "desc": "四大核心风格"
+    },
+    {
+      "file": "P12_风格总结.svg",
+      "title": "风格趋势总结",
+      "desc": "策略方向"
+    },
+    {
+      "file": "P13_生命周期.svg",
+      "title": "生命周期分析",
+      "desc": "市场阶段判断"
+    },
+    {
+      "file": "P14_感谢.svg",
+      "title": "感谢页",
+      "desc": "结束页"
+    }
+  ],
+  "seqId": "PPT-004"
+}

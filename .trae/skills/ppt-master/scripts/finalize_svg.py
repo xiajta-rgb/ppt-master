@@ -38,6 +38,7 @@ from svg_finalize.crop_images import process_svg_images as crop_images_in_svg
 from svg_finalize.embed_icons import process_svg_file as embed_icons_in_file
 from svg_finalize.embed_images import embed_images_in_svg
 from svg_finalize.fix_image_aspect import fix_image_aspect_in_svg
+from svg_finalize.validate_sanitize import process_svg_file as validate_and_sanitize_svg
 
 
 def safe_print(text: str) -> None:
@@ -144,7 +145,7 @@ def finalize_project(
         safe_print("[PREVIEW] Preview mode, no operations will be performed")
         return True
 
-    # Step 1: Copy directory
+    # Step 1: Copy directory (moved after validation - validate first!)
     if svg_final.exists():
         shutil.rmtree(svg_final)
     shutil.copytree(svg_output, svg_final)
@@ -152,10 +153,34 @@ def finalize_project(
     if not quiet:
         print()
 
-    # Step 2: Embed icons
+    # Step 2: Validate and sanitize SVG (critical first step!)
+    if options.get('validate_sanitize'):
+        if not quiet:
+            safe_print("[2/7] Validating and sanitizing SVG files...")
+        validate_count = 0
+        fix_count = 0
+        all_valid = True
+        for svg_file in svg_final.glob('*.svg'):
+            is_valid, fixes, errors = validate_and_sanitize_svg(
+                svg_file, dry_run=dry_run, verbose=not quiet
+            )
+            fix_count += fixes
+            if not is_valid:
+                all_valid = False
+            if fixes > 0:
+                validate_count += 1
+        if not quiet:
+            if fix_count > 0:
+                safe_print(f"      {fix_count} fix(es) applied to {validate_count} file(s)")
+            elif all_valid:
+                safe_print("      All SVG files are valid")
+            else:
+                safe_print("      [WARN] Some SVG files have validation issues")
+
+    # Step 3: Embed icons
     if options.get('embed_icons'):
         if not quiet:
-            safe_print("[1/6] Embedding icons...")
+            safe_print("[3/7] Embedding icons...")
         icons_count = 0
         for svg_file in svg_final.glob('*.svg'):
             count = embed_icons_in_file(svg_file, icons_dir, dry_run=False, verbose=False)
@@ -166,10 +191,10 @@ def finalize_project(
             else:
                 safe_print("      No icons")
 
-    # Step 3: Smart crop images (based on preserveAspectRatio="slice")
+    # Step 4: Smart crop images (based on preserveAspectRatio="slice")
     if options.get('crop_images'):
         if not quiet:
-            safe_print("[2/6] Smart cropping images...")
+            safe_print("[4/7] Smart cropping images...")
         crop_count = 0
         crop_errors = 0
         for svg_file in svg_final.glob('*.svg'):
@@ -182,10 +207,10 @@ def finalize_project(
             else:
                 safe_print("      No cropping needed (no images with slice attribute)")
 
-    # Step 4: Fix image aspect ratio (prevent stretching during PPT shape conversion)
+    # Step 5: Fix image aspect ratio (prevent stretching during PPT shape conversion)
     if options.get('fix_aspect'):
         if not quiet:
-            safe_print("[3/6] Fixing image aspect ratios...")
+            safe_print("[5/7] Fixing image aspect ratios...")
         aspect_count = 0
         for svg_file in svg_final.glob('*.svg'):
             count = fix_image_aspect_in_svg(str(svg_file), dry_run=False, verbose=False)
@@ -196,10 +221,10 @@ def finalize_project(
             else:
                 safe_print("      No images")
 
-    # Step 5: Embed images
+    # Step 6: Embed images
     if options.get('embed_images'):
         if not quiet:
-            safe_print("[4/6] Embedding images...")
+            safe_print("[6/7] Embedding images...")
         images_count = 0
         for svg_file in svg_final.glob('*.svg'):
             count, _ = embed_images_in_svg(str(svg_file), dry_run=False,
@@ -212,10 +237,10 @@ def finalize_project(
             else:
                 safe_print("      No images")
 
-    # Step 6: Flatten text
+    # Step 7: Flatten text
     if options.get('flatten_text'):
         if not quiet:
-            safe_print("[5/6] Flattening text...")
+            safe_print("[7/7] Flattening text...")
         flatten_count = 0
         for svg_file in svg_final.glob('*.svg'):
             if process_flatten_text(svg_file, verbose=False):
@@ -226,10 +251,10 @@ def finalize_project(
             else:
                 safe_print("      No processing needed")
 
-    # Step 7: Convert rounded rects to Path
+    # Step 8: Convert rounded rects to Path (optional extra)
     if options.get('fix_rounded'):
         if not quiet:
-            safe_print("[6/6] Converting rounded rects to Path...")
+            safe_print("[Extra] Converting rounded rects to Path...")
         rounded_count = 0
         for svg_file in svg_final.glob('*.svg'):
             count = process_rounded_rect(svg_file, verbose=False)
@@ -263,18 +288,19 @@ Examples:
   %(prog)s projects/my_project -q        # Quiet mode
 
 Processing options (for --only):
-  embed-icons   Embed icons
-  crop-images   Smart crop images (based on preserveAspectRatio)
-  fix-aspect    Fix image aspect ratio (prevent stretching during PPT shape conversion)
-  embed-images  Embed images
-  flatten-text  Flatten text
-  fix-rounded   Convert rounded rects to Path
+  validate-sanitize  Validate XML and fix common issues (RECOMMENDED FIRST!)
+  embed-icons        Embed icons
+  crop-images        Smart crop images (based on preserveAspectRatio)
+  fix-aspect         Fix image aspect ratio (prevent stretching during PPT shape conversion)
+  embed-images       Embed images
+  flatten-text       Flatten text
+  fix-rounded        Convert rounded rects to Path
         '''
     )
 
     parser.add_argument('project_dir', type=Path, help='Project directory path')
     parser.add_argument('--only', nargs='+', metavar='OPTION',
-                        choices=['embed-icons', 'crop-images', 'fix-aspect', 'embed-images', 'flatten-text', 'fix-rounded'],
+                        choices=['validate-sanitize', 'embed-icons', 'crop-images', 'fix-aspect', 'embed-images', 'flatten-text', 'fix-rounded'],
                         help='Execute only specified processing steps (default: all)')
     parser.add_argument('--dry-run', '-n', action='store_true',
                         help='Preview only, do not execute')
@@ -295,6 +321,7 @@ Processing options (for --only):
     if args.only:
         # Execute only specified steps
         options = {
+            'validate_sanitize': 'validate-sanitize' in args.only,
             'embed_icons': 'embed-icons' in args.only,
             'crop_images': 'crop-images' in args.only,
             'fix_aspect': 'fix-aspect' in args.only,
@@ -305,6 +332,7 @@ Processing options (for --only):
     else:
         # Execute all by default
         options = {
+            'validate_sanitize': True,
             'embed_icons': True,
             'crop_images': True,
             'fix_aspect': True,

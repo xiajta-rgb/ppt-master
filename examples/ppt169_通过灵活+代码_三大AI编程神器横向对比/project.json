@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "id": "ppt169_通过灵活+代码_三大AI编程神器横向对比",
+  "title": "ppt169_通过灵活+代码_三大AI编程神器横向对比",
+  "description": "OpenSpec vs ZCF vs Spec Kit：三大 AI 编程神器横向对比",
+  "icon": "",
+  "color": "#2563EB",
+  "folder": "examples/ppt169_通过灵活+代码_三大AI编程神器横向对比",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_positioning.svg",
+      "title": "Positioning",
+      "desc": "Positioning"
+    },
+    {
+      "file": "slide_03_speckit.svg",
+      "title": "Speckit",
+      "desc": "Speckit"
+    },
+    {
+      "file": "slide_04_openspec.svg",
+      "title": "Openspec",
+      "desc": "Openspec"
+    },
+    {
+      "file": "slide_05_zcf.svg",
+      "title": "Zcf",
+      "desc": "Zcf"
+    },
+    {
+      "file": "slide_06_comparison.svg",
+      "title": "Comparison",
+      "desc": "Comparison"
+    },
+    {
+      "file": "slide_07_efficiency.svg",
+      "title": "Efficiency",
+      "desc": "Efficiency"
+    },
+    {
+      "file": "slide_08_combination.svg",
+      "title": "Combination",
+      "desc": "Combination"
+    },
+    {
+      "file": "slide_09_decision.svg",
+      "title": "Decision",
+      "desc": "Decision"
+    },
+    {
+      "file": "slide_10_table.svg",
+      "title": "Table",
+      "desc": "Table"
+    },
+    {
+      "file": "slide_11_summary.svg",
+      "title": "Summary",
+      "desc": "Summary"
+    }
+  ],
+  "seqId": "PPT-009"
+}

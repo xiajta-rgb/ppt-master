@@ -23,7 +23,7 @@ Thank you for your interest in contributing! This guide will help you get starte
 ### Setup
 
 ```bash
-git clone https://github.com/hugohe3/ppt-master.git
+git clone https://github.com/xiajta-rgb/ppt-master.git
 cd ppt-master
 pip install -r requirements.txt
 ```
@@ -82,7 +82,7 @@ If your contribution involves SVG files, follow the technical constraints docume
 
 ## Reporting Bugs
 
-Open an issue on [GitHub Issues](https://github.com/hugohe3/ppt-master/issues) and include:
+Open an issue on [GitHub Issues](https://github.com/xiajta-rgb/ppt-master/issues) and include:
 
 - A clear description of the problem
 - Steps to reproduce

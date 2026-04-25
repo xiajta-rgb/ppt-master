@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "id": "ppt169_高端咨询风_汽车认证五年战略规划",
+  "title": "ppt169_高端咨询风_汽车认证五年战略规划",
+  "description": "",
+  "icon": "",
+  "color": "#003F6C",
+  "folder": "examples/ppt169_高端咨询风_汽车认证五年战略规划",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_toc.svg",
+      "title": "Toc",
+      "desc": "Toc"
+    },
+    {
+      "file": "slide_03_executive_summary.svg",
+      "title": "Executive Summary",
+      "desc": "Executive Summary"
+    },
+    {
+      "file": "slide_04_industry_overview.svg",
+      "title": "Industry Overview",
+      "desc": "Industry Overview"
+    },
+    {
+      "file": "slide_05_nev_trends.svg",
+      "title": "Nev Trends",
+      "desc": "Nev Trends"
+    },
+    {
+      "file": "slide_06_icv_trends.svg",
+      "title": "Icv Trends",
+      "desc": "Icv Trends"
+    },
+    {
+      "file": "slide_07_intl_standards.svg",
+      "title": "Intl Standards",
+      "desc": "Intl Standards"
+    },
+    {
+      "file": "slide_08_digital_strategy.svg",
+      "title": "Digital Strategy",
+      "desc": "Digital Strategy"
+    },
+    {
+      "file": "slide_09_digital_platform.svg",
+      "title": "Digital Platform",
+      "desc": "Digital Platform"
+    },
+    {
+      "file": "slide_10_digital_tech.svg",
+      "title": "Digital Tech",
+      "desc": "Digital Tech"
+    },
+    {
+      "file": "slide_11_innovation_overview.svg",
+      "title": "Innovation Overview",
+      "desc": "Innovation Overview"
+    },
+    {
+      "file": "slide_12_green_certification.svg",
+      "title": "Green Certification",
+      "desc": "Green Certification"
+    },
+    {
+      "file": "slide_13_safety_certification.svg",
+      "title": "Safety Certification",
+      "desc": "Safety Certification"
+    },
+    {
+      "file": "slide_14_intl_strategy.svg",
+      "title": "Intl Strategy",
+      "desc": "Intl Strategy"
+    },
+    {
+      "file": "slide_15_intl_layout.svg",
+      "title": "Intl Layout",
+      "desc": "Intl Layout"
+    },
+    {
+      "file": "slide_16_policy_env.svg",
+      "title": "Policy Env",
+      "desc": "Policy Env"
+    },
+    {
+      "file": "slide_17_org_capability.svg",
+      "title": "Org Capability",
+      "desc": "Org Capability"
+    },
+    {
+      "file": "slide_18_roadmap.svg",
+      "title": "Roadmap",
+      "desc": "Roadmap"
+    },
+    {
+      "file": "slide_19_kpi_targets.svg",
+      "title": "Kpi Targets",
+      "desc": "Kpi Targets"
+    },
+    {
+      "file": "slide_20_conclusion.svg",
+      "title": "Conclusion",
+      "desc": "Conclusion"
+    }
+  ],
+  "seqId": "PPT-015"
+}

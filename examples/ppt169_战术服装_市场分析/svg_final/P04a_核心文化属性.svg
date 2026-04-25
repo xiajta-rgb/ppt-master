@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 40)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 02</text>
+  </g>
+  <text x="60" y="85" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">核心文化属性</text>
+  <rect x="60" y="100" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">解析工装文化的三大核心属性与市场定位</text>
+
+  <g transform="translate(60, 155)">
+    <rect x="0" y="0" width="1160" height="540" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="386" height="540" rx="8" fill="#1a1a20"/>
+      <rect x="0" y="0" width="386" height="6" fill="#e74c3c"/>
+      <text x="20" y="40" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">功能性</text>
+      <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">以实用为根基，口袋、加固缝线、耐磨面料等设计元素</text>
+      <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">服务于真实劳动场景需求</text>
+      <rect x="20" y="120" width="346" height="400" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="193" y="335" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">[ 功能性图片 3:4 ]</text>
+    </g>
+
+    <g transform="translate(387, 0)">
+      <rect x="0" y="0" width="386" height="540" rx="8" fill="#1a1a20"/>
+      <rect x="0" y="0" width="386" height="6" fill="#f39c12"/>
+      <text x="20" y="40" fill="#f39c12" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">多元化</text>
+      <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">从单一工作服演变为涵盖复古、军事、机能、轻工装等</text>
+      <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">多风格体系的时尚品类</text>
+      <rect x="20" y="120" width="346" height="400" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="193" y="335" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">[ 多元化图片 3:4 ]</text>
+    </g>
+
+    <g transform="translate(774, 0)">
+      <rect x="0" y="0" width="386" height="540" rx="8" fill="#1a1a20"/>
+      <rect x="0" y="0" width="386" height="6" fill="#c9a962"/>
+      <text x="20" y="40" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="20" font-weight="700">文化符号化</text>
+      <text x="20" y="75" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="13">承载工人阶级精神、朋克反叛态度、户外生活方式等</text>
+      <text x="20" y="100" fill="#86868b" font-family="Inter, sans-serif" font-size="12">多重文化意涵，成为身份认同的视觉符号</text>
+      <rect x="20" y="120" width="346" height="400" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="193" y="335" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">[ 文化符号图片 3:4 ]</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

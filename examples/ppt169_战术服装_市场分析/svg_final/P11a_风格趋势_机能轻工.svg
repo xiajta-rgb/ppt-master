@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 40)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 04</text>
+  </g>
+  <text x="60" y="85" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">工装风格趋势</text>
+  <rect x="60" y="100" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">四大核心风格定义市场主流方向</text>
+
+  <g transform="translate(60, 155)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="540" height="545" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="540" height="6" fill="#3498db"/>
+      <text x="20" y="35" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">STYLE 03</text>
+      <text x="20" y="60" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">机能工装风 Techwear</text>
+      <text x="20" y="85" fill="#86868b" font-family="Inter, sans-serif" font-size="11">科技面料与时尚设计融合，科技感+未来感，设计走向先锋化</text>
+      <text x="20" y="110" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心技术</text>
+      <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">GORE-TEX、3M反光材质，具备高活动性、多重收纳、防水挡风特性</text>
+      <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心优势</text>
+      <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能性远超传统工装，满足现代消费者功能与时尚双重需求</text>
+      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 机能工装风格图 3:4竖版 ]</text>
+    </g>
+
+    <g transform="translate(560, 0)">
+      <rect x="0" y="0" width="540" height="545" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="540" height="6" fill="#c47040"/>
+      <text x="20" y="35" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">STYLE 04</text>
+      <text x="20" y="60" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">轻工装风 Light Workwear</text>
+      <text x="20" y="85" fill="#86868b" font-family="Inter, sans-serif" font-size="11">弱化传统工装复杂功能，聚焦日常舒适与时尚，适配都市快节奏生活</text>
+      <text x="20" y="110" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">设计方向</text>
+      <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">简化功能，融合通勤+休闲场景，面料选择更多元</text>
+      <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">市场定位</text>
+      <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">都市青年日常穿搭首选，多场景适配性极强，市场地位持续提升</text>
+      <rect x="20" y="185" width="500" height="345" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+      <text x="270" y="370" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="14">[ 轻工装风格图 3:4竖版 ]</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

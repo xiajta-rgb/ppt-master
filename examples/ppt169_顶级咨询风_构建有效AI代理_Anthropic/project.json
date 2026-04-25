@@ -1,0 +1,87 @@
+{
+  "version": 1,
+  "id": "ppt169_顶级咨询风_构建有效AI代理_Anthropic",
+  "title": "ppt169_顶级咨询风_构建有效AI代理_Anthropic",
+  "description": "",
+  "icon": "",
+  "color": "#D97757",
+  "folder": "examples/ppt169_顶级咨询风_构建有效AI代理_Anthropic",
+  "slides": [
+    {
+      "file": "P01_Cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "P02_Executive_Summary.svg",
+      "title": "Executive Summary",
+      "desc": "Executive Summary"
+    },
+    {
+      "file": "P03_Agenda.svg",
+      "title": "Agenda",
+      "desc": "Agenda"
+    },
+    {
+      "file": "P04_What_Are_Agents.svg",
+      "title": "What Are Agents",
+      "desc": "What Are Agents"
+    },
+    {
+      "file": "P05_When_To_Use.svg",
+      "title": "When To Use",
+      "desc": "When To Use"
+    },
+    {
+      "file": "P06_Building_Block.svg",
+      "title": "Building Block",
+      "desc": "Building Block"
+    },
+    {
+      "file": "P07_Workflow_Chaining.svg",
+      "title": "Workflow Chaining",
+      "desc": "Workflow Chaining"
+    },
+    {
+      "file": "P08_Workflow_Routing.svg",
+      "title": "Workflow Routing",
+      "desc": "Workflow Routing"
+    },
+    {
+      "file": "P09_Workflow_Parallelization.svg",
+      "title": "Workflow Parallelization",
+      "desc": "Workflow Parallelization"
+    },
+    {
+      "file": "P10_Workflow_Advanced.svg",
+      "title": "Workflow Advanced",
+      "desc": "Workflow Advanced"
+    },
+    {
+      "file": "P11_Autonomous_Agents.svg",
+      "title": "Autonomous Agents",
+      "desc": "Autonomous Agents"
+    },
+    {
+      "file": "P12_When_To_Use_Agents.svg",
+      "title": "When To Use Agents",
+      "desc": "When To Use Agents"
+    },
+    {
+      "file": "P13_Case_Studies.svg",
+      "title": "Case Studies",
+      "desc": "Case Studies"
+    },
+    {
+      "file": "P14_Tool_Engineering.svg",
+      "title": "Tool Engineering",
+      "desc": "Tool Engineering"
+    },
+    {
+      "file": "P15_Summary.svg",
+      "title": "Summary",
+      "desc": "Summary"
+    }
+  ],
+  "seqId": "PPT-011"
+}

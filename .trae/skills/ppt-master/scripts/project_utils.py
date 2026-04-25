@@ -308,33 +308,46 @@ def validate_project_structure(project_path: str, verbose: bool = False) -> Tupl
 
 def validate_svg_viewbox(svg_files: List[Path], expected_format: Optional[str] = None) -> List[str]:
     """
-    Validate the viewBox settings of SVG files.
-
+    Validate the viewBox settings and XML validity of SVG files.
+    
     Args:
         svg_files: List of SVG files
         expected_format: Expected canvas format (e.g. 'ppt169')
-
+        
     Returns:
         List of warnings
     """
     warnings = []
     viewbox_pattern = re.compile(r'viewBox="([^"]+)"')
     viewboxes = set()
-
+    
     # Determine expected viewBox
     expected_viewbox = None
     if expected_format and expected_format in CANVAS_FORMATS:
         expected_viewbox = CANVAS_FORMATS[expected_format]['viewbox']
-
-    for svg_file in svg_files[:10]:  # Check first 10 files
+    
+    for svg_file in svg_files:  # Check all files now
         try:
+            # First validate XML structure
+            import xml.etree.ElementTree as ET
+            try:
+                tree = ET.parse(str(svg_file))
+                root = tree.getroot()
+            except ET.ParseError as e:
+                warnings.append(f"{svg_file.name}: XML invalid - {e}")
+                continue
+            except Exception as e:
+                warnings.append(f"{svg_file.name}: XML validation error - {e}")
+                continue
+            
+            # Now read and check viewBox
             with open(svg_file, 'r', encoding='utf-8') as f:
                 content = f.read(2000)  # Only read first 2000 characters
                 match = viewbox_pattern.search(content)
                 if match:
                     viewbox = match.group(1)
                     viewboxes.add(viewbox)
-
+                    
                     # If expected format is specified, check for match
                     if expected_viewbox and viewbox != expected_viewbox:
                         warnings.append(
@@ -345,11 +358,11 @@ def validate_svg_viewbox(svg_files: List[Path], expected_format: Optional[str] =
                     warnings.append(f"{svg_file.name}: viewBox attribute not found")
         except Exception as e:
             warnings.append(f"{svg_file.name}: Failed to read - {e}")
-
+    
     # Check for multiple different viewBoxes
     if len(viewboxes) > 1:
         warnings.append(f"Multiple different viewBox settings detected: {viewboxes}")
-
+    
     return warnings
 
 

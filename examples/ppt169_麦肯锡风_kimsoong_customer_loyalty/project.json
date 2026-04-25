@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "id": "ppt169_麦肯锡风_kimsoong_customer_loyalty",
+  "title": "ppt169_麦肯锡风_kimsoong_customer_loyalty",
+  "description": "",
+  "icon": "",
+  "color": "#005587",
+  "folder": "examples/ppt169_麦肯锡风_kimsoong_customer_loyalty",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_situation.svg",
+      "title": "Situation",
+      "desc": "Situation"
+    },
+    {
+      "file": "slide_03_customer_profile.svg",
+      "title": "Customer Profile",
+      "desc": "Customer Profile"
+    },
+    {
+      "file": "slide_04_priorities_matrix.svg",
+      "title": "Priorities Matrix",
+      "desc": "Priorities Matrix"
+    },
+    {
+      "file": "slide_05_root_cause.svg",
+      "title": "Root Cause",
+      "desc": "Root Cause"
+    },
+    {
+      "file": "slide_06_strategic_pillars.svg",
+      "title": "Strategic Pillars",
+      "desc": "Strategic Pillars"
+    },
+    {
+      "file": "slide_07_initiatives.svg",
+      "title": "Initiatives",
+      "desc": "Initiatives"
+    },
+    {
+      "file": "slide_08_roadmap.svg",
+      "title": "Roadmap",
+      "desc": "Roadmap"
+    }
+  ],
+  "seqId": "PPT-016"
+}

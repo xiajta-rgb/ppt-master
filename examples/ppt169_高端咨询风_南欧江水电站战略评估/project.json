@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "id": "ppt169_高端咨询风_南欧江水电站战略评估",
+  "title": "ppt169_高端咨询风_南欧江水电站战略评估",
+  "description": "",
+  "icon": "",
+  "color": "#0D2B3E",
+  "folder": "examples/ppt169_高端咨询风_南欧江水电站战略评估",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_toc.svg",
+      "title": "Toc",
+      "desc": "Toc"
+    },
+    {
+      "file": "slide_03_executive_summary.svg",
+      "title": "Executive Summary",
+      "desc": "Executive Summary"
+    },
+    {
+      "file": "slide_04_project_overview.svg",
+      "title": "Project Overview",
+      "desc": "Project Overview"
+    },
+    {
+      "file": "slide_05_cascade_logic.svg",
+      "title": "Cascade Logic",
+      "desc": "Cascade Logic"
+    },
+    {
+      "file": "slide_06_technical_params.svg",
+      "title": "Technical Params",
+      "desc": "Technical Params"
+    },
+    {
+      "file": "slide_07_business_model.svg",
+      "title": "Business Model",
+      "desc": "Business Model"
+    },
+    {
+      "file": "slide_08_financing.svg",
+      "title": "Financing",
+      "desc": "Financing"
+    },
+    {
+      "file": "slide_09_arbitration_overview.svg",
+      "title": "Arbitration Overview",
+      "desc": "Arbitration Overview"
+    },
+    {
+      "file": "slide_10_claim_breakdown.svg",
+      "title": "Claim Breakdown",
+      "desc": "Claim Breakdown"
+    },
+    {
+      "file": "slide_11_macro_crisis.svg",
+      "title": "Macro Crisis",
+      "desc": "Macro Crisis"
+    },
+    {
+      "file": "slide_12_currency_collapse.svg",
+      "title": "Currency Collapse",
+      "desc": "Currency Collapse"
+    },
+    {
+      "file": "slide_13_edl_black_hole.svg",
+      "title": "Edl Black Hole",
+      "desc": "Edl Black Hole"
+    },
+    {
+      "file": "slide_14_debt_equity_swap.svg",
+      "title": "Debt Equity Swap",
+      "desc": "Debt Equity Swap"
+    },
+    {
+      "file": "slide_15_geopolitics.svg",
+      "title": "Geopolitics",
+      "desc": "Geopolitics"
+    },
+    {
+      "file": "slide_16_env_social.svg",
+      "title": "Env Social",
+      "desc": "Env Social"
+    },
+    {
+      "file": "slide_17_flood_event.svg",
+      "title": "Flood Event",
+      "desc": "Flood Event"
+    },
+    {
+      "file": "slide_18_conclusions.svg",
+      "title": "Conclusions",
+      "desc": "Conclusions"
+    },
+    {
+      "file": "slide_19_outlook.svg",
+      "title": "Outlook",
+      "desc": "Outlook"
+    },
+    {
+      "file": "slide_20_appendix.svg",
+      "title": "Appendix",
+      "desc": "Appendix"
+    }
+  ],
+  "seqId": "PPT-014"
+}

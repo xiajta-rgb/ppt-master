@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(201,169,98,0.1)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <ellipse cx="640" cy="360" rx="500" ry="300" fill="url(#heroGlow)"/>
+
+  <g transform="translate(640, 300)">
+    <line x1="-200" y1="0" x2="200" y2="0" stroke="#c9a962" stroke-width="1"/>
+  </g>
+
+  <text x="640" y="360" text-anchor="middle" fill="url(#accentGradient)" font-family="'Space Grotesk', Inter, sans-serif" font-size="48" font-weight="700">感谢阅读</text>
+
+  <text x="640" y="420" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="15">亚马逊美国站 · 休闲工装战术服装市场深度分析报告</text>
+
+  <text x="640" y="480" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">数据来源：Global Growth Insights · Technavio · Workwear.org · Amazon公开数据</text>
+
+  <text x="640" y="520" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="13">报告日期：2026年4月 | 仅供内部课程研究使用</text>
+
+  <text x="640" y="600" text-anchor="middle" fill="#c9a962" font-family="Inter, sans-serif" font-size="11" opacity="0.6">LARSEN TECH · 拉森科技有限公司 · 企划部门</text>
+</svg>

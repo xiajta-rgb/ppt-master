@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "demo_project_intro_ppt169_20251211",
+  "title": "demo_project_intro_ppt169_20251211",
+  "description": "",
+  "icon": "",
+  "color": "#FAFBFC",
+  "folder": "examples/demo_project_intro_ppt169_20251211",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_pain_points.svg",
+      "title": "Pain Points",
+      "desc": "Pain Points"
+    },
+    {
+      "file": "slide_03_solution.svg",
+      "title": "Solution",
+      "desc": "Solution"
+    },
+    {
+      "file": "slide_04_architecture.svg",
+      "title": "Architecture",
+      "desc": "Architecture"
+    },
+    {
+      "file": "slide_05_roles.svg",
+      "title": "Roles",
+      "desc": "Roles"
+    },
+    {
+      "file": "slide_06_features.svg",
+      "title": "Features",
+      "desc": "Features"
+    },
+    {
+      "file": "slide_07_formats.svg",
+      "title": "Formats",
+      "desc": "Formats"
+    },
+    {
+      "file": "slide_08_tools.svg",
+      "title": "Tools",
+      "desc": "Tools"
+    },
+    {
+      "file": "slide_09_quickstart.svg",
+      "title": "Quickstart",
+      "desc": "Quickstart"
+    },
+    {
+      "file": "slide_10_cta.svg",
+      "title": "Cta",
+      "desc": "Cta"
+    }
+  ],
+  "seqId": "PPT-001"
+}

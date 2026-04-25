@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "id": "ppt169_谷歌风_google_annual_report",
+  "title": "ppt169_谷歌风_google_annual_report",
+  "description": "",
+  "icon": "",
+  "color": "#4285F4",
+  "folder": "examples/ppt169_谷歌风_google_annual_report",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_year_overview.svg",
+      "title": "Year Overview",
+      "desc": "Year Overview"
+    },
+    {
+      "file": "slide_03_projects_summary.svg",
+      "title": "Projects Summary",
+      "desc": "Projects Summary"
+    },
+    {
+      "file": "slide_04_project_smart_scheduler.svg",
+      "title": "Project Smart Scheduler",
+      "desc": "Project Smart Scheduler"
+    },
+    {
+      "file": "slide_05_projects_other.svg",
+      "title": "Projects Other",
+      "desc": "Projects Other"
+    },
+    {
+      "file": "slide_06_technical_growth.svg",
+      "title": "Technical Growth",
+      "desc": "Technical Growth"
+    },
+    {
+      "file": "slide_07_team_collaboration.svg",
+      "title": "Team Collaboration",
+      "desc": "Team Collaboration"
+    },
+    {
+      "file": "slide_08_impact_dashboard.svg",
+      "title": "Impact Dashboard",
+      "desc": "Impact Dashboard"
+    },
+    {
+      "file": "slide_09_future_plans.svg",
+      "title": "Future Plans",
+      "desc": "Future Plans"
+    },
+    {
+      "file": "slide_10_thanks.svg",
+      "title": "Thanks",
+      "desc": "Thanks"
+    }
+  ],
+  "seqId": "PPT-007"
+}

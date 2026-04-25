@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 40)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 04</text>
+  </g>
+  <text x="60" y="90" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">四大风格趋势要点总结</text>
+  <rect x="60" y="108" width="80" height="3" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 135)">
+    <rect x="0" y="0" width="1160" height="320" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="45" rx="8" fill="#1e1e28"/>
+    <rect x="0" y="35" width="1160" height="10" fill="#1e1e28"/>
+    <text x="40" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">风格</text>
+    <text x="240" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">核心特色</text>
+    <text x="480" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">设计元素</text>
+    <text x="720" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">关键策略方向</text>
+    <text x="980" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">产品图</text>
+
+    <rect x="0" y="45" width="1160" height="1" fill="#2a2a35"/>
+
+    <g transform="translate(0, 55)">
+      <text x="40" y="20" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">复古工装风</text>
+      <text x="40" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">Vintage Workwear</text>
+      <text x="240" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="11">历史文化特色</text>
+      <text x="240" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">阿美咔叽文化绑定</text>
+      <text x="480" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">丹宁 · 帆布 · 做旧工艺</text>
+      <text x="480" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">经典版型复刻</text>
+      <text x="720" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">材质还原 · 工艺复刻</text>
+      <text x="720" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">文化叙事 · IP合作</text>
+      <rect x="980" y="5" width="160" height="50" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="3,2"/>
+      <text x="1060" y="35" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">[ 产品图 ]</text>
+    </g>
+
+    <rect x="0" y="110" width="1160" height="1" fill="#2a2a35"/>
+
+    <g transform="translate(0, 118)">
+      <text x="40" y="20" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">军事工装风</text>
+      <text x="40" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">Military Workwear</text>
+      <text x="240" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="11">军事背景演变</text>
+      <text x="240" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">功能性强</text>
+      <text x="480" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩 · 战术口袋</text>
+      <text x="480" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">硬朗剪裁</text>
+      <text x="720" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">现代功能转化 · 符号化重构</text>
+      <text x="720" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">平衡户外与日常</text>
+      <rect x="980" y="5" width="160" height="50" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="3,2"/>
+      <text x="1060" y="35" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">[ 产品图 ]</text>
+    </g>
+
+    <rect x="0" y="175" width="1160" height="1" fill="#2a2a35"/>
+
+    <g transform="translate(0, 183)">
+      <text x="40" y="20" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">机能工装风</text>
+      <text x="40" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">Techwear</text>
+      <text x="240" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="11">多模块化设计</text>
+      <text x="240" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">科技感强</text>
+      <text x="480" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">GORE-TEX · 3M反光</text>
+      <text x="480" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">模块化设计</text>
+      <text x="720" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化拓展 · 科技赋能</text>
+      <text x="720" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">用户共创</text>
+      <rect x="980" y="5" width="160" height="50" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="3,2"/>
+      <text x="1060" y="35" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">[ 产品图 ]</text>
+    </g>
+
+    <rect x="0" y="240" width="1160" height="1" fill="#2a2a35"/>
+
+    <g transform="translate(0, 248)">
+      <text x="40" y="20" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700">轻工装风</text>
+      <text x="40" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">Light Workwear</text>
+      <text x="240" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="11">现代化融合</text>
+      <text x="240" y="38" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">都市化程度高</text>
+      <text x="480" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">简化功能 · 多场景</text>
+      <text x="480" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">多元面料</text>
+      <text x="720" y="20" fill="#86868b" font-family="Inter, sans-serif" font-size="10">贴合青年审美</text>
+      <text x="720" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化营销</text>
+      <rect x="980" y="5" width="160" height="50" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="3,2"/>
+      <text x="1060" y="35" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">[ 产品图 ]</text>
+    </g>
+  </g>
+
+  <rect x="60" y="475" width="1160" height="70" rx="8" fill="rgba(201,169,98,0.08)" stroke="rgba(201,169,98,0.3)"/>
+  <text x="80" y="505" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">核心结论</text>
+  <text x="80" y="525" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">四大风格代表了工装文化的多元化演进路径：从历史复刻到军事功能，从科技赋能到都市融合，覆盖从专业到日常的全场景需求</text>
+
+  <!-- 图片位置 -->
+  <rect x="60" y="560" width="1160" height="130" rx="8" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
+  <text x="640" y="630" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 四大风格对比图 / 市场趋势图 ]</text>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

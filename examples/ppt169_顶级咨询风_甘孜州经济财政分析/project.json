@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "id": "ppt169_顶级咨询风_甘孜州经济财政分析",
+  "title": "ppt169_顶级咨询风_甘孜州经济财政分析",
+  "description": "",
+  "icon": "",
+  "color": "#1E3A5F",
+  "folder": "examples/ppt169_顶级咨询风_甘孜州经济财政分析",
+  "slides": [
+    {
+      "file": "slide_01_cover.svg",
+      "title": "Cover",
+      "desc": "Cover"
+    },
+    {
+      "file": "slide_02_toc.svg",
+      "title": "Toc",
+      "desc": "Toc"
+    },
+    {
+      "file": "slide_03_executive_summary.svg",
+      "title": "Executive Summary",
+      "desc": "Executive Summary"
+    },
+    {
+      "file": "slide_04_economy_overview.svg",
+      "title": "Economy Overview",
+      "desc": "Economy Overview"
+    },
+    {
+      "file": "slide_05_gdp_analysis.svg",
+      "title": "Gdp Analysis",
+      "desc": "Gdp Analysis"
+    },
+    {
+      "file": "slide_06_population.svg",
+      "title": "Population",
+      "desc": "Population"
+    },
+    {
+      "file": "slide_07_fiscal_revenue.svg",
+      "title": "Fiscal Revenue",
+      "desc": "Fiscal Revenue"
+    },
+    {
+      "file": "slide_08_fiscal_expenditure.svg",
+      "title": "Fiscal Expenditure",
+      "desc": "Fiscal Expenditure"
+    },
+    {
+      "file": "slide_09_fiscal_balance.svg",
+      "title": "Fiscal Balance",
+      "desc": "Fiscal Balance"
+    },
+    {
+      "file": "slide_10_gov_fund.svg",
+      "title": "Gov Fund",
+      "desc": "Gov Fund"
+    },
+    {
+      "file": "slide_11_debt_overview.svg",
+      "title": "Debt Overview",
+      "desc": "Debt Overview"
+    },
+    {
+      "file": "slide_12_debt_capacity.svg",
+      "title": "Debt Capacity",
+      "desc": "Debt Capacity"
+    },
+    {
+      "file": "slide_13_debt_risk.svg",
+      "title": "Debt Risk",
+      "desc": "Debt Risk"
+    },
+    {
+      "file": "slide_14_comprehensive.svg",
+      "title": "Comprehensive",
+      "desc": "Comprehensive"
+    },
+    {
+      "file": "slide_15_fund_acquisition.svg",
+      "title": "Fund Acquisition",
+      "desc": "Fund Acquisition"
+    },
+    {
+      "file": "slide_16_summary_table.svg",
+      "title": "Summary Table",
+      "desc": "Summary Table"
+    },
+    {
+      "file": "slide_17_conclusion.svg",
+      "title": "Conclusion",
+      "desc": "Conclusion"
+    }
+  ],
+  "seqId": "PPT-012"
+}

@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026年工装风格趋势洞察 — 拉森科技企划部</title>
+<style>
+  /* ===== RESET & BASE ===== */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; font-size: 16px; }
+  body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: #0f1114;
+    color: #e8e6e1;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+  ::selection { background: #c8a96e; color: #1a1a1a; }
+
+  /* ===== COLOR SYSTEM ===== */
+  :root {
+    --bg-primary: #0f1114;
+    --bg-secondary: #181b20;
+    --bg-card: #1e2228;
+    --bg-card-alt: #252a31;
+    --gold: #c8a96e;
+    --gold-light: #e0c992;
+    --gold-dark: #a08545;
+    --olive: #6b7c5e;
+    --olive-light: #8a9e7a;
+    --khaki: #b5a882;
+    --rust: #a0522d;
+    --rust-light: #c47040;
+    --text-primary: #e8e6e1;
+    --text-secondary: #a8a59e;
+    --text-muted: #6e6b65;
+    --border: #2e333a;
+    --border-gold: rgba(200,169,110,0.3);
+  }
+
+  /* ===== TYPOGRAPHY ===== */
+  h1, h2, h3, h4, h5 { font-weight: 700; line-height: 1.3; }
+  h1 { font-size: 3rem; letter-spacing: 0.05em; }
+  h2 { font-size: 2rem; letter-spacing: 0.03em; }
+  h3 { font-size: 1.4rem; }
+  h4 { font-size: 1.15rem; }
+  p { color: var(--text-secondary); }
+  strong { color: var(--text-primary); font-weight: 600; }
+  .gold-text { color: var(--gold); }
+  .olive-text { color: var(--olive-light); }
+  .rust-text { color: var(--rust-light); }
+
+  /* ===== LAYOUT ===== */
+  .page { max-width: 1280px; margin: 0 auto; padding: 0 60px; }
+  .section { padding: 100px 0; position: relative; }
+  .section + .section { border-top: 1px solid var(--border); }
+
+  /* ===== COVER ===== */
+  .cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(200,169,110,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(107,124,94,0.08) 0%, transparent 50%),
+      var(--bg-primary);
+    overflow: hidden;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      repeating-linear-gradient(90deg, transparent, transparent 99px, rgba(200,169,110,0.04) 99px, rgba(200,169,110,0.04) 100px),
+      repeating-linear-gradient(0deg, transparent, transparent 99px, rgba(200,169,110,0.04) 99px, rgba(200,169,110,0.04) 100px);
+    pointer-events: none;
+  }
+  .cover-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 28px;
+    border: 1px solid var(--border-gold);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+    background: rgba(200,169,110,0.05);
+  }
+  .cover-badge::before, .cover-badge::after {
+    content: '◆';
+    font-size: 0.5rem;
+  }
+  .cover h1 {
+    font-size: 4.2rem;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--khaki));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+  }
+  .cover .subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+    margin-bottom: 60px;
+  }
+  .cover-meta {
+    display: flex;
+    gap: 50px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .cover-meta span { display: flex; align-items: center; gap: 8px; }
+  .cover-line {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 40px auto;
+  }
+  .cover-decor {
+    position: absolute;
+    bottom: 60px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  /* ===== TOC ===== */
+  .toc { padding: 100px 0; }
+  .toc-header {
+    text-align: center;
+    margin-bottom: 70px;
+  }
+  .toc-header h2 { color: var(--gold); font-size: 1.8rem; margin-bottom: 10px; }
+  .toc-header p { color: var(--text-muted); font-size: 0.9rem; letter-spacing: 0.1em; }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+  }
+  .toc-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .toc-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--olive));
+  }
+  .toc-num {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .toc-item h4 { color: var(--text-primary); margin-bottom: 10px; font-size: 1.05rem; }
+  .toc-item p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ===== SECTION HEADER ===== */
+  .sec-header {
+    margin-bottom: 60px;
+    position: relative;
+  }
+  .sec-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.8rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .sec-label::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .sec-header h2 {
+    color: var(--text-primary);
+    position: relative;
+  }
+  .sec-header h2 span { color: var(--gold); }
+  .sec-desc {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+  }
+
+  /* ===== CARDS ===== */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    position: relative;
+  }
+  .card-gold-border { border-color: var(--border-gold); }
+  .card-highlight {
+    background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(107,124,94,0.05));
+    border-color: var(--border-gold);
+  }
+
+  /* ===== GRID SYSTEMS ===== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 30px; }
+  .grid-4 { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 24px; }
+
+  /* ===== STAT BOXES ===== */
+  .stat-box {
+    text-align: center;
+    padding: 40px 24px;
+  }
+  .stat-value {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .stat-unit {
+    font-size: 1.2rem;
+    font-weight: 400;
+    -webkit-text-fill-color: var(--gold);
+  }
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
+  }
+  .stat-sub {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* ===== DATA BARS ===== */
+  .data-bar-wrap { margin-bottom: 20px; }
+  .data-bar-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+  }
+  .data-bar-label span:first-child { color: var(--text-primary); }
+  .data-bar-label span:last-child { color: var(--gold); font-weight: 600; }
+  .data-bar {
+    height: 10px;
+    background: var(--bg-card-alt);
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .data-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-light));
+    transition: width 1s ease;
+  }
+  .data-bar-fill.olive {
+    background: linear-gradient(90deg, var(--olive), var(--olive-light));
+  }
+  .data-bar-fill.rust {
+    background: linear-gradient(90deg, var(--rust), var(--rust-light));
+  }
+
+  /* ===== TAGS ===== */
+  .tag {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    margin: 3px 4px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    background: var(--bg-card-alt);
+  }
+  .tag-gold { border-color: var(--border-gold); color: var(--gold); background: rgba(200,169,110,0.08); }
+  .tag-olive { border-color: rgba(107,124,94,0.4); color: var(--olive-light); background: rgba(107,124,94,0.08); }
+  .tag-rust { border-color: rgba(160,82,45,0.4); color: var(--rust-light); background: rgba(160,82,45,0.08); }
+
+  /* ===== TIMELINE ===== */
+  .timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold), var(--olive), var(--rust), var(--gold));
+  }
+  .timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+    padding-left: 20px;
+  }
+  .timeline-item:last-child { margin-bottom: 0; }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -33px;
+    top: 8px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 3px solid var(--bg-primary);
+    box-shadow: 0 0 0 2px var(--gold-dark);
+  }
+  .timeline-era {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .timeline-title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .timeline-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== PERSONA CARDS ===== */
+  .persona-card {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+  }
+  .persona-header {
+    padding: 28px 30px 20px;
+    position: relative;
+  }
+  .persona-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .persona-card:nth-child(1) .persona-header::before { background: linear-gradient(90deg, #e74c3c, #f39c12); }
+  .persona-card:nth-child(2) .persona-header::before { background: linear-gradient(90deg, #3498db, #2ecc71); }
+  .persona-card:nth-child(3) .persona-header::before { background: linear-gradient(90deg, var(--gold), var(--olive-light)); }
+  .persona-card:nth-child(4) .persona-header::before { background: linear-gradient(90deg, #1abc9c, #27ae60); }
+  .persona-icon {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+  }
+  .persona-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  .persona-age {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .persona-body { padding: 0 30px 28px; }
+  .persona-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 0.85rem;
+  }
+  .persona-row-label {
+    color: var(--text-muted);
+    min-width: 56px;
+    flex-shrink: 0;
+  }
+  .persona-row-value {
+    color: var(--text-secondary);
+  }
+  .persona-strategy {
+    margin-top: 16px;
+    padding: 14px 16px;
+    background: var(--bg-card-alt);
+    border-radius: 8px;
+    border-left: 3px solid var(--gold);
+  }
+  .persona-strategy-label {
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 6px;
+  }
+  .persona-strategy-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ===== STYLE CARDS ===== */
+  .style-card {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    position: relative;
+  }
+  .style-card-top {
+    padding: 30px 30px 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .style-card-num {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .style-card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+  .style-card-core {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .style-card-body { padding: 24px 30px 30px; }
+  .style-detail-block { margin-bottom: 18px; }
+  .style-detail-block:last-child { margin-bottom: 0; }
+  .style-detail-label {
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+  .style-detail-text {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== NEEDS EVOLUTION ===== */
+  .evolution-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    flex-wrap: wrap;
+    padding: 40px 0;
+  }
+  .evo-step {
+    text-align: center;
+    padding: 24px 20px;
+    min-width: 160px;
+  }
+  .evo-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    font-size: 1.5rem;
+    border: 2px solid;
+  }
+  .evo-step:nth-child(1) .evo-icon { border-color: var(--text-muted); color: var(--text-muted); background: rgba(110,107,101,0.1); }
+  .evo-step:nth-child(3) .evo-icon { border-color: var(--khaki); color: var(--khaki); background: rgba(181,168,130,0.1); }
+  .evo-step:nth-child(5) .evo-icon { border-color: var(--olive-light); color: var(--olive-light); background: rgba(138,158,122,0.1); }
+  .evo-step:nth-child(7) .evo-icon { border-color: var(--gold); color: var(--gold); background: rgba(200,169,110,0.1); }
+  .evo-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+  .evo-arrow {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    padding: 0 8px;
+  }
+
+  /* ===== LIFECYCLE ===== */
+  .lifecycle {
+    display: flex;
+    gap: 0;
+    margin-top: 40px;
+    position: relative;
+  }
+  .lc-phase {
+    flex: 1;
+    text-align: center;
+    padding: 30px 16px;
+    position: relative;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+  }
+  .lc-phase:first-child { border-radius: 12px 0 0 12px; }
+  .lc-phase:last-child { border-radius: 0 12px 12px 0; }
+  .lc-phase + .lc-phase { border-left: none; }
+  .lc-phase::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .lc-phase:nth-child(1)::after { background: #e74c3c; }
+  .lc-phase:nth-child(2)::after { background: #f39c12; }
+  .lc-phase:nth-child(3)::after { background: var(--gold); }
+  .lc-phase:nth-child(4)::after { background: var(--olive-light); }
+  .lc-phase:nth-child(5)::after { background: #3498db; }
+  .lc-year {
+    font-size: 0.78rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  .lc-title {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .lc-desc {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ===== STRATEGY BLOCKS ===== */
+  .strategy-block {
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    margin-bottom: 30px;
+  }
+  .strategy-block:last-child { margin-bottom: 0; }
+  .strategy-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .strategy-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    background: rgba(200,169,110,0.1);
+    border: 1px solid var(--border-gold);
+    color: var(--gold);
+  }
+  .strategy-title h3 { color: var(--text-primary); font-size: 1.2rem; }
+  .strategy-title p { font-size: 0.85rem; color: var(--text-muted); }
+  .strategy-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .strategy-item {
+    padding: 20px;
+    background: var(--bg-card-alt);
+    border-radius: 10px;
+    border-left: 3px solid var(--gold);
+  }
+  .strategy-item h5 {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+  .strategy-item p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ===== HIGHLIGHT BOX ===== */
+  .highlight-box {
+    background: linear-gradient(135deg, rgba(200,169,110,0.1), rgba(107,124,94,0.06));
+    border: 1px solid var(--border-gold);
+    border-radius: 12px;
+    padding: 30px 36px;
+    margin: 30px 0;
+  }
+  .highlight-box h4 {
+    color: var(--gold);
+    margin-bottom: 12px;
+    font-size: 1rem;
+  }
+  .highlight-box p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  /* ===== SOCIAL MEDIA STATS ===== */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+  }
+  .social-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .social-item::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(200,169,110,0.04) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .social-hashtag {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+  }
+  .social-count {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--gold);
+    line-height: 1.1;
+    margin-bottom: 6px;
+  }
+  .social-unit {
+    font-size: 0.85rem;
+    color: var(--gold-dark);
+  }
+  .social-label {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  /* ===== SUMMARY TABLE ===== */
+  .summary-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 30px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .summary-table th {
+    background: var(--bg-card-alt);
+    padding: 16px 20px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+  }
+  .summary-table td {
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border);
+    line-height: 1.6;
+  }
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table tr:hover td { background: rgba(200,169,110,0.03); }
+
+  /* ===== NEEDS GRID ===== */
+  .needs-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+    margin-top: 30px;
+  }
+  .need-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 18px;
+    text-align: center;
+    position: relative;
+  }
+  .need-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+  .need-item:nth-child(1)::before { background: #e74c3c; }
+  .need-item:nth-child(2)::before { background: #f39c12; }
+  .need-item:nth-child(3)::before { background: var(--olive-light); }
+  .need-item:nth-child(4)::before { background: #3498db; }
+  .need-item:nth-child(5)::before { background: #9b59b6; }
+  .need-icon { font-size: 1.8rem; margin-bottom: 12px; }
+  .need-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .need-desc {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    margin: 30px 0;
+  }
+
+  /* ===== FOOTER ===== */
+  .report-footer {
+    text-align: center;
+    padding: 60px 0;
+    border-top: 1px solid var(--border);
+  }
+  .footer-logo {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+  .footer-info {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  .footer-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold-dark);
+    margin: 20px auto;
+  }
+  .footer-confidential {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.15em;
+    margin-top: 16px;
+  }
+
+  /* ===== CORE JUDGMENT ===== */
+  .judgment-box {
+    background: linear-gradient(135deg, rgba(200,169,110,0.12), rgba(107,124,94,0.08), rgba(160,82,45,0.06));
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 50px;
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+  }
+  .judgment-box::before {
+    content: '◆';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-primary);
+    padding: 0 20px;
+    color: var(--gold);
+    font-size: 0.8rem;
+  }
+  .judgment-box h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+  }
+  .judgment-box p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  /* ===== TRANSITION DIRECTION ===== */
+  .direction-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 30px 40px;
+    margin-top: 30px;
+  }
+  .direction-from {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+  .direction-arrow {
+    font-size: 2rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .direction-to {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gold-light);
+    white-space: nowrap;
+  }
+  .direction-methods {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    flex: 1;
+    line-height: 1.7;
+  }
+
+  /* ===== BRAND COMPARISON ===== */
+  .brand-compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+  }
+  .brand-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 36px;
+    position: relative;
+  }
+  .brand-box h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .brand-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .brand-stat-label { font-size: 0.88rem; color: var(--text-secondary); }
+  .brand-stat-value { font-size: 1.4rem; font-weight: 700; }
+  .brand-stat-value.gold { color: var(--gold); }
+  .brand-stat-value.olive { color: var(--olive-light); }
+
+  /* ===== STYLE SUMMARY ROW ===== */
+  .style-summary-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .style-summary-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px 22px;
+    text-align: center;
+  }
+  .style-summary-item h4 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+  }
+  .style-summary-item .tag {
+    display: block;
+    margin: 4px auto;
+    width: fit-content;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .page { padding: 0 30px; }
+    .cover h1 { font-size: 2.8rem; }
+    .toc-grid { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(2, 1fr); }
+    .social-grid { grid-template-columns: repeat(2, 1fr); }
+    .needs-grid { grid-template-columns: repeat(3, 1fr); }
+    .lifecycle { flex-wrap: wrap; }
+    .lc-phase { flex: 1 1 45%; margin-bottom: 2px; }
+    .lc-phase:first-child { border-radius: 12px 0 0 0; }
+    .lc-phase:nth-child(2) { border-radius: 0 12px 0 0; }
+    .lc-phase:nth-child(3) { border-radius: 0 0 0 12px; }
+    .lc-phase:last-child { border-radius: 0 0 12px 0; }
+    .style-summary-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 768px) {
+    .page { padding: 0 20px; }
+    .cover h1 { font-size: 2rem; }
+    .section { padding: 60px 0; }
+    .grid-2, .grid-3, .brand-compare, .strategy-items { grid-template-columns: 1fr; }
+    .toc-grid { grid-template-columns: 1fr; }
+    .social-grid, .needs-grid, .style-summary-row { grid-template-columns: 1fr 1fr; }
+    .evolution-flow { flex-direction: column; }
+    .evo-arrow { transform: rotate(90deg); }
+    .lifecycle { flex-direction: column; }
+    .lc-phase, .lc-phase:first-child, .lc-phase:last-child { border-radius: 0; }
+    .lc-phase:first-child { border-radius: 12px 12px 0 0; }
+    .lc-phase:last-child { border-radius: 0 0 12px 12px; }
+    .direction-box { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== COVER ==================== -->
+<section class="cover">
+  <div class="cover-badge">内部培训资料 · 企划部</div>
+  <h1>2026年工装风格<br>趋势洞察</h1>
+  <p class="subtitle">WORKWEAR STYLE TREND INSIGHT 2026</p>
+  <div class="cover-line"></div>
+  <div class="cover-meta">
+    <span>📋 拉森科技有限公司</span>
+    <span>🏢 企划部门</span>
+    <span>📅 2026年4月</span>
+  </div>
+  <div class="cover-decor">CONFIDENTIAL — FOR INTERNAL USE ONLY</div>
+</section>
+
+<!-- ==================== TOC ==================== -->
+<section class="toc">
+  <div class="page">
+    <div class="toc-header">
+      <h2>报告目录</h2>
+      <p>CONTENTS</p>
+    </div>
+    <div class="toc-grid">
+      <div class="toc-item">
+        <div class="toc-num">01</div>
+        <h4>综述</h4>
+        <p>工装文化核心定义、市场现状与报告价值</p>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">02</div>
+        <h4>工装文化概况</h4>
+        <p>起源演变、历史脉络与市场发展趋势</p>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">03</div>
+        <h4>消费者洞察</h4>
+        <p>核心趋势、四类人群画像与需求变化</p>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">04</div>
+        <h4>风格趋势</h4>
+        <p>复古/军事/机能/轻工装四大核心风格</p>
+      </div>
+      <div class="toc-item">
+        <div class="toc-num">05</div>
+        <h4>总结与展望</h4>
+        <p>生命周期分析、发展策略与行业判断</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 1: 综述 ==================== -->
+<section class="section">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-label">Chapter 01</div>
+      <h2>综述 · <span>Overview</span></h2>
+      <p class="sec-desc">从文化定义到市场格局，全面把握工装风格的核心价值与发展方向。</p>
+    </div>
+
+    <div class="grid-3" style="margin-bottom: 40px;">
+      <div class="card card-highlight">
+        <div style="font-size: 2rem; margin-bottom: 14px;">🔧</div>
+        <h4 style="margin-bottom: 10px;">工装文化核心定义</h4>
+        <p>工装文化是<strong>功能性工作服</strong>与时尚、亚文化、生活方式结合的潮流形态，起源于工业时代实用需求，现代已演变为代表<strong>粗犷、耐用、真实生活态度</strong>的符号化审美体系。</p>
+      </div>
+      <div class="card card-highlight">
+        <div style="font-size: 2rem; margin-bottom: 14px;">📈</div>
+        <h4 style="margin-bottom: 10px;">市场核心现状</h4>
+        <p>工装风格社媒热度持续飙升，全面影响<strong>服装制造至零售全链条</strong>，重塑时尚设计语言与消费者穿着理念、价值观，行业发展潜力极大。</p>
+      </div>
+      <div class="card card-highlight">
+        <div style="font-size: 2rem; margin-bottom: 14px;">🎯</div>
+        <h4 style="margin-bottom: 10px;">报告核心价值</h4>
+        <p>基于工装文化演变、消费者需求、热门风格趋势，精准预测工装产品<strong>设计端</strong>与<strong>营销端</strong>发展策略，为企业决策提供实战参考。</p>
+      </div>
+    </div>
+
+    <div class="highlight-box">
+      <h4>💡 核心逻辑</h4>
+      <p>工装文化演进是<strong>功能性与审美主义的博弈和解</strong>，从工业劳动刚需逐步变为时尚反叛符号，重构现代衣橱规则。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 2: 工装文化概况 ==================== -->
+<section class="section">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-label">Chapter 02</div>
+      <h2>工装文化概况 · <span>Culture & Market</span></h2>
+      <p class="sec-desc">追溯工装文化的历史起源与演变脉络，解析市场发展趋势与品牌格局。</p>
+    </div>
+
+    <!-- 2.1 起源及演变 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（一）工装文化起源及演变</h3>
+
+    <div class="grid-2" style="margin-bottom: 50px;">
+      <div class="card">
+        <h4 style="margin-bottom: 24px; color: var(--gold);">分阶段历史演变</h4>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-era">18-19世纪 · 工业革命</div>
+            <div class="timeline-title">工装诞生</div>
+            <div class="timeline-desc">以<strong>耐磨、实用、防护</strong>为核心，采用厚实棉布/帆布，适配工厂、矿山、建筑工地等恶劣环境。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-era">20世纪初 — 二战</div>
+            <div class="timeline-title">军事化与阶级象征</div>
+            <div class="timeline-desc">受军事影响，成为工人阶级象征；飞行员、赛车手优化功能设计（增口袋、加固缝线）；二战被军队采用，战后流入民间普及。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-era">20世纪70-90年代</div>
+            <div class="timeline-title">文化符号化</div>
+            <div class="timeline-desc">受朋克、摇滚、HIP-HOP文化追捧，设计师融入小众设计，脱离纯工作服属性。</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-era">21世纪至今</div>
+            <div class="timeline-title">现代工装潮</div>
+            <div class="timeline-desc">全面渗透时尚领域，保留基础功能，融合环保、智能化元素，成为连接传统与未来的时尚载体。</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="margin-bottom: 24px; color: var(--gold);">核心文化属性</h4>
+        <div style="display: flex; flex-direction: column; gap: 18px; margin-top: 10px;">
+          <div style="padding: 20px; background: var(--bg-card-alt); border-radius: 10px; border-left: 3px solid #e74c3c;">
+            <h5 style="color: var(--text-primary); margin-bottom: 6px;">功能性</h5>
+            <p style="font-size: 0.88rem;">以实用为根基，口袋、加固缝线、耐磨面料等设计元素服务于真实劳动场景需求。</p>
+          </div>
+          <div style="padding: 20px; background: var(--bg-card-alt); border-radius: 10px; border-left: 3px solid #f39c12;">
+            <h5 style="color: var(--text-primary); margin-bottom: 6px;">多元化</h5>
+            <p style="font-size: 0.88rem;">从单一工作服演变为涵盖复古、军事、机能、轻工装等多风格体系的时尚品类。</p>
+          </div>
+          <div style="padding: 20px; background: var(--bg-card-alt); border-radius: 10px; border-left: 3px solid var(--gold);">
+            <h5 style="color: var(--text-primary); margin-bottom: 6px;">文化符号化</h5>
+            <p style="font-size: 0.88rem;">承载工人阶级精神、朋克反叛态度、户外生活方式等多重文化意涵，成为身份认同的视觉符号。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2.2 市场发展趋势 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（二）工装市场发展趋势</h3>
+
+    <div class="grid-4" style="margin-bottom: 40px;">
+      <div class="card stat-box">
+        <div class="stat-value">6.7<span class="stat-unit">%</span></div>
+        <div class="stat-label">年复合增长率</div>
+        <div class="stat-sub">2018-2023年中国工装服饰市场</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-value">1560<span class="stat-unit">亿</span></div>
+        <div class="stat-label">市场总规模（2023年）</div>
+        <div class="stat-sub">覆盖工作服/特殊工装/休闲工装</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-value">3.8<span class="stat-unit">%</span></div>
+        <div class="stat-label">传统品牌年增长率</div>
+        <div class="stat-sub">深耕工作/防护服领域</div>
+      </div>
+      <div class="card stat-box">
+        <div class="stat-value">12.4<span class="stat-unit">%</span></div>
+        <div class="stat-label">新兴品牌年增长率</div>
+        <div class="stat-sub">创新设计+社媒营销突围</div>
+      </div>
+    </div>
+
+    <!-- 品牌格局对比 -->
+    <div class="brand-compare" style="margin-bottom: 40px;">
+      <div class="brand-box">
+        <h4>🏭 传统工装品牌</h4>
+        <div class="brand-stat">
+          <span class="brand-stat-label">市场地位</span>
+          <span class="brand-stat-value gold">占据主导</span>
+        </div>
+        <div class="brand-stat">
+          <span class="brand-stat-label">核心优势</span>
+          <span class="brand-stat-value olive">供应链成熟</span>
+        </div>
+        <div class="brand-stat">
+          <span class="brand-stat-label">年增长率</span>
+          <span class="brand-stat-value" style="color: var(--text-secondary);">3.8%</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 16px; line-height: 1.7;">深耕工作/防护服领域，供应链成熟稳定，但增速相对放缓。</p>
+      </div>
+      <div class="brand-box">
+        <h4>🚀 新兴工装品牌</h4>
+        <div class="brand-stat">
+          <span class="brand-stat-label">市场地位</span>
+          <span class="brand-stat-value gold">快速崛起</span>
+        </div>
+        <div class="brand-stat">
+          <span class="brand-stat-label">核心优势</span>
+          <span class="brand-stat-value olive">创新+社媒</span>
+        </div>
+        <div class="brand-stat">
+          <span class="brand-stat-label">年增长率</span>
+          <span class="brand-stat-value" style="color: var(--gold);">12.4%</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 16px; line-height: 1.7;">以创新设计、精准定位、社媒营销突围，增速远超传统品牌。</p>
+      </div>
+    </div>
+
+    <!-- 社媒热度 -->
+    <div class="card" style="margin-bottom: 0;">
+      <h4 style="margin-bottom: 8px; color: var(--text-primary);">🔥 社媒热门话题热度</h4>
+      <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 24px;">工装市场从单一功能性需求，向多元化、时尚化转型</p>
+      <div class="social-grid">
+        <div class="social-item">
+          <div class="social-hashtag">#巴恩风穿搭</div>
+          <div class="social-count">7.5<span class="social-unit">亿+</span></div>
+          <div class="social-label">浏览量</div>
+        </div>
+        <div class="social-item">
+          <div class="social-hashtag">#阿美咔叽</div>
+          <div class="social-count">3.7<span class="social-unit">亿+</span></div>
+          <div class="social-label">浏览量</div>
+        </div>
+        <div class="social-item">
+          <div class="social-hashtag">#底特律夹克</div>
+          <div class="social-count">315<span class="social-unit">万+</span></div>
+          <div class="social-label">笔记数</div>
+        </div>
+        <div class="social-item">
+          <div class="social-hashtag">#工装穿搭</div>
+          <div class="social-count">1715<span class="social-unit">万+</span></div>
+          <div class="social-label">浏览量</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 3: 消费者洞察 ==================== -->
+<section class="section">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-label">Chapter 03</div>
+      <h2>工装消费者洞察 · <span>Consumer Insights</span></h2>
+      <p class="sec-desc">深度解析核心消费趋势、四类细分人群画像及消费需求核心变化。</p>
+    </div>
+
+    <!-- 3.1 核心消费趋势 -->
+    <div class="highlight-box" style="margin-top: 0; margin-bottom: 50px;">
+      <h4>📊 核心消费趋势</h4>
+      <p>消费者对工装品质要求全面提升，核心关注<strong>设计感、便捷性、多场景化</strong>，追求时尚化、多功能性与舒适性的统一。</p>
+    </div>
+
+    <!-- 3.2 四类细分消费人群 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（二）四类细分消费人群画像</h3>
+
+    <div class="grid-2" style="margin-bottom: 50px;">
+      <!-- 潮流青年 -->
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-icon">🧑‍🎤</div>
+          <div class="persona-name">潮流青年</div>
+          <div class="persona-age">18-30岁 · 学生 / 职场新人 / 潮流爱好者</div>
+          <div>
+            <span class="tag tag-gold">个性表达</span>
+            <span class="tag tag-gold">社交认同</span>
+            <span class="tag tag-gold">街头文化</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <span class="persona-row-label">消费动机</span>
+            <span class="persona-row-value">追求个性表达、社交认同，工装是街头文化符号</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">价格区间</span>
+            <span class="persona-row-value">中等偏高，客单价 <strong style="color:var(--gold)">500-1200元</strong>，愿为联名款支付溢价</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心渠道</span>
+            <span class="persona-row-value">小红书、抖音、B站等社媒 + 线下潮流买手店</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心需求</span>
+            <span class="persona-row-value">限量款、明星同款、场景化穿搭内容（露营/音乐节）</span>
+          </div>
+          <div class="persona-strategy">
+            <div class="persona-strategy-label">🎯 运营策略</div>
+            <div class="persona-strategy-text">联名营销 + 限量发售，强化社媒内容种草</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 实用主义者 -->
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-icon">👷</div>
+          <div class="persona-name">实用主义者</div>
+          <div class="persona-age">25-45岁+ · 制造业 / 服务业 / 户外从业者</div>
+          <div>
+            <span class="tag tag-olive">耐用性</span>
+            <span class="tag tag-olive">防护性</span>
+            <span class="tag tag-olive">性价比</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <span class="persona-row-label">消费动机</span>
+            <span class="persona-row-value">优先耐用性、防护性，兼顾性价比，保障长时间穿着舒适</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">价格区间</span>
+            <span class="persona-row-value">高敏感，客单价 <strong style="color:var(--olive-light)">200-500元</strong></span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心渠道</span>
+            <span class="persona-row-value">线下批发市场、1688等源头电商、企业团体定制</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心需求</span>
+            <span class="persona-row-value">易打理、可拆卸配件、团购折扣</span>
+          </div>
+          <div class="persona-strategy">
+            <div class="persona-strategy-label">🎯 运营策略</div>
+            <div class="persona-strategy-text">供应链降本 + 功能创新，提升B端渠道渗透率</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 职场通勤族 -->
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-icon">💼</div>
+          <div class="persona-name">职场通勤族</div>
+          <div class="persona-age">28-40岁+ · 都市白领 / 自由职业 / 新中产</div>
+          <div>
+            <span class="tag tag-gold">商务休闲</span>
+            <span class="tag tag-gold">多场景</span>
+            <span class="tag tag-gold">轻工装</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <span class="persona-row-label">消费动机</span>
+            <span class="persona-row-value">平衡商务与休闲，轻工装适配办公、差旅、社交多场景</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">价格区间</span>
+            <span class="persona-row-value">中等，客单价 <strong style="color:var(--gold)">800-2000元</strong></span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心渠道</span>
+            <span class="persona-row-value">天猫官旗、品牌专卖店、快时尚门店</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心需求</span>
+            <span class="persona-row-value">抗皱面料、隐藏式口袋、得体剪裁</span>
+          </div>
+          <div class="persona-strategy">
+            <div class="persona-strategy-label">🎯 运营策略</div>
+            <div class="persona-strategy-text">开发轻量化、多场景产品线，布局线上线下融合体验</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 环保理念者 -->
+      <div class="persona-card">
+        <div class="persona-header">
+          <div class="persona-icon">🌱</div>
+          <div class="persona-name">环保理念者</div>
+          <div class="persona-age">22-50岁+ · 环保主义者 / 中高收入人群</div>
+          <div>
+            <span class="tag tag-olive">可持续</span>
+            <span class="tag tag-olive">低碳</span>
+            <span class="tag tag-olive">再生纤维</span>
+          </div>
+        </div>
+        <div class="persona-body">
+          <div class="persona-row">
+            <span class="persona-row-label">消费动机</span>
+            <span class="persona-row-value">可持续价值观驱动，关注产品全生命周期（材料/生产/回收）</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">价格区间</span>
+            <span class="persona-row-value">低敏感，客单价 <strong style="color:var(--olive-light)">1000-3000元</strong>，愿为环保支付溢价</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心渠道</span>
+            <span class="persona-row-value">环保电商、品牌独立站、线下快闪、公益活动</span>
+          </div>
+          <div class="persona-row">
+            <span class="persona-row-label">核心需求</span>
+            <span class="persona-row-value">碳足迹标签、旧衣回收、环保材质产品</span>
+          </div>
+          <div class="persona-strategy">
+            <div class="persona-strategy-label">🎯 运营策略</div>
+            <div class="persona-strategy-text">构建可持续品牌叙事，透明化供应链建立信任</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3.3 消费需求核心变化 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（三）消费需求核心变化</h3>
+
+    <!-- 需求演变路径 -->
+    <h4 style="margin-bottom: 20px; color: var(--text-secondary); font-size: 0.95rem;">需求演变路径</h4>
+    <div class="evolution-flow">
+      <div class="evo-step">
+        <div class="evo-icon">🔩</div>
+        <div class="evo-label">单一功能性</div>
+      </div>
+      <div class="evo-arrow">→</div>
+      <div class="evo-step">
+        <div class="evo-icon">🎨</div>
+        <div class="evo-label">时尚个性化</div>
+      </div>
+      <div class="evo-arrow">→</div>
+      <div class="evo-step">
+        <div class="evo-icon">♻️</div>
+        <div class="evo-label">环保智能化</div>
+      </div>
+      <div class="evo-arrow">→</div>
+      <div class="evo-step">
+        <div class="evo-icon">💝</div>
+        <div class="evo-label">情感体验式</div>
+      </div>
+    </div>
+
+    <!-- 五大核心需求 -->
+    <h4 style="margin-bottom: 20px; margin-top: 50px; color: var(--text-secondary); font-size: 0.95rem;">五大核心需求</h4>
+    <div class="needs-grid">
+      <div class="need-item">
+        <div class="need-icon">👗</div>
+        <div class="need-title">时尚潮流</div>
+        <div class="need-desc">轻工装、复古工装成主流，适配日常穿搭</div>
+      </div>
+      <div class="need-item">
+        <div class="need-icon">✂️</div>
+        <div class="need-title">个性化定制</div>
+        <div class="need-desc">年轻群体追DIY/联名，企业需定制化工装强化品牌</div>
+      </div>
+      <div class="need-item">
+        <div class="need-icon">🌿</div>
+        <div class="need-title">环保可持续</div>
+        <div class="need-desc">关注再生纤维、低碳生产、产品可回收</div>
+      </div>
+      <div class="need-item">
+        <div class="need-icon">🔄</div>
+        <div class="need-title">功能场景切换</div>
+        <div class="need-desc">专业领域重防护，都市人群追求一衣多穿</div>
+      </div>
+      <div class="need-item">
+        <div class="need-icon">⚖️</div>
+        <div class="need-title">性价比与文化</div>
+        <div class="need-desc">实用党重耐用低价，潮流党为品牌文化买单</div>
+      </div>
+    </div>
+
+    <!-- 行业转型方向 -->
+    <div class="direction-box" style="margin-top: 40px;">
+      <div class="direction-from">劳动工具</div>
+      <div class="direction-arrow">⟶</div>
+      <div class="direction-to">生活方式符号</div>
+      <div class="direction-methods">
+        以消费者为核心，通过<strong>功能创新</strong> + <strong>文化赋能</strong> + <strong>体验升级</strong>，实现行业转型。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== SECTION 4: 工装风格趋势 ==================== -->
+<section class="section">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-label">Chapter 04</div>
+      <h2>工装风格趋势 · <span>Style Trends</span></h2>
+      <p class="sec-desc">四大核心风格深度解析——复古工装风、军事工装风、机能工装风、轻工装风。</p>
+    </div>
+
+    <!-- 四大风格卡片 -->
+    <div class="grid-2" style="margin-bottom: 50px;">
+      <!-- 复古工装风 -->
+      <div class="style-card">
+        <div class="style-card-top">
+          <div class="style-card-num">Style 01</div>
+          <div class="style-card-title">复古工装风 <span style="color: var(--khaki);">Vintage Workwear</span></div>
+          <div class="style-card-core">复刻上世纪工人服饰，绑定阿美咔叽文化，强调历史感与手工痕迹，日本精细化改良形成独特穿搭体系。</div>
+        </div>
+        <div class="style-card-body">
+          <div class="style-detail-block">
+            <div class="style-detail-label">设计元素</div>
+            <div class="style-detail-text">
+              <span class="tag tag-gold">丹宁</span>
+              <span class="tag tag-gold">帆布</span>
+              <span class="tag tag-gold">做旧工艺</span>
+              <span class="tag tag-gold">经典版型复刻</span>
+            </div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">标志单品</div>
+            <div class="style-detail-text">底特律夹克、谷仓夹克、Barbour夹克、工装衬衫、伐木裤、工程师靴</div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">消费场景</div>
+            <div class="style-detail-text">户外探险、日常硬核穿搭</div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">市场趋势</div>
+            <div class="style-detail-text">复古文化热潮下持续增长，可通过历史元素挖掘、IP合作做经典复刻，提升文化附加值。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 军事工装风 -->
+      <div class="style-card">
+        <div class="style-card-top">
+          <div class="style-card-num">Style 02</div>
+          <div class="style-card-title">军事工装风 <span style="color: var(--olive-light);">Military Workwear</span></div>
+          <div class="style-card-core">从军服演变而来，从"战斗装备"转化为潮流符号，注重细节与功能性。</div>
+        </div>
+        <div class="style-card-body">
+          <div class="style-detail-block">
+            <div class="style-detail-label">设计元素</div>
+            <div class="style-detail-text">
+              <span class="tag tag-olive">迷彩印花</span>
+              <span class="tag tag-olive">战术口袋</span>
+              <span class="tag tag-olive">硬朗剪裁</span>
+            </div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">标志单品</div>
+            <div class="style-detail-text">迷彩工装衬衫、M65野战夹克、MA1飞行夹克</div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">市场趋势</div>
+            <div class="style-detail-text">户外运动普及推动需求扩张，可针对户外场景开发专业功能款，结合时尚元素拓展日常穿搭。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 机能工装风 -->
+      <div class="style-card">
+        <div class="style-card-top">
+          <div class="style-card-num">Style 03</div>
+          <div class="style-card-title">机能工装风 <span style="color: #3498db;">Techwear</span></div>
+          <div class="style-card-core">科技面料与时尚设计融合，科技感+未来感拉满，设计走向先锋化。</div>
+        </div>
+        <div class="style-card-body">
+          <div class="style-detail-block">
+            <div class="style-detail-label">设计元素</div>
+            <div class="style-detail-text">
+              <span class="tag" style="border-color: rgba(52,152,219,0.4); color: #5dade2; background: rgba(52,152,219,0.08);">科技面料</span>
+              <span class="tag" style="border-color: rgba(52,152,219,0.4); color: #5dade2; background: rgba(52,152,219,0.08);">模块化设计</span>
+              <span class="tag" style="border-color: rgba(52,152,219,0.4); color: #5dade2; background: rgba(52,152,219,0.08);">反光细节</span>
+            </div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">核心技术</div>
+            <div class="style-detail-text">GORE-TEX、3M反光材质，具备高活动性、多重收纳、防水挡风特性</div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">核心优势</div>
+            <div class="style-detail-text">功能性远超传统工装，满足现代消费者功能与时尚双重需求。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 轻工装风 -->
+      <div class="style-card">
+        <div class="style-card-top">
+          <div class="style-card-num">Style 04</div>
+          <div class="style-card-title">轻工装风 <span style="color: var(--rust-light);">Light Workwear</span></div>
+          <div class="style-card-core">弱化传统工装复杂功能，聚焦日常舒适与时尚，适配都市快节奏生活。</div>
+        </div>
+        <div class="style-card-body">
+          <div class="style-detail-block">
+            <div class="style-detail-label">设计方向</div>
+            <div class="style-detail-text">简化功能，融合通勤+休闲场景，面料选择更多元</div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">标志单品</div>
+            <div class="style-detail-text">
+              <span class="tag tag-rust">轻工装夹克</span>
+              <span class="tag tag-rust">牛仔丹宁夹克</span>
+              <span class="tag tag-rust">工装阔腿裤</span>
+              <span class="tag tag-rust">轻工装风衣</span>
+              <span class="tag tag-rust">法工裤</span>
+              <span class="tag tag-rust">工装短裤</span>
+            </div>
+          </div>
+          <div class="style-detail-block">
+            <div class="style-detail-label">市场定位</div>
+            <div class="style-detail-text">都市青年日常穿搭首选，多场景适配性极强，市场地位持续提升。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 四大风格趋势要点总结 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（五）四大风格趋势要点总结</h3>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th style="width: 18%;">风格</th>
+          <th style="width: 18%;">核心特色</th>
+          <th>关键策略方向</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color: var(--khaki);">复古工装风</strong></td>
+          <td>历史文化特色</td>
+          <td>材质还原、工艺复刻、文化叙事</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--olive-light);">军事工装风</strong></td>
+          <td>军事背景演变</td>
+          <td>现代功能转化、符号化重构、平衡户外与日常</td>
+        </tr>
+        <tr>
+          <td><strong style="color: #5dade2;">机能工装风</strong></td>
+          <td>多模块化设计</td>
+          <td>场景化拓展、科技赋能、用户共创</td>
+        </tr>
+        <tr>
+          <td><strong style="color: var(--rust-light);">轻工装风</strong></td>
+          <td>现代化融合</td>
+          <td>贴合青年审美、多元面料、场景化营销</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ==================== SECTION 5: 总结与展望 ==================== -->
+<section class="section">
+  <div class="page">
+    <div class="sec-header">
+      <div class="sec-label">Chapter 05</div>
+      <h2>总结与展望 · <span>Summary & Outlook</span></h2>
+      <p class="sec-desc">工装风格生命周期全景分析与未来核心发展策略。</p>
+    </div>
+
+    <!-- 5.1 生命周期分析 -->
+    <h3 style="margin-bottom: 30px; color: var(--text-primary);">（一）工装风格生命周期分析</h3>
+
+    <div class="lifecycle">
+      <div class="lc-phase">
+        <div class="lc-year">2023-2024</div>
+        <div class="lc-title">🔥 爆发阶段</div>
+        <div class="lc-desc">巴恩风等社媒声量暴涨，工装产品市场飞速增长</div>
+      </div>
+      <div class="lc-phase">
+        <div class="lc-year">2025</div>
+        <div class="lc-title">⚡ 中期阶段</div>
+        <div class="lc-desc">品牌创新与市场分化，秀场工装露出绑定品牌创新与季度主题</div>
+      </div>
+      <div class="lc-phase">
+        <div class="lc-year">2026-2027</div>
+        <div class="lc-title">🌟 后期阶段</div>
+        <div class="lc-desc">全面渗透多场景生活方式，进入成熟阶段，推进设计升级与多元材质应用</div>
+      </div>
+      <div class="lc-phase">
+        <div class="lc-year">2028+</div>
+        <div class="lc-title">🔮 长期阶段</div>
+        <div class="lc-desc">经典风格延续，技术升级+文化赋能，形成"新工装"生态</div>
+      </div>
+      <div class="lc-phase">
+        <div class="lc-year">品牌周期</div>
+        <div class="lc-title">📦 产品周期</div>
+        <div class="lc-desc">工装类产品市场露出可延续 <strong style="color:var(--gold)">3-5季</strong></div>
+      </div>
+    </div>
+
+    <!-- 5.2 未来核心发展策略 -->
+    <h3 style="margin-bottom: 30px; margin-top: 60px; color: var(--text-primary);">（二）工装未来核心发展策略</h3>
+
+    <!-- 产品端 -->
+    <div class="strategy-block">
+      <div class="strategy-title">
+        <div class="strategy-icon">🛠️</div>
+        <div>
+          <h3>产品端：创新功能与设计融合</h3>
+          <p>Product Innovation</p>
+        </div>
+      </div>
+      <div class="strategy-items">
+        <div class="strategy-item">
+          <h5>🎨 创意设计</h5>
+          <p>混搭多元风格元素，邀请消费者参与设计共创，贴合市场需求。</p>
+        </div>
+        <div class="strategy-item">
+          <h5>♻️ 可持续升级</h5>
+          <p>提升再生纤维使用比例，推广<strong>可回收工装</strong>，设计易回收产品，建立闭环回收机制。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 营销端 -->
+    <div class="strategy-block">
+      <div class="strategy-title">
+        <div class="strategy-icon">📢</div>
+        <div>
+          <h3>营销端：精准触达与价值观共鸣</h3>
+          <p>Marketing Strategy</p>
+        </div>
+      </div>
+      <div class="strategy-items">
+        <div class="strategy-item">
+          <h5>🏛️ 品牌塑造</h5>
+          <p>深挖工装历史、地域、行业文化，打造"工匠精神"品牌形象，推出限量纪念款。</p>
+        </div>
+        <div class="strategy-item">
+          <h5>🤝 社群连接</h5>
+          <p>构建<strong>场景化+圈层化</strong>社群体系，针对户外、行业人群组织专属活动，强化品牌与用户情感连接。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5.3 行业核心判断 -->
+    <h3 style="margin-bottom: 30px; margin-top: 60px; color: var(--text-primary);">（三）行业核心判断</h3>
+
+    <div class="judgment-box">
+      <h3>行业前景判断</h3>
+      <p>
+        工装行业前景广阔、潜力巨大，<strong>技术创新、市场需求、政策支持</strong>将推动行业高质量发展。
+        市场竞争加剧，企业需持续提升<strong style="color: var(--gold);">设计力</strong>与<strong style="color: var(--gold);">营销力</strong>，抢占市场先机。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="report-footer">
+  <div class="page">
+    <div class="footer-logo">LARSEN TECH · 拉森科技</div>
+    <div class="footer-line"></div>
+    <div class="footer-info">
+      企划部门 · 内部培训资料<br>
+      2026年4月
+    </div>
+    <div class="footer-confidential">
+      CONFIDENTIAL — FOR INTERNAL USE ONLY
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
