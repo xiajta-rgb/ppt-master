@@ -6,11 +6,13 @@ PPT Master Deploy - 部署脚本
 
 import requests
 import uuid
+import os
 
 API_TOKEN = 'c061620aaca584d026e45dc2baede02bd46ae0de'
 HOST = 'www.pythonanywhere.com'
 USERNAME = 'ppt'
 WSGI_FILE_PATH = '/var/www/ppt_pythonanywhere_com_wsgi.py'
+PROJECT_DIR_LOCAL = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 WSGI_CONTENT = '''import os
 import sys
@@ -252,17 +254,20 @@ def git_commit_and_push():
     import subprocess
     import datetime
     try:
-        result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True, timeout=30)
+        print("    [1/2] Git commit...")
+
+        result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True, timeout=30, cwd=PROJECT_DIR_LOCAL)
         if not result.stdout.strip():
             return True, "No changes to commit"
 
         commit_msg = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " Auto commit from deploy script"
-        subprocess.run(['git', 'add', '.'], capture_output=True, timeout=30)
-        result = subprocess.run(['git', 'commit', '-m', commit_msg], capture_output=True, text=True, timeout=30)
+        subprocess.run(['git', 'add', '.'], capture_output=True, timeout=30, cwd=PROJECT_DIR_LOCAL)
+        result = subprocess.run(['git', 'commit', '-m', commit_msg], capture_output=True, text=True, timeout=30, cwd=PROJECT_DIR_LOCAL)
         if result.returncode != 0:
             return False, result.stderr
 
-        result = subprocess.run(['git', 'push'], capture_output=True, text=True, timeout=60)
+        print("    [2/2] Git push...")
+        result = subprocess.run(['git', 'push'], capture_output=True, text=True, timeout=60, cwd=PROJECT_DIR_LOCAL)
         if result.returncode == 0:
             return True, result.stdout
         else:
