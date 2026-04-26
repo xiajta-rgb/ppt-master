@@ -33,7 +33,7 @@ python ".trae\skills\voc-deploy\scripts\deploy.py"
 部署脚本会自动完成：
 1. Git Commit - 自动提交所有更改
 2. Git Push - 推送到远程仓库
-3. 上传 WSGI - 更新 WSGI 配置
+3. 上传临时 WSGI - 触发云端删除旧目录并克隆最新代码
 4. Reload Webapp - 重载 Web 应用
 5. 验证网站 - 确认部署成功
 

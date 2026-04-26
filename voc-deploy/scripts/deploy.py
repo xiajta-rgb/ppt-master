@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-PPT Master Deploy - 统一部署脚本
+VOC Deploy - 统一部署脚本
 支持两种模式：
-  - 完整部署 (quick=False): Git提交推送 → 云端部署 → 验证
+  - 完整部署 (quick=False): 构建 → Git提交推送 → 云端部署 → 验证
   - 快速部署 (quick=True):  仅云端部署 → 验证
 """
 
@@ -13,15 +13,17 @@ import sys
 import argparse
 from pathlib import Path
 
-USERNAME = 'ppt'
-API_TOKEN = 'c061620aaca584d026e45dc2baede02bd46ae0de'
+USERNAME = 'voc'
+API_TOKEN = 'b9dbfa0f850399350b39f5e18949d5050a0d0e2b'
 HOST = 'www.pythonanywhere.com'
-WEBAPP_DOMAIN = 'ppt.pythonanywhere.com'
-WSGI_FILE_PATH = '/var/www/ppt_pythonanywhere_com_wsgi.py'
+WEBAPP_DOMAIN = 'voc.pythonanywhere.com'
+WSGI_FILE_PATH = '/var/www/voc_pythonanywhere_com_wsgi.py'
 HEADERS = {'Authorization': f'Token {API_TOKEN}'}
 
 SCRIPT_DIR = Path(__file__).parent.resolve()
 PROJECT_ROOT = SCRIPT_DIR.parent.parent.parent.parent
+FRONTEND_DIST = PROJECT_ROOT / "frontend" / "dist"
+FRONTEND_SRC = PROJECT_ROOT / "frontend" / "src"
 
 def run_cmd(cmd, cwd=None, shell=True):
     cwd_str = str(cwd) if cwd else str(PROJECT_ROOT)
@@ -32,9 +34,31 @@ def run_cmd(cmd, cwd=None, shell=True):
     )
     return result.returncode, result.stdout, result.stderr
 
-def step1_git_push():
+def step1_build():
     print("\n" + "="*50)
-    print("Step 1/3: Git Commit and Push（提交推送）")
+    print("Step 1/4: Build Frontend（构建前端）")
+    print("="*50)
+
+    need_build = True
+    if FRONTEND_DIST.exists() and FRONTEND_SRC.exists():
+        dist_mtime = FRONTEND_DIST.stat().st_mtime
+        src_mtime = max(f.stat().st_mtime for f in FRONTEND_SRC.rglob("*") if f.is_file())
+        if dist_mtime > src_mtime:
+            print("[SKIP] frontend/dist 已存在且比源码新，跳过构建")
+            need_build = False
+
+    if need_build:
+        print("[INFO] 执行 npm run build ...")
+        code, stdout, stderr = run_cmd("npm run build", cwd=str(PROJECT_ROOT / "frontend"))
+        if code != 0:
+            print(f"[X] 构建失败!\nstdout: {stdout}\nstderr: {stderr}")
+            return False
+        print("[OK] 构建成功")
+    return True
+
+def step2_git_push():
+    print("\n" + "="*50)
+    print("Step 2/4: Git Commit and Push（提交推送）")
     print("="*50)
 
     code, stdout, stderr = run_cmd("git status --porcelain")
@@ -65,9 +89,9 @@ def step1_git_push():
     print("[OK] 推送成功")
     return True
 
-def step2_cloud_deploy():
+def step3_cloud_deploy():
     print("\n" + "="*50)
-    print("Step 2/3: Deploy to Cloud（云端部署）")
+    print("Step 3/4: Deploy to Cloud（云端部署）")
     print("="*50)
 
     original_wsgi = backup_original_wsgi()
@@ -87,18 +111,18 @@ def step2_cloud_deploy():
     time.sleep(60)
 
     if not reload_webapp():
-        print("[!] 第二次重载失败，请检查 /home/ppt/deploy_log.txt")
+        print("[!] 第二次重载失败，请检查 /home/voc/deploy_log.txt")
         return False
 
     print("[OK] 云端部署完成")
     return True
 
-def step3_verify():
+def step4_verify():
     print("\n" + "="*50)
-    print("Step 3/3: Verify（验证网站）")
+    print("Step 4/4: Verify（验证网站）")
     print("="*50)
 
-    url = "https://ppt.pythonanywhere.com/"
+    url = "https://voc.pythonanywhere.com/"
     max_retries = 3
     retry_delay = 10
 
@@ -146,37 +170,37 @@ import subprocess
 import os
 
 try:
-    if os.path.exists("/home/ppt/ppt-master"):
+    if os.path.exists("/home/voc/voc"):
         result = subprocess.run(
-            "rm -rf ppt-master",
+            "rm -rf voc",
             shell=True,
-            cwd="/home/ppt",
+            cwd="/home/voc",
             capture_output=True,
             text=True,
             timeout=30
         )
-        with open("/home/ppt/deploy_log.txt", "w", encoding="utf-8") as f:
+        with open("/home/voc/deploy_log.txt", "w", encoding="utf-8") as f:
             f.write(f"Step1 - Remove old dir\\n")
             f.write(f"Return code: {{result.returncode}}\\n")
             f.write(f"Stdout: {{result.stdout}}\\n")
             f.write(f"Stderr: {{result.stderr}}\\n")
 
     result = subprocess.run(
-        "git clone https://github.com/xiajta-rgb/ppt-master.git",
+        "git clone git@github.com:xiajta-rgb/voc.git",
         shell=True,
-        cwd="/home/ppt",
+        cwd="/home/voc",
         capture_output=True,
         text=True,
         timeout=60
     )
-    with open("/home/ppt/deploy_log.txt", "a", encoding="utf-8") as f:
+    with open("/home/voc/deploy_log.txt", "a", encoding="utf-8") as f:
         f.write(f"Step2 - Clone repo\\n")
         f.write(f"Return code: {{result.returncode}}\\n")
         f.write(f"Stdout: {{result.stdout}}\\n")
         f.write(f"Stderr: {{result.stderr}}\\n")
     print("Deployment command completed")
 except Exception as e:
-    with open("/home/ppt/deploy_error.txt", "a", encoding="utf-8") as f:
+    with open("/home/voc/deploy_error.txt", "a", encoding="utf-8") as f:
         f.write(f"Deployment failed: {{str(e)}}\\n")
 
 try:
@@ -184,14 +208,14 @@ try:
         f.write("""{original_wsgi_content}""")
     print("Original WSGI restored")
 except Exception as e:
-    with open("/home/ppt/deploy_error.txt", "a", encoding="utf-8") as f:
+    with open("/home/voc/deploy_error.txt", "a", encoding="utf-8") as f:
         f.write(f"WSGI restore failed: {{str(e)}}\\n")
 
 def application(environ, start_response):
     status = "200 OK"
     response_headers = [("Content-Type", "text/plain; charset=utf-8")]
     start_response(status, response_headers)
-    return [b"Automated deployment triggered! Check /home/ppt/deploy_log.txt for details."]
+    return [b"Automated deployment triggered! Check /home/voc/deploy_log.txt for details."]
 '''
     url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
     try:
@@ -215,30 +239,33 @@ def reload_webapp():
         return False
 
 def main():
-    parser = argparse.ArgumentParser(description='PPT Master Deploy')
-    parser.add_argument('--quick', action='store_true', help='快速部署（跳过提交推送）')
+    parser = argparse.ArgumentParser(description='VOC Deploy')
+    parser.add_argument('--quick', action='store_true', help='快速部署（跳过构建和提交）')
     args = parser.parse_args()
 
     print("\n" + "#"*50)
-    print("# PPT Master Deploy - 部署脚本")
+    print("# VOC Deploy - 部署脚本")
     print(f"# 模式: {'快速部署' if args.quick else '完整部署'}")
     print("#"*50)
 
     if args.quick:
-        if not step2_cloud_deploy():
+        if not step3_cloud_deploy():
             print("\n[X] 云端部署失败")
             sys.exit(1)
-        if not step3_verify():
+        if not step4_verify():
             print("\n[X] 网站验证失败")
             sys.exit(1)
     else:
-        if not step1_git_push():
+        if not step1_build():
+            print("\n[X] 构建失败，停止部署")
+            sys.exit(1)
+        if not step2_git_push():
             print("\n[X] Git提交推送失败，停止部署")
             sys.exit(1)
-        if not step2_cloud_deploy():
+        if not step3_cloud_deploy():
             print("\n[X] 云端部署失败")
             sys.exit(1)
-        if not step3_verify():
+        if not step4_verify():
             print("\n[X] 网站验证失败")
             sys.exit(1)
 
