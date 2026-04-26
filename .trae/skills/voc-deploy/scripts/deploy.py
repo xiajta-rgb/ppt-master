@@ -321,9 +321,6 @@ def main():
         print(f"[!] Git Commit & Push 失败: {msg}")
         return
 
-    print("\n[!] 请在 PythonAnywhere Console 中执行: cd /home/ppt/ppt-master && git pull")
-    print("[!] 然后在 Web 页面点击 Reload")
-
     print("\n[Step 2] 上传 WSGI...")
     if upload_wsgi():
         print("[OK] WSGI 上传成功")

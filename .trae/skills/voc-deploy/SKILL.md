@@ -29,14 +29,7 @@ python ".trae\skills\voc-deploy\scripts\deploy.py"
 4. Reload Webapp - 重载 Web 应用
 5. 验证网站 - 确认部署成功
 
-### Step 2: 手动拉取代码
-由于 PythonAnywhere 免费版限制，需要在云端手动拉取代码：
-
-1. 访问 https://www.pythonanywhere.com/
-2. 进入 **Consoles** → 打开 `/home/ppt/ppt-master` 的 Console
-3. 执行: `cd /home/ppt/ppt-master && git pull`
-
-### Step 3: 验证
+### Step 2: 验证
 访问 https://ppt.pythonanywhere.com/ 确认网站正常运行
 
 ## 导出功能
