@@ -1401,6 +1401,108 @@
         }
       ],
       "seqId": "PPT-016"
+    },
+    {
+      "version": 1,
+      "id": "ppt169_宇宙深空风_占星学五大底层人性原型",
+      "title": "西方占星学五大底层人性原型体系报告",
+      "description": "基于占星学·进化心理学·社会学与游戏设计学的跨学科原型框架 | 宇宙深空风格",
+      "icon": "",
+      "color": "#0a0e1a",
+      "folder": "examples/ppt169_宇宙深空风_占星学五大底层人性原型",
+      "slides": [
+        {
+          "file": "01_封面.svg",
+          "title": "Cover",
+          "desc": "Cover"
+        },
+        {
+          "file": "02_目录.svg",
+          "title": "Contents",
+          "desc": "Contents"
+        },
+        {
+          "file": "03_引言.svg",
+          "title": "Introduction",
+          "desc": "Introduction"
+        },
+        {
+          "file": "04_第一章概览.svg",
+          "title": "Chapter 1 Overview",
+          "desc": "Chapter 1 Overview"
+        },
+        {
+          "file": "05_领域意识.svg",
+          "title": "Domain Awareness",
+          "desc": "Domain Awareness"
+        },
+        {
+          "file": "06_损失厌恶.svg",
+          "title": "Loss Aversion",
+          "desc": "Loss Aversion"
+        },
+        {
+          "file": "07_等级服从.svg",
+          "title": "Hierarchy Compliance",
+          "desc": "Hierarchy Compliance"
+        },
+        {
+          "file": "08_部落归属.svg",
+          "title": "Tribal Belonging",
+          "desc": "Tribal Belonging"
+        },
+        {
+          "file": "09_互惠交换.svg",
+          "title": "Reciprocal Exchange",
+          "desc": "Reciprocal Exchange"
+        },
+        {
+          "file": "10_飞宫理论概览.svg",
+          "title": "Flying House Overview",
+          "desc": "Flying House Overview"
+        },
+        {
+          "file": "11_飞宫五大人性对照.svg",
+          "title": "Flying House Mapping",
+          "desc": "Flying House Mapping"
+        },
+        {
+          "file": "12_相位理论.svg",
+          "title": "Aspect Theory",
+          "desc": "Aspect Theory"
+        },
+        {
+          "file": "13_相位五大人性对照.svg",
+          "title": "Aspect Mapping",
+          "desc": "Aspect Mapping"
+        },
+        {
+          "file": "14_四象限体系.svg",
+          "title": "Quadrant System",
+          "desc": "Quadrant System"
+        },
+        {
+          "file": "15_应用场景.svg",
+          "title": "Application Scenarios",
+          "desc": "Application Scenarios"
+        },
+        {
+          "file": "16_跨学科对照.svg",
+          "title": "Interdisciplinary Comparison",
+          "desc": "Interdisciplinary Comparison"
+        },
+        {
+          "file": "17_结论.svg",
+          "title": "Conclusion",
+          "desc": "Conclusion"
+        },
+        {
+          "file": "18_终.svg",
+          "title": "End",
+          "desc": "End"
+        }
+      ],
+      "seqId": "PPT-017"
     }
   ],
   "generated": true

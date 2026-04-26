@@ -1,6 +1,6 @@
 # PPT Master Example Projects
 
-> This directory contains **15 curated example projects** covering consulting style, general-purpose style, creative style, and other design paradigms, totaling **229 SVG presentation pages**.
+> This directory contains **17 curated example projects** covering consulting style, general-purpose style, creative style, and other design paradigms, totaling **247 SVG presentation pages**.
 
 **[Preview all example projects online](https://xiajta-rgb.github.io/ppt-master/)**
 
@@ -9,8 +9,8 @@
 | Category | Projects | Total Pages | Highlights |
 |----------|----------|-------------|------------|
 | Consulting Style | 8 | 142 pages | Data-driven, structured, professional whitespace |
-| General-Purpose | 3 | 32 pages | Flexible layouts, diverse themes |
-| Creative Style | 4 | 55 pages | Unique visual language, cultural aesthetics |
+| General-Purpose | 4 | 42 pages | Flexible layouts, diverse themes |
+| Creative Style | 5 | 63 pages | Unique visual language, cultural aesthetics |
 
 ---
 
@@ -272,6 +272,40 @@
 **Included Pages**: Cover > Pain Points & Challenges > Solution > System Architecture > Four Roles > Core Features > Supported Formats > Tool Ecosystem > Quick Start > Call to Action
 
 [View Project](./demo_project_intro_ppt169_20251211/) | [Design Spec](./demo_project_intro_ppt169_20251211/design_spec.md)
+
+---
+
+### ppt169_战术服装_市场分析
+
+> **14 pages** - Tactical apparel market analysis
+
+| Property | Details |
+|----------|---------|
+| **Canvas Format** | PPT 16:9 (1280x720) |
+| **Design Style** | Premium consulting + Military aesthetic |
+| **Color Scheme** | Tactical black #0a0a0f + Military green #4a5c3a + Steel gray #8a8a8a |
+| **Target Audience** | Tactical apparel brands, outdoor gear manufacturers, market analysts |
+
+**Key Features**: Comprehensive market analysis covering product DNA, hardware systems, visual presentation, brand competition landscape, consumer profiles, and style trend evolution. Uses military-grade visual language with tactical card layouts.
+
+[View Project](./ppt169_战术服装_市场分析/) | [Design Spec](./ppt169_战术服装_市场分析/design_spec.md)
+
+---
+
+### ppt169_宇宙深空风_占星学五大底层人性原型
+
+> **18 pages** - Astrology archetypes framework
+
+| Property | Details |
+|----------|---------|
+| **Canvas Format** | PPT 16:9 (1280x720) |
+| **Design Style** | Cosmic deep space aesthetic |
+| **Color Scheme** | Deep space #0a0e1a + Gold #c9a84c + Blue #4a7cf7 + Purple #7c5cbf |
+| **Target Audience** | Psychology researchers, astrology practitioners, interdisciplinary scholars |
+
+**Key Features**: Cross-disciplinary framework mapping five core human archetypes (Domain Awareness, Loss Aversion, Hierarchy Compliance, Tribal Belonging, Reciprocal Exchange) to astrological systems. Covers flying house theory, aspect theory, quadrant systems, and interdisciplinary comparisons with evolutionary psychology and game design.
+
+[View Project](./ppt169_宇宙深空风_占星学五大底层人性原型/) | [Design Spec](./ppt169_宇宙深空风_占星学五大底层人性原型/design_spec.md)
 
 ---
 

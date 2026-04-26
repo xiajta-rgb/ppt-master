@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#e8d48b" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1280" height="720" fill="#0a0e1a" />
+
+  
+  <path fill="url(#headerGrad)" d="M62,50 H138 A2,2 0 0 1 140,52 V52 A2,2 0 0 1 138,54 H62 A2,2 0 0 1 60,52 V52 A2,2 0 0 1 62,50 Z" />
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">CONTENTS</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="36" font-weight="bold" fill="#e8d48b">报告目录</text>
+
+  
+  <path fill="#151d35" stroke="#2a3050" stroke-width="1" d="M70,160 H610 A10,10 0 0 1 620,170 V270 A10,10 0 0 1 610,280 H70 A10,10 0 0 1 60,270 V170 A10,10 0 0 1 70,160 Z" />
+  <path fill="#c9a84c" d="M62,160 H62 A2,2 0 0 1 64,162 V278 A2,2 0 0 1 62,280 H62 A2,2 0 0 1 60,278 V162 A2,2 0 0 1 62,160 Z" />
+  
+  <g transform="translate(85.0, 180.0) scale(1.5)" fill="#c9a84c">
+    <path d="M17 3.34a10 10 0 1 1 -15 8.66l.005 -.324a10 10 0 0 1 14.995 -8.336zm-5 14.66a1 1 0 1 0 0 2a1 1 0 0 0 0 -2m3.684 -10.949l-6 2a1 1 0 0 0 -.633 .633l-2.007 6.026l-.023 .086l-.017 .113l-.004 .068v.044l.009 .111l.012 .07l.04 .144l.045 .1l.054 .095l.064 .09l.069 .075l.084 .074l.098 .07l.1 .054l.078 .033l.105 .033l.109 .02l.043 .005l.068 .004h.044l.111 -.009l.07 -.012l.02 -.006l.019 -.002l.074 -.022l6 -2a1 1 0 0 0 .633 -.633l2 -6a1 1 0 0 0 -1.265 -1.265zm-1.265 2.529l-1.21 3.629l-3.629 1.21l1.21 -3.629l3.629 -1.21zm-9.419 1.42a1 1 0 1 0 0 2a1 1 0 0 0 0 -2m14 0a1 1 0 1 0 0 2a1 1 0 0 0 0 -2m-7 -7a1 1 0 1 0 0 2a1 1 0 0 0 0 -2" />
+  </g>
+  <text x="135" y="200" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#c9a84c">第一章</text>
+  <text x="135" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">核心底层人性的静态结构映射</text>
+  <text x="135" y="250" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">星体 · 星座 · 宫位 — 五大底层人性的先天结构图谱</text>
+
+  
+  <path fill="#151d35" stroke="#2a3050" stroke-width="1" d="M670,160 H1210 A10,10 0 0 1 1220,170 V270 A10,10 0 0 1 1210,280 H670 A10,10 0 0 1 660,270 V170 A10,10 0 0 1 670,160 Z" />
+  <path fill="#4a7cf7" d="M662,160 H662 A2,2 0 0 1 664,162 V278 A2,2 0 0 1 662,280 H662 A2,2 0 0 1 660,278 V162 A2,2 0 0 1 662,160 Z" />
+  <use data-icon="tabler-filled/arrows-exchange" x="685" y="180" width="36" height="36" fill="#4a7cf7" />
+  <text x="735" y="200" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">第二章</text>
+  <text x="735" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">飞宫理论：动态投射与资源流动</text>
+  <text x="735" y="250" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">领地领主的跨疆域行为 — 本能如何流动、资源如何转移</text>
+
+  
+  <path fill="#151d35" stroke="#2a3050" stroke-width="1" d="M70,310 H610 A10,10 0 0 1 620,320 V420 A10,10 0 0 1 610,430 H70 A10,10 0 0 1 60,420 V320 A10,10 0 0 1 70,310 Z" />
+  <path fill="#7c5cbf" d="M62,310 H62 A2,2 0 0 1 64,312 V428 A2,2 0 0 1 62,430 H62 A2,2 0 0 1 60,428 V312 A2,2 0 0 1 62,310 Z" />
+  <use data-icon="tabler-filled/layers-intersect" x="85" y="330" width="36" height="36" fill="#a78bfa" />
+  <text x="135" y="350" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#a78bfa">第三章</text>
+  <text x="135" y="375" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">相位理论：驱力互动与博弈原型</text>
+  <text x="135" y="400" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">星体之间的对手戏 — 协同、冲突、支配与臣服</text>
+
+  
+  <path fill="#151d35" stroke="#2a3050" stroke-width="1" d="M670,310 H1210 A10,10 0 0 1 1220,320 V420 A10,10 0 0 1 1210,430 H670 A10,10 0 0 1 660,420 V320 A10,10 0 0 1 670,310 Z" />
+  <path fill="#4ac9c9" d="M662,310 H662 A2,2 0 0 1 664,312 V428 A2,2 0 0 1 662,430 H662 A2,2 0 0 1 660,428 V312 A2,2 0 0 1 662,310 Z" />
+  <use data-icon="tabler-filled/grid-4" x="685" y="330" width="36" height="36" fill="#4ac9c9" />
+  <text x="735" y="350" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#4ac9c9">第四章</text>
+  <text x="735" y="375" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">四象限体系框架与综合应用</text>
+  <text x="735" y="400" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">从个体生存到集体组织的完整人性层级</text>
+
+  
+  <path fill="#151d35" stroke="#2a3050" stroke-width="1" d="M70,460 H610 A10,10 0 0 1 620,470 V570 A10,10 0 0 1 610,580 H70 A10,10 0 0 1 60,570 V470 A10,10 0 0 1 70,460 Z" />
+  <path fill="#4caf7d" d="M62,460 H62 A2,2 0 0 1 64,462 V578 A2,2 0 0 1 62,580 H62 A2,2 0 0 1 60,578 V462 A2,2 0 0 1 62,460 Z" />
+  <use data-icon="tabler-filled/books" x="85" y="480" width="36" height="36" fill="#4caf7d" />
+  <text x="135" y="500" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#4caf7d">第五章</text>
+  <text x="135" y="525" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">跨学科对照与终极总结</text>
+  <text x="135" y="550" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">占星学 × 进化心理学 × 社会心理学 × 游戏设计学</text>
+
+  
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">02 / 18</text>
+</svg>

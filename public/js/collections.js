@@ -421,5 +421,35 @@ const collectionsData = [
             { file: 'slide_07_usecases.svg', title: '适用场景', desc: '场景' },
             { file: 'slide_08_summary.svg', title: '总结', desc: '结论' }
         ]
+    },
+    {
+        id: 'ppt169_宇宙深空风_占星学五大底层人性原型',
+        seqId: 'PPT-017',
+        alias: 'astrology-archetypes',
+        title: '占星学五大底层人性原型',
+        description: '西方占星学五大底层人性原型体系报告',
+        icon: '✨',
+        color: '#8b5cf6',
+        folder: 'examples/ppt169_宇宙深空风_占星学五大底层人性原型/svg_final',
+        slides: [
+            { file: '01_封面.svg', title: '封面', desc: '占星学五大底层人性原型' },
+            { file: '02_目录.svg', title: '目录', desc: '内容导航' },
+            { file: '03_引言.svg', title: '引言', desc: '研究背景' },
+            { file: '04_第一章概览.svg', title: '第一章概览', desc: '概览' },
+            { file: '05_领域意识.svg', title: '领域意识', desc: '第一法则' },
+            { file: '06_损失厌恶.svg', title: '损失厌恶', desc: '第二法则' },
+            { file: '07_等级服从.svg', title: '等级服从', desc: '第三法则' },
+            { file: '08_部落归属.svg', title: '部落归属', desc: '第四法则' },
+            { file: '09_互惠交换.svg', title: '互惠交换', desc: '第五法则' },
+            { file: '10_飞宫理论概览.svg', title: '飞宫理论概览', desc: '飞屋理论' },
+            { file: '11_飞宫五大人性对照.svg', title: '飞宫五大人性对照', desc: '对照表' },
+            { file: '12_相位理论.svg', title: '相位理论', desc: '星体关系' },
+            { file: '13_相位五大人性对照.svg', title: '相位五大人性对照', desc: '对照表' },
+            { file: '14_四象限体系.svg', title: '四象限体系', desc: '人生阶段' },
+            { file: '15_应用场景.svg', title: '应用场景', desc: '实践运用' },
+            { file: '16_跨学科对照.svg', title: '跨学科对照', desc: '对比分析' },
+            { file: '17_结论.svg', title: '结论', desc: '总结展望' },
+            { file: '18_终.svg', title: '结束', desc: '终' }
+        ]
     }
 ];

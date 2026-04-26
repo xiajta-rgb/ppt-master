@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+
+  <!-- Header -->
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">CHAPTER 02</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">飞宫理论：动态投射与资源流动</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6"/>
+
+  <!-- Intro text -->
+  <text x="60" y="170" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1"><tspan fill="#6b9bff" font-weight="bold">飞宫（Flying Houses）</tspan>是占星学中描述星体能量跨宫位流动的核心理论。一颗星体不仅影响它所在的宫位，还会"飞"到其他宫位，将其能量投射到新的领域。</text>
+
+  <!-- Core logic cards -->
+  <text x="60" y="220" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">飞宫的核心逻辑</text>
+
+  <!-- Card 1 -->
+  <rect x="60" y="240" width="360" height="140" rx="10" fill="#151d35" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.3"/>
+  <use data-icon="tabler-filled/shield" x="80" y="260" width="36" height="36" fill="#c9a84c"/>
+  <text x="130" y="285" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#c9a84c">领地领主</text>
+  <text x="80" y="315" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">每颗行星是特定星座的"领主"</text>
+  <text x="80" y="335" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">（如土星是摩羯座的领主）</text>
+  <text x="80" y="360" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#9a98a0">领主 = 该星座能量的管理者</text>
+
+  <!-- Card 2 -->
+  <rect x="460" y="240" width="360" height="140" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3"/>
+  <use data-icon="tabler-filled/arrows-exchange" x="480" y="260" width="36" height="36" fill="#6b9bff"/>
+  <text x="530" y="285" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">跨疆域行为</text>
+  <text x="480" y="315" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">当行星落入非其领座的宫位时，</text>
+  <text x="480" y="335" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">它会将自身能量"飞"入该宫位</text>
+  <text x="480" y="360" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#9a98a0">能量投射 = 本能驱力的空间转移</text>
+
+  <!-- Card 3 -->
+  <rect x="860" y="240" width="360" height="140" rx="10" fill="#151d35" stroke="#7c5cbf" stroke-width="1" stroke-opacity="0.3"/>
+  <use data-icon="tabler-filled/layers-intersect" x="880" y="260" width="36" height="36" fill="#a78bfa"/>
+  <text x="930" y="285" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#a78bfa">资源流动</text>
+  <text x="880" y="315" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">飞宫描述了本能驱力如何在</text>
+  <text x="880" y="335" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">不同生活领域之间转移和投射</text>
+  <text x="880" y="360" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#9a98a0">流动 = 人性本能的动态分配</text>
+
+  <!-- Flying houses mapping -->
+  <text x="60" y="420" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">飞宫与五大人性</text>
+
+  <!-- Table header -->
+  <rect x="60" y="435" width="280" height="40" rx="4" fill="#1a2440"/>
+  <text x="200" y="460" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">人性原型</text>
+  <rect x="340" y="435" width="880" height="40" rx="4" fill="#1a2440"/>
+  <text x="780" y="460" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">飞宫表现</text>
+
+  <!-- Table rows -->
+  <rect x="60" y="475" width="280" height="40" fill="#151d35"/>
+  <text x="200" y="500" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">领域意识</text>
+  <rect x="340" y="475" width="880" height="40" fill="#151d35"/>
+  <text x="780" y="500" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">土星飞入不同宫位，将"边界感"投射到不同生活领域</text>
+
+  <rect x="60" y="515" width="280" height="40"/>
+  <text x="200" y="540" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e05555">损失厌恶</text>
+  <rect x="340" y="515" width="880" height="40"/>
+  <text x="780" y="540" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">火星飞入不同宫位，将"战斗/防御"能量投射到不同场景</text>
+
+  <rect x="60" y="555" width="280" height="40" fill="#151d35"/>
+  <text x="200" y="580" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#6b9bff">等级服从</text>
+  <rect x="340" y="555" width="880" height="40" fill="#151d35"/>
+  <text x="780" y="580" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">月亮飞入不同宫位，将"安全需求"投射到不同关系层级</text>
+
+  <rect x="60" y="595" width="280" height="40"/>
+  <text x="200" y="620" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#a78bfa">部落归属</text>
+  <rect x="340" y="595" width="880" height="40"/>
+  <text x="780" y="620" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">冥王星飞入不同宫位，将"深层认同"投射到不同群体</text>
+
+  <rect x="60" y="635" width="280" height="40" fill="#151d35"/>
+  <text x="200" y="660" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#4caf7d">互惠交换</text>
+  <rect x="340" y="635" width="880" height="40" fill="#151d35"/>
+  <text x="780" y="660" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">太阳飞入不同宫位，将"自我价值"投射到不同交换场景</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">10 / 18</text>
+</svg>

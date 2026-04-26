@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="50%" stop-color="#e8d48b"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+    <radialGradient id="bgGlow1" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgGlow2" cx="20%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#4a7cf7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#4a7cf7" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+  <rect width="1280" height="720" fill="url(#bgGlow1)"/>
+  <rect width="1280" height="720" fill="url(#bgGlow2)"/>
+  <rect width="1280" height="720" fill="url(#centerGlow)"/>
+
+  <!-- Stars -->
+  <circle cx="120" cy="80" r="1.5" fill="#ffffff" opacity="0.3"/>
+  <circle cx="350" cy="120" r="1" fill="#ffffff" opacity="0.25"/>
+  <circle cx="580" cy="60" r="1.2" fill="#ffffff" opacity="0.2"/>
+  <circle cx="820" cy="100" r="1" fill="#ffffff" opacity="0.3"/>
+  <circle cx="1050" cy="70" r="1.5" fill="#ffffff" opacity="0.25"/>
+  <circle cx="200" cy="250" r="1" fill="#ffffff" opacity="0.2"/>
+  <circle cx="950" cy="200" r="1.2" fill="#ffffff" opacity="0.3"/>
+  <circle cx="150" cy="500" r="1" fill="#ffffff" opacity="0.25"/>
+  <circle cx="1100" cy="480" r="1.5" fill="#ffffff" opacity="0.2"/>
+  <circle cx="400" cy="600" r="1" fill="#ffffff" opacity="0.3"/>
+  <circle cx="750" cy="650" r="1.2" fill="#ffffff" opacity="0.25"/>
+  <circle cx="1000" cy="580" r="1" fill="#ffffff" opacity="0.2"/>
+  <circle cx="280" cy="350" r="1.5" fill="#c9a84c" opacity="0.25"/>
+  <circle cx="900" cy="400" r="1.5" fill="#c9a84c" opacity="0.18"/>
+  <circle cx="600" cy="500" r="1.2" fill="#4a7cf7" opacity="0.15"/>
+
+  <!-- Decorative circle -->
+  <circle cx="640" cy="280" r="180" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="640" cy="280" r="200" fill="none" stroke="#c9a84c" stroke-width="0.3" opacity="0.1"/>
+  <circle cx="640" cy="280" r="220" fill="none" stroke="#4a7cf7" stroke-width="0.3" opacity="0.08"/>
+
+  <!-- Star symbol -->
+  <use data-icon="tabler-filled/star" x="616" y="100" width="48" height="48" fill="#c9a84c" opacity="0.6"/>
+
+  <!-- Main Title -->
+  <text x="640" y="260" text-anchor="middle" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="56" font-weight="bold" fill="url(#titleGrad)" letter-spacing="4">西方占星学</text>
+  <text x="640" y="330" text-anchor="middle" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="56" font-weight="bold" fill="url(#titleGrad)" letter-spacing="4">五大底层人性原型体系报告</text>
+
+  <!-- Divider -->
+  <line x1="540" y1="360" x2="740" y2="360" stroke="#c9a84c" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="640" cy="360" r="3" fill="#c9a84c" opacity="0.8"/>
+
+  <!-- Subtitle -->
+  <text x="640" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" fill="#9a98a0" letter-spacing="1">基于占星学 · 进化心理学 · 社会学与游戏设计学的跨学科原型框架</text>
+
+  <!-- Latin quote -->
+  <text x="640" y="460" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="26" font-style="italic" fill="#6b9bff" opacity="0.8">As Above, So Below</text>
+  <text x="640" y="490" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">在上如是，在下亦然</text>
+
+  <!-- Tags -->
+  <rect x="290" y="530" width="120" height="36" rx="18" fill="none" stroke="#8a7234" stroke-width="1"/>
+  <text x="350" y="553" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">领域意识</text>
+
+  <rect x="430" y="530" width="120" height="36" rx="18" fill="none" stroke="#8a7234" stroke-width="1"/>
+  <text x="490" y="553" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">损失厌恶</text>
+
+  <rect x="570" y="530" width="120" height="36" rx="18" fill="none" stroke="#8a7234" stroke-width="1"/>
+  <text x="630" y="553" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">等级服从</text>
+
+  <rect x="710" y="530" width="120" height="36" rx="18" fill="none" stroke="#8a7234" stroke-width="1"/>
+  <text x="770" y="553" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">部落归属</text>
+
+  <rect x="850" y="530" width="120" height="36" rx="18" fill="none" stroke="#8a7234" stroke-width="1"/>
+  <text x="910" y="553" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c">互惠交换</text>
+
+  <!-- Footer hint -->
+  <text x="640" y="660" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#6e6e73">← → 键盘或点击导航切换幻灯片</text>
+</svg>

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+
+  <!-- Header -->
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">1.5 静态映射</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">互惠交换：价值互换与契约的底层原型</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6"/>
+
+  <!-- Sun icon and title -->
+  <use data-icon="tabler-filled/handshake" x="60" y="160" width="48" height="48" fill="#4caf7d"/>
+  <text x="120" y="195" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="24" font-weight="bold" fill="#4caf7d">对应星体：太阳（Sun）☉</text>
+  <text x="120" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">太阳代表自我意识、核心身份、生命力与互惠原则。它是人性中「互惠交换」的化身——通过价值交换建立关系，通过契约维持社会秩序。</text>
+
+  <!-- Mapping table -->
+  <text x="60" y="280" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星要素与人性对照</text>
+
+  <!-- Table header -->
+  <rect x="60" y="295" width="380" height="40" rx="4" fill="#1a2440"/>
+  <text x="250" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <rect x="440" y="295" width="780" height="40" rx="4" fill="#1a2440"/>
+  <text x="830" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+
+  <!-- Table rows -->
+  <rect x="60" y="335" width="380" height="40" fill="#151d35"/>
+  <text x="250" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">太阳</text>
+  <rect x="440" y="335" width="780" height="40" fill="#151d35"/>
+  <text x="830" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠交换的核心驱力（自我价值）</text>
+
+  <rect x="60" y="375" width="380" height="40"/>
+  <text x="250" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">狮子座</text>
+  <rect x="440" y="375" width="780" height="40"/>
+  <text x="830" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠交换的表达模式（慷慨与回报）</text>
+
+  <rect x="60" y="415" width="380" height="40" fill="#151d35"/>
+  <text x="250" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第五宫</text>
+  <rect x="440" y="415" width="780" height="40" fill="#151d35"/>
+  <text x="830" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠交换的落地场景（创造/表达/交易）</text>
+
+  <rect x="60" y="455" width="380" height="40"/>
+  <text x="250" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第七宫</text>
+  <rect x="440" y="455" width="780" height="40"/>
+  <text x="830" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠交换的落地场景（一对一关系/契约）</text>
+
+  <rect x="60" y="495" width="380" height="40" fill="#151d35"/>
+  <text x="250" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第十一宫</text>
+  <rect x="440" y="495" width="780" height="40" fill="#151d35"/>
+  <text x="830" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠交换的落地场景（群体互惠/社会契约）</text>
+
+  <!-- Evolutionary psychology box -->
+  <rect x="60" y="560" width="1160" height="100" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="60" y="560" width="4" height="100" rx="2" fill="#4a7cf7"/>
+  <text x="90" y="590" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">进化心理学对照：</text>
+  <text x="90" y="615" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">互惠交换是人类合作的基础。罗伯特·特里弗斯（Robert Trivers）提出的"互惠利他主义"指出，</text>
+  <text x="90" y="640" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">人类之所以能够建立大规模合作网络，核心机制就是互惠原则——我帮助你，期待你未来回报我。</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">09 / 18</text>
+</svg>

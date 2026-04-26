@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+
+  <!-- Header -->
+  <rect x="60" y="50" width="80" height="4" rx="2" fill="url(#headerGrad)"/>
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">CONTENTS</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="36" font-weight="bold" fill="#e8d48b">报告目录</text>
+
+  <!-- Chapter 1 Card -->
+  <rect x="60" y="160" width="560" height="120" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <rect x="60" y="160" width="4" height="120" rx="2" fill="#c9a84c"/>
+  <use data-icon="tabler-filled/compass" x="85" y="180" width="36" height="36" fill="#c9a84c"/>
+  <text x="135" y="200" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#c9a84c">第一章</text>
+  <text x="135" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">核心底层人性的静态结构映射</text>
+  <text x="135" y="250" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">星体 · 星座 · 宫位 — 五大底层人性的先天结构图谱</text>
+
+  <!-- Chapter 2 Card -->
+  <rect x="660" y="160" width="560" height="120" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <rect x="660" y="160" width="4" height="120" rx="2" fill="#4a7cf7"/>
+  <use data-icon="tabler-filled/arrows-exchange" x="685" y="180" width="36" height="36" fill="#4a7cf7"/>
+  <text x="735" y="200" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">第二章</text>
+  <text x="735" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">飞宫理论：动态投射与资源流动</text>
+  <text x="735" y="250" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">领地领主的跨疆域行为 — 本能如何流动、资源如何转移</text>
+
+  <!-- Chapter 3 Card -->
+  <rect x="60" y="310" width="560" height="120" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <rect x="60" y="310" width="4" height="120" rx="2" fill="#7c5cbf"/>
+  <use data-icon="tabler-filled/layers-intersect" x="85" y="330" width="36" height="36" fill="#a78bfa"/>
+  <text x="135" y="350" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#a78bfa">第三章</text>
+  <text x="135" y="375" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">相位理论：驱力互动与博弈原型</text>
+  <text x="135" y="400" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">星体之间的对手戏 — 协同、冲突、支配与臣服</text>
+
+  <!-- Chapter 4 Card -->
+  <rect x="660" y="310" width="560" height="120" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <rect x="660" y="310" width="4" height="120" rx="2" fill="#4ac9c9"/>
+  <use data-icon="tabler-filled/grid-4" x="685" y="330" width="36" height="36" fill="#4ac9c9"/>
+  <text x="735" y="350" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#4ac9c9">第四章</text>
+  <text x="735" y="375" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">四象限体系框架与综合应用</text>
+  <text x="735" y="400" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">从个体生存到集体组织的完整人性层级</text>
+
+  <!-- Chapter 5 Card -->
+  <rect x="60" y="460" width="560" height="120" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <rect x="60" y="460" width="4" height="120" rx="2" fill="#4caf7d"/>
+  <use data-icon="tabler-filled/books" x="85" y="480" width="36" height="36" fill="#4caf7d"/>
+  <text x="135" y="500" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#4caf7d">第五章</text>
+  <text x="135" y="525" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8e6e1">跨学科对照与终极总结</text>
+  <text x="135" y="550" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">占星学 × 进化心理学 × 社会心理学 × 游戏设计学</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">02 / 18</text>
+</svg>

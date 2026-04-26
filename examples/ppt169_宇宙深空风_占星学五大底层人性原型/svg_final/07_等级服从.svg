@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#e8d48b" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1280" height="720" fill="#0a0e1a" />
+
+  
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">1.3 静态映射</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">等级服从：秩序与权威的底层原型</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6" />
+
+  
+  
+  <g transform="translate(60.0, 160.0) scale(2.0)" fill="#6b9bff">
+    <path d="M19 19h-14c-.5 0 -.9 -.3 -1 -.8l-2 -10c0 -.4 .1 -.8 .5 -1.1c.4 -.2 .8 -.2 1.1 0l4.1 3.3l3.4 -5.1c.4 -.6 1.3 -.6 1.7 0l3.4 5.1l4.1 -3.3c.3 -.3 .8 -.3 1.1 0c.4 .2 .5 .6 .5 1.1l-2 10c0 .5 -.5 .8 -1 .8z" />
+  </g>
+  <text x="120" y="195" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="24" font-weight="bold" fill="#6b9bff">对应星体：月亮（Moon）☽</text>
+  <text x="120" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">月亮代表安全感、情感需求、母性本能与等级意识。它是人性中「等级服从」的化身——在群体中寻找自己的位置，服从权威以获得庇护。</text>
+
+  
+  <text x="60" y="280" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星要素与人性对照</text>
+
+  
+  <path fill="#1a2440" d="M64,295 H436 A4,4 0 0 1 440,299 V331 A4,4 0 0 1 436,335 H64 A4,4 0 0 1 60,331 V299 A4,4 0 0 1 64,295 Z" />
+  <text x="250" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <path fill="#1a2440" d="M444,295 H1216 A4,4 0 0 1 1220,299 V331 A4,4 0 0 1 1216,335 H444 A4,4 0 0 1 440,331 V299 A4,4 0 0 1 444,295 Z" />
+  <text x="830" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+
+  
+  <rect x="60" y="335" width="380" height="40" fill="#151d35" />
+  <text x="250" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">月亮</text>
+  <rect x="440" y="335" width="780" height="40" fill="#151d35" />
+  <text x="830" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">等级服从的核心驱力（安全需求）</text>
+
+  <rect x="60" y="375" width="380" height="40" />
+  <text x="250" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">巨蟹座</text>
+  <rect x="440" y="375" width="780" height="40" />
+  <text x="830" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">等级服从的表达模式（家庭层级）</text>
+
+  <rect x="60" y="415" width="380" height="40" fill="#151d35" />
+  <text x="250" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第四宫</text>
+  <rect x="440" y="415" width="780" height="40" fill="#151d35" />
+  <text x="830" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">等级服从的落地场景（家庭结构）</text>
+
+  <rect x="60" y="455" width="380" height="40" />
+  <text x="250" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第十宫</text>
+  <rect x="440" y="455" width="780" height="40" />
+  <text x="830" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">等级服从的落地场景（社会等级）</text>
+
+  
+  <path fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3" d="M70,520 H1210 A10,10 0 0 1 1220,530 V610 A10,10 0 0 1 1210,620 H70 A10,10 0 0 1 60,610 V530 A10,10 0 0 1 70,520 Z" />
+  <path fill="#4a7cf7" d="M62,520 H62 A2,2 0 0 1 64,522 V618 A2,2 0 0 1 62,620 H62 A2,2 0 0 1 60,618 V522 A2,2 0 0 1 62,520 Z" />
+  <text x="90" y="550" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">进化心理学对照：</text>
+  <text x="90" y="575" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">等级服从是人类作为群居动物的核心适应器。在原始部落中，识别并服从等级秩序是获得资源、避免冲突、确保生存的关键策略。</text>
+  <text x="90" y="600" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">月亮在占星学中代表的"安全感"，本质上是对等级位置的确认。</text>
+
+  
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">07 / 18</text>
+</svg>

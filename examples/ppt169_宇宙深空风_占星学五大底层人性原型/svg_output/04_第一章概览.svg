@@ -1,0 +1,113 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+
+  <!-- Header -->
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">CHAPTER 01</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">核心底层人性的静态结构映射</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6"/>
+
+  <!-- Intro text -->
+  <text x="60" y="165" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">占星学的静态结构由三大要素构成：<tspan fill="#c9a84c" font-weight="bold">星体</tspan>定义核心心理驱力，<tspan fill="#6b9bff" font-weight="bold">星座</tspan>定义驱力的表达模式，<tspan fill="#a78bfa" font-weight="bold">宫位</tspan>定义驱力的落地场景。</text>
+
+  <!-- Five archetype cards -->
+  <!-- Card 1: 领域意识 -->
+  <rect x="60" y="195" width="220" height="200" rx="10" fill="#151d35" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="60" y="195" width="4" height="200" rx="2" fill="#c9a84c"/>
+  <text x="170" y="240" text-anchor="middle" font-size="36">🏰</text>
+  <text x="170" y="290" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#c9a84c">领域意识</text>
+  <text x="170" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">所有权与边界</text>
+  <text x="170" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">土星 · 摩羯座</text>
+  <text x="170" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">第二/四/十宫</text>
+
+  <!-- Card 2: 损失厌恶 -->
+  <rect x="300" y="195" width="220" height="200" rx="10" fill="#151d35" stroke="#e05555" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="300" y="195" width="4" height="200" rx="2" fill="#e05555"/>
+  <text x="410" y="240" text-anchor="middle" font-size="36">⚠️</text>
+  <text x="410" y="290" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e05555">损失厌恶</text>
+  <text x="410" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">恐惧与风险规避</text>
+  <text x="410" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">火星 · 白羊座</text>
+  <text x="410" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">第一/八宫</text>
+
+  <!-- Card 3: 等级服从 -->
+  <rect x="540" y="195" width="220" height="200" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="540" y="195" width="4" height="200" rx="2" fill="#4a7cf7"/>
+  <text x="650" y="240" text-anchor="middle" font-size="36">👑</text>
+  <text x="650" y="290" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#6b9bff">等级服从</text>
+  <text x="650" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">秩序与权威</text>
+  <text x="650" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">月亮 · 巨蟹座</text>
+  <text x="650" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">第四/十宫</text>
+
+  <!-- Card 4: 部落归属 -->
+  <rect x="780" y="195" width="220" height="200" rx="10" fill="#151d35" stroke="#7c5cbf" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="780" y="195" width="4" height="200" rx="2" fill="#7c5cbf"/>
+  <text x="890" y="240" text-anchor="middle" font-size="36">👥</text>
+  <text x="890" y="290" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#a78bfa">部落归属</text>
+  <text x="890" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">群体认同与庇护</text>
+  <text x="890" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">冥王星 · 天蝎座</text>
+  <text x="890" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">第八/十一宫</text>
+
+  <!-- Card 5: 互惠交换 -->
+  <rect x="1020" y="195" width="200" height="200" rx="10" fill="#151d35" stroke="#4caf7d" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="1020" y="195" width="4" height="200" rx="2" fill="#4caf7d"/>
+  <text x="1120" y="240" text-anchor="middle" font-size="36">🤝</text>
+  <text x="1120" y="290" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#4caf7d">互惠交换</text>
+  <text x="1120" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">价值互换与契约</text>
+  <text x="1120" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">太阳 · 狮子座</text>
+  <text x="1120" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#6e6e73">第五/七/十一宫</text>
+
+  <!-- Highlight box -->
+  <rect x="60" y="430" width="1160" height="50" rx="10" fill="#151d35" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.2"/>
+  <text x="640" y="462" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">📌 占星学核心隐喻：<tspan fill="#c9a84c" font-weight="bold">「星体 = 领地领主，星座/宫位 = 专属疆域」</tspan></text>
+
+  <!-- Mapping table -->
+  <text x="60" y="520" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">静态映射关系</text>
+  
+  <!-- Table header -->
+  <rect x="60" y="535" width="280" height="40" rx="4" fill="#1a2440"/>
+  <text x="200" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <rect x="340" y="535" width="280" height="40" rx="4" fill="#1a2440"/>
+  <text x="480" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+  <rect x="620" y="535" width="280" height="40" rx="4" fill="#1a2440"/>
+  <text x="760" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">进化心理学机制</text>
+  <rect x="900" y="535" width="320" height="40" rx="4" fill="#1a2440"/>
+  <text x="1060" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">核心宫位</text>
+
+  <!-- Table rows -->
+  <rect x="60" y="575" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="200" y="597" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">土星</text>
+  <rect x="340" y="575" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="480" y="597" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">领域意识</text>
+  <rect x="620" y="575" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="760" y="597" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">领地行为/资源保护</text>
+  <rect x="900" y="575" width="320" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="1060" y="597" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">第二宫(物质)/第四宫(家庭)</text>
+
+  <rect x="60" y="610" width="280" height="35"/>
+  <text x="200" y="632" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">火星</text>
+  <rect x="340" y="610" width="280" height="35"/>
+  <text x="480" y="632" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">损失厌恶</text>
+  <rect x="620" y="610" width="280" height="35"/>
+  <text x="760" y="632" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">战斗或逃跑反应</text>
+  <rect x="900" y="610" width="320" height="35"/>
+  <text x="1060" y="632" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">第一宫(自我)/第八宫(危机)</text>
+
+  <rect x="60" y="645" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="200" y="667" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">月亮</text>
+  <rect x="340" y="645" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="480" y="667" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">等级服从</text>
+  <rect x="620" y="645" width="280" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="760" y="667" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">社会等级识别</text>
+  <rect x="900" y="645" width="320" height="35" fill="#151d35" fill-opacity="0.5"/>
+  <text x="1060" y="667" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="13" fill="#e8e6e1">第四宫(家庭)/第十宫(社会)</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">04 / 18</text>
+</svg>

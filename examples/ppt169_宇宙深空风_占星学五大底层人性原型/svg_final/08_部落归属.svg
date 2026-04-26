@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#e8d48b" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1280" height="720" fill="#0a0e1a" />
+
+  
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">1.4 静态映射</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">部落归属：群体认同与庇护的底层原型</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6" />
+
+  
+  <use data-icon="tabler-filled/users" x="60" y="160" width="48" height="48" fill="#a78bfa" />
+  <text x="120" y="195" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="24" font-weight="bold" fill="#a78bfa">对应星体：冥王星（Pluto）♇</text>
+  <text x="120" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">冥王星代表转化、深层恐惧、集体潜意识与部落认同。它是人性中「部落归属」的化身——融入群体、获得认同、在集体中找到归属。</text>
+
+  
+  <text x="60" y="280" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星要素与人性对照</text>
+
+  
+  <path fill="#1a2440" d="M64,295 H436 A4,4 0 0 1 440,299 V331 A4,4 0 0 1 436,335 H64 A4,4 0 0 1 60,331 V299 A4,4 0 0 1 64,295 Z" />
+  <text x="250" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <path fill="#1a2440" d="M444,295 H1216 A4,4 0 0 1 1220,299 V331 A4,4 0 0 1 1216,335 H444 A4,4 0 0 1 440,331 V299 A4,4 0 0 1 444,295 Z" />
+  <text x="830" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+
+  
+  <rect x="60" y="335" width="380" height="40" fill="#151d35" />
+  <text x="250" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">冥王星</text>
+  <rect x="440" y="335" width="780" height="40" fill="#151d35" />
+  <text x="830" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">部落归属的核心驱力（深层认同）</text>
+
+  <rect x="60" y="375" width="380" height="40" />
+  <text x="250" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">天蝎座</text>
+  <rect x="440" y="375" width="780" height="40" />
+  <text x="830" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">部落归属的表达模式（忠诚与背叛）</text>
+
+  <rect x="60" y="415" width="380" height="40" fill="#151d35" />
+  <text x="250" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第八宫</text>
+  <rect x="440" y="415" width="780" height="40" fill="#151d35" />
+  <text x="830" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">部落归属的落地场景（共享资源/深层联结）</text>
+
+  <rect x="60" y="455" width="380" height="40" />
+  <text x="250" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第十一宫</text>
+  <rect x="440" y="455" width="780" height="40" />
+  <text x="830" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">部落归属的落地场景（社群/理想群体）</text>
+
+  
+  <path fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3" d="M70,520 H1210 A10,10 0 0 1 1220,530 V610 A10,10 0 0 1 1210,620 H70 A10,10 0 0 1 60,610 V530 A10,10 0 0 1 70,520 Z" />
+  <path fill="#4a7cf7" d="M62,520 H62 A2,2 0 0 1 64,522 V618 A2,2 0 0 1 62,620 H62 A2,2 0 0 1 60,618 V522 A2,2 0 0 1 62,520 Z" />
+  <text x="90" y="550" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">进化心理学对照：</text>
+  <text x="90" y="575" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">部落归属是人类最深层的社会需求之一。被群体排斥在原始环境中意味着死亡。</text>
+  <text x="90" y="600" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">冥王星代表的"死亡与重生"，本质上是对部落归属的极端渴望——失去归属如同死亡，获得归属如同重生。</text>
+
+  
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">08 / 18</text>
+</svg>

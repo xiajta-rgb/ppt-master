@@ -11,6 +11,17 @@ from config import PROJECT_DIR, STATIC_DIR, SCRIPTS_DIR, PROJECT_ALIASES
 _file_watch_cache = {}
 _last_reload_time = time.time()
 
+USERS = {
+    'admin': 'admin',
+    'lasen': '123456'
+}
+
+TAG_COLORS = {
+    'consulting': {'bg': 'rgba(99, 102, 241, 0.2)', 'border': 'rgba(99, 102, 241, 0.5)'},
+    'general': {'bg': 'rgba(6, 182, 212, 0.2)', 'border': 'rgba(6, 182, 212, 0.5)'},
+    'creative': {'bg': 'rgba(245, 194, 231, 0.2)', 'border': 'rgba(245, 194, 231, 0.5)'}
+}
+
 SCAN_CACHE_TTL = 60
 _scan_cache = {'data': None, 'timestamp': 0}
 _cache_lock = threading.Lock()
@@ -170,6 +181,15 @@ def handle_api_path(path, environ, start_response):
     if path == '/api/projects-data':
         return handle_get_projects_data(start_response)
 
+    if path == '/api/login':
+        return handle_login(environ, start_response)
+
+    if path == '/api/logout':
+        return handle_logout(start_response)
+
+    if path == '/api/tags':
+        return handle_tags(environ, start_response)
+
     return None
 
 def handle_export(path, environ, start_response):
@@ -325,6 +345,7 @@ def handle_save_project(environ, start_response):
         projects_data[project_id] = {
             'title': data.get('title'),
             'desc': data.get('desc'),
+            'style': data.get('style'),
             'tags': data.get('tags', [])
         }
 
@@ -353,6 +374,86 @@ def handle_get_projects_data(start_response):
 
     except Exception as e:
         content = json.dumps({'error': str(e)}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+def handle_login(environ, start_response):
+    try:
+        content_length = int(environ.get('CONTENT_LENGTH', 0))
+        request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
+        data = json.loads(request_body)
+
+        username = data.get('username', '')
+        password = data.get('password', '')
+
+        print(f"Login attempt: username={username}, password={password}, USERS={USERS}")
+
+        if username in USERS and USERS[username] == password:
+            content = json.dumps({'success': True, 'username': username}, ensure_ascii=False).encode('utf-8')
+            start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            return [content]
+        else:
+            content = json.dumps({'success': False, 'error': 'Invalid credentials'}).encode('utf-8')
+            start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            return [content]
+    except Exception as e:
+        import traceback
+        print(f"Login error: {e}")
+        print(traceback.format_exc())
+        content = json.dumps({'success': False, 'error': str(e)}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+
+def handle_logout(start_response):
+    content = json.dumps({'success': True}).encode('utf-8')
+    start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+    return [content]
+
+def handle_tags(environ, start_response):
+    try:
+        data_file = PROJECT_DIR / 'examples' / 'tags.json'
+        if data_file.exists():
+            tags_data = json.loads(data_file.read_text(encoding='utf-8'))
+        else:
+            tags_data = {'tags': ['consulting', 'general', 'creative']}
+
+        method = environ.get('REQUEST_METHOD', 'GET')
+
+        if method == 'POST':
+            content_length = int(environ.get('CONTENT_LENGTH', 0))
+            request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
+            data = json.loads(request_body)
+
+            action = data.get('action')
+            if action == 'add':
+                new_tag = data.get('tag', '').strip().lower()
+                if new_tag and new_tag not in tags_data['tags']:
+                    tags_data['tags'].append(new_tag)
+                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
+                content = json.dumps({'success': True, 'tags': tags_data['tags']}, ensure_ascii=False).encode('utf-8')
+            elif action == 'delete':
+                del_tag = data.get('tag', '').strip().lower()
+                if del_tag in tags_data['tags']:
+                    tags_data['tags'].remove(del_tag)
+                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
+                content = json.dumps({'success': True, 'tags': tags_data['tags']}, ensure_ascii=False).encode('utf-8')
+            elif action == 'update':
+                old_tag = data.get('oldTag', '').strip().lower()
+                new_tag = data.get('newTag', '').strip().lower()
+                if old_tag in tags_data['tags']:
+                    idx = tags_data['tags'].index(old_tag)
+                    tags_data['tags'][idx] = new_tag
+                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
+                content = json.dumps({'success': True, 'tags': tags_data['tags']}, ensure_ascii=False).encode('utf-8')
+            else:
+                content = json.dumps({'success': False, 'error': 'Unknown action'}).encode('utf-8')
+        else:
+            content = json.dumps({'success': True, 'tags': tags_data['tags']}, ensure_ascii=False).encode('utf-8')
+
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+        return [content]
+    except Exception as e:
+        content = json.dumps({'success': False, 'error': str(e)}).encode('utf-8')
         start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
         return [content]
 

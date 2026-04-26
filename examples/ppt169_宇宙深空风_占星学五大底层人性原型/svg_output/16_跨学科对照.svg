@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">CHAPTER 06</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">跨学科对照：占星学与现代科学的对话</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6"/>
+  <text x="60" y="165" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">五大底层人性原型体系与多个现代学科存在深刻的对应关系，以下是三组核心对照：</text>
+  <rect x="60" y="185" width="370" height="40" rx="4" fill="#1a2440"/>
+  <text x="245" y="210" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星学概念</text>
+  <rect x="430" y="185" width="370" height="40" rx="4" fill="#1a2440"/>
+  <text x="615" y="210" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">进化心理学</text>
+  <rect x="800" y="185" width="420" height="40" rx="4" fill="#1a2440"/>
+  <text x="1010" y="210" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应关系</text>
+  <rect x="60" y="225" width="370" height="70" fill="#151d35"/>
+  <text x="245" y="255" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#c9a84c" font-weight="bold">领域意识 (土星)</text>
+  <text x="245" y="280" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">领地行为</text>
+  <rect x="430" y="225" width="370" height="70" fill="#151d35"/>
+  <text x="615" y="255" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领地性 (Territoriality)</text>
+  <text x="615" y="280" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">资源保护本能</text>
+  <rect x="800" y="225" width="420" height="70" fill="#151d35"/>
+  <text x="1010" y="255" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">灵长类动物的领地标记行为</text>
+  <text x="1010" y="280" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">与土星的边界设定功能完全对应</text>
+  <rect x="60" y="295" width="370" height="70"/>
+  <text x="245" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e05555" font-weight="bold">损失厌恶 (火星)</text>
+  <text x="245" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">战斗或逃跑</text>
+  <rect x="430" y="295" width="370" height="70"/>
+  <text x="615" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶 (Loss Aversion)</text>
+  <text x="615" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">卡尼曼前景理论</text>
+  <rect x="800" y="295" width="420" height="70"/>
+  <text x="1010" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">人类对损失的敏感度是收益的2倍</text>
+  <text x="1010" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">与火星的防御驱力完全对应</text>
+  <rect x="60" y="365" width="370" height="70" fill="#151d35"/>
+  <text x="245" y="395" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#6b9bff" font-weight="bold">等级服从 (月亮)</text>
+  <text x="245" y="420" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">安全需求</text>
+  <rect x="430" y="365" width="370" height="70" fill="#151d35"/>
+  <text x="615" y="395" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">社会等级识别</text>
+  <text x="615" y="420" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">支配-服从连续体</text>
+  <rect x="800" y="365" width="420" height="70" fill="#151d35"/>
+  <text x="1010" y="395" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">人类天生具有识别社会等级的能力</text>
+  <text x="1010" y="420" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">与月亮的安全需求完全对应</text>
+  <rect x="60" y="435" width="370" height="70"/>
+  <text x="245" y="465" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#a78bfa" font-weight="bold">部落归属 (冥王星)</text>
+  <text x="245" y="490" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">深层认同</text>
+  <rect x="430" y="435" width="370" height="70"/>
+  <text x="615" y="465" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">社会认同理论</text>
+  <text x="615" y="490" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">内群体偏好</text>
+  <rect x="800" y="435" width="420" height="70"/>
+  <text x="1010" y="465" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">人类强烈倾向于认同特定社会群体</text>
+  <text x="1010" y="490" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">与冥王星的部落忠诚完全对应</text>
+  <rect x="60" y="505" width="370" height="70" fill="#151d35"/>
+  <text x="245" y="535" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#4caf7d" font-weight="bold">互惠交换 (太阳)</text>
+  <text x="245" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">价值互换</text>
+  <rect x="430" y="505" width="370" height="70" fill="#151d35"/>
+  <text x="615" y="535" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">互惠利他主义</text>
+  <text x="615" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">特里弗斯理论</text>
+  <rect x="800" y="505" width="420" height="70" fill="#151d35"/>
+  <text x="1010" y="535" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">人类合作的基础是互惠原则</text>
+  <text x="1010" y="560" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#9a98a0">与太阳的自我价值交换完全对应</text>
+  <rect x="60" y="600" width="1160" height="60" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="60" y="600" width="4" height="60" rx="2" fill="#4a7cf7"/>
+  <text x="90" y="625" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">💡 <tspan fill="#6b9bff" font-weight="bold">核心洞察：</tspan>占星学的符号体系与进化心理学的研究发现高度吻合，这表明占星学可能是一套古老的人类行为观察系统，</text>
+  <text x="90" y="650" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">   用象征性语言记录了人类在进化过程中形成的核心心理机制。</text>
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">16 / 18</text>
+</svg>

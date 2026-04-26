@@ -17,23 +17,26 @@ description: "Deploy PPT Master to PythonAnywhere with export functionality."
 
 ## 部署步骤
 
-### Step 1: Git Pull (拉取最新代码)
-在 PythonAnywhere Console 中执行：
+### Step 1: 执行部署脚本
 ```bash
-cd /home/ppt/ppt-master && git pull
+python ".trae\skills\voc-deploy\scripts\deploy.py"
 ```
 
-### Step 2: 执行部署脚本
-```bash
-python "voc-deploy/scripts/deploy.py"
-```
+部署脚本会自动完成：
+1. Git Commit - 自动提交所有更改
+2. Git Push - 推送到远程仓库
+3. 上传 WSGI - 更新 WSGI 配置
+4. Reload Webapp - 重载 Web 应用
+5. 验证网站 - 确认部署成功
 
-### Step 3: Reload Webapp
+### Step 2: 手动拉取代码
+由于 PythonAnywhere 免费版限制，需要在云端手动拉取代码：
+
 1. 访问 https://www.pythonanywhere.com/
-2. 登录后进入 **Web** 选项卡
-3. 点击 **Reload** 按钮刷新 `ppt.pythonanywhere.com`
+2. 进入 **Consoles** → 打开 `/home/ppt/ppt-master` 的 Console
+3. 执行: `cd /home/ppt/ppt-master && git pull`
 
-### Step 4: 验证
+### Step 3: 验证
 访问 https://ppt.pythonanywhere.com/ 确认网站正常运行
 
 ## 导出功能

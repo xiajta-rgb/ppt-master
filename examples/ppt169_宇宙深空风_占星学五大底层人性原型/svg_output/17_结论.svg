@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="titleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="50%" stop-color="#e8d48b"/>
+      <stop offset="100%" stop-color="#c9a84c"/>
+    </linearGradient>
+    <radialGradient id="bgDecor" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgDecorBlue" cx="20%" cy="80%" r="40%">
+      <stop offset="0%" stop-color="#4a7cf7" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#4a7cf7" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+  <rect width="1280" height="720" fill="url(#bgDecor)"/>
+  <rect width="1280" height="720" fill="url(#bgDecorBlue)"/>
+
+  <!-- Decorative elements -->
+  <circle cx="1100" cy="120" r="80" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.2"/>
+  <circle cx="1100" cy="120" r="60" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.15"/>
+  <circle cx="1100" cy="120" r="40" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="180" cy="600" r="50" fill="none" stroke="#4a7cf7" stroke-width="0.5" opacity="0.15"/>
+
+  <!-- Small stars -->
+  <circle cx="100" cy="80" r="1.5" fill="#c9a84c" opacity="0.4"/>
+  <circle cx="1200" cy="200" r="1" fill="#c9a84c" opacity="0.3"/>
+  <circle cx="1150" cy="500" r="1.5" fill="#4a7cf7" opacity="0.3"/>
+  <circle cx="200" cy="650" r="1" fill="#c9a84c" opacity="0.4"/>
+
+  <!-- Header -->
+  <text x="640" y="100" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="4">CONCLUSION</text>
+
+  <!-- Title -->
+  <text x="640" y="150" text-anchor="middle" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="40" font-weight="bold" fill="url(#titleGrad)">五大核心结论</text>
+  <line x1="540" y1="165" x2="740" y2="165" stroke="#c9a84c" stroke-width="2" opacity="0.6"/>
+
+  <!-- Five conclusions -->
+  <rect x="60" y="195" width="1160" height="85" rx="10" fill="#151d35" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="100" cy="237" r="20" fill="#c9a84c" opacity="0.2"/>
+  <text x="100" y="243" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#c9a84c">1</text>
+  <text x="135" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星学是一套人性演化心理学模型</text>
+  <text x="135" y="255" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">星体、星座、宫位、相位共同构成了一个完整的人类行为观察系统，用象征语言记录了进化过程中形成的核心心理机制。</text>
+
+  <rect x="60" y="295" width="1160" height="85" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="100" cy="337" r="20" fill="#4a7cf7" opacity="0.2"/>
+  <text x="100" y="343" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#6b9bff">2</text>
+  <text x="135" y="325" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">五大底层人性是占星学的核心映射</text>
+  <text x="135" y="355" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">领域意识、损失厌恶、等级服从、部落归属、互惠交换——这五大人性能在占星学符号体系中找到精确对应。</text>
+
+  <rect x="60" y="395" width="1160" height="85" rx="10" fill="#151d35" stroke="#7c5cbf" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="100" cy="437" r="20" fill="#7c5cbf" opacity="0.2"/>
+  <text x="100" y="443" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#a78bfa">3</text>
+  <text x="135" y="425" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">飞宫理论揭示了本能驱力的动态流动</text>
+  <text x="135" y="455" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">星体能量跨宫位的投射，本质上是人性本能驱力在不同生活领域之间的转移和分配。</text>
+
+  <rect x="60" y="495" width="1160" height="85" rx="10" fill="#151d35" stroke="#4caf7d" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="100" cy="537" r="20" fill="#4caf7d" opacity="0.2"/>
+  <text x="100" y="543" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#4caf7d">4</text>
+  <text x="135" y="525" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">相位反映了人性驱力的互动模式</text>
+  <text x="135" y="555" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">合相、六分相、四分相、三分相、对分相分别对应驱力的融合、协作、冲突、天赋、对立五种互动方式。</text>
+
+  <rect x="60" y="595" width="1160" height="85" rx="10" fill="#151d35" stroke="#e05555" stroke-width="1" stroke-opacity="0.3"/>
+  <circle cx="100" cy="637" r="20" fill="#e05555" opacity="0.2"/>
+  <text x="100" y="643" text-anchor="middle" font-family="Georgia, serif" font-size="20" font-weight="bold" fill="#e05555">5</text>
+  <text x="135" y="625" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星学具有跨学科的实践价值</text>
+  <text x="135" y="655" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">从个人发展到团队建设，从关系咨询到职业规划，五大人性原型体系提供了独特的分析视角。</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">17 / 18</text>
+</svg>

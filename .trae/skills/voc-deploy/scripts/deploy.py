@@ -248,6 +248,28 @@ def application(environ, start_response):
 
 '''
 
+def git_commit_and_push():
+    import subprocess
+    import datetime
+    try:
+        result = subprocess.run(['git', 'status', '--porcelain'], capture_output=True, text=True, timeout=30)
+        if not result.stdout.strip():
+            return True, "No changes to commit"
+
+        commit_msg = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S") + " Auto commit from deploy script"
+        subprocess.run(['git', 'add', '.'], capture_output=True, timeout=30)
+        result = subprocess.run(['git', 'commit', '-m', commit_msg], capture_output=True, text=True, timeout=30)
+        if result.returncode != 0:
+            return False, result.stderr
+
+        result = subprocess.run(['git', 'push'], capture_output=True, text=True, timeout=60)
+        if result.returncode == 0:
+            return True, result.stdout
+        else:
+            return False, result.stderr
+    except Exception as e:
+        return False, str(e)
+
 def upload_wsgi():
     boundary = uuid.uuid4().hex
     headers = {
@@ -284,20 +306,33 @@ def main():
     print("PPT Master Deploy (with Export API)")
     print("="*50)
 
-    print("\n[Step 1] 上传 WSGI...")
+    print("\n[Step 1] Git Commit & Push (提交并推送到远程)...")
+    ok, msg = git_commit_and_push()
+    if ok:
+        print("[OK] Git Commit & Push 成功")
+        if msg != "No changes to commit":
+            print(f"    {msg}")
+    else:
+        print(f"[!] Git Commit & Push 失败: {msg}")
+        return
+
+    print("\n[!] 请在 PythonAnywhere Console 中执行: cd /home/ppt/ppt-master && git pull")
+    print("[!] 然后在 Web 页面点击 Reload")
+
+    print("\n[Step 2] 上传 WSGI...")
     if upload_wsgi():
         print("[OK] WSGI 上传成功")
     else:
         print("[X] WSGI 上传失败")
         return
 
-    print("\n[Step 2] Reload Webapp...")
+    print("\n[Step 3] Reload Webapp...")
     if reload_webapp():
         print("[OK] Reload 成功")
     else:
         print("[!] Reload 失败，请手动Reload")
 
-    print("\n[Step 3] 验证网站...")
+    print("\n[Step 4] 验证网站...")
     verify()
 
     print("\n" + "="*50)

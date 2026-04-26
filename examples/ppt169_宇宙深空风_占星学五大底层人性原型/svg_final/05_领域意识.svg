@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#e8d48b" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1280" height="720" fill="#0a0e1a" />
+
+  
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">1.1 静态映射</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">领域意识：所有权与边界的底层原型</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6" />
+
+  
+  
+  <g transform="translate(60.0, 160.0) scale(2.0)" fill="#c9a84c">
+    <path d="M11.884 2.007l.114 -.007l.118 .007l.059 .008l.061 .013l.111 .034a.993 .993 0 0 1 .217 .112l.104 .082l.255 .218a11 11 0 0 0 7.189 2.537l.342 -.01a1 1 0 0 1 1.005 .717a13 13 0 0 1 -9.208 16.25a1 1 0 0 1 -.502 0a13 13 0 0 1 -9.209 -16.25a1 1 0 0 1 1.005 -.717a11 11 0 0 0 7.531 -2.527l.263 -.225l.096 -.075a.993 .993 0 0 1 .217 -.112l.112 -.034a.97 .97 0 0 1 .119 -.021z" />
+  </g>
+  <text x="120" y="195" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="24" font-weight="bold" fill="#c9a84c">对应星体：土星（Saturn）♄</text>
+  <text x="120" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">土星代表结构、边界、规则与时间。它是人性中「领域意识」的化身——知道什么是我的、什么不是我的，知道边界在哪里。</text>
+
+  
+  <text x="60" y="280" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星要素与人性对照</text>
+
+  
+  <path fill="#1a2440" d="M64,295 H436 A4,4 0 0 1 440,299 V331 A4,4 0 0 1 436,335 H64 A4,4 0 0 1 60,331 V299 A4,4 0 0 1 64,295 Z" />
+  <text x="250" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <path fill="#1a2440" d="M444,295 H1216 A4,4 0 0 1 1220,299 V331 A4,4 0 0 1 1216,335 H444 A4,4 0 0 1 440,331 V299 A4,4 0 0 1 444,295 Z" />
+  <text x="830" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+
+  
+  <rect x="60" y="335" width="380" height="40" fill="#151d35" />
+  <text x="250" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">土星</text>
+  <rect x="440" y="335" width="780" height="40" fill="#151d35" />
+  <text x="830" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领域意识的核心驱力</text>
+
+  <rect x="60" y="375" width="380" height="40" />
+  <text x="250" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">摩羯座</text>
+  <rect x="440" y="375" width="780" height="40" />
+  <text x="830" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领域意识的表达模式（结构化、层级化）</text>
+
+  <rect x="60" y="415" width="380" height="40" fill="#151d35" />
+  <text x="250" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第二宫</text>
+  <rect x="440" y="415" width="780" height="40" fill="#151d35" />
+  <text x="830" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领域意识的落地场景（物质所有权）</text>
+
+  <rect x="60" y="455" width="380" height="40" />
+  <text x="250" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第四宫</text>
+  <rect x="440" y="455" width="780" height="40" />
+  <text x="830" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领域意识的落地场景（家庭/领土）</text>
+
+  <rect x="60" y="495" width="380" height="40" fill="#151d35" />
+  <text x="250" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第十宫</text>
+  <rect x="440" y="495" width="780" height="40" fill="#151d35" />
+  <text x="830" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">领域意识的落地场景（社会地位/公共领域）</text>
+
+  
+  <path fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3" d="M70,560 H1210 A10,10 0 0 1 1220,570 V650 A10,10 0 0 1 1210,660 H70 A10,10 0 0 1 60,650 V570 A10,10 0 0 1 70,560 Z" />
+  <path fill="#4a7cf7" d="M62,560 H62 A2,2 0 0 1 64,562 V658 A2,2 0 0 1 62,660 H62 A2,2 0 0 1 60,658 V562 A2,2 0 0 1 62,560 Z" />
+  <text x="90" y="590" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">进化心理学对照：</text>
+  <text x="90" y="615" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">领域意识是灵长类动物的核心本能之一。划定领地、保护资源、建立边界——这是所有社会性动物生存的基础。</text>
+  <text x="90" y="640" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">土星在占星学中的"限制"与"考验"，本质上是对领域边界的测试与强化。</text>
+
+  
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">05 / 18</text>
+</svg>

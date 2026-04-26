@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c" />
+      <stop offset="100%" stop-color="#e8d48b" />
+    </linearGradient>
+  </defs>
+
+  
+  <rect width="1280" height="720" fill="#0a0e1a" />
+
+  
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">1.2 静态映射</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">损失厌恶：恐惧与风险规避的底层原型</text>
+  <line x1="60" y1="130" x2="200" y2="130" stroke="#c9a84c" stroke-width="2" opacity="0.6" />
+
+  
+  
+  <g transform="translate(60.0, 160.0) scale(2.0)" fill="#e05555">
+    <path d="M12 1.67c.955 0 1.845 .467 2.39 1.247l.105 .16l8.114 13.548a2.914 2.914 0 0 1 -2.307 4.363l-.195 .008h-16.225a2.914 2.914 0 0 1 -2.582 -4.2l.099 -.185l8.11 -13.538a2.914 2.914 0 0 1 2.491 -1.403zm.01 13.33l-.127 .007a1 1 0 0 0 0 1.986l.117 .007l.127 -.007a1 1 0 0 0 0 -1.986l-.117 -.007zm-.01 -7a1 1 0 0 0 -.993 .883l-.007 .117v4l.007 .117a1 1 0 0 0 1.986 0l.007 -.117v-4l-.007 -.117a1 1 0 0 0 -.993 -.883z" />
+  </g>
+  <text x="120" y="195" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="24" font-weight="bold" fill="#e05555">对应星体：火星（Mars）♂</text>
+  <text x="120" y="225" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">火星代表行动力、攻击性、勇气与恐惧。它是人性中「损失厌恶」的化身——面对威胁时的战斗或逃跑反应。</text>
+
+  
+  <text x="60" y="280" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#e8d48b">占星要素与人性对照</text>
+
+  
+  <path fill="#1a2440" d="M64,295 H436 A4,4 0 0 1 440,299 V331 A4,4 0 0 1 436,335 H64 A4,4 0 0 1 60,331 V299 A4,4 0 0 1 64,295 Z" />
+  <text x="250" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">占星要素</text>
+  <path fill="#1a2440" d="M444,295 H1216 A4,4 0 0 1 1220,299 V331 A4,4 0 0 1 1216,335 H444 A4,4 0 0 1 440,331 V299 A4,4 0 0 1 444,295 Z" />
+  <text x="830" y="320" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" font-weight="bold" fill="#e8d48b">对应人性</text>
+
+  
+  <rect x="60" y="335" width="380" height="40" fill="#151d35" />
+  <text x="250" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">火星</text>
+  <rect x="440" y="335" width="780" height="40" fill="#151d35" />
+  <text x="830" y="360" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶的核心驱力（战斗/逃跑）</text>
+
+  <rect x="60" y="375" width="380" height="40" />
+  <text x="250" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">白羊座</text>
+  <rect x="440" y="375" width="780" height="40" />
+  <text x="830" y="400" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶的表达模式（直接对抗）</text>
+
+  <rect x="60" y="415" width="380" height="40" fill="#151d35" />
+  <text x="250" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">天蝎座</text>
+  <rect x="440" y="415" width="780" height="40" fill="#151d35" />
+  <text x="830" y="440" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶的表达模式（深度防御）</text>
+
+  <rect x="60" y="455" width="380" height="40" />
+  <text x="250" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第一宫</text>
+  <rect x="440" y="455" width="780" height="40" />
+  <text x="830" y="480" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶的落地场景（自我保卫）</text>
+
+  <rect x="60" y="495" width="380" height="40" fill="#151d35" />
+  <text x="250" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">第八宫</text>
+  <rect x="440" y="495" width="780" height="40" fill="#151d35" />
+  <text x="830" y="520" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#e8e6e1">损失厌恶的落地场景（危机/共享资源）</text>
+
+  
+  <path fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3" d="M70,560 H1210 A10,10 0 0 1 1220,570 V650 A10,10 0 0 1 1210,660 H70 A10,10 0 0 1 60,650 V570 A10,10 0 0 1 70,560 Z" />
+  <path fill="#4a7cf7" d="M62,560 H62 A2,2 0 0 1 64,562 V658 A2,2 0 0 1 62,660 H62 A2,2 0 0 1 60,658 V562 A2,2 0 0 1 62,560 Z" />
+  <text x="90" y="590" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" font-weight="bold" fill="#6b9bff">进化心理学对照：</text>
+  <text x="90" y="615" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">损失厌恶（Loss Aversion）是行为经济学的核心发现——人们对损失的敏感度远高于对收益的敏感度。</text>
+  <text x="90" y="640" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">火星在占星学中既代表勇气也代表恐惧，正是这种双面性的体现：敢于战斗是因为害怕失去。</text>
+
+  
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">06 / 18</text>
+</svg>

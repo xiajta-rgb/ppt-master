@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a84c"/>
+      <stop offset="100%" stop-color="#e8d48b"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="80%" cy="20%" r="50%">
+      <stop offset="0%" stop-color="#c9a84c" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#c9a84c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+  <rect width="1280" height="720" fill="url(#bgGlow)"/>
+
+  <!-- Header -->
+  <rect x="60" y="50" width="80" height="4" rx="2" fill="url(#headerGrad)"/>
+  <text x="60" y="80" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="12" fill="#8a7234" letter-spacing="3">INTRODUCTION</text>
+  <text x="60" y="115" font-family="Georgia, 'Microsoft YaHei', 'PingFang SC', serif" font-size="32" font-weight="bold" fill="#e8d48b">引言：占星学作为人性演化心理学的象征语言</text>
+
+  <!-- Core axiom highlight box -->
+  <rect x="60" y="145" width="1160" height="60" rx="10" fill="#151d35" stroke="#c9a84c" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="640" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="20" font-weight="bold" fill="#e8d48b">核心公理：「As above, so below」— 在上如是，在下亦然</text>
+  <text x="640" y="195" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="15" fill="#e8e6e1">西方占星学本质是一套用 <tspan fill="#c9a84c" font-weight="bold">神话—象征语言</tspan> 编码的 <tspan fill="#c9a84c" font-weight="bold">先天人性结构图谱</tspan>，将人类数百万年演化形成的底层本能，拆解为四大模块。</text>
+
+  <!-- Four module cards -->
+  <!-- Card 1: 星体 -->
+  <rect x="60" y="230" width="275" height="180" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <use data-icon="tabler-filled/star" x="175" y="250" width="48" height="48" fill="#c9a84c"/>
+  <text x="197" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" font-weight="bold" fill="#e8d48b">十大星体</text>
+  <text x="197" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">核心驱力</text>
+  <text x="197" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">心理适应器</text>
+
+  <!-- Card 2: 星座 -->
+  <rect x="360" y="230" width="275" height="180" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <use data-icon="tabler-filled/zodiac-aries" x="475" y="250" width="48" height="48" fill="#4a7cf7"/>
+  <text x="497" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" font-weight="bold" fill="#6b9bff">十二星座</text>
+  <text x="497" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">驱力的</text>
+  <text x="497" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">表达模式</text>
+
+  <!-- Card 3: 宫位 -->
+  <rect x="660" y="230" width="275" height="180" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <use data-icon="tabler-filled/home" x="775" y="250" width="48" height="48" fill="#7c5cbf"/>
+  <text x="797" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" font-weight="bold" fill="#a78bfa">十二宫位</text>
+  <text x="797" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">驱力的</text>
+  <text x="797" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">落地场景</text>
+
+  <!-- Card 4: 相位 -->
+  <rect x="960" y="230" width="260" height="180" rx="10" fill="#151d35" stroke="#2a3050" stroke-width="1"/>
+  <use data-icon="tabler-filled/layers-intersect" x="1065" y="250" width="48" height="48" fill="#4ac9c9"/>
+  <text x="1090" y="325" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="20" font-weight="bold" fill="#4ac9c9">相位</text>
+  <text x="1090" y="350" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">驱力的</text>
+  <text x="1090" y="370" text-anchor="middle" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="14" fill="#9a98a0">协同与冲突</text>
+
+  <!-- Key insight box -->
+  <rect x="60" y="440" width="1160" height="140" rx="10" fill="#151d35" stroke="#4a7cf7" stroke-width="1" stroke-opacity="0.3"/>
+  <rect x="60" y="440" width="4" height="140" rx="2" fill="#4a7cf7"/>
+  <text x="90" y="475" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="18" font-weight="bold" fill="#6b9bff">核心论点：</text>
+  <text x="90" y="505" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">西方占星学的完整体系，就是一套用神话—象征语言编码的人性演化心理学模型。</text>
+  <text x="90" y="535" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">现代心理学是 <tspan fill="#c9a84c" font-weight="bold">「归纳式」</tspan> 的（从行为反推人性），而占星学是 <tspan fill="#c9a84c" font-weight="bold">「演绎式」</tspan> 的</text>
+  <text x="90" y="560" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="16" fill="#e8e6e1">（从宇宙秩序直接映射先天人性结构），二者最终指向同一套刻在人类基因里的底层生存本能。</text>
+
+  <!-- Page number -->
+  <text x="1220" y="690" text-anchor="end" font-family="'Microsoft YaHei', 'PingFang SC', Arial, sans-serif" font-size="11" fill="#6e6e73">03 / 18</text>
+</svg>

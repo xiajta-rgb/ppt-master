@@ -89,11 +89,12 @@ async function loadDynamicCollections() {
 
         collections = data.projects.map(p => {
             const staticData = staticMap.get(p.id) || staticMap.get(p.alias?.[0]);
-            const apiSlideFiles = new Set(p.slides.map(s => s.file));
             let slides;
             if (staticData?.slides?.length) {
-                const filtered = staticData.slides.filter(s => apiSlideFiles.has(s.file));
-                slides = filtered.length > 0 ? filtered : staticData.slides;
+                slides = p.slides.map(s => {
+                    const staticSlide = staticData.slides.find(ss => ss.file === s.file);
+                    return staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' };
+                });
             } else {
                 slides = p.slides.map(s => ({
                     file: s.file,
@@ -109,7 +110,7 @@ async function loadDynamicCollections() {
                 description: staticData?.description || `Project: ${p.id}`,
                 icon: staticData?.icon || '📊',
                 color: staticData?.color || '#6366f1',
-                folder: staticData?.folder || `${p.folder}/svg_final`,
+                folder: staticData?.folder || `examples/${p.folder}/svg_final`,
                 slides: slides
             };
         });
@@ -227,7 +228,7 @@ function renderFilteredCollections() {
     emptyState.classList.add('hidden');
     grid.innerHTML = filteredCollections.map(collection => {
         const firstSlide = collection.slides && collection.slides[0];
-        const coverPath = firstSlide ? encodeURI(`${collection.folder}/${firstSlide.file}`) : '';
+        const coverPath = firstSlide ? encodePath(`${collection.folder}/${firstSlide.file}`) : '';
         const slideCount = collection.slides ? collection.slides.length : 0;
         const category = getCategoryFromTitle(collection.title);
         const categoryLabels = {
@@ -332,8 +333,10 @@ function openCollection(collection) {
     document.getElementById('libraryView').classList.add('hidden');
     document.getElementById('viewerView').classList.remove('hidden');
     document.getElementById('collectionSelector').classList.remove('hidden');
-    document.getElementById('keyboardHints').classList.remove('hidden');
-    document.getElementById('keyboardHints').classList.add('flex');
+    document.getElementById('keyboardHints').classList.add('hidden');
+    document.getElementById('keyboardHints').classList.remove('flex');
+    document.getElementById('keyboardHintsHeader').classList.remove('hidden');
+    document.getElementById('keyboardHintsHeader').classList.add('flex');
     document.getElementById('mainContent').classList.add('viewer-expanded');
 
     setViewMode('normal');
@@ -373,6 +376,8 @@ function backToLibrary() {
     document.getElementById('collectionSelector').classList.add('hidden');
     document.getElementById('keyboardHints').classList.add('hidden');
     document.getElementById('keyboardHints').classList.remove('flex');
+    document.getElementById('keyboardHintsHeader').classList.add('hidden');
+    document.getElementById('keyboardHintsHeader').classList.remove('flex');
     document.getElementById('progressBar').style.width = '0%';
     document.getElementById('mainContent').classList.remove('viewer-expanded');
     document.getElementById('slideViewerContainer').classList.remove('theater-mode');
@@ -639,10 +644,10 @@ function generateThumbnails() {
     if (!currentCollection) return;
 
     const container = document.getElementById('thumbnailContainer');
-    const basePath = `${currentCollection.folder}/`;
+    const basePath = encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
-        const slidePath = encodeURI(basePath + slide.file);
+        const slidePath = basePath + encodeURIComponent(slide.file);
         return `
         <div class="thumbnail rounded-lg overflow-hidden border-2 ${index === 0 ? 'border-brand-500' : 'border-transparent'}"
              onclick="goToSlide(${index})"
@@ -666,10 +671,10 @@ function generateOverview() {
     if (!currentCollection) return;
 
     const container = document.getElementById('overviewGrid');
-    const basePath = `${currentCollection.folder}/`;
+    const basePath = encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
-        const slidePath = encodeURI(basePath + slide.file);
+        const slidePath = basePath + encodeURIComponent(slide.file);
         return `
         <div class="rounded-xl p-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
              onclick="goToSlide(${index}); window.scrollTo({top: 0, behavior: 'smooth'})">
@@ -701,12 +706,16 @@ function updateSlide() {
     }, 50);
 }
 
+function encodePath(path) {
+    return path.split('/').map(p => encodeURIComponent(p)).join('/');
+}
+
 function performSlideUpdate() {
     if (!currentCollection) return;
 
     const slide = currentCollection.slides[currentSlide];
-    const basePath = `${currentCollection.folder}/`;
-    const slidePath = encodeURI(basePath + slide.file);
+    const basePath = '/' + encodePath(currentCollection.folder) + '/';
+    const slidePath = basePath + encodeURIComponent(slide.file);
 
     const slideWrapper = document.getElementById('slideWrapper');
     const fullscreenImage = document.getElementById('fullscreenImage');
@@ -745,6 +754,11 @@ function performSlideUpdate() {
             const parser = new DOMParser();
             const doc = parser.parseFromString(svgContent, 'image/svg+xml');
             const svgEl = doc.documentElement;
+            
+            if (!svgEl || svgEl.nodeName === 'parsererror' || svgEl.tagName === 'html') {
+                throw new Error('Invalid SVG content');
+            }
+            
             svgEl.classList.add('w-full', 'h-full', 'rounded-lg', 'fade-in', 'cursor-pointer');
             svgEl.style.aspectRatio = '16/9';
             svgEl.setAttribute('data-slide-path', slidePath);
