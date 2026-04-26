@@ -17,16 +17,13 @@ def main():
     log("Starting backend server...")
 
     try:
-        from wsgiref.simple_server import make_server
         from WSGI_local import application
+        from waitress import serve
 
         log("WSGI app imported successfully")
 
-        srv = make_server('localhost', 5001, application)
-        log("Server created on port 5001")
-
-        log("Server ready! Accepting connections...")
-        srv.serve_forever()
+        log("Server ready! Accepting connections on port 5001...")
+        serve(application, host='localhost', port=5001)
 
     except Exception as e:
         log(f"FATAL ERROR: {e}")

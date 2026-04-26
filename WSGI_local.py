@@ -189,6 +189,8 @@ def handle_export(path, environ, start_response):
         return [content]
 
     try:
+        if str(SCRIPTS_DIR) not in sys.path:
+            sys.path.insert(0, str(SCRIPTS_DIR))
         from svg_to_pptx import create_pptx_with_native_svg
         import tempfile
 

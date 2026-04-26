@@ -35,8 +35,9 @@ npx vite --port 5373
 
 ## 访问地址
 
-- 前端：http://localhost:5373/viewer.html
-- 后端 API：http://localhost:5001/api/scan-projects
+- **前端主页：** http://localhost:5373/ （即 index.html，用于项目浏览）
+- **后端 API：** http://localhost:5001/api/scan-projects
+- **预览页面：** viewer.html（仅供内部预览逻辑调用，无需直接访问）
 
 ## 重启步骤
 

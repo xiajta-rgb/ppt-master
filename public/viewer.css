@@ -1,0 +1,872 @@
+/* ========================================
+   PPT Master Viewer - Premium UI Styles
+   ======================================== */
+
+/* --- Design Tokens --- */
+:root {
+    --bg-primary: #0f0f1a;
+    --bg-secondary: #1a1a2e;
+    --bg-tertiary: #16213e;
+    --surface-glass: rgba(255, 255, 255, 0.03);
+    --surface-glass-hover: rgba(255, 255, 255, 0.06);
+    --surface-elevated: rgba(255, 255, 255, 0.08);
+    --border-subtle: rgba(255, 255, 255, 0.06);
+    --border-hover: rgba(255, 255, 255, 0.12);
+    --text-primary: #f0f0f5;
+    --text-secondary: rgba(240, 240, 245, 0.6);
+    --text-tertiary: rgba(240, 240, 245, 0.4);
+    --accent-primary: #6366f1;
+    --accent-secondary: #818cf8;
+    --accent-glow: rgba(99, 102, 241, 0.3);
+    --success: #10b981;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --radius-xl: 18px;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-glow: 0 0 20px var(--accent-glow);
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-base: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ambient background gradient */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at 30% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* --- Header --- */
+header {
+    background: rgba(15, 15, 26, 0.85) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid var(--border-subtle) !important;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset !important;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .max-w-7xl {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+}
+
+/* Back button */
+header a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--radius-md);
+    color: var(--text-secondary) !important;
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    transition: all var(--transition-fast);
+}
+
+header a:hover {
+    background: var(--surface-glass-hover);
+    color: var(--text-primary) !important;
+}
+
+header a i {
+    font-size: 0.75rem;
+}
+
+/* Collection selector */
+#collectionSelector button {
+    background: var(--surface-glass) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    padding: 0.4rem 0.9rem !important;
+    transition: all var(--transition-fast);
+}
+
+#collectionSelector button:hover {
+    background: var(--surface-glass-hover) !important;
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-sm);
+}
+
+#currentCollectionIcon {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 0.6875rem !important;
+    padding: 0.15rem 0.45rem !important;
+    border-radius: var(--radius-sm) !important;
+    letter-spacing: 0.05em;
+}
+
+#currentCollectionName {
+    color: var(--text-primary) !important;
+    font-weight: 500 !important;
+    font-size: 0.8125rem !important;
+}
+
+/* View mode buttons */
+#normalModeBtn, #theaterModeBtn {
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast);
+}
+
+#normalModeBtn:hover, #theaterModeBtn:hover {
+    background: var(--surface-glass-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+#normalModeBtn.active, #theaterModeBtn.active {
+    background: var(--accent-primary) !important;
+    color: white !important;
+    box-shadow: var(--shadow-glow);
+}
+
+header button[title] {
+    color: var(--text-secondary) !important;
+    padding: 0.4rem !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast);
+}
+
+header button[title]:hover {
+    background: var(--surface-glass-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+/* --- Dropdown Menu --- */
+#dropdownMenu {
+    background: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#dropdownMenu::-webkit-scrollbar {
+    width: 4px;
+}
+
+#dropdownMenu::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#dropdownMenu::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 2px;
+}
+
+#dropdownMenu > div {
+    padding: 0.6rem 0.9rem !important;
+    transition: all var(--transition-fast);
+}
+
+#dropdownMenu > div:hover {
+    background: var(--surface-glass-hover) !important;
+}
+
+#dropdownMenu > div .seq-id-badge {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    font-size: 0.625rem !important;
+    padding: 0.1rem 0.35rem !important;
+    border-radius: 3px !important;
+}
+
+#dropdownMenu > div p {
+    color: var(--text-primary) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+}
+
+#dropdownMenu > div p.text-xs {
+    color: var(--text-tertiary) !important;
+    font-size: 0.6875rem !important;
+}
+
+/* --- Keyboard Hints --- */
+#keyboardHints {
+    background: rgba(20, 20, 35, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 999px !important;
+    padding: 0.5rem 1.2rem !important;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.02em;
+}
+
+#keyboardHints kbd {
+    background: var(--surface-elevated) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: 4px !important;
+    padding: 0.1rem 0.4rem !important;
+    font-family: 'SF Mono', 'Fira Code', monospace !important;
+    font-size: 0.6875rem !important;
+}
+
+/* --- Main Content --- */
+.main {
+    position: relative;
+    z-index: 1;
+}
+
+/* --- Library View --- */
+#libraryView {
+    padding: 2rem !important;
+}
+
+#libraryView h1 {
+    font-size: 2.25rem !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, var(--text-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+#libraryView p.text-gray-500 {
+    color: var(--text-secondary) !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.6;
+}
+
+/* --- Viewer Layout --- */
+#slideViewerContainer {
+    display: flex;
+    height: calc(100vh - 56px);
+    background: var(--bg-primary);
+}
+
+/* --- Thumbnail Sidebar --- */
+#thumbnailSidebar {
+    width: 200px !important;
+    min-width: 200px !important;
+    background: rgba(15, 15, 26, 0.6) !important;
+    border-right: 1px solid var(--border-subtle) !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.75rem !important;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#thumbnailSidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+#thumbnailSidebar::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+#thumbnailSidebar::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 2px;
+}
+
+#thumbnailContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* Thumbnail items */
+.thumbnail {
+    border-radius: var(--radius-md) !important;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    border: 2px solid transparent !important;
+    background: var(--surface-glass);
+    position: relative;
+}
+
+.thumbnail:hover {
+    transform: scale(1.03);
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-md);
+    background: var(--surface-glass-hover);
+}
+
+.thumbnail.border-brand-500 {
+    border-color: var(--accent-primary) !important;
+    box-shadow: var(--shadow-glow);
+    background: var(--surface-elevated);
+}
+
+.thumbnail img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius-sm);
+}
+
+.thumbnail > div:last-child {
+    padding: 0.35rem 0.5rem !important;
+    background: transparent !important;
+    font-size: 0.6875rem !important;
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* --- Slide Viewer Area --- */
+#slideContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-primary);
+    position: relative;
+}
+
+#slideViewer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem !important;
+    position: relative;
+    overflow: hidden;
+}
+
+#slideWrapper {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#slideWrapper svg {
+    width: 100%;
+    height: auto;
+    max-height: calc(100vh - 200px);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Loading spinner */
+#slideLoadingSpinner {
+    background: rgba(15, 15, 26, 0.5) !important;
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-lg);
+}
+
+#slideLoadingSpinner > div {
+    border-color: var(--border-hover) !important;
+    border-top-color: var(--accent-primary) !important;
+}
+
+/* --- Slide Info Bar --- */
+#slideInfoBar {
+    background: rgba(15, 15, 26, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    border-top: 1px solid var(--border-subtle) !important;
+    padding: 0.75rem 1.5rem !important;
+}
+
+#viewerTitle {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.01em;
+}
+
+#viewerDescription {
+    color: var(--text-tertiary) !important;
+    font-size: 0.75rem !important;
+    margin-top: 0.15rem !important;
+}
+
+/* Export button */
+#exportBtn {
+    background: linear-gradient(135deg, var(--accent-primary), #818cf8) !important;
+    color: white !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: var(--radius-md) !important;
+    border: none !important;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+#exportBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--accent-glow);
+}
+
+#exportBtn:active {
+    transform: translateY(0);
+}
+
+/* Navigation controls */
+#slideInfoBar > div > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+#slideInfoBar button {
+    color: var(--text-secondary) !important;
+    padding: 0.35rem !important;
+    border-radius: var(--radius-sm) !important;
+    transition: all var(--transition-fast);
+    background: transparent !important;
+}
+
+#slideInfoBar button:hover:not(:disabled) {
+    background: var(--surface-glass-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+#slideInfoBar button:disabled {
+    opacity: 0.3 !important;
+    cursor: not-allowed !important;
+}
+
+#slideInfoBar span.text-sm {
+    color: var(--text-secondary) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    font-variant-numeric: tabular-nums;
+    min-width: 3.5rem;
+    text-align: center;
+}
+
+/* --- Edit Toolbar --- */
+#editToolbar {
+    background: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 0.6rem 1rem !important;
+}
+
+#editToolbar span {
+    color: var(--text-tertiary) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+#editToolbar button {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast);
+}
+
+#editToolbar button:first-of-type {
+    background: var(--surface-glass) !important;
+    color: var(--text-secondary) !important;
+    border: 1px solid var(--border-subtle) !important;
+}
+
+#editToolbar button:first-of-type:hover {
+    background: var(--surface-glass-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+#editToolbar button:last-of-type {
+    background: var(--danger) !important;
+    color: white !important;
+    border: none !important;
+}
+
+#editToolbar button:last-of-type:hover {
+    background: #dc2626 !important;
+}
+
+/* Edit hint */
+#editHint {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    padding: 0.4rem 1rem !important;
+    border-radius: 999px !important;
+    box-shadow: var(--shadow-glow);
+}
+
+/* --- Progress Bar --- */
+#progressBar {
+    height: 2px !important;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)) !important;
+    box-shadow: 0 0 8px var(--accent-glow);
+    z-index: 100;
+}
+
+/* --- Fullscreen Overlay --- */
+#fullscreenOverlay {
+    background: rgba(0, 0, 0, 0.95) !important;
+    backdrop-filter: blur(10px);
+}
+
+#fullscreenOverlay button {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    color: white !important;
+    transition: all var(--transition-fast);
+}
+
+#fullscreenOverlay button:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+#fullscreenOverlay > div {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(12px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 999px !important;
+    padding: 0.5rem 1.25rem !important;
+}
+
+#fullscreenOverlay > div button {
+    color: white !important;
+    padding: 0.4rem !important;
+    border-radius: 50% !important;
+    transition: all var(--transition-fast);
+}
+
+#fullscreenOverlay > div button:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+}
+
+#fullscreenOverlay > div span {
+    color: white !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    font-variant-numeric: tabular-nums;
+}
+
+/* --- Overview Modal --- */
+#overviewModal {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(8px);
+}
+
+#overviewModal > div {
+    background: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-xl) !important;
+    box-shadow: var(--shadow-lg) !important;
+}
+
+#overviewModal h3 {
+    color: var(--text-primary) !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+}
+
+#overviewModal button {
+    color: var(--text-secondary) !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast);
+}
+
+#overviewModal button:hover {
+    background: var(--surface-glass-hover) !important;
+    color: var(--text-primary) !important;
+}
+
+/* --- Text Edit Overlay --- */
+#textEditOverlay {
+    background: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 1rem !important;
+}
+
+#textEditOverlay h4 {
+    color: var(--text-primary) !important;
+    font-size: 0.8125rem !important;
+    font-weight: 600 !important;
+}
+
+#textEditOverlay textarea {
+    background: var(--surface-glass) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    color: var(--text-primary) !important;
+    font-size: 0.8125rem !important;
+    padding: 0.6rem !important;
+    resize: none;
+    transition: all var(--transition-fast);
+}
+
+#textEditOverlay textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary) !important;
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+#textEditOverlay button {
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    padding: 0.35rem 0.75rem !important;
+    border-radius: var(--radius-md) !important;
+    transition: all var(--transition-fast);
+}
+
+/* --- Toast Notification --- */
+#toastNotification {
+    background: rgba(20, 20, 35, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    padding: 0.75rem 1.25rem !important;
+}
+
+#toastNotification i {
+    font-size: 1rem !important;
+}
+
+#toastNotification span {
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+}
+
+/* --- Hot Reload Notification --- */
+#hot-reload-notification {
+    background: linear-gradient(135deg, var(--success), #059669) !important;
+    color: white !important;
+    font-size: 0.8125rem !important;
+    font-weight: 500 !important;
+    padding: 0.6rem 1rem !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.3);
+}
+
+/* --- Animations --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.slide-enter {
+    animation: slideUp 0.4s ease-out;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-hover);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+    #thumbnailSidebar {
+        width: 160px !important;
+        min-width: 160px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    #thumbnailSidebar {
+        display: none;
+    }
+    
+    #slideViewer {
+        padding: 1rem !important;
+    }
+    
+    #slideInfoBar {
+        padding: 0.6rem 1rem !important;
+    }
+    
+    #viewerTitle {
+        font-size: 0.875rem !important;
+    }
+}
+
+/* --- Edit Mode --- */
+.edit-mode #slideWrapper {
+    position: relative;
+}
+
+.edit-mode #slideWrapper svg {
+    pointer-events: auto !important;
+}
+
+.edit-mode #slideWrapper svg text,
+.edit-mode #slideWrapper svg tspan {
+    cursor: text !important;
+    pointer-events: all !important;
+}
+
+/* --- Theater Mode --- */
+.theater-mode #thumbnailSidebar {
+    display: none;
+}
+
+.theater-mode #slideViewer {
+    padding: 1rem !important;
+}
+
+.theater-mode #slideWrapper svg {
+    max-height: calc(100vh - 160px);
+}
+
+/* --- Collection Cards (Library) --- */
+.collection-card {
+    background: var(--surface-glass) !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-xl) !important;
+    overflow: hidden;
+    transition: all var(--transition-base);
+    cursor: pointer;
+}
+
+.collection-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover) !important;
+    box-shadow: var(--shadow-lg);
+    background: var(--surface-glass-hover) !important;
+}
+
+.collection-card .seq-id-badge {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    font-size: 0.625rem !important;
+    padding: 0.15rem 0.4rem !important;
+    border-radius: 4px !important;
+    font-weight: 700 !important;
+}
+
+.collection-card h3 {
+    color: var(--text-primary) !important;
+    font-size: 0.9375rem !important;
+    font-weight: 600 !important;
+}
+
+.collection-card p.text-gray-500 {
+    color: var(--text-secondary) !important;
+    font-size: 0.8125rem !important;
+}
+
+.collection-card .text-gray-400 {
+    color: var(--text-tertiary) !important;
+}
+
+/* --- Empty State --- */
+#emptyState i {
+    color: var(--text-tertiary) !important;
+    opacity: 0.5;
+}
+
+#emptyState p {
+    color: var(--text-secondary) !important;
+}
+
+#emptyState p.text-gray-400 {
+    color: var(--text-tertiary) !important;
+}
+
+/* --- Overview Grid Items --- */
+#overviewGrid > div {
+    background: var(--surface-glass) !important;
+    border: 1px solid var(--border-subtle) !important;
+    border-radius: var(--radius-md) !important;
+    padding: 0.5rem !important;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+}
+
+#overviewGrid > div:hover {
+    background: var(--surface-glass-hover) !important;
+    border-color: var(--border-hover) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+#overviewGrid > div p {
+    color: var(--text-primary) !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+#overviewGrid > div p.text-xs {
+    color: var(--text-tertiary) !important;
+    font-size: 0.6875rem !important;
+}
