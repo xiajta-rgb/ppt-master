@@ -49,12 +49,12 @@ try:
 except Exception as e:
     log('svg_to_pptx import failed: ' + str(e))
 
-INDEX_FILE = os.path.join(STATIC_DIR, 'index.html')
-if os.path.exists(INDEX_FILE):
-    with open(INDEX_FILE, 'r', encoding='utf-8') as f:
-        INDEX_CONTENT = f.read()
-else:
-    INDEX_CONTENT = '<html><body><h1>index.html not found</h1></body></html>'
+def read_index_html():
+    INDEX_FILE = os.path.join(STATIC_DIR, 'index.html')
+    if os.path.exists(INDEX_FILE):
+        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
+            return f.read()
+    return '<html><body><h1>index.html not found</h1></body></html>'
 
 def lazy_import_pptx():
     try:
@@ -213,7 +213,7 @@ def application(environ, start_response):
                 return [content]
 
     if path == '/' or path == '':
-        content = INDEX_CONTENT
+        content = read_index_html()
         status = '200 OK'
         content_type = 'text/html; charset=utf-8'
     else:
