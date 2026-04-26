@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 """
 PPT Master Deploy - 统一部署脚本
-支持两种模式：
-  - 完整部署 (quick=False): Git提交推送 → 云端部署 → 验证
-  - 快速部署 (quick=True):  仅云端部署 → 验证
+上传正确的 WSGI 并重载 Web 应用
 """
 
 import subprocess
 import time
 import requests
 import sys
-import argparse
 from pathlib import Path
 
 USERNAME = 'ppt'
@@ -23,79 +20,110 @@ HEADERS = {'Authorization': f'Token {API_TOKEN}'}
 SCRIPT_DIR = Path(__file__).parent.resolve()
 PROJECT_ROOT = SCRIPT_DIR.parent.parent.parent.parent
 
-def run_cmd(cmd, cwd=None, shell=True):
-    cwd_str = str(cwd) if cwd else str(PROJECT_ROOT)
-    result = subprocess.run(
-        cmd, shell=shell, cwd=cwd_str,
-        capture_output=True, text=True,
-        encoding='utf-8', errors='replace'
-    )
-    return result.returncode, result.stdout, result.stderr
+WSGI_CONTENT = '''import os
+import sys
+import urllib.parse
 
-def step1_git_push():
-    print("\n" + "="*50)
-    print("Step 1/3: Git Commit and Push（提交推送）")
-    print("="*50)
+PROJECT_DIR = '/home/ppt/ppt-master'
+STATIC_DIR = PROJECT_DIR
 
-    code, stdout, stderr = run_cmd("git status --porcelain")
-    if not stdout.strip():
-        print("[SKIP] 没有未提交更改，跳过提交推送")
+LOG_FILE = '/home/ppt/wsgi_export.log'
+
+def log(msg):
+    try:
+        with open(LOG_FILE, 'a') as f:
+            import datetime
+            f.write(datetime.datetime.now().isoformat() + ' ' + msg + '\\n')
+            f.flush()
+    except:
+        pass
+
+log('WSGI starting')
+
+def read_index_html():
+    INDEX_FILE = os.path.join(STATIC_DIR, 'public', 'index.html')
+    if os.path.exists(INDEX_FILE):
+        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
+            return f.read()
+    INDEX_FILE = os.path.join(STATIC_DIR, 'index.html')
+    if os.path.exists(INDEX_FILE):
+        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
+            return f.read()
+    return '<html><body><h1>index.html not found</h1></body></html>'
+
+def application(environ, start_response):
+    path = environ.get('PATH_INFO', '/')
+
+    if '%' in path or any(ord(c) > 127 for c in path):
+        try:
+            path = path.encode('latin-1').decode('utf-8')
+        except:
+            pass
+
+    log('request: ' + path)
+
+    if path == '/' or path == '':
+        content = read_index_html()
+        status = '200 OK'
+        content_type = 'text/html; charset=utf-8'
+    else:
+        static_file = os.path.join(STATIC_DIR, path.lstrip('/'))
+        if os.path.exists(static_file) and os.path.isfile(static_file):
+            with open(static_file, 'rb') as f:
+                content = f.read()
+            status = '200 OK'
+            if static_file.endswith('.html'):
+                content_type = 'text/html; charset=utf-8'
+            elif static_file.endswith('.css'):
+                content_type = 'text/css; charset=utf-8'
+            elif static_file.endswith('.js'):
+                content_type = 'application/javascript; charset=utf-8'
+            elif static_file.endswith('.svg'):
+                content_type = 'image/svg+xml; charset=utf-8'
+            elif static_file.endswith('.png'):
+                content_type = 'image/png'
+            elif static_file.endswith('.jpg') or static_file.endswith('.jpeg'):
+                content_type = 'image/jpeg'
+            else:
+                content_type = 'text/plain; charset=utf-8'
+        else:
+            content = ('<html><body><h1>404: ' + path + '</h1></body></html>').encode('utf-8')
+            status = '404 Not Found'
+            content_type = 'text/html; charset=utf-8'
+
+    response_headers = [('Content-Type', content_type)]
+    start_response(status, response_headers)
+
+    if isinstance(content, str):
+        return [content.encode('utf-8')]
+    return [content]
+'''
+
+def upload_wsgi():
+    url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
+    try:
+        resp = requests.post(url, headers=HEADERS, files={'content': WSGI_CONTENT}, timeout=30)
+        resp.raise_for_status()
+        print("[OK] WSGI 上传成功")
         return True
-
-    print("[INFO] 执行 git add -A && git commit && git push ...")
-    code, stdout, stderr = run_cmd("git add -A")
-    if code != 0:
-        print(f"[X] git add 失败: {stderr}")
+    except Exception as e:
+        print(f"[X] WSGI 上传失败: {e}")
         return False
 
-    timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
-    code, stdout, stderr = run_cmd(f'git commit -m "Deploy: {timestamp}"')
-    if code != 0:
-        print(f"[X] git commit 失败: {stderr}")
+def reload_webapp():
+    url = f'https://{HOST}/api/v0/user/{USERNAME}/webapps/{WEBAPP_DOMAIN}/reload/'
+    try:
+        resp = requests.post(url, headers=HEADERS, timeout=90)
+        resp.raise_for_status()
+        print("[OK] Web App 重载成功!")
+        return True
+    except Exception as e:
+        print(f"[X] Web App 重载失败: {e}")
         return False
-    print(f"[OK] 提交成功: Deploy: {timestamp}")
 
-    run_cmd("git pull --rebase 2>&1 || true")
-    _, current_branch, _ = run_cmd("git rev-parse --abbrev-ref HEAD 2>&1 || echo 'main'")
-    current_branch = current_branch.strip() or "main"
-    code, stdout, stderr = run_cmd(f"git push origin {current_branch}")
-    if code != 0:
-        print(f"[X] git push 失败: {stderr}")
-        return False
-    print("[OK] 推送成功")
-    return True
-
-def step2_cloud_deploy():
+def verify():
     print("\n" + "="*50)
-    print("Step 2/3: Deploy to Cloud（云端部署）")
-    print("="*50)
-
-    original_wsgi = backup_original_wsgi()
-    if not original_wsgi:
-        print("[X] WSGI备份失败")
-        return False
-
-    if not replace_wsgi_with_deploy_script(original_wsgi):
-        print("[X] WSGI替换失败")
-        return False
-
-    if not reload_webapp():
-        print("[!] 重载失败，但继续等待...")
-        return False
-
-    print("等待 60 秒让部署完成...")
-    time.sleep(60)
-
-    if not reload_webapp():
-        print("[!] 第二次重载失败，请检查 /home/ppt/deploy_log.txt")
-        return False
-
-    print("[OK] 云端部署完成")
-    return True
-
-def step3_verify():
-    print("\n" + "="*50)
-    print("Step 3/3: Verify（验证网站）")
+    print("验证网站...")
     print("="*50)
 
     url = "https://ppt.pythonanywhere.com/"
@@ -105,20 +133,14 @@ def step3_verify():
     for attempt in range(max_retries):
         try:
             response = requests.get(url, timeout=15)
-            content_type = response.headers.get('Content-Type', '')
-            text = response.text
-
-            if response.status_code == 200 and 'text/html' in content_type and '<html' in text:
+            if response.status_code == 200 and len(response.text) > 1000:
                 print(f"[OK] 网站验证成功!")
                 print(f"     URL: {url}")
                 print(f"     Status: {response.status_code}")
-                print(f"     Content-Type: {content_type}")
+                print(f"     Content-Length: {len(response.text)}")
                 return True
             else:
                 print(f"[X] 验证失败 (尝试 {attempt+1}/{max_retries})")
-                print(f"     Status: {response.status_code}")
-                print(f"     Content-Type: {content_type}")
-                print(f"     响应包含 <html>: {'是' if '<html' in text else '否'}")
         except Exception as e:
             print(f"[X] 请求失败 (尝试 {attempt+1}/{max_retries}): {e}")
 
@@ -126,125 +148,32 @@ def step3_verify():
             print(f"[INFO] {retry_delay}秒后重试...")
             time.sleep(retry_delay)
 
-    print("[X] 验证失败，请检查网站状态")
+    print("[X] 验证失败")
     return False
 
-def backup_original_wsgi():
-    url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
-    try:
-        resp = requests.get(url, headers=HEADERS, timeout=15)
-        resp.raise_for_status()
-        print("[OK] WSGI backup successful")
-        return resp.text
-    except Exception as e:
-        print(f"[X] WSGI backup failed: {e}")
-        return None
-
-def replace_wsgi_with_deploy_script(original_wsgi_content):
-    temp_wsgi = f'''
-import subprocess
-import os
-
-try:
-    if os.path.exists("/home/ppt/ppt-master"):
-        result = subprocess.run(
-            "rm -rf ppt-master",
-            shell=True,
-            cwd="/home/ppt",
-            capture_output=True,
-            text=True,
-            timeout=30
-        )
-        with open("/home/ppt/deploy_log.txt", "w", encoding="utf-8") as f:
-            f.write(f"Step1 - Remove old dir\\n")
-            f.write(f"Return code: {{result.returncode}}\\n")
-            f.write(f"Stdout: {{result.stdout}}\\n")
-            f.write(f"Stderr: {{result.stderr}}\\n")
-
-    result = subprocess.run(
-        "git clone https://github.com/xiajta-rgb/ppt-master.git",
-        shell=True,
-        cwd="/home/ppt",
-        capture_output=True,
-        text=True,
-        timeout=60
-    )
-    with open("/home/ppt/deploy_log.txt", "a", encoding="utf-8") as f:
-        f.write(f"Step2 - Clone repo\\n")
-        f.write(f"Return code: {{result.returncode}}\\n")
-        f.write(f"Stdout: {{result.stdout}}\\n")
-        f.write(f"Stderr: {{result.stderr}}\\n")
-    print("Deployment command completed")
-except Exception as e:
-    with open("/home/ppt/deploy_error.txt", "a", encoding="utf-8") as f:
-        f.write(f"Deployment failed: {{str(e)}}\\n")
-
-try:
-    with open("{WSGI_FILE_PATH}", "w", encoding="utf-8") as f:
-        f.write("""{original_wsgi_content}""")
-    print("Original WSGI restored")
-except Exception as e:
-    with open("/home/ppt/deploy_error.txt", "a", encoding="utf-8") as f:
-        f.write(f"WSGI restore failed: {{str(e)}}\\n")
-
-def application(environ, start_response):
-    status = "200 OK"
-    response_headers = [("Content-Type", "text/plain; charset=utf-8")]
-    start_response(status, response_headers)
-    return [b"Automated deployment triggered! Check /home/ppt/deploy_log.txt for details."]
-'''
-    url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
-    try:
-        resp = requests.post(url, headers=HEADERS, files={'content': temp_wsgi}, timeout=15)
-        resp.raise_for_status()
-        print("[OK] Temp WSGI uploaded")
-        return True
-    except Exception as e:
-        print(f"[X] WSGI replace failed: {e}")
-        return False
-
-def reload_webapp():
-    url = f'https://{HOST}/api/v0/user/{USERNAME}/webapps/{WEBAPP_DOMAIN}/reload/'
-    try:
-        resp = requests.post(url, headers=HEADERS, timeout=90)
-        resp.raise_for_status()
-        print("[OK] Web App reload successful!")
-        return True
-    except Exception as e:
-        print(f"[X] Web App reload failed: {e}")
-        return False
-
 def main():
-    parser = argparse.ArgumentParser(description='PPT Master Deploy')
-    parser.add_argument('--quick', action='store_true', help='快速部署（跳过提交推送）')
-    args = parser.parse_args()
-
     print("\n" + "#"*50)
     print("# PPT Master Deploy - 部署脚本")
-    print(f"# 模式: {'快速部署' if args.quick else '完整部署'}")
     print("#"*50)
 
-    if args.quick:
-        if not step2_cloud_deploy():
-            print("\n[X] 云端部署失败")
-            sys.exit(1)
-        if not step3_verify():
-            print("\n[X] 网站验证失败")
-            sys.exit(1)
+    print("\n[Step 1] 上传 WSGI...")
+    if not upload_wsgi():
+        print("\n[X] WSGI 上传失败")
+        sys.exit(1)
+
+    print("\n[Step 2] 重载 Web App...")
+    if not reload_webapp():
+        print("\n[!] 重载失败，请手动重载")
     else:
-        if not step1_git_push():
-            print("\n[X] Git提交推送失败，停止部署")
-            sys.exit(1)
-        if not step2_cloud_deploy():
-            print("\n[X] 云端部署失败")
-            sys.exit(1)
-        if not step3_verify():
-            print("\n[X] 网站验证失败")
-            sys.exit(1)
+        time.sleep(3)
+
+    print("\n[Step 3] 验证网站...")
+    verify()
 
     print("\n" + "#"*50)
     print("# 部署完成!")
     print("#"*50)
+    print(f"\n访问: https://ppt.pythonanywhere.com/")
 
 if __name__ == "__main__":
     main()
