@@ -15,12 +15,22 @@ export default defineConfig({
       '/api': {
         target: 'http://localhost:5001',
         changeOrigin: true,
-        timeout: 30000
+        timeout: 30000,
+        configure: (proxy) => {
+          proxy.on('error', (err, req, res) => {
+            console.error('[Proxy Error]', err.message)
+          })
+        }
       },
       '/examples': {
         target: 'http://localhost:5001',
         changeOrigin: true,
-        timeout: 30000
+        timeout: 30000,
+        configure: (proxy) => {
+          proxy.on('error', (err, req, res) => {
+            console.error('[Proxy Error]', err.message)
+          })
+        }
       }
     }
   }
