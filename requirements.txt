@@ -90,3 +90,15 @@ curl_cffi>=0.7.0
 google-genai>=1.0.0
 # OpenAI-compatible backend / OpenAI 兼容后端 (IMAGE_BACKEND=openai)
 openai>=1.0.0
+
+# ─────────────────────────────────────────────────────────────
+# Web Server / Web 服务器
+# ─────────────────────────────────────────────────────────────
+# Flask backend with Gunicorn for production-ready server
+Flask>=3.0.0
+gunicorn>=21.0.0
+# Flask-SocketIO for WebSocket support (cache synchronization)
+Flask-SocketIO>=5.3.0
+python-socketio>=5.10.0
+# Eventlet is required for Flask-SocketIO async mode
+eventlet>=0.35.0

@@ -3,6 +3,8 @@ import sys
 import socket
 import subprocess
 import time
+import signal
+import os
 from pathlib import Path
 
 PROJECT_DIR = Path(__file__).parents[3].resolve()
@@ -51,62 +53,77 @@ def is_server_running():
     except:
         return False
 
-def start_server():
+def start_backend():
     if is_server_running():
-        print(f"[WARN] Server already running on port {PORT}")
-        return False
+        print(f"[WARN] Backend already running on port {PORT}")
+        return None
 
     pid = find_process_on_port(PORT)
     if pid:
-        print(f"[INFO] Found process {pid}占用端口 {PORT}, terminating...")
+        print(f"[INFO] Found process {pid} on port {PORT}, terminating...")
         kill_process(pid)
         time.sleep(1)
 
-    print(f"[INFO] 启动服务器 on port {PORT}...")
-    print(f"[INFO] 访问地址: http://localhost:{PORT}/viewer.html")
-
-    script = 'from wsgiref.simple_server import make_server; from WSGI_local import application; srv = make_server("localhost", 5001, application); srv.serve_forever()'
+    print(f"[INFO] Starting Flask backend on port {PORT}...")
 
     try:
         process = subprocess.Popen(
-            [sys.executable, '-c', script],
+            [sys.executable, '-m', 'app'],
             cwd=str(PROJECT_DIR),
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.STDOUT
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            text=True,
+            bufsize=1
         )
 
         PID_FILE.write_text(str(process.pid))
 
-        time.sleep(1)
+        time.sleep(2)
 
         if is_server_running():
             actual_pid = find_process_on_port(PORT)
-            print(f"[OK] 服务器启动成功 (PID: {actual_pid})")
-            print(f"[INFO] 访问 http://localhost:{PORT}/viewer.html")
-            print(f"[INFO] 按 Ctrl+C 停止服务器，或运行: python start_server.py stop")
+            print(f"[OK] Backend started successfully (PID: {process.pid}, Actual: {actual_pid})")
+            return process
         else:
-            print("[ERROR] 服务器启动失败")
-            return False
+            print("[ERROR] Backend failed to start")
+            return None
 
     except Exception as e:
-        print(f"[ERROR] 启动失败: {e}")
-        return False
-
-    return True
+        print(f"[ERROR] Failed to start backend: {e}")
+        return None
 
 def stop_server():
+    if PID_FILE.exists():
+        pid = int(PID_FILE.read_text().strip())
+        try:
+            subprocess.run(['taskkill', '/PID', str(pid), '/F'], capture_output=True)
+            print(f"[OK] Killed process {pid}")
+        except:
+            pass
+        PID_FILE.unlink()
+
     pid = find_process_on_port(PORT)
     if pid:
         print(f"[INFO] Stopping server (PID: {pid})...")
         kill_process(pid)
-        if PID_FILE.exists():
-            PID_FILE.unlink()
-        print("[OK] Server stopped")
     else:
         print("[WARN] No server running")
+
+    if PID_FILE.exists():
+        PID_FILE.unlink()
+    print("[OK] Server stopped")
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'stop':
         stop_server()
     else:
-        start_server()
+        stop_server()
+        start_backend()
+        print(f"[INFO] Access: http://localhost:{PORT}/viewer.html")
+        print("[INFO] Press Ctrl+C to stop the server")
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            print("\n[INFO] Shutting down...")
+            stop_server()
