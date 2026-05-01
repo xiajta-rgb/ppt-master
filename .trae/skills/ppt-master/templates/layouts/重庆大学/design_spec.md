@@ -27,8 +27,8 @@
 | Property           | Value                         |
 | ------------------ | ----------------------------- |
 | **Format**         | Standard 16:9                 |
-| **Dimensions**     | 1280 × 720 px                |
-| **viewBox**        | `0 0 1280 720`               |
+| **Dimensions**     | 1920 × 1080 px                |
+| **viewBox**        | `0 0 1920 1080`               |
 | **Page Margins**   | Left/right 60px, top/bottom 40px |
 | **Content Safe Area** | x: 60-1220, y: 100-660    |
 
@@ -103,7 +103,7 @@ Content page: Small diagonal accent strip at the top
 Abstract curves symbolizing the Yangtze and Jialing Rivers:
 
 ```xml
-<path d="M0,700 Q320,680 640,700 T1280,680 L1280,720 L0,720 Z"
+<path d="M0,1050 Q480,1020 960,1050 T1920,1020 L1920,1080 L0,1080 Z"
       fill="#006BB7" fill-opacity="0.08"/>
 ```
 
@@ -194,7 +194,7 @@ Small circle elements representing the nighttime lights of the Mountain City:
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
+1. viewBox: `0 0 1920 1080`
 2. Define gradients using `<linearGradient>` inside `<defs>`
 3. Use `fill-opacity` / `stroke-opacity` for transparency
 4. Use `<tspan>` for text wrapping

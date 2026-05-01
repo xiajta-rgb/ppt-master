@@ -28,8 +28,8 @@ The design adopts "**Secure Base**" as the core visual metaphor:
 | Property           | Value                           |
 | ------------------ | ------------------------------- |
 | **Format**         | Standard 16:9                   |
-| **Dimensions**     | 1280 × 720 px                  |
-| **viewBox**        | `0 0 1280 720`                 |
+| **Dimensions**     | 1920 × 1080 px                  |
+| **viewBox**        | `0 0 1920 1080`                 |
 | **Page Margins**   | Left/right 40px, top 60px, bottom 40px |
 | **Content Safe Area** | x: 40-1240, y: 60-680       |
 
@@ -327,7 +327,7 @@ The design adopts "**Secure Base**" as the core visual metaphor:
 ### viewBox Specification
 
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
 ```
 
 ### Prohibited Features (Blocklist)

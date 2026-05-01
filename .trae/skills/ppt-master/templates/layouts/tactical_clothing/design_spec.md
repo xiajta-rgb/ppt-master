@@ -20,8 +20,8 @@
 | Property       | Value                         |
 | -------------- | ----------------------------- |
 | **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
+| **Dimensions** | 1920 × 1080 px                |
+| **viewBox**    | `0 0 1920 1080`                |
 | **Page Margins** | Left/Right 48px, Top/Bottom 60px |
 | **Safe Area**  | x: 48-1232, y: 60-660        |
 | **Grid Baseline** | 40px                       |

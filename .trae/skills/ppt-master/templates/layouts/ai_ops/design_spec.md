@@ -23,8 +23,8 @@
 | Property           | Value                            |
 | ------------------ | -------------------------------- |
 | **Format**         | Standard 16:9                    |
-| **Dimensions**     | 1280 × 720 px                   |
-| **viewBox**        | `0 0 1280 720`                  |
+| **Dimensions**     | 1920 × 1080 px                   |
+| **viewBox**        | `0 0 1920 1080`                  |
 | **Page Margins**   | Left/right 30-50px, top 20px, bottom 40px |
 | **Content Safe Area** | x: 30-1250, y: 80-680        |
 | **Title Area**     | y: 20-80                        |
@@ -292,7 +292,7 @@ This template emulates the visual language of telecom technical reports. The cor
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
+1. viewBox: `0 0 1920 1080`
 2. Use `<rect>` elements for backgrounds
 3. Use `<tspan>` for text wrapping (**`<foreignObject>` is strictly prohibited**)
 4. Use `fill-opacity` / `stroke-opacity` for transparency; `rgba()` is prohibited

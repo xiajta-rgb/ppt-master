@@ -13,7 +13,7 @@ Defined in the Design Specification & Content Outline; each image has a status a
 ```markdown
 | Filename | Dimensions | Purpose | Status | Generation Description |
 |----------|-----------|---------|--------|----------------------|
-| cover_bg.png | 1280x720 | Cover background | Pending | Modern tech abstract background, deep blue gradient |
+| cover_bg.png | 1920x1080 | Cover background | Pending | Modern tech abstract background, deep blue gradient |
 | product.png | 600x400 | Page 3 | Existing | - |
 | team.png | 600x400 | Page 5 | Placeholder | Team collaboration scene (to be added later) |
 ```
@@ -60,7 +60,7 @@ Defined in the Design Specification & Content Outline; each image has a status a
 ### Syntax
 
 ```xml
-<image href="../images/image.png" x="0" y="0" width="1280" height="720"
+<image href="../images/image.png" x="0" y="0" width="1920" height="1080"
        preserveAspectRatio="xMidYMid slice"/>
 ```
 
@@ -70,7 +70,7 @@ Defined in the Design Specification & Content Outline; each image has a status a
 |-----------|-------------|---------|
 | `href` | Image path (relative or absolute) | `"../images/cover.png"` |
 | `x`, `y` | Image top-left corner position | `x="0" y="0"` |
-| `width`, `height` | Image display dimensions | `width="1280" height="720"` |
+| `width`, `height` | Image display dimensions | `width="1920" height="1080"` |
 | `preserveAspectRatio` | Scaling mode | `"xMidYMid slice"` |
 
 ### preserveAspectRatio Common Values
@@ -97,7 +97,7 @@ python3 -m http.server -d <project_path> 8000
 ### Syntax
 
 ```xml
-<image href="data:image/png;base64,iVBORw0KGgo..." x="0" y="0" width="1280" height="720"/>
+<image href="data:image/png;base64,iVBORw0KGgo..." x="0" y="0" width="1920" height="1080"/>
 ```
 
 ### MIME Types

@@ -73,7 +73,7 @@ When creating a global template, a `design_spec.md` must be generated, containin
 # [Template Name] - Design Specification
 
 ## I. Template Overview (name, use cases, design tone)
-## II. Canvas Specification (16:9, 1280x720, viewBox)
+## II. Canvas Specification (16:9, 1920x1080, viewBox)
 ## III. Color Scheme (primary, secondary, accent HEX values)
 ## IV. Typography System (font stack, font size hierarchy)
 ## V. Page Structure (common layout, decorative design)

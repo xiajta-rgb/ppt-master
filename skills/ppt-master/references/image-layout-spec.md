@@ -46,21 +46,21 @@ Layout rules for pages where the image is placed **side-by-side with body text**
 
 | Format | Canvas | Margins (L/R, T/B) | Content Area (W x H) | Title Height | Content Start Y |
 |--------|--------|--------------------|-----------------------|-------------|----------------|
-| PPT 16:9 | 1280x720 | 60, 60 | 1160 x 600 | 60px | 80px |
+| PPT 16:9 | 1920x1080 | 96, 80 | 1728 x 920 | 80px | 120px |
 | PPT 4:3 | 1024x768 | 50, 50 | 924 x 608 | 60px | 70px |
 | Xiaohongshu | 1242x1660 | 60, 80 | 1122 x 1500 | 80px | 100px |
 | WeChat Moments | 1080x1080 | 60, 60 | 960 x 960 | 60px | 80px |
 | Story | 1080x1920 | 60, 120/180 | 960 x 1620 | 80px | 140px |
 | WeChat Article | 900x383 | 40, 40 | 820 x 303 | 40px | 50px |
 
-> In the formulas below, **W** = content area width, **H** = content area height (already excludes title). The PPT 16:9 example uses W=1160, H=600.
+> In the formulas below, **W** = content area width, **H** = content area height (already excludes title). The PPT 16:9 example uses W=1728, H=920.
 
 ### Top-Bottom Layout Calculation
 
 ```
-Image width = W = 1160 px
-Image height = W / R = 1160 / R px
-Text area height = H - image height - gap(20px)
+Image width = W = 1728 px
+Image height = W / R = 1728 / R px
+Text area height = H - image height - gap(30px)
 
 Validation: Text area height >= 150px (at least 3-4 lines of text)
 If not satisfied → Switch to left-right layout
@@ -70,16 +70,16 @@ If not satisfied → Switch to left-right layout
 
 **Method 1 (height-first, suitable for portrait images)**:
 ```
-Image height = H = 600 px
-Image width = H x R = 600 x R px
-Text area width = W - image width - gap(20px)
+Image height = H = 920 px
+Image width = H x R = 920 x R px
+Text area width = W - image width - gap(30px)
 ```
 
 **Method 2 (width-constrained, for wide images converted to left-right)**:
 ```
-Image width = W x 0.7 = 812 px
+Image width = W x 0.7 = 1210 px
 Image height = image width / R
-Text area width = W - image width - gap(20px)
+Text area width = W - image width - gap(30px)
 ```
 
 **Validation**: Text area width >= 280px; otherwise reduce image area width.
@@ -92,22 +92,22 @@ Text area width = W - image width - gap(20px)
 
 ```
 Original: 1960x800, R=2.45 → Top-bottom split
-Image: 1160x473, Text area: 1160x147 → 7:3 top-bottom
+Image: 1728x705, Text area: 1728x185 → 8:2 top-bottom
 ```
 
 ### Standard Landscape (ratio 1.38)
 
 ```
 Original: 1614x1171, R=1.38 → Left-right split
-Image: 773x560 (left), Text area: 367x560 (right) → 7:3 left-right
+Image: 1150x834 (left), Text area: 548x920 (right) → 7:3 left-right
 ```
 
 ### Wide Image Edge Case (ratio 1.75)
 
 ```
 Original: 1820x1040, R=1.75
-Try top-bottom: image height=663, text area=-43 ❌
-Switch to left-right: image 780x446 (left), text area 360x600 (right) → 7:3 left-right
+Try top-bottom: image height=988, text area=-98 ❌
+Switch to left-right: image 1160x663 (left), text area 538x920 (right) → 7:3 left-right
 ```
 
 ---
@@ -156,13 +156,13 @@ cell_height = (H - (rows - 1) * gap) / rows
 ### Example: 2x2 Grid on PPT 16:9
 
 ```
-W=1160, H=600, gap=20
-cell_width  = (1160 - 20) / 2 = 570
-cell_height = (600 - 20) / 2 = 290
+W=1728, H=920, gap=30
+cell_width  = (1728 - 30) / 2 = 849
+cell_height = (920 - 30) / 2 = 445
 
 Image positions:
-  (60, 80)   570x290    (650, 80)  570x290
-  (60, 390)  570x290    (650, 390) 570x290
+  (96, 120)   849x445    (975, 120)  849x445
+  (96, 595)   849x445    (975, 595) 849x445
 ```
 
 > For multi-image slides, use `preserveAspectRatio="xMidYMid meet"` on all images to maintain consistent display within cells.
@@ -188,7 +188,7 @@ Image positions:
 
 ```xml
 <image href="../images/xxx.png"
-       x="60" y="80" width="780" height="446"
+       x="96" y="120" width="1160" height="663"
        preserveAspectRatio="xMidYMid meet"/>
 ```
 
@@ -196,9 +196,70 @@ Image positions:
 
 ```xml
 <image href="../images/bg.png"
-       x="0" y="0" width="1280" height="720"
+       x="0" y="0" width="1920" height="1080"
        preserveAspectRatio="xMidYMid slice"/>
 ```
+
+### clipPath Constrained Images (recommended for non-rectangular frames)
+
+When an image needs to fit into a non-rectangular container (circular avatar, rounded card, hexagonal frame), use `clipPath` at generation time. This prevents post-processing fixes and ensures the image is correctly framed from the start.
+
+> **Why clipPath at generation time?** Without clipPath, the Executor must guess the image's display area, and `fix_image_aspect.py` must run post-processing to correct stretching. With clipPath, the container shape is explicit, and the converter maps it to native DrawingML geometry (`<a:prstGeom>` / `<a:custGeom>`), producing editable PPTX shapes.
+
+**Circular avatar**:
+
+```xml
+<defs>
+  <clipPath id="avatarClip">
+    <circle cx="200" cy="200" r="100"/>
+  </clipPath>
+</defs>
+<image href="../images/photo.jpg" x="100" y="100" width="200" height="200"
+       clip-path="url(#avatarClip)" preserveAspectRatio="xMidYMid slice"/>
+```
+
+**Rounded rectangle card image**:
+
+```xml
+<defs>
+  <clipPath id="cardClip">
+    <rect x="96" y="120" width="560" height="380" rx="16"/>
+  </clipPath>
+</defs>
+<image href="../images/product.jpg" x="96" y="120" width="560" height="380"
+       clip-path="url(#cardClip)" preserveAspectRatio="xMidYMid slice"/>
+```
+
+**Hexagonal portrait frame**:
+
+```xml
+<defs>
+  <clipPath id="hexClip">
+    <polygon points="200,100 280,140 280,220 200,260 120,220 120,140"/>
+  </clipPath>
+</defs>
+<image href="../images/team.jpg" x="120" y="100" width="160" height="160"
+       clip-path="url(#hexClip)" preserveAspectRatio="xMidYMid slice"/>
+```
+
+**clipPath constraints** (see shared-standards.md §1.2 for the authoritative list):
+- The `<clipPath>` must live inside `<defs>` and contain exactly **one** shape child
+- `clip-path` may appear **only** on `<image>` elements — using it on shapes / groups / text is an error
+- Supported shapes: `<circle>`, `<ellipse>`, `<rect>` with `rx`/`ry`, `<path>`, `<polygon>`
+
+### Image Aspect Ratio Guard Rule
+
+To prevent image stretching in PowerPoint (which ignores `preserveAspectRatio` when converting SVG to editable shapes), the Executor MUST follow these rules at generation time:
+
+| Image Intent | Container Strategy | preserveAspectRatio | clipPath |
+|-------------|-------------------|---------------------|----------|
+| Hero / full-bleed background | Image fills canvas | `xMidYMid slice` | Not needed |
+| Side-by-side (meet) | Image fits container, may have whitespace | `xMidYMid meet` | Optional (for rounded corners) |
+| Side-by-side (cover) | Image fills container, may crop | `xMidYMid slice` | Recommended (defines crop boundary) |
+| Circular / rounded frame | Image fills shape | `xMidYMid slice` | **Required** |
+| Accent / inline | Image fits container | `xMidYMid meet` | Optional |
+
+> **Key rule**: When using `clipPath` with `preserveAspectRatio="xMidYMid slice"`, the image fills the clip shape and the clip shape defines the visible boundary. This is the most reliable way to ensure images look correct in both SVG preview and PPTX export.
 
 ---
 
@@ -214,8 +275,8 @@ In the Design Specification & Content Outline, the image resource list must incl
 | Page | Usage page number | Page 5 |
 | Type | Visual type | Background / Photography / Illustration / Diagram / Decorative |
 | Layout plan | Top-bottom/Left-right + split ratio | Top-bottom 6:4 or Left-right 7:3 |
-| Image area | Image display dimensions | 1160x420 or 780x446 |
-| Text area | Remaining space dimensions | 1160x200 or 360x600 |
+| Image area | Image display dimensions | 1728x640 or 1160x663 |
+| Text area | Remaining space dimensions | 1728x250 or 538x920 |
 
 **The Type field is used by Image_Generator to select the appropriate prompt strategy.**
 

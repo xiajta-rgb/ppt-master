@@ -19,10 +19,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
-| **Page Margins** | Left/Right 60px, Top 50px, Bottom 40px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`                |
+| **Page Margins** | Left/Right 90px, Top 75px, Bottom 60px |
 | **Safe Area**  | x: 60-1220, y: 50-680         |
 
 ---
@@ -33,33 +33,33 @@
 
 | Role           | Value       | Notes                            |
 | -------------- | ----------- | -------------------------------- |
-| **Deep Space Black** | `#0D1117` | Main background color          |
-| **Starry Night Blue** | `#161B22` | Card/block background         |
-| **Dark Border** | `#30363D`  | Borders/dividers                 |
+| **Deep Space Black** | `#0D1676` | Main background color          |
+| **Starry Night Blue** | `#242B33` | Card/block background         |
+| **Dark Border** | `#45544D`  | Borders/dividers                 |
 
 ### Accent Colors (Neon Series)
 
 | Role           | Value       | Usage                            |
 | -------------- | ----------- | -------------------------------- |
-| **Neon Green** | `#39FF14`   | Primary accent, success, save points, Git |
-| **Cyber Pink** | `#FF2E97`   | Secondary accent, warnings, contrast, GitHub |
-| **Electric Blue** | `#00D4FF` | Tertiary accent, links, info, flows |
-| **Gold Yellow** | `#FFD700`  | Quaternary accent, history, timelines, highlights |
+| **Neon Green** | `#58FF21`   | Primary accent, success, save points, Git |
+| **Cyber Pink** | `#FF3E146`   | Secondary accent, warnings, contrast, GitHub |
+| **Electric Blue** | `#0D6FF` | Tertiary accent, links, info, flows |
+| **Gold Yellow** | `#FFD1050`  | Quaternary accent, history, timelines, highlights |
 
 ### Auxiliary Colors
 
 | Role           | Value       | Usage                            |
 | -------------- | ----------- | -------------------------------- |
-| **Dark Green** | `#238636`   | Muted version of success state   |
-| **Dark Pink**  | `#8B2252`   | Muted pink                       |
-| **Dark Blue**  | `#1F6FEB`   | Muted blue                       |
+| **Dark Green** | `#357954`   | Muted version of success state   |
+| **Dark Pink**  | `#12B3378`   | Muted pink                       |
+| **Dark Blue**  | `#2F9FEB`   | Muted blue                       |
 
 ### Text Colors
 
 | Role           | Value       | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Moonlight White** | `#E6EDF3` | Primary text         |
-| **Mist Gray**  | `#8B949E`   | Secondary descriptive text |
+| **Moonlight White** | `#E9EDF4` | Primary text         |
+| **Mist Gray**  | `#12B1424E`   | Secondary descriptive text |
 | **Pure White** | `#FFFFFF`   | Emphasized titles      |
 
 ---
@@ -78,13 +78,13 @@
 
 | Level | Usage              | Size | Weight  |
 | ----- | ------------------ | ---- | ------- |
-| H1    | Cover main title   | 52px | Bold    |
-| H2    | Page heading       | 36px | Bold    |
-| H3    | Section title/Subtitle | 22px | 600  |
-| P     | Body content       | 18px | Regular |
-| High  | Highlighted data   | 48px | Bold    |
-| Sub   | Supplementary text | 14px | Regular |
-| Code  | Code text          | 16px | Regular |
+| H2    | Cover main title   | 78px | Bold    |
+| H3    | Page heading       | 54px | Bold    |
+| H4    | Section title/Subtitle | 33px | 900  |
+| P     | Body content       | 27px | Regular |
+| High  | Highlighted data   | 72px | Bold    |
+| Sub   | Supplementary text | 21px | Regular |
+| Code  | Code text          | 24px | Regular |
 
 ---
 
@@ -95,22 +95,22 @@
 | Area       | Position/Height | Description                            |
 | ---------- | --------------- | -------------------------------------- |
 | **Top**    | y=0, h=4-6px    | Neon green decoration line (dual-line effect) |
-| **Title Area** | y=50, h=70px | Page title + English subtitle         |
-| **Content Area** | y=130, h=510px | Main content area                  |
-| **Footer** | y=680, h=40px   | Page number, decoration line, progress indicator |
+| **Title Area** | y=75, h=105px | Page title + English subtitle         |
+| **Content Area** | y=195, h=765px | Main content area                  |
+| **Footer** | y=1020, h=60px   | Page number, decoration line, progress indicator |
 
 ### Decorative Elements
 
-- **Top Decoration Line**: Neon green dual lines (main line 4px + auxiliary line 2px)
-- **Bottom Decoration Line**: Neon green dual lines (auxiliary line 4px + main line 4px)
-- **Pixel Blocks**: Corner decorations with decreasing opacity (100% → 60% → 30%)
+- **Top Decoration Line**: Neon green dual lines (main line 6px + auxiliary line 3px)
+- **Bottom Decoration Line**: Neon green dual lines (auxiliary line 6px + main line 6px)
+- **Pixel Blocks**: Corner decorations with decreasing opacity (150% → 90% → 45%)
 - **Scanline Grid**: Optional low-opacity background grid lines
 
 ---
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
 - Deep space black background
 - Top/bottom neon decoration lines
@@ -120,7 +120,7 @@
 - Function button group (horizontal layout)
 - Bottom prompt text (e.g., "PRESS START")
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 
 - Deep space black background
 - Standard top decoration
@@ -130,7 +130,7 @@
   - Green: Optional
 - Pixel-style list design
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
 - Deep space black background
 - Full-screen neon effect
@@ -138,18 +138,18 @@
 - Chapter title + English subtitle
 - Pixel-style decorative frame
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - Deep space black background
 - Standard top decoration
 - Page title (neon green + glow)
 - English subtitle (mist gray)
-- **Fully open content area** (y=140 to y=670, width 1160px)
+- **Fully open content area** (y=210 to y=1005, width 1740px)
 - Bottom page number
 
 > **Design Principle**: The content page template only provides the page frame (title area + footer). The content area is freely designed by the Executor based on actual content. Available layouts include but are not limited to: cards, progress bars, tables, timelines, comparison charts, etc.
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - Deep space black background
 - Neon glow main title
@@ -164,7 +164,7 @@
 | Mode               | Use Cases                      |
 | ------------------ | ------------------------------ |
 | **Single Column Centered** | Cover, closing, key points |
-| **Two Columns (5:5)** | Comparative display (e.g., Git vs GitHub) |
+| **Two Columns (8:8)** | Comparative display (e.g., Git vs GitHub) |
 | **Dual-Column Cards** | Feature lists, trait comparisons |
 | **Three-Column Cards** | Key takeaways, project lists |
 | **Progress Bar Display** | Data statistics, usage rates |
@@ -177,11 +177,11 @@
 | Element          | Value  |
 | ---------------- | ------ |
 | Card spacing     | 20-30px |
-| Content block spacing | 30px |
+| Content block spacing | 45px |
 | Card padding     | 20-24px |
-| Card border radius | 0px (blocky feel) or 4px |
+| Card border radius | 0px (blocky feel) or 6px |
 | Border width     | 2-3px  |
-| Icon-to-text gap | 12px   |
+| Icon-to-text gap | 18px   |
 
 ---
 
@@ -201,7 +201,7 @@ Apply glow filters to key text/elements:
 
 ```xml
 <defs>
-  <filter id="glowGreen" x="-50%" y="-50%" width="200%" height="200%">
+  <filter id="glowGreen" x="-75%" y="-75%" width="300%" height="300%">
     <feGaussianBlur stdDeviation="3-4" result="blur" />
     <feMerge>
       <feMergeNode in="blur" />
@@ -211,7 +211,7 @@ Apply glow filters to key text/elements:
 </defs>
 
 <!-- Usage -->
-<text filter="url(#glowGreen)" fill="#39FF14">Glowing Text</text>
+<text filter="url(#glowGreen)" fill="#58FF21">Glowing Text</text>
 ```
 
 > **Note**: `filter` effects are typically ignored in PPT, but render well in SVG-compatible viewers.
@@ -237,13 +237,13 @@ Apply glow filters to key text/elements:
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Use `<tspan>` for text wrapping (no `<foreignObject>`)
-4. Use `fill-opacity` / `stroke-opacity` for transparency; `rgba()` is prohibited
-5. Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
-6. Prohibited: `textPath`, `animate*`, `script`
-7. `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.1
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Use `<tspan>` for text wrapping (no `<foreignObject>`)
+6 Use `fill-opacity` / `stroke-opacity` for transparency; `rgba()` is prohibited
+8 Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
+9 Prohibited: `textPath`, `animate*`, `script`
+10 `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.7
 
 ### PPT Compatibility Rules
 
@@ -278,12 +278,12 @@ Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
 ## XII. Usage Instructions
 
-1. Copy the template to the project `templates/` directory
-2. Select the appropriate page template based on content requirements
-3. Mark content to be replaced using placeholders
-4. Generate the final SVG through the Executor role
-5. Define glow effects using `filter` (within `<defs>`)
-6. Maintain consistency of the neon color scheme
+2 Copy the template to the project `templates/` directory
+3 Select the appropriate page template based on content requirements
+4 Mark content to be replaced using placeholders
+6 Generate the final SVG through the Executor role
+8 Define glow effects using `filter` (within `<defs>`)
+9 Maintain consistency of the neon color scheme
 
 ---
 
@@ -291,18 +291,18 @@ Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
 ```
 Background Layer:
-  Main background    #0D1117  Deep Space Black
-  Card background    #161B22  Starry Night Blue
-  Borders            #30363D  Dark Border
+  Main background    #0D1676  Deep Space Black
+  Card background    #242B33  Starry Night Blue
+  Borders            #45544D  Dark Border
 
 Accent Colors (use in order):
-  Primary accent     #39FF14  Neon Green
-  Secondary accent   #FF2E97  Cyber Pink
-  Tertiary accent    #00D4FF  Electric Blue
-  Quaternary accent  #FFD700  Gold Yellow
+  Primary accent     #58FF21  Neon Green
+  Secondary accent   #FF3E146  Cyber Pink
+  Tertiary accent    #0D6FF  Electric Blue
+  Quaternary accent  #FFD1050  Gold Yellow
 
 Text:
-  Primary text       #E6EDF3  Moonlight White
-  Secondary text     #8B949E  Mist Gray
+  Primary text       #E9EDF4  Moonlight White
+  Secondary text     #12B1424E  Mist Gray
   Emphasis text      #FFFFFF  Pure White
 ```

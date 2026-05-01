@@ -147,7 +147,7 @@ The following features are **absolutely forbidden** when generating SVGs — PPT
 
 | Format | viewBox | Dimensions | Ratio |
 |--------|---------|------------|-------|
-| PPT 16:9 | `0 0 1280 720` | 1280x720 | 16:9 |
+| PPT 16:9 | `0 0 1920 1080` | 1920x1080 | 16:9 |
 | PPT 4:3 | `0 0 1024 768` | 1024x768 | 4:3 |
 
 ### Social Media
@@ -340,7 +340,7 @@ Best for: maximum compatibility with older PowerPoint versions. Stack 2–3 semi
 Best for: image+text pages. Gradient direction should match text position (text on left → gradient darkens toward left).
 
 ```xml
-<image href="..." x="0" y="0" width="1280" height="720" preserveAspectRatio="xMidYMid slice"/>
+<image href="..." x="0" y="0" width="1920" height="1080" preserveAspectRatio="xMidYMid slice"/>
 <defs>
   <linearGradient id="imgOverlay" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0%"   stop-color="#1A1A2E" stop-opacity="0.85"/>
@@ -348,7 +348,7 @@ Best for: image+text pages. Gradient direction should match text position (text 
     <stop offset="100%" stop-color="#1A1A2E" stop-opacity="0"/>
   </linearGradient>
 </defs>
-<rect x="0" y="0" width="1280" height="720" fill="url(#imgOverlay)"/>
+<rect x="0" y="0" width="1920" height="1080" fill="url(#imgOverlay)"/>
 ```
 
 #### Bottom Gradient Bar
@@ -376,7 +376,7 @@ Best for: full-screen atmosphere slides; draws attention to the center.
     <stop offset="100%" stop-color="#000000" stop-opacity="0.58"/>
   </radialGradient>
 </defs>
-<rect x="0" y="0" width="1280" height="720" fill="url(#vignette)"/>
+<rect x="0" y="0" width="1920" height="1080" fill="url(#vignette)"/>
 ```
 
 #### Brand Color Overlay
@@ -390,7 +390,7 @@ Best for: slides needing strong visual brand identity.
     <stop offset="100%" stop-color="#005587" stop-opacity="0.10"/>
   </linearGradient>
 </defs>
-<rect x="0" y="0" width="1280" height="720" fill="url(#brandOverlay)"/>
+<rect x="0" y="0" width="1920" height="1080" fill="url(#brandOverlay)"/>
 ```
 
 ### Quick-Reference Table

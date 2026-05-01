@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <!-- 模板: 结束页 - Anthropic 风格 -->
     
     <defs>
@@ -26,81 +26,81 @@
     </defs>
     
     <!-- 渐变背景 -->
-    <rect width="1280" height="720" fill="url(#bgGradient)"/>
+    <rect width="1920" height="1080" fill="url(#bgGradient)"/>
     
     <!-- 网格装饰线 -->
-    <g stroke="#FFFFFF" stroke-opacity="0.02" stroke-width="1">
-        <line x1="0" y1="180" x2="1280" y2="180"/>
-        <line x1="0" y1="360" x2="1280" y2="360"/>
-        <line x1="0" y1="540" x2="1280" y2="540"/>
-        <line x1="320" y1="0" x2="320" y2="720"/>
-        <line x1="640" y1="0" x2="640" y2="720"/>
-        <line x1="960" y1="0" x2="960" y2="720"/>
+    <g stroke="#FFFFFF" stroke-opacity="0.02" stroke-width="2">
+        <line x1="0" y1="270" x2="1920" y2="270"/>
+        <line x1="0" y1="540" x2="1920" y2="540"/>
+        <line x1="0" y1="810" x2="1920" y2="810"/>
+        <line x1="480" y1="0" x2="480" y2="1080"/>
+        <line x1="960" y1="0" x2="960" y2="1080"/>
+        <line x1="1440" y1="0" x2="1440" y2="1080"/>
     </g>
     
     <!-- 光晕效果 -->
-    <ellipse cx="300" cy="200" rx="250" ry="180" fill="url(#glowBlue)"/>
-    <ellipse cx="980" cy="500" rx="280" ry="200" fill="url(#glowOrange)"/>
+    <ellipse cx="450" cy="300" rx="375" ry="270" fill="url(#glowBlue)"/>
+    <ellipse cx="1470" cy="750" rx="420" ry="300" fill="url(#glowOrange)"/>
     
     <!-- 神经网络连接装饰 -->
-    <g stroke="#4A90D9" stroke-opacity="0.3" stroke-width="1" fill="none">
-        <path d="M150,150 Q250,100 350,180"/>
-        <path d="M350,180 Q420,250 380,320"/>
-        <path d="M950,400 Q1050,350 1100,420"/>
-        <path d="M1100,420 Q1150,500 1080,550"/>
+    <g stroke="#4A90D9" stroke-opacity="0.3" stroke-width="2" fill="none">
+        <path d="M225,225 Q375,150 525,270"/>
+        <path d="M525,270 Q630,375 570,480"/>
+        <path d="M1425,600 Q1575,525 1650,630"/>
+        <path d="M1650,630 Q1725,750 1620,825"/>
     </g>
     
     <!-- 节点装饰 -->
     <g fill="#4A90D9" fill-opacity="0.5">
-        <circle cx="150" cy="150" r="5"/>
-        <circle cx="350" cy="180" r="7"/>
-        <circle cx="380" cy="320" r="4"/>
+        <circle cx="225" cy="225" r="8"/>
+        <circle cx="525" cy="270" r="10"/>
+        <circle cx="570" cy="480" r="6"/>
     </g>
     <g fill="#D97757" fill-opacity="0.6">
-        <circle cx="950" cy="400" r="6"/>
-        <circle cx="1100" cy="420" r="8"/>
-        <circle cx="1080" cy="550" r="5"/>
+        <circle cx="1425" cy="600" r="9"/>
+        <circle cx="1650" cy="630" r="12"/>
+        <circle cx="1620" cy="825" r="8"/>
     </g>
     
     <!-- 感谢语标签 -->
-    <text x="640" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="500" fill="#D97757" letter-spacing="3">
+    <text x="960" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="500" fill="#D97757" letter-spacing="4">
         THANK YOU
     </text>
     
     <!-- 主感谢语 -->
-    <text x="640" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#FFFFFF">
+    <text x="960" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="78" font-weight="bold" fill="#FFFFFF">
         {{THANK_YOU}}
     </text>
     
     <!-- 装饰分隔线 -->
-    <rect x="540" y="350" width="200" height="3" fill="url(#accentGradient)" rx="1.5"/>
+    <rect x="810" y="525" width="300" height="4" fill="url(#accentGradient)" rx="2.2"/>
     
     <!-- 副标语 -->
-    <text x="640" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" fill-opacity="0.7">
+    <text x="960" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF" fill-opacity="0.7">
         {{ENDING_SUBTITLE}}
     </text>
     
     <!-- 联系信息卡片 -->
-    <rect x="440" y="460" width="400" height="120" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1" rx="12"/>
+    <rect x="660" y="690" width="600" height="180" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="2" rx="18"/>
     
-    <text x="640" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">
+    <text x="960" y="758" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="bold" fill="#FFFFFF">
         {{CONTACT_INFO}}
     </text>
-    <text x="640" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" fill-opacity="0.7">
+    <text x="960" y="802" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#FFFFFF" fill-opacity="0.7">
         {{CONTACT_EMAIL}}
     </text>
-    <text x="640" y="560" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#FFFFFF" fill-opacity="0.6">
+    <text x="960" y="840" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#FFFFFF" fill-opacity="0.6">
         {{CONTACT_URL}}
     </text>
     
     <!-- 底部分隔线 -->
-    <rect x="60" y="640" width="1160" height="1" fill="#FFFFFF" fill-opacity="0.1"/>
+    <rect x="90" y="960" width="1740" height="2" fill="#FFFFFF" fill-opacity="0.1"/>
     
     <!-- 底部信息 -->
-    <text x="60" y="680" font-family="Arial, sans-serif" font-size="14" fill="#64748B">
+    <text x="90" y="1020" font-family="Arial, sans-serif" font-size="21" fill="#64748B">
         {{DATE}}
     </text>
-    <text x="1220" y="680" text-anchor="end" font-family="Arial, sans-serif" font-size="14" fill="#64748B">
+    <text x="1830" y="1020" text-anchor="end" font-family="Arial, sans-serif" font-size="21" fill="#64748B">
         {{COPYRIGHT}}
     </text>
 

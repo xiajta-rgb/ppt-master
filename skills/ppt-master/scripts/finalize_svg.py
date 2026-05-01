@@ -38,6 +38,7 @@ from svg_finalize.crop_images import process_svg_images as crop_images_in_svg
 from svg_finalize.embed_icons import process_svg_file as embed_icons_in_file
 from svg_finalize.embed_images import embed_images_in_svg
 from svg_finalize.fix_image_aspect import fix_image_aspect_in_svg
+from svg_finalize.image_pipeline import ImagePipeline
 
 
 def safe_print(text: str) -> None:
@@ -166,56 +167,40 @@ def finalize_project(
             else:
                 safe_print("      No icons")
 
-    # Step 3: Smart crop images (based on preserveAspectRatio="slice")
-    if options.get('crop_images'):
+    # Step 3: Image pipeline (crop + fix_aspect + embed in single pass)
+    needs_pipeline = options.get('crop_images') or options.get('fix_aspect') or options.get('embed_images')
+    if needs_pipeline:
         if not quiet:
-            safe_print("[2/6] Smart cropping images...")
-        crop_count = 0
-        crop_errors = 0
-        for svg_file in svg_final.glob('*.svg'):
-            count, errors = crop_images_in_svg(str(svg_file), dry_run=False, verbose=False)
-            crop_count += count
-            crop_errors += errors
+            safe_print("[2/6] Processing images (crop + aspect + embed)...")
+        pipeline = ImagePipeline(
+            crop=options.get('crop_images', False),
+            fix_aspect=options.get('fix_aspect', False),
+            embed=options.get('embed_images', False),
+            compress=compress,
+            max_dimension=max_dimension,
+            dry_run=dry_run,
+            verbose=False,
+        )
+        img_stats = pipeline.process_directory(svg_final)
         if not quiet:
-            if crop_count > 0:
-                safe_print(f"      {crop_count} image(s) cropped")
+            parts = []
+            if options.get('crop_images') and img_stats.cropped > 0:
+                parts.append(f"{img_stats.cropped} cropped")
+            if options.get('fix_aspect') and img_stats.fixed_aspect > 0:
+                parts.append(f"{img_stats.fixed_aspect} aspect-fixed")
+            if options.get('embed_images') and img_stats.embedded > 0:
+                parts.append(f"{img_stats.embedded} embedded")
+            if parts:
+                safe_print(f"      {', '.join(parts)}")
             else:
-                safe_print("      No cropping needed (no images with slice attribute)")
+                safe_print("      No image processing needed")
+            if img_stats.crop_errors > 0 or img_stats.embed_errors > 0:
+                safe_print(f"      {img_stats.crop_errors + img_stats.embed_errors} error(s)")
 
-    # Step 4: Fix image aspect ratio (prevent stretching during PPT shape conversion)
-    if options.get('fix_aspect'):
-        if not quiet:
-            safe_print("[3/6] Fixing image aspect ratios...")
-        aspect_count = 0
-        for svg_file in svg_final.glob('*.svg'):
-            count = fix_image_aspect_in_svg(str(svg_file), dry_run=False, verbose=False)
-            aspect_count += count
-        if not quiet:
-            if aspect_count > 0:
-                safe_print(f"      {aspect_count} image(s) fixed")
-            else:
-                safe_print("      No images")
-
-    # Step 5: Embed images
-    if options.get('embed_images'):
-        if not quiet:
-            safe_print("[4/6] Embedding images...")
-        images_count = 0
-        for svg_file in svg_final.glob('*.svg'):
-            count, _ = embed_images_in_svg(str(svg_file), dry_run=False,
-                                           compress=compress,
-                                           max_dimension=max_dimension)
-            images_count += count
-        if not quiet:
-            if images_count > 0:
-                safe_print(f"      {images_count} image(s) embedded")
-            else:
-                safe_print("      No images")
-
-    # Step 6: Flatten text
+    # Step 4: Flatten text
     if options.get('flatten_text'):
         if not quiet:
-            safe_print("[5/6] Flattening text...")
+            safe_print("[3/6] Flattening text...")
         flatten_count = 0
         for svg_file in svg_final.glob('*.svg'):
             if process_flatten_text(svg_file, verbose=False):
@@ -226,10 +211,10 @@ def finalize_project(
             else:
                 safe_print("      No processing needed")
 
-    # Step 7: Convert rounded rects to Path
+    # Step 5: Convert rounded rects to Path
     if options.get('fix_rounded'):
         if not quiet:
-            safe_print("[6/6] Converting rounded rects to Path...")
+            safe_print("[4/6] Converting rounded rects to Path...")
         rounded_count = 0
         for svg_file in svg_final.glob('*.svg'):
             count = process_rounded_rect(svg_file, verbose=False)

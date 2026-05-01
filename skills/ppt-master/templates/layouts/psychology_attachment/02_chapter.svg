@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <defs>
         <linearGradient id="chapterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" style="stop-color:#2E5C8E" />
@@ -7,76 +7,76 @@
     </defs>
 
     <!-- 背景渐变 -->
-    <rect width="1280" height="720" fill="url(#chapterGradient)" />
+    <rect width="1920" height="1080" fill="url(#chapterGradient)" />
 
     <!-- 装饰同心圆 -->
-    <circle cx="1100" cy="150" r="200" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" />
-    <circle cx="1100" cy="150" r="150" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" />
-    <circle cx="1100" cy="150" r="100" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" />
-    <circle cx="180" cy="600" r="120" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" />
-    <circle cx="180" cy="600" r="80" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.1" />
+    <circle cx="1650" cy="225" r="300" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.1" />
+    <circle cx="1650" cy="225" r="225" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.1" />
+    <circle cx="1650" cy="225" r="150" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.1" />
+    <circle cx="270" cy="900" r="180" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.1" />
+    <circle cx="270" cy="900" r="120" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.1" />
 
     <!-- 装饰斜线 -->
-    <line x1="0" y1="200" x2="300" y2="350" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.2" />
-    <line x1="0" y1="250" x2="250" y2="400" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.2" />
-    <line x1="980" y1="720" x2="1280" y2="520" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.2" />
-    <line x1="1030" y1="720" x2="1280" y2="570" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.2" />
+    <line x1="0" y1="300" x2="450" y2="525" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.2" />
+    <line x1="0" y1="375" x2="375" y2="600" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.2" />
+    <line x1="1470" y1="1080" x2="1920" y2="780" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.2" />
+    <line x1="1545" y1="1080" x2="1920" y2="855" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.2" />
 
     <!-- 大号章节编号（背景） -->
-    <text x="640" y="220" font-family="system-ui, sans-serif" font-size="120" font-weight="bold" fill="#FFFFFF"
+    <text x="960" y="330" font-family="system-ui, sans-serif" font-size="180" font-weight="bold" fill="#FFFFFF"
         fill-opacity="0.15" text-anchor="middle">
         {{CHAPTER_NUM}}
     </text>
 
     <!-- 章节标签 -->
-    <rect x="560" y="280" width="160" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.2" />
-    <text x="640" y="307" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF"
+    <rect x="840" y="420" width="240" height="60" rx="30" fill="#FFFFFF" fill-opacity="0.2" />
+    <text x="960" y="460" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="24" fill="#FFFFFF"
         text-anchor="middle">
         CHAPTER {{CHAPTER_NUM}}
     </text>
 
     <!-- 章节标题 -->
-    <text x="640" y="390" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="48" font-weight="bold"
+    <text x="960" y="585" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="72" font-weight="bold"
         fill="#FFFFFF" text-anchor="middle">
         {{CHAPTER_TITLE}}
     </text>
 
     <!-- 英文副标题 -->
-    <text x="640" y="440" font-family="system-ui, sans-serif" font-size="24" fill="#94A3B8" text-anchor="middle">
+    <text x="960" y="660" font-family="system-ui, sans-serif" font-size="36" fill="#94A3B8" text-anchor="middle">
         {{CHAPTER_EN}}
     </text>
 
     <!-- 装饰线 -->
-    <rect x="540" y="470" width="200" height="3" rx="1.5" fill="#E07843" />
+    <rect x="810" y="705" width="300" height="4" rx="2.2" fill="#E07843" />
 
     <!-- 引言卡片 -->
-    <rect x="240" y="510" width="800" height="100" rx="12" fill="#FFFFFF" fill-opacity="0.1" />
-    <rect x="240" y="510" width="4" height="100" rx="2" fill="#3D8B7A" />
+    <rect x="360" y="765" width="1200" height="150" rx="18" fill="#FFFFFF" fill-opacity="0.1" />
+    <rect x="360" y="765" width="6" height="150" rx="3" fill="#3D8B7A" />
 
-    <text x="270" y="550" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="18" fill="#E5E7EB"
+    <text x="405" y="825" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="27" fill="#E5E7EB"
         font-style="italic">
         "{{QUOTE}}"
     </text>
-    <text x="270" y="585" font-family="system-ui, sans-serif" font-size="14" fill="#94A3B8">
+    <text x="405" y="878" font-family="system-ui, sans-serif" font-size="21" fill="#94A3B8">
         —— {{QUOTE_AUTHOR}}
     </text>
 
     <!-- 关键词标签 -->
-    <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="14" fill="#CBD5E1">
-        <rect x="390" y="640" width="100" height="28" rx="14" fill="#FFFFFF" fill-opacity="0.1" />
-        <text x="440" y="659" text-anchor="middle">{{TAG_1}}</text>
+    <g font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="21" fill="#CBD5E1">
+        <rect x="585" y="960" width="150" height="42" rx="21" fill="#FFFFFF" fill-opacity="0.1" />
+        <text x="660" y="988" text-anchor="middle">{{TAG_1}}</text>
 
-        <rect x="510" y="640" width="80" height="28" rx="14" fill="#FFFFFF" fill-opacity="0.1" />
-        <text x="550" y="659" text-anchor="middle">{{TAG_2}}</text>
+        <rect x="765" y="960" width="120" height="42" rx="21" fill="#FFFFFF" fill-opacity="0.1" />
+        <text x="825" y="988" text-anchor="middle">{{TAG_2}}</text>
 
-        <rect x="610" y="640" width="100" height="28" rx="14" fill="#FFFFFF" fill-opacity="0.1" />
-        <text x="660" y="659" text-anchor="middle">{{TAG_3}}</text>
+        <rect x="915" y="960" width="150" height="42" rx="21" fill="#FFFFFF" fill-opacity="0.1" />
+        <text x="990" y="988" text-anchor="middle">{{TAG_3}}</text>
 
-        <rect x="730" y="640" width="120" height="28" rx="14" fill="#FFFFFF" fill-opacity="0.1" />
-        <text x="790" y="659" text-anchor="middle">{{TAG_4}}</text>
+        <rect x="1095" y="960" width="180" height="42" rx="21" fill="#FFFFFF" fill-opacity="0.1" />
+        <text x="1185" y="988" text-anchor="middle">{{TAG_4}}</text>
     </g>
 
     <!-- 页码 -->
-    <text x="1220" y="685" font-family="system-ui, sans-serif" font-size="14" fill="#64748B"
+    <text x="1830" y="1028" font-family="system-ui, sans-serif" font-size="21" fill="#64748B"
         text-anchor="end">{{PAGE_NUM}}</text>
 </svg>

@@ -20,8 +20,8 @@
 | Property | Value |
 | --- | --- |
 | **Format** | Standard 16:9 |
-| **Dimensions** | 1280 × 720 px |
-| **viewBox** | `0 0 1280 720` |
+| **Dimensions** | 1920 × 1080 px |
+| **viewBox** | `0 0 1920 1080` |
 | **Page Margins** | Left/Right 72px, Top 88px, Bottom 56px |
 | **Safe Area** | x: 72-1208, y: 88-664 |
 
@@ -162,7 +162,7 @@
 
 ## IX. SVG Technical Constraints
 
-1. `viewBox` must remain `0 0 1280 720`
+1. `viewBox` must remain `0 0 1920 1080`
 2. Do not use `mask`, `clipPath`, `<style>`, `class`, `foreignObject`, or `rgba()`
 3. Use plain vector geometry and `<image>` references to packaged assets only
 4. Transparency must use `fill-opacity` / `stroke-opacity`

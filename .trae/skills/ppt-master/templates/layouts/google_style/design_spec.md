@@ -20,8 +20,8 @@
 | Property       | Value                         |
 | -------------- | ----------------------------- |
 | **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
+| **Dimensions** | 1920 × 1080 px                |
+| **viewBox**    | `0 0 1920 1080`                |
 | **Page Margins** | Left/Right 60px, Top 50px, Bottom 50px |
 | **Safe Area**  | x: 60-1220, y: 50-670        |
 
@@ -220,7 +220,7 @@ Color order: Blue → Red → Yellow → Green
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
+1. viewBox: `0 0 1920 1080`
 2. Use `<rect>` elements for backgrounds
 3. Use `<tspan>` for text wrapping (no `<foreignObject>`)
 4. Use `fill-opacity` / `stroke-opacity` for transparency

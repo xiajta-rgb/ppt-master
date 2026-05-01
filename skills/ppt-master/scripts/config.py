@@ -48,10 +48,10 @@ CHART_TEMPLATES_DIR = TEMPLATES_DIR / 'charts'
 CANVAS_FORMATS = {
     'ppt169': {
         'name': 'PPT 16:9',
-        'dimensions': '1280×720',
-        'viewbox': '0 0 1280 720',
-        'width': 1280,
-        'height': 720,
+        'dimensions': '1920×1080',
+        'viewbox': '0 0 1920 1080',
+        'width': 1920,
+        'height': 1080,
         'aspect_ratio': '16:9',
         'use_case': 'Modern projectors, online presentations'
     },
@@ -101,13 +101,13 @@ CANVAS_FORMATS = {
         'use_case': 'Short video covers, stories'
     },
     'banner': {
-        'name': 'Horizontal Banner',
+        'name': 'Horizontal Banner (Legacy)',
         'dimensions': '1920×1080',
         'viewbox': '0 0 1920 1080',
         'width': 1920,
         'height': 1080,
         'aspect_ratio': '16:9',
-        'use_case': 'Web banners, large screen displays'
+        'use_case': 'Legacy banner format, same as ppt169'
     },
     'a4': {
         'name': 'A4 Print',
@@ -316,12 +316,12 @@ FONT_SIZES = {
 
 LAYOUT_MARGINS = {
     'ppt169': {
-        'top': 60,
-        'right': 60,
-        'bottom': 60,
-        'left': 60,
-        'content_width': 1160,
-        'content_height': 600
+        'top': 80,
+        'right': 96,
+        'bottom': 80,
+        'left': 96,
+        'content_width': 1728,
+        'content_height': 920
     },
     'ppt43': {
         'top': 50,

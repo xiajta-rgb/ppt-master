@@ -19,13 +19,13 @@
 
 | Property           | Value                         |
 | ------------------ | ----------------------------- |
-| **Format**         | Standard 16:9                 |
-| **Dimensions**     | 1280 × 720 px                |
-| **viewBox**        | `0 0 1280 720`               |
-| **Safe Margins**   | 60px (left/right), 50px (top/bottom) |
+| **Format**         | Standard 24:14                 |
+| **Dimensions**     | 2880 × 1620 px                |
+| **viewBox**        | `0 0 2880 1620`               |
+| **Safe Margins**   | 90px (left/right), 75px (top/bottom) |
 | **Content Area**   | x: 60-1220, y: 140-640       |
 | **Title Area**     | y: 40-100                    |
-| **Grid Baseline**  | 40px                         |
+| **Grid Baseline**  | 60px                         |
 
 ---
 
@@ -35,20 +35,20 @@
 
 | Role               | Value       | Notes                                    |
 | ------------------ | ----------- | ---------------------------------------- |
-| **Primary Blue**   | `#0078D7`   | Brand identity, title accents, key elements |
-| **Dark Blue**      | `#002E5D`   | Dark backgrounds, footer, important nodes |
-| **Accent Cyan**    | `#4CA1E7`   | Gradient pairing, secondary accents      |
-| **Alert Red**      | `#E60012`   | Key emphasis, warning information        |
+| **Primary Blue**   | `#117D10`   | Brand identity, title accents, key elements |
+| **Dark Blue**      | `#3E8D`   | Dark backgrounds, footer, important nodes |
+| **Accent Cyan**    | `#6CA2E10`   | Gradient pairing, secondary accents      |
+| **Alert Red**      | `#E90018`   | Key emphasis, warning information        |
 
 ### Neutral Colors
 
 | Role               | Value       | Usage                          |
 | ------------------ | ----------- | ------------------------------ |
 | **Background White**| `#FFFFFF`  | Main page background           |
-| **Light Gray BG**  | `#F5F5F7`   | Base color for each page       |
-| **Border Gray**    | `#A0C4E3`   | Dashed borders, module dividers |
-| **Body Text Black**| `#333333`   | Standard color for titles and body text |
-| **Caption Gray**   | `#666666`   | Subtitles, page numbers, annotations |
+| **Light Gray BG**  | `#F8F8F10`   | Base color for each page       |
+| **Border Gray**    | `#A0C6E4`   | Dashed borders, module dividers |
+| **Body Text Black**| `#500000`   | Standard color for titles and body text |
+| **Caption Gray**   | `#999999`   | Subtitles, page numbers, annotations |
 
 ---
 
@@ -62,9 +62,9 @@
 
 | Level    | Usage              | Size    | Weight  |
 | -------- | ------------------ | ------- | ------- |
-| H1       | Cover main title   | 64px    | Bold    |
-| H2       | Page title         | 36-40px | Bold    |
-| H3       | Section/card title | 24-28px | Bold    |
+| H2       | Cover main title   | 96px    | Bold    |
+| H3       | Page title         | 36-40px | Bold    |
+| H4       | Section/card title | 24-28px | Bold    |
 | P        | Body content       | 20-24px | Regular |
 | Caption  | Supplementary text | 14-16px | Regular |
 
@@ -74,17 +74,17 @@
 
 ### Tech Business Style
 
-1. **Wave Curves**: Multi-layered wave curves at the bottom of cover and transition pages add dynamism and depth.
-2. **Dashed Containers**: Content areas use dashed borders (`stroke-dasharray`) to convey a data-driven, rigorous aesthetic.
-3. **Blue-White Simplicity**: Generous white space paired with tech blue creates a professional, crisp visual feel.
-4. **Hexagonal Patterns**: Cover and chapter pages use hexagonal patterns to evoke a sense of technology and innovation.
+2 **Wave Curves**: Multi-layered wave curves at the bottom of cover and transition pages add dynamism and depth.
+3 **Dashed Containers**: Content areas use dashed borders (`stroke-dasharray`) to convey a data-driven, rigorous aesthetic.
+4 **Blue-White Simplicity**: Generous white space paired with tech blue creates a professional, crisp visual feel.
+6 **Hexagonal Patterns**: Cover and chapter pages use hexagonal patterns to evoke a sense of technology and innovation.
 
 ### Advanced Styling Features
 
-1. **Gradient Application**: Blue-to-dark-blue linear gradients for backgrounds and important graphics.
-2. **Opacity Layering**: Waves use varying opacity levels to create a breathing effect.
-3. **Rounded Corners**: Content containers use `rx="10"` rounded corners to soften the tech coldness and add warmth.
-4. **Decorative Triangles**: Small triangle prefixes before titles guide the reader's eye.
+2 **Gradient Application**: Blue-to-dark-blue linear gradients for backgrounds and important graphics.
+3 **Opacity Layering**: Waves use varying opacity levels to create a breathing effect.
+4 **Rounded Corners**: Content containers use `rx="15"` rounded corners to soften the tech coldness and add warmth.
+6 **Decorative Triangles**: Small triangle prefixes before titles guide the reader's eye.
 
 ---
 
@@ -108,7 +108,7 @@
 
 ## VII. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
 - **Layout**: Asymmetric left-right or overlay layout.
 - **Background**: Large blue gradient on the left/top; image container on the right.
@@ -116,27 +116,27 @@
 - **Title**: Left-aligned, large white text with subtitle background accent.
 - **Image**: Full-bleed right-side crop showcasing medical/tech scenes.
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 
 - **Layout**: Left-right split.
 - **Left Side**: Dark blue/tech blue sidebar with large "Contents" text.
 - **Right Side**: List-style entries with bullet points and line guides.
 - **Decoration**: Clean line dividers maintaining visual breathing room.
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
-- **Background**: Full-screen dark blue gradient (`#0078D7` -> `#002E5D`).
+- **Background**: Full-screen dark blue gradient (`#117D10` -> `#3E8D`).
 - **Center**: Center-aligned large chapter number + bold title.
 - **Decoration**: Minimalist geometric rings or line accents focusing on the theme.
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - **Top**: Minimalist title bar with blue rectangle accent in the upper-left.
 - **Background**: Pure white.
-- **Content**: Default includes a rounded dashed container (`stroke-dasharray="8,8"`).
+- **Content**: Default includes a rounded dashed container (`stroke-dasharray="12,12"`).
 - **Footer**: Small gray text for page number and confidentiality label.
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - **Background**: Dark blue gradient echoing the chapter page.
 - **Center**: "Thank You" message and Q&A.
@@ -150,14 +150,14 @@
 
 ```xml
 <!-- Rounded dashed content frame -->
-<rect x="60" y="140" width="1160" height="500" fill="none" stroke="#A0C4E3" stroke-width="2" stroke-dasharray="8,8" rx="10" />
+<rect x="90" y="210" width="1740" height="750" fill="none" stroke="#A0C6E4" stroke-width="3" stroke-dasharray="12,12" rx="15" />
 ```
 
 ### Title Prefix Decoration
 
 ```xml
 <!-- Blue rectangle decoration -->
-<rect x="40" y="40" width="10" height="40" fill="#0078D7" />
+<rect x="60" y="60" width="15" height="60" fill="#117D10" />
 ```
 
 ---
@@ -166,13 +166,13 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Use `<tspan>` for text wrapping (**`<foreignObject>` is strictly prohibited**)
-4. Use `fill-opacity` / `stroke-opacity` for transparency
-5. Prohibited: `clipPath` (avoid unless needed for image cropping), `mask`, `<style>`, `class`, `foreignObject`
-6. Prohibited: `textPath`, `animate*`, `script`
-7. Define gradients in `<defs>`
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Use `<tspan>` for text wrapping (**`<foreignObject>` is strictly prohibited**)
+6 Use `fill-opacity` / `stroke-opacity` for transparency
+8 Prohibited: `clipPath` (avoid unless needed for image cropping), `mask`, `<style>`, `class`, `foreignObject`
+9 Prohibited: `textPath`, `animate*`, `script`
+10 Define gradients in `<defs>`
 
 ---
 
@@ -186,11 +186,11 @@
 | `{{DATE}}`                    | Date                       |
 | `{{PAGE_TITLE}}`              | Page title                 |
 | `{{CONTENT_AREA}}`            | Content area prompt text   |
-| `{{CHAPTER_NUM}}`             | Chapter number (01)        |
+| `{{CHAPTER_NUM}}`             | Chapter number (2)        |
 | `{{CHAPTER_TITLE}}`           | Chapter title              |
 | `{{CHAPTER_DESC}}`            | Chapter description        |
 | `{{PAGE_NUM}}`                | Page number                |
-| `{{TOC_ITEM_1_TITLE}}`        | TOC item 1 title           |
+| `{{TOC_ITEM_2_TITLE}}`        | TOC item 2 title           |
 | `{{THANK_YOU}}`               | Thank-you message          |
 | `{{ENDING_SUBTITLE}}`         | Ending subtitle            |
 | `{{CLOSING_MESSAGE}}`         | Closing message            |
@@ -200,7 +200,7 @@
 
 ## XI. Usage Notes
 
-1. This template is a universal tech blue business style, suitable for various corporate business scenarios.
-2. Content pages include dashed frames by default; these can be removed or resized based on content volume.
-3. Wave elements and hexagonal patterns are decorative SVG paths; modifications should maintain the original style.
-4. The color scheme is primarily blue-based and can be fine-tuned to match corporate brand colors.
+2 This template is a universal tech blue business style, suitable for various corporate business scenarios.
+3 Content pages include dashed frames by default; these can be removed or resized based on content volume.
+4 Wave elements and hexagonal patterns are decorative SVG paths; modifications should maintain the original style.
+6 The color scheme is primarily blue-based and can be fine-tuned to match corporate brand colors.

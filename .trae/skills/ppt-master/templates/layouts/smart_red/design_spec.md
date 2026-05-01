@@ -20,8 +20,8 @@
 | Property       | Value                         |
 | -------------- | ----------------------------- |
 | **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
+| **Dimensions** | 1920 × 1080 px                |
+| **viewBox**    | `0 0 1920 1080`                |
 | **Safe Margins** | 60px (left/right), 50px (top/bottom) |
 | **Content Area** | x: 60-1220, y: 100-670      |
 | **Title Area** | y: 50-100                     |
@@ -113,8 +113,8 @@
 
 - **Background**: Light gray background `#F5F5F7`
 - **Top-Left**: Red large triangular cutout (0,0 -> 350,0 -> 0,350)
-- **Bottom-Left**: Dark gray triangular cutout (0,720 -> 300,720 -> 0,420)
-- **Bottom-Right**: Red large triangular cutout (1280,720 -> 1280,320 -> 880,720)
+- **Bottom-Left**: Dark gray triangular cutout (0,1080 -> 450,1080 -> 0,630)
+- **Bottom-Right**: Red large triangular cutout (1920,1080 -> 1920,480 -> 1320,1080)
 - **Title Area**: Main title `{{TITLE}}` and subtitle `{{SUBTITLE}}` displayed center-right
 - **Info Area**: Presenter `{{AUTHOR}}` and date `{{DATE}}` displayed at bottom
 
@@ -169,7 +169,7 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
+1. viewBox: `0 0 1920 1080`
 2. Use `<rect>` elements for backgrounds
 3. Use `<tspan>` for text wrapping (**strictly no** `<foreignObject>`)
 4. Use `fill-opacity` / `stroke-opacity` for transparency

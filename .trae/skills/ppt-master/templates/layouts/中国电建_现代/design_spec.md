@@ -21,8 +21,8 @@
 | Property       | Value                         |
 | -------------- | ----------------------------- |
 | **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`               |
+| **Dimensions** | 1920 × 1080 px                |
+| **viewBox**    | `0 0 1920 1080`               |
 | **Page Margins** | Left/Right 80px, Top 100px, Bottom 60px |
 | **Safe Area**  | x: 80-1200, y: 100-660       |
 

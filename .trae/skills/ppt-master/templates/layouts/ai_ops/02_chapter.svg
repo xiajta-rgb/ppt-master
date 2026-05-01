@@ -1,36 +1,36 @@
-<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+  <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
 
   <!-- Top Red Strip -->
-  <rect x="0" y="0" width="1280" height="8" fill="#C00000" />
+  <rect x="0" y="0" width="1920" height="12" fill="#C00000" />
 
   <!-- Left Decorative Block -->
-  <rect x="0" y="80" width="120" height="560" fill="#F2F2F2" />
-  <rect x="0" y="80" width="8" height="560" fill="#C00000" />
+  <rect x="0" y="120" width="180" height="840" fill="#F2F2F2" />
+  <rect x="0" y="120" width="12" height="840" fill="#C00000" />
 
   <!-- Right Decorative Block -->
-  <rect x="1160" y="80" width="120" height="560" fill="#FDF3EB" />
-  <rect x="1272" y="80" width="8" height="560" fill="#2E75B6" />
+  <rect x="1740" y="120" width="180" height="840" fill="#FDF3EB" />
+  <rect x="1908" y="120" width="12" height="840" fill="#2E75B6" />
 
   <!-- Chapter Number Badge (Large) -->
-  <rect x="540" y="220" width="80" height="80" fill="#C00000" />
-  <text x="580" y="278" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF" text-anchor="middle">{{CHAPTER_NUM}}</text>
+  <rect x="810" y="330" width="120" height="120" fill="#C00000" />
+  <text x="870" y="417" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF" text-anchor="middle">{{CHAPTER_NUM}}</text>
 
   <!-- Chapter Number Watermark -->
-  <text x="640" y="340" font-family="Arial, sans-serif" font-size="160" font-weight="bold" fill="#F2F2F2" text-anchor="middle">{{CHAPTER_NUM}}</text>
+  <text x="960" y="510" font-family="Arial, sans-serif" font-size="240" font-weight="bold" fill="#F2F2F2" text-anchor="middle">{{CHAPTER_NUM}}</text>
 
   <!-- Chapter Title -->
-  <text x="640" y="420" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="48" font-weight="bold" fill="#000000" text-anchor="middle">{{CHAPTER_TITLE}}</text>
+  <text x="960" y="630" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="72" font-weight="bold" fill="#000000" text-anchor="middle">{{CHAPTER_TITLE}}</text>
 
   <!-- Decorative Lines -->
-  <line x1="480" y1="450" x2="800" y2="450" stroke="#C00000" stroke-width="3" />
-  <line x1="520" y1="458" x2="760" y2="458" stroke="#2E75B6" stroke-width="1" />
+  <line x1="720" y1="675" x2="1200" y2="675" stroke="#C00000" stroke-width="4" />
+  <line x1="780" y1="687" x2="1140" y2="687" stroke="#2E75B6" stroke-width="2" />
 
   <!-- Chapter Description -->
-  <text x="640" y="510" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="20" fill="#666666" text-anchor="middle">{{CHAPTER_DESC}}</text>
+  <text x="960" y="765" font-family="'Microsoft YaHei', Arial, sans-serif" font-size="30" fill="#666666" text-anchor="middle">{{CHAPTER_DESC}}</text>
 
   <!-- Bottom Accent -->
-  <rect x="0" y="690" width="1280" height="30" fill="#2E75B6" />
-  <rect x="0" y="680" width="1280" height="10" fill="#FDF3EB" />
+  <rect x="0" y="1035" width="1920" height="45" fill="#2E75B6" />
+  <rect x="0" y="1020" width="1920" height="15" fill="#FDF3EB" />
 </svg>

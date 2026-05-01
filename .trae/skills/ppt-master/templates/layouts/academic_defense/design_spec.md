@@ -20,8 +20,8 @@
 | Property       | Value                         |
 | -------------- | ----------------------------- |
 | **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
+| **Dimensions** | 1920 × 1080 px                |
+| **viewBox**    | `0 0 1920 1080`                |
 | **Page Margins** | Left/Right 40px, Top 0px, Bottom 35px |
 | **Safe Area**  | x: 40-1240, y: 70-665        |
 
@@ -185,7 +185,7 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
+1. viewBox: `0 0 1920 1080`
 2. Use `<rect>` elements for backgrounds
 3. Use `<tspan>` for text wrapping (no `<foreignObject>`)
 4. Use `fill-opacity` / `stroke-opacity` for transparency; no `rgba()`

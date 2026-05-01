@@ -17,8 +17,8 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 | Property | Value |
 | --- | --- |
 | **Format** | Standard 16:9 |
-| **Dimensions** | 1280 × 720 px |
-| **viewBox** | `0 0 1280 720` |
+| **Dimensions** | 1920 × 1080 px |
+| **viewBox** | `0 0 1920 1080` |
 | **Safe Margins** | 56px left/right, 48px top, 40px bottom |
 | **Primary Content Area** | x: 72-1216, y: 140-640 |
 
@@ -122,7 +122,7 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 
 ## IX. SVG Technical Constraints
 
-1. `viewBox` must stay `0 0 1280 720`
+1. `viewBox` must stay `0 0 1920 1080`
 2. No `clipPath`, `mask`, `<style>`, `class`, `foreignObject`, `textPath`, or animation tags
 3. Use plain hex colors with `fill-opacity` / `stroke-opacity`
 4. Keep image assets semantic and minimal

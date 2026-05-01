@@ -175,6 +175,9 @@ def handle_api_path(path, environ, start_response):
     if path == '/api/edit-svg':
         return handle_edit_svg(environ, start_response)
 
+    if path == '/api/save-svg':
+        return handle_save_svg(environ, start_response)
+
     if path == '/api/save-project':
         return handle_save_project(environ, start_response)
 
@@ -324,6 +327,48 @@ def handle_edit_svg(environ, start_response):
         content = json.dumps({'success': False, 'error': str(e), 'trace': traceback.format_exc()}).encode('utf-8')
         start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
         return [content]
+
+def handle_save_svg(environ, start_response):
+    try:
+        content_length = int(environ.get('CONTENT_LENGTH', 0))
+        request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
+        data = json.loads(request_body)
+
+        file_name = data.get('file')
+        folder = data.get('folder')
+        content = data.get('content')
+
+        if not all([file_name, folder, content]):
+            resp = json.dumps({'success': False, 'error': 'Missing required parameters'}).encode('utf-8')
+            start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+            return [resp]
+
+        svg_path = PROJECT_DIR / folder / file_name
+        if not svg_path.exists():
+            resp = json.dumps({'success': False, 'error': f'File not found: {svg_path}'}).encode('utf-8')
+            start_response('404 Not Found', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+            return [resp]
+
+        backup_path = svg_path.with_suffix('.svg.bak')
+        if not backup_path.exists():
+            svg_path.rename(backup_path)
+
+        svg_path.write_text(content, encoding='utf-8')
+        invalidate_scan_cache()
+
+        resp = json.dumps({'success': True, 'message': 'SVG saved successfully'}).encode('utf-8')
+        start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
+
+    except json.JSONDecodeError as e:
+        resp = json.dumps({'success': False, 'error': f'Invalid JSON: {str(e)}'}).encode('utf-8')
+        start_response('400 Bad Request', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
+    except Exception as e:
+        import traceback
+        resp = json.dumps({'success': False, 'error': str(e), 'trace': traceback.format_exc()}).encode('utf-8')
+        start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
 
 def handle_save_project(environ, start_response):
     try:
@@ -508,7 +553,6 @@ def application(environ, start_response):
 
     path = environ.get('PATH_INFO', '/')
     path = urllib.parse.unquote(path)
-    path = path.encode('latin-1').decode('utf-8', errors='replace')
 
     api_result = handle_api_path(path, environ, start_response)
     if api_result is not None:

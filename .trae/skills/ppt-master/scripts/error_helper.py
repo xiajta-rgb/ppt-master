@@ -74,7 +74,7 @@ class ErrorHelper:
             'solutions': [
                 'Check the viewBox attribute of SVG files',
                 'Ensure it matches the project canvas format',
-                'PPT 16:9 should be: viewBox="0 0 1280 720"',
+                'PPT 16:9 should be: viewBox="0 0 1920 1080"',
                 'PPT 4:3 should be: viewBox="0 0 1024 768"',
                 'Reference: references/canvas-formats.md'
             ],
@@ -94,7 +94,7 @@ class ErrorHelper:
             'message': 'SVG file missing viewBox attribute',
             'solutions': [
                 'Add the viewBox attribute to the SVG root element',
-                'Format: <svg viewBox="0 0 1280 720" ...>',
+                'Format: <svg viewBox="0 0 1920 1080" ...>',
                 'Ensure width, height are consistent with viewBox',
                 'This is a mandatory requirement for SVG generation'
             ],

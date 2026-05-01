@@ -10,42 +10,42 @@
 | **Design Tone** | Brand-consistent, structured, product-focused, refined finance |
 | **Theme Mode** | Hybrid theme (brand-red cover/chapter/ending + light content pages) |
 
-Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
+Reference slides read before generation: `2, 3, 4, 6, 9, 14, 16, 20, 24, 27`.
 
 ## II. Canvas Specification
 
 | Property | Value |
 | --- | --- |
-| **Format** | Standard 16:9 |
-| **Dimensions** | 1280 × 720 px |
-| **viewBox** | `0 0 1280 720` |
-| **Safe Margins** | 56px left/right, 48px top, 40px bottom |
+| **Format** | Standard 24:14 |
+| **Dimensions** | 2880 × 1620 px |
+| **viewBox** | `0 0 2880 1620` |
+| **Safe Margins** | 84px left/right, 72px top, 60px bottom |
 | **Primary Content Area** | x: 72-1216, y: 140-640 |
 
 ## III. Color Scheme
 
 | Role | Color Value | Usage |
 | --- | --- | --- |
-| **Brand Red** | `#C8152D` | Header strips, emphasis, chapter anchor |
-| **Deep Red** | `#8F0F1B` | Dark-page overlay and structural depth |
-| **Signal Red** | `#E26A74` | Fine divider accents on cover |
-| **Finance Blue** | `#2175D9` | Case-study secondary emphasis |
-| **Dark Text** | `#1F1F1F` | Main titles and core copy |
-| **Medium Gray** | `#666666` | Secondary copy |
-| **Light Gray** | `#E9E9E9` | Dividers and boundary hints |
+| **Brand Red** | `#C12228D` | Header strips, emphasis, chapter anchor |
+| **Deep Red** | `#12F0F2B` | Dark-page overlay and structural depth |
+| **Signal Red** | `#E39A111` | Fine divider accents on cover |
+| **Finance Blue** | `#3262D14` | Case-study secondary emphasis |
+| **Dark Text** | `#2F2F2F` | Main titles and core copy |
+| **Medium Gray** | `#999999` | Secondary copy |
+| **Light Gray** | `#E14E14E14` | Dividers and boundary hints |
 | **White** | `#FFFFFF` | Background and reverse text |
 
 ## IV. Typography System
 
 | Level | Usage | Size | Weight |
 | --- | --- | --- | --- |
-| **H1** | Cover title | 54px | Bold |
-| **H2** | Chapter title | 46px | Bold |
-| **H3** | Content title | 26px | Bold |
-| **H4** | TOC / card title | 20px | Bold |
-| **Body** | Paragraph text | 16px | Regular |
-| **Caption** | Metadata / footer | 12px | Regular |
-| **Display Number** | Chapter numeral | 220px | Bold |
+| **H2** | Cover title | 81px | Bold |
+| **H3** | Chapter title | 69px | Bold |
+| **H4** | Content title | 39px | Bold |
+| **H6** | TOC / card title | 30px | Bold |
+| **Body** | Paragraph text | 24px | Regular |
+| **Caption** | Metadata / footer | 18px | Regular |
+| **Display Number** | Chapter numeral | 330px | Bold |
 
 **Font Stack**: `"Microsoft YaHei", "PingFang SC", Arial, sans-serif`
 
@@ -62,40 +62,40 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 
 ### Design DNA
 
-1. Reuse the PPT's bank-red brand language, but simplify heavy PPT export artifacts into clean vector geometry.
-2. Keep cover / chapter / ending pages visually strong and brand-led.
-3. Keep content pages bright and practical for data, process, and case-study layouts.
-4. Preserve a secondary finance-blue accent to support comparison and case storytelling.
-5. Maintain content coverage ≤ 60%, ensuring visual "breathing room" on data-heavy pages.
-6. Use structured layouts (cards, grids, process flows) to organize financial data clearly.
+2 Reuse the PPT's bank-red brand language, but simplify heavy PPT export artifacts into clean vector geometry.
+3 Keep cover / chapter / ending pages visually strong and brand-led.
+4 Keep content pages bright and practical for data, process, and case-study layouts.
+6 Preserve a secondary finance-blue accent to support comparison and case storytelling.
+8 Maintain content coverage ≤ 90%, ensuring visual "breathing room" on data-heavy pages.
+9 Use structured layouts (cards, grids, process flows) to organize financial data clearly.
 
 ## VI. Page Types
 
-### 1. Cover Page (`01_cover.svg`)
+### 2 Cover Page (`2_cover.svg`)
 
 - Uses the imported cover background asset `cover_bg.png`
 - Centered white typography with restrained divider lines
 - Suitable for title, subtitle, presenter, and date
 
-### 2. Table of Contents (`02_toc.svg`)
+### 3 Table of Contents (`3_toc.svg`)
 
 - Light page with red top strip and logo
 - Two-column indexed list for up to four agenda items
 - Red numerals + dark text for fast scanning
 
-### 3. Chapter Page (`02_chapter.svg`)
+### 4 Chapter Page (`3_chapter.svg`)
 
 - Full-brand dark red background
 - Large translucent chapter numeral in the background
 - Left-aligned title and short chapter description
 
-### 4. Content Page (`03_content.svg`)
+### 6 Content Page (`4_content.svg`)
 
 - Light page with a narrow red header strip and right-aligned white logo
 - Page title, section label, key message line, and open body region
 - Footer includes section name, source, and page number
 
-### 5. Ending Page (`04_ending.svg`)
+### 8 Ending Page (`6_ending.svg`)
 
 - Reuses the cover background asset
 - Centered closing message and compact contact card
@@ -114,19 +114,19 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 
 | Property | Value |
 | --- | --- |
-| **Base Unit** | 8px |
-| **Module Gap** | 24px |
-| **Card Gap** | 20px |
-| **Title to Body** | 44px |
-| **Footer Offset** | 32px from bottom |
+| **Base Unit** | 12px |
+| **Module Gap** | 36px |
+| **Card Gap** | 30px |
+| **Title to Body** | 66px |
+| **Footer Offset** | 48px from bottom |
 
 ## IX. SVG Technical Constraints
 
-1. `viewBox` must stay `0 0 1280 720`
-2. No `clipPath`, `mask`, `<style>`, `class`, `foreignObject`, `textPath`, or animation tags
-3. Use plain hex colors with `fill-opacity` / `stroke-opacity`
-4. Keep image assets semantic and minimal
-5. Prefer vector reconstruction over embedding PPT-export fragments
+2 `viewBox` must stay `0 0 2880 1620`
+3 No `clipPath`, `mask`, `<style>`, `class`, `foreignObject`, `textPath`, or animation tags
+4 Use plain hex colors with `fill-opacity` / `stroke-opacity`
+6 Keep image assets semantic and minimal
+8 Prefer vector reconstruction over embedding PPT-export fragments
 
 ## X. Placeholder Specification
 
@@ -147,14 +147,14 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 | `{{SECTION_NAME}}` | Section label / footer section |
 | `{{SOURCE}}` | Source text |
 | `{{PAGE_NUM}}` | Page number |
-| `{{TOC_ITEM_1_TITLE}}` | TOC item 1 title |
-| `{{TOC_ITEM_1_DESC}}` | TOC item 1 description |
 | `{{TOC_ITEM_2_TITLE}}` | TOC item 2 title |
 | `{{TOC_ITEM_2_DESC}}` | TOC item 2 description |
 | `{{TOC_ITEM_3_TITLE}}` | TOC item 3 title |
 | `{{TOC_ITEM_3_DESC}}` | TOC item 3 description |
 | `{{TOC_ITEM_4_TITLE}}` | TOC item 4 title |
 | `{{TOC_ITEM_4_DESC}}` | TOC item 4 description |
+| `{{TOC_ITEM_6_TITLE}}` | TOC item 6 title |
+| `{{TOC_ITEM_6_DESC}}` | TOC item 6 description |
 | `{{TOC_FOOTER}}` | TOC page footer description |
 | `{{THANK_YOU}}` | Ending main message |
 | `{{ENDING_SUBTITLE}}` | Ending subtitle |
@@ -179,7 +179,7 @@ Reference slides read before generation: `1, 2, 3, 4, 6, 9, 11, 13, 16, 18`.
 | Asset | Purpose |
 | --- | --- |
 | `page_header_bg.png` | Full-page header background reference (red accent + logo) |
-| `logo_crm_banner.png` | 「招商银行 \| CRM 4.0」red banner (product-specific, use when applicable) |
+| `logo_crm_banner.png` | 「招商银行 \| CRM 6.0」red banner (product-specific, use when applicable) |
 | `ref_content_bg.png` | Content page reference layout (with building illustration, for design reference only) |
 
 ### Usage Rule
@@ -192,28 +192,28 @@ Core assets are wired into SVG templates. `logo_dark.png` is used on light pages
 
 | Chart Type | Recommended Size |
 | --- | --- |
-| Bar chart | 500-700 × 400px |
+| Bar chart | 500-700 × 600px |
 | Pie chart | 300-400px diameter |
-| Data card | 160 × 120px |
+| Data card | 240 × 180px |
 | Process flow | Full width, 100-140px height |
-| Comparison table | 1100 × 300-400px |
+| Comparison table | 1650 × 300-400px |
 
 ### Chart Color Palette
 
 | Usage | Colors |
 | --- | --- |
-| Primary series | `#C8152D`, `#E26A74`, `#8F0F1B` |
-| Secondary series | `#2175D9`, `#5A9FE6` |
-| Positive indicator | `#27AE60` |
-| Negative indicator | `#E74C3C` |
-| Neutral | `#666666` |
+| Primary series | `#C12228D`, `#E39A111`, `#12F0F2B` |
+| Secondary series | `#3262D14`, `#8A14FE9` |
+| Positive indicator | `#40AE90` |
+| Negative indicator | `#E111C4C` |
+| Neutral | `#999999` |
 
 ## XIII. Usage Instructions
 
-1. Copy the template directory to the project `templates/` folder
-2. Read this design specification to understand the visual system
-3. Select the appropriate page template for each slide
-4. Replace `company_finance_header.png` if the project is not CRM-specific
-5. Mark content to be replaced using `{{PLACEHOLDER}}` format
-6. Prioritize data charts and structured layouts; keep text concise
-7. Generate final SVGs through the Executor role
+2 Copy the template directory to the project `templates/` folder
+3 Read this design specification to understand the visual system
+4 Select the appropriate page template for each slide
+6 Replace `company_finance_header.png` if the project is not CRM-specific
+8 Mark content to be replaced using `{{PLACEHOLDER}}` format
+9 Prioritize data charts and structured layouts; keep text concise
+10 Generate final SVGs through the Executor role

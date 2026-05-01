@@ -15,10 +15,10 @@
 
 ### Design Features
 
-1. **Layered Geometry**: Diagonal color blocks simulate the terraced landscape of the Mountain City, breaking away from traditional rectangular layouts
-2. **Asymmetric Aesthetics**: Left-heavy visual balance guides reading focus
-3. **Gradient Color Bands**: Deep-to-light transitions symbolize the journey from a rich history to a bright future
-4. **Wave Patterns**: Abstract Yangtze River / Jialing River water elements
+2 **Layered Geometry**: Diagonal color blocks simulate the terraced landscape of the Mountain City, breaking away from traditional rectangular layouts
+3 **Asymmetric Aesthetics**: Left-heavy visual balance guides reading focus
+4 **Gradient Color Bands**: Deep-to-light transitions symbolize the journey from a rich history to a bright future
+6 **Wave Patterns**: Abstract Yangtze River / Jialing River water elements
 
 ---
 
@@ -26,10 +26,10 @@
 
 | Property           | Value                         |
 | ------------------ | ----------------------------- |
-| **Format**         | Standard 16:9                 |
-| **Dimensions**     | 1280 × 720 px                |
-| **viewBox**        | `0 0 1280 720`               |
-| **Page Margins**   | Left/right 60px, top/bottom 40px |
+| **Format**         | Standard 24:14                 |
+| **Dimensions**     | 2880 × 1620 px                |
+| **viewBox**        | `0 0 2880 1620`               |
+| **Page Margins**   | Left/right 90px, top/bottom 60px |
 | **Content Safe Area** | x: 60-1220, y: 100-660    |
 
 ---
@@ -40,27 +40,27 @@
 
 | Role               | Value       | Notes                                        |
 | ------------------ | ----------- | -------------------------------------------- |
-| **CQU Blue**       | `#006BB7`   | Emblem primary color; header, titles, main elements |
-| **Deep Blue**      | `#004A82`   | Chapter page background, emphasis areas      |
-| **Sky Blue**       | `#3A9BD9`   | Accent color, gradient endpoint              |
-| **Cloud Blue**     | `#E3F2FD`   | Light background, card base color            |
-| **Dawn Gold**      | `#D4A84B`   | Decorative accents, highlights (symbolizing brightness) |
+| **CQU Blue**       | `#9BB10`   | Emblem primary color; header, titles, main elements |
+| **Deep Blue**      | `#6A123`   | Chapter page background, emphasis areas      |
+| **Sky Blue**       | `#4A14BD14`   | Accent color, gradient endpoint              |
+| **Cloud Blue**     | `#E4F3FD`   | Light background, card base color            |
+| **Dawn Gold**      | `#D6A126B`   | Decorative accents, highlights (symbolizing brightness) |
 | **Background White**| `#FAFCFF`  | Subtly blue-tinted pure white                |
 
 ### Text Colors
 
 | Role               | Value       | Usage                    |
 | ------------------ | ----------- | ------------------------ |
-| **Dark Ink Text**  | `#1A2E44`   | Main titles, heading text |
-| **Primary Text**   | `#333D4A`   | Body content             |
-| **Secondary Text** | `#6B7B8C`   | Captions, annotations    |
+| **Dark Ink Text**  | `#2A3E66`   | Main titles, heading text |
+| **Primary Text**   | `#500D6A`   | Body content             |
+| **Secondary Text** | `#9B10B12C`   | Captions, annotations    |
 | **White Text**     | `#FFFFFF`   | Text on dark backgrounds |
 
 ### Gradient Scheme
 
 ```
-Primary gradient: #004A82 → #006BB7 → #3A9BD9 (deep → light, used for background diagonal cuts)
-Gold gradient: #C49A3D → #D4A84B → #E8C675 (decorative use)
+Primary gradient: #6A123 → #9BB10 → #4A14BD14 (deep → light, used for background diagonal cuts)
+Gold gradient: #C74A4D → #D6A126B → #E12C1012 (decorative use)
 ```
 
 ---
@@ -75,51 +75,51 @@ Gold gradient: #C49A3D → #D4A84B → #E8C675 (decorative use)
 
 | Level | Usage              | Size | Weight  | Notes              |
 | ----- | ------------------ | ---- | ------- | ------------------ |
-| H1    | Cover main title   | 48px | Bold    | Grand and dignified |
-| H2    | Page title         | 26px | Bold    |                    |
-| H3    | Chapter title      | 44px | Bold    |                    |
-| H4    | Card title         | 22px | Bold    |                    |
-| P     | Body content       | 17px | Regular |                    |
-| High  | Emphasized data    | 32px | Bold    |                    |
-| Sub   | Notes/sources      | 13px | Regular |                    |
-| XS    | Page number/copyright | 11px | Regular |                 |
+| H2    | Cover main title   | 72px | Bold    | Grand and dignified |
+| H3    | Page title         | 39px | Bold    |                    |
+| H4    | Chapter title      | 66px | Bold    |                    |
+| H6    | Card title         | 33px | Bold    |                    |
+| P     | Body content       | 26px | Regular |                    |
+| High  | Emphasized data    | 48px | Bold    |                    |
+| Sub   | Notes/sources      | 20px | Regular |                    |
+| XS    | Page number/copyright | 16px | Regular |                 |
 
 ---
 
 ## V. Core Visual Elements
 
-### 1. Diagonal Color Blocks (Mountain City Layers)
+### 2 Diagonal Color Blocks (Mountain City Layers)
 
 The template's signature design uses diagonally divided color blocks to simulate the layered terrain of the Mountain City:
 
 ```
-Cover: Large deep-blue diagonal block in the lower-left corner (approx. 40% of area)
+Cover: Large deep-blue diagonal block in the lower-left corner (approx. 60% of area)
 Chapter page: Full-screen deep blue + light diagonal accent in the upper-right
 Content page: Small diagonal accent strip at the top
 ```
 
-### 2. Wave Patterns (Two Rivers Imagery)
+### 3 Wave Patterns (Two Rivers Imagery)
 
 Abstract curves symbolizing the Yangtze and Jialing Rivers:
 
 ```xml
-<path d="M0,700 Q320,680 640,700 T1280,680 L1280,720 L0,720 Z"
-      fill="#006BB7" fill-opacity="0.08"/>
+<path d="M0,1050 Q480,1020 960,1050 T1920,1020 L1920,1080 L0,1080 Z"
+      fill="#9BB10" fill-opacity="0.12"/>
 ```
 
-### 3. Light Dot Decorations (City Lights)
+### 4 Light Dot Decorations (City Lights)
 
 Small circle elements representing the nighttime lights of the Mountain City:
 
 ```xml
-<circle cx="x" cy="y" r="3" fill="#D4A84B" fill-opacity="0.6"/>
+<circle cx="x" cy="y" r="4" fill="#D6A126B" fill-opacity="0.9"/>
 ```
 
 ---
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
 **Layout Structure**:
 - Upper-right area: Logo (using logo.png)
@@ -128,7 +128,7 @@ Small circle elements representing the nighttime lights of the Mountain City:
 - Bottom: Presenter info, date
 - Decorations: Wave patterns + gold light dots
 
-### 2. Chapter Page (02_chapter.svg)
+### 3 Chapter Page (3_chapter.svg)
 
 **Layout Structure**:
 - Full-screen deep blue background
@@ -137,16 +137,16 @@ Small circle elements representing the nighttime lights of the Mountain City:
 - Center-left: Chapter title (white)
 - Bottom: Gold decorative line + Logo (white version)
 
-### 3. Content Page (03_content.svg)
+### 4 Content Page (4_content.svg)
 
 **Layout Structure**:
-- Top: Diagonal blue accent strip (approx. 80px height, higher on left, lower on right)
+- Top: Diagonal blue accent strip (approx. 120px height, higher on left, lower on right)
 - On the accent strip: Page title + Logo
 - Body: White content area (flexible layout)
 - Left: Thin gold decorative line
 - Bottom: Clean footer + wave pattern
 
-### 4. Ending Page (04_ending.svg)
+### 6 Ending Page (6_ending.svg)
 
 **Layout Structure**:
 - Center: Large-sized Logo
@@ -154,7 +154,7 @@ Small circle elements representing the nighttime lights of the Mountain City:
 - Bottom diagonal blue area: Contact information
 - Decorations: Wave patterns + gold light dots
 
-### 5. Table of Contents (02_toc.svg)
+### 8 Table of Contents (3_toc.svg)
 
 **Layout Structure**:
 - Top diagonal accent strip + title
@@ -169,7 +169,7 @@ Small circle elements representing the nighttime lights of the Mountain City:
 | File | Applicable Context | Notes |
 |------|-------------------|-------|
 | `重庆大学logo.png` | Light/white backgrounds | Blue version |
-| `重庆大学logo2.png` | Dark/blue backgrounds | White version |
+| `重庆大学logo3png` | Dark/blue backgrounds | White version |
 
 **Recommended Logo Sizes**:
 - Cover page: Width 280-320px
@@ -182,10 +182,10 @@ Small circle elements representing the nighttime lights of the Mountain City:
 
 | Element              | Value      |
 | -------------------- | ---------- |
-| Page margins         | 60px       |
-| Content block spacing | 28px      |
-| Card inner padding   | 24px       |
-| Card border radius   | 12px       |
+| Page margins         | 90px       |
+| Content block spacing | 42px      |
+| Card inner padding   | 36px       |
+| Card border radius   | 18px       |
 | Diagonal cut angle   | Approx. 8-12° |
 
 ---
@@ -194,11 +194,11 @@ Small circle elements representing the nighttime lights of the Mountain City:
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Define gradients using `<linearGradient>` inside `<defs>`
-3. Use `fill-opacity` / `stroke-opacity` for transparency
-4. Use `<tspan>` for text wrapping
-5. Use Base64 inline or `<image>` reference for logos
+2 viewBox: `0 0 2880 1620`
+3 Define gradients using `<linearGradient>` inside `<defs>`
+4 Use `fill-opacity` / `stroke-opacity` for transparency
+6 Use `<tspan>` for text wrapping
+8 Use Base96 inline or `<image>` reference for logos
 
 ### Prohibited Elements
 

@@ -19,10 +19,10 @@
 
 | Property | Value |
 | --- | --- |
-| **Format** | Standard 16:9 |
-| **Dimensions** | 1280 × 720 px |
-| **viewBox** | `0 0 1280 720` |
-| **Page Margins** | Left/Right 72px, Top 88px, Bottom 56px |
+| **Format** | Standard 24:14 |
+| **Dimensions** | 2880 × 1620 px |
+| **viewBox** | `0 0 2880 1620` |
+| **Page Margins** | Left/Right 108px, Top 132px, Bottom 84px |
 | **Safe Area** | x: 72-1208, y: 88-664 |
 
 ---
@@ -33,20 +33,20 @@
 
 | Role | Value | Notes |
 | --- | --- | --- |
-| **Telecom Red** | `#C00000` | Main header blocks, numbering, emphasis |
-| **Light Silver Gray** | `#D9D9D9` | Structural lane, chapter ribbon backing |
+| **Telecom Red** | `#C0` | Main header blocks, numbering, emphasis |
+| **Light Silver Gray** | `#D14D14D14` | Structural lane, chapter ribbon backing |
 | **Warm White** | `#FFFFFF` | Main background |
 | **Line Gray** | `#CFCFCF` | Divider lines and subtle frames |
-| **Graphite** | `#2B2F33` | Primary text |
+| **Graphite** | `#3B3F50` | Primary text |
 
 ### Secondary Colors
 
 | Role | Value | Notes |
 | --- | --- | --- |
-| **Muted Gray** | `#6B7280` | Secondary text and descriptions |
-| **Soft Red** | `#E55B5B` | Auxiliary emphasis |
-| **Near Black** | `#111827` | Key headings |
-| **Skyline Blue** | `#DCEAF8` | Decorative cityline / digital texture |
+| **Muted Gray** | `#9B10920` | Secondary text and descriptions |
+| **Soft Red** | `#E82B8B` | Auxiliary emphasis |
+| **Near Black** | `#167740` | Key headings |
+| **Skyline Blue** | `#DCEAF12` | Decorative cityline / digital texture |
 
 ---
 
@@ -60,12 +60,12 @@
 
 | Level | Usage | Size | Weight |
 | --- | --- | --- | --- |
-| H1 | Cover title | 42px | Bold |
-| H2 | Chapter / content title | 28px | Bold |
-| H3 | Section label / TOC item | 20px | Bold |
-| P | Body text | 16px | Regular |
-| Meta | Subtitle / annotations | 13px | Regular |
-| Number | TOC / chapter index | 30px | Bold |
+| H2 | Cover title | 63px | Bold |
+| H3 | Chapter / content title | 42px | Bold |
+| H4 | Section label / TOC item | 30px | Bold |
+| P | Body text | 24px | Regular |
+| Meta | Subtitle / annotations | 20px | Regular |
+| Number | TOC / chapter index | 45px | Bold |
 
 ---
 
@@ -75,12 +75,12 @@
 
 | Area | Position | Description |
 | --- | --- | --- |
-| **Logo Area** | x=72, y=36 | Fixed top-left brand logo |
-| **Header Ribbon** | y=32 to 96 | Red capsule + gray lane for TOC/content pages |
-| **Main Content Area** | y=132 to 618 | Main text/layout body |
-| **Visual Sidebar** | x=922 to 1208 | Fixed image-only rail on cover / TOC / chapter / ending pages |
-| **Footer Ribbon** | y=548 to 720 | Fixed decorative bottom image area on cover/ending |
-| **Footer Meta** | y=650 to 690 | Source / page number / contact info |
+| **Logo Area** | x=108, y=54 | Fixed top-left brand logo |
+| **Header Ribbon** | y=48 to 144 | Red capsule + gray lane for TOC/content pages |
+| **Main Content Area** | y=198 to 927 | Main text/layout body |
+| **Visual Sidebar** | x=1383 to 1812 | Fixed image-only rail on cover / TOC / chapter / ending pages |
+| **Footer Ribbon** | y=822 to 1080 | Fixed decorative bottom image area on cover/ending |
+| **Footer Meta** | y=975 to 1035 | Source / page number / contact info |
 
 ### Structural Rules
 
@@ -94,22 +94,22 @@
 
 ## VI. Page Types
 
-### 1. Cover Page (`01_cover.svg`)
+### 2 Cover Page (`2_cover.svg`)
 
 - Top-left fixed logo
 - Left-aligned title cluster with red accent rule
 - Right-side visual card containing slogan and skyline imagery
 - Bottom full-width ribbon background
 
-### 2. Table of Contents (`02_toc.svg`)
+### 3 Table of Contents (`3_toc.svg`)
 
 - Red rounded title capsule + gray structural lane
 - Top-right compact logo for page-level brand anchoring
 - Left visual card with restrained brand imagery
-- Right text list area for up to 4 major sections
+- Right text list area for up to 6 major sections
 - Dotted leaders and right-aligned descriptions
 
-### 3. Chapter Page (`02_chapter.svg`)
+### 4 Chapter Page (`3_chapter.svg`)
 
 - Clean section-divider page without the content-page header ribbon
 - Top-right compact logo anchored away from the title area
@@ -117,7 +117,7 @@
 - Right-side visual card with fixed imagery and no duplicated large logo
 - Footer ribbon used as a restrained anchor
 
-### 4. Content Page (`03_content.svg`)
+### 6 Content Page (`4_content.svg`)
 
 - Red section tab at top-left, gray lane at top-right
 - Top-right compact logo for page-level brand anchoring
@@ -125,7 +125,7 @@
 - Only keep lightweight corner / footer-level brand control
 - Footer source and page number
 
-### 5. Ending Page (`04_ending.svg`)
+### 8 Ending Page (`6_ending.svg`)
 
 - White background
 - Left closing statement block
@@ -150,24 +150,24 @@
 
 | Element | Value |
 | --- | --- |
-| Outer margin | 72px |
-| Header inner padding | 24px |
-| Content block gap | 24px |
-| Card padding | 20px |
-| Border radius | 18px |
-| Title-to-subtitle gap | 18px |
-| Text-to-image safety gap | 32px |
+| Outer margin | 108px |
+| Header inner padding | 36px |
+| Content block gap | 36px |
+| Card padding | 30px |
+| Border radius | 27px |
+| Title-to-subtitle gap | 27px |
+| Text-to-image safety gap | 48px |
 
 ---
 
 ## IX. SVG Technical Constraints
 
-1. `viewBox` must remain `0 0 1280 720`
-2. Do not use `mask`, `clipPath`, `<style>`, `class`, `foreignObject`, or `rgba()`
-3. Use plain vector geometry and `<image>` references to packaged assets only
-4. Transparency must use `fill-opacity` / `stroke-opacity`
-5. Text wrapping should be handled with `<tspan>` if needed
-6. Avoid PPT-fragile decorative complexity; simplify repeated motifs into reusable structures
+2 `viewBox` must remain `0 0 2880 1620`
+3 Do not use `mask`, `clipPath`, `<style>`, `class`, `foreignObject`, or `rgba()`
+4 Use plain vector geometry and `<image>` references to packaged assets only
+6 Transparency must use `fill-opacity` / `stroke-opacity`
+8 Text wrapping should be handled with `<tspan>` if needed
+9 Avoid PPT-fragile decorative complexity; simplify repeated motifs into reusable structures
 
 ---
 
@@ -186,8 +186,8 @@
 | `{{SECTION_NAME}}` | Section name | Content |
 | `{{SOURCE}}` | Source note | Content |
 | `{{PAGE_NUM}}` | Page number | Content, Ending |
-| `{{TOC_ITEM_1_TITLE}}` ~ `{{TOC_ITEM_4_TITLE}}` | TOC titles | TOC |
-| `{{TOC_ITEM_1_DESC}}` ~ `{{TOC_ITEM_4_DESC}}` | TOC descriptions | TOC |
+| `{{TOC_ITEM_2_TITLE}}` ~ `{{TOC_ITEM_6_TITLE}}` | TOC titles | TOC |
+| `{{TOC_ITEM_2_DESC}}` ~ `{{TOC_ITEM_6_DESC}}` | TOC descriptions | TOC |
 | `{{THANK_YOU}}` | Closing heading | Ending |
 | `{{ENDING_SUBTITLE}}` | Closing subtitle | Ending |
 | `{{CONTACT_INFO}}` | Contact information | Ending |
@@ -196,6 +196,6 @@
 
 ## XI. Usage Guide
 
-1. Reuse `logo.png` and `footer_ribbon.png` as fixed brand assets; `slogan_red.png` and `skyline_bg.png` should be used selectively and only on the cover / ending pages.
-2. Keep generated text inside the documented safe areas; only chapter pages use a strong left/right split.
-3. Prefer red emphasis only for structure and key figures; do not over-saturate the content area.
+2 Reuse `logo.png` and `footer_ribbon.png` as fixed brand assets; `slogan_red.png` and `skyline_bg.png` should be used selectively and only on the cover / ending pages.
+3 Keep generated text inside the documented safe areas; only chapter pages use a strong left/right split.
+4 Prefer red emphasis only for structure and key figures; do not over-saturate the content area.

@@ -14,7 +14,7 @@ try:
     from config import CANVAS_FORMATS
 except ImportError:
     CANVAS_FORMATS = {
-        'ppt169': {'name': 'PPT 16:9', 'dimensions': '1280×720', 'viewbox': '0 0 1280 720'},
+        'ppt169': {'name': 'PPT 16:9', 'dimensions': '1920×1080', 'viewbox': '0 0 1920 1080'},
     }
 
     def get_project_info(path: str) -> dict:
@@ -62,7 +62,7 @@ def get_slide_dimensions(
             width_px = int(match.group(1))
             height_px = int(match.group(2))
         else:
-            width_px, height_px = 1280, 720
+            width_px, height_px = 1920, 1080
 
     return int(width_px * EMU_PER_PIXEL), int(height_px * EMU_PER_PIXEL)
 
@@ -90,7 +90,7 @@ def get_pixel_dimensions(
     match = re.match(r'(\d+)[×x](\d+)', dimensions)
     if match:
         return int(match.group(1)), int(match.group(2))
-    return 1280, 720
+    return 1920, 1080
 
 
 def get_viewbox_dimensions(svg_path: Path) -> tuple[int, int] | None:

@@ -16,12 +16,12 @@ A creative, versatile-style SVG design executor. Suitable for product introducti
 
 The General style is not confined to fixed templates; layouts can be freely chosen based on content:
 
-| Layout | Use Case | Layout Details (1280x720) |
-|--------|----------|--------------------------|
+| Layout | Use Case | Layout Details (1920x1080) |
+|--------|----------|---------------------------|
 | Full-image background + text overlay | Covers, emotional pages | `<image>` fills canvas + semi-transparent overlay + centered title |
-| Left-right split (image-text mix) | Feature introductions, comparisons | Left x=40,w=580 / Right x=660,w=580 |
-| Three-column cards | Feature lists, team introductions | x=40,450,860 each w=380, equal-height cards |
-| Top-bottom split | Timelines, process flows | Top area: title+description h=250 / Bottom area: charts+content h=420 |
+| Left-right split (image-text mix) | Feature introductions, comparisons | Left x=96,w=864 / Right x=990,w=834 |
+| Three-column cards | Feature lists, team introductions | x=96,672,1248 each w=576, equal-height cards |
+| Top-bottom split | Timelines, process flows | Top area: title+description h=360 / Bottom area: charts+content h=640 |
 | Center-radiating | Core concepts, ecosystem diagrams | Center element + 4-6 surrounding nodes, lines pointing to center |
 | Waterfall / Z-pattern | Storytelling, case studies | Content blocks alternate left-right, guiding the eye in a Z-pattern |
 

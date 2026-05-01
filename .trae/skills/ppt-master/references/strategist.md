@@ -18,7 +18,7 @@ As a top-tier AI presentation strategist, receive source documents, perform cont
 
 | Format | viewBox | Dimensions | Ratio |
 |--------|---------|------------|-------|
-| PPT 16:9 | `0 0 1280 720` | 1280x720 | 16:9 |
+| PPT 16:9 | `0 0 1920 1080` | 1920x1080 | 16:9 |
 | PPT 4:3 | `0 0 1024 768` | 1024x768 | 4:3 |
 
 ### Social Media
@@ -222,7 +222,7 @@ Selection principle: Baseline choice is driven by **content density**, not desig
 | Column | Description |
 |--------|-------------|
 | Filename | e.g., `cover_bg.png` |
-| Dimensions | e.g., `1280x720` |
+| Dimensions | e.g., `1920x1080` |
 | Ratio | e.g., `1.78` |
 | Layout suggestion | e.g., `Wide landscape (suitable for full-screen/illustration)` |
 | Purpose | e.g., `Cover background` |
@@ -395,11 +395,11 @@ When content outline pages involve **data visualization or infographic-style str
 | Top-bottom split | Ultra-wide images + text, processes, timelines | Image full-width, text area >= 150px height |
 | Z-pattern / waterfall | Storytelling, case studies — blocks alternate left/right | Guide eye in Z; 3-5 alternating blocks |
 | Center-radiating | Core concept + surrounding nodes | Center element 200-300px, 4-6 satellite nodes |
-| Full-bleed + floating text | `breathing` / feature pages | Image fills 1280x720, text floats over opacity overlay |
+| Full-bleed + floating text | `breathing` / feature pages | Image fills 1920x1080, text floats over opacity overlay |
 | Figure-text overlap | Hero moments — headline over/against image edge | Text partially overlaps image, not beside it |
 | Negative-space-driven | Single element in 40-60% whitespace | One idea, weight through emptiness |
 
-**PPT 16:9 (1280x720) key dimensions**: Safe area 1200x640 (40px margins); Title area 1200x100; Content area 1200x500; Footer area 1200x40.
+**PPT 16:9 (1920x1080) key dimensions**: Safe area 1728x920 (96px L/R margins, 80px T/B margins); Title area 1728x100; Content area 1728x740; Footer area 1728x40.
 
 ---
 

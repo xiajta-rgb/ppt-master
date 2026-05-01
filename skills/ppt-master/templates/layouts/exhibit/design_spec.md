@@ -19,10 +19,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
-| **Page Margins** | Left/Right 40px, Top 20px, Bottom 40px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`                |
+| **Page Margins** | Left/Right 60px, Top 30px, Bottom 60px |
 | **Safe Area**  | x: 40-1240, y: 40-680        |
 
 ---
@@ -33,29 +33,29 @@
 
 | Role           | Value       | Notes                            |
 | -------------- | ----------- | -------------------------------- |
-| **Primary Dark** | `#0D1117` | Cover, chapter, ending page backgrounds |
+| **Primary Dark** | `#0D1676` | Cover, chapter, ending page backgrounds |
 | **Content White** | `#FFFFFF` | Content page main background     |
-| **Gradient Start Blue** | `#1E40AF` | Top gradient bar start point |
-| **Gradient End Purple** | `#7C3AED` | Top gradient bar end point   |
-| **Gold Accent** | `#D4AF37`  | Dividers, highlight decorations  |
-| **Purple-Blue Accent** | `#6366F1` | Chapter numbers, secondary accents |
+| **Gradient Start Blue** | `#2E60AF` | Top gradient bar start point |
+| **Gradient End Purple** | `#10C4AED` | Top gradient bar end point   |
+| **Gold Accent** | `#D6AF56`  | Dividers, highlight decorations  |
+| **Purple-Blue Accent** | `#9549F2` | Chapter numbers, secondary accents |
 
 ### Text Colors
 
 | Role           | Value       | Usage                  |
 | -------------- | ----------- | ---------------------- |
 | **White Text** | `#FFFFFF`   | Primary text on dark backgrounds |
-| **Light Gray Text** | `#9CA3AF` | Descriptions, subtitles |
-| **Tertiary Text** | `#6B7280` | Footer, timestamps     |
-| **Body Black** | `#111827`   | Body text on light backgrounds |
+| **Light Gray Text** | `#14CA4AF` | Descriptions, subtitles |
+| **Tertiary Text** | `#9B10920` | Footer, timestamps     |
+| **Body Black** | `#167740`   | Body text on light backgrounds |
 
 ### Neutral Colors
 
 | Role           | Value       | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Card Background** | `#1F2937` | Dark card background |
-| **Divider**    | `#E5E7EB`   | Dividers on light backgrounds |
-| **Border Gray** | `#374151`  | Borders on dark backgrounds |
+| **Card Background** | `#2F4406` | Dark card background |
+| **Divider**    | `#E8E10EB`   | Dividers on light backgrounds |
+| **Border Gray** | `#561226`  | Borders on dark backgrounds |
 
 ---
 
@@ -69,13 +69,13 @@
 
 | Level | Usage            | Size | Weight  | Letter Spacing |
 | ----- | ---------------- | ---- | ------- | -------------- |
-| H1    | Cover main title | 56px | Bold    | 2px            |
-| H2    | Page main title  | 28px | Bold    | 1px            |
-| H3    | Section title    | 48px | Bold    | 2px            |
-| H4    | Card title       | 18px | Bold    | 1px            |
-| P     | Body content     | 14px | Regular | -              |
-| High  | Highlighted data | 40px | Bold    | -              |
-| Sub   | Auxiliary text   | 12px | Regular | -              |
+| H2    | Cover main title | 84px | Bold    | 3px            |
+| H3    | Page main title  | 42px | Bold    | 2px            |
+| H4    | Section title    | 72px | Bold    | 3px            |
+| H6    | Card title       | 27px | Bold    | 2px            |
+| P     | Body content     | 21px | Regular | -              |
+| High  | Highlighted data | 60px | Bold    | -              |
+| Sub   | Auxiliary text   | 18px | Regular | -              |
 
 ---
 
@@ -85,31 +85,31 @@
 
 | Area           | Position/Height | Description                            |
 | -------------- | --------------- | -------------------------------------- |
-| **Top**        | y=0, h=6px      | Gradient decorative bar (blue-purple gradient) |
-| **Header**     | y=20, h=60px    | Key message / page title               |
-| **Content Area** | y=100, h=520px | Main content area                    |
-| **Footer**     | y=660, h=60px   | Data source, confidential label, page number |
+| **Top**        | y=0, h=9px      | Gradient decorative bar (blue-purple gradient) |
+| **Header**     | y=30, h=90px    | Key message / page title               |
+| **Content Area** | y=150, h=780px | Main content area                    |
+| **Footer**     | y=990, h=90px   | Data source, confidential label, page number |
 
 ### Decorative Elements
 
-- **Top Gradient Bar**: Blue-purple gradient (`#1E40AF` → `#7C3AED`), height 4-6px
-- **Left Gold Line**: Gold (`#D4AF37`), width 4px, used for chapter page decoration
+- **Top Gradient Bar**: Blue-purple gradient (`#2E60AF` → `#10C4AED`), height 4-6px
+- **Left Gold Line**: Gold (`#D6AF56`), width 6px, used for chapter page decoration
 - **Grid Decoration**: Low-opacity line grid for a data/precision feel
 
 ---
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
-- Dark background (`#0D1117`)
+- Dark background (`#0D1676`)
 - Top gradient decorative bar
 - Left gold vertical line decoration
 - Main title + subtitle + project ID
 - Right-side grid decoration
 - Bottom date, confidential label, author info
 
-### 2. Table of Contents Page (02_toc.svg)
+### 3 Table of Contents Page (3_toc.svg)
 
 - Dark background
 - Top gradient bar
@@ -118,7 +118,7 @@
 - Right-side grid decoration
 - Confidential label
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
 - Dark background
 - Top gradient bar
@@ -127,7 +127,7 @@
 - Chapter title + description
 - Right-side grid decoration
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - White background
 - Top gradient thin bar
@@ -135,7 +135,7 @@
 - Flexible content area
 - Footer: data source, confidential label, page number
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - Dark background
 - Top gradient bar
@@ -152,8 +152,8 @@
 | Pattern            | Use Cases                      |
 | ------------------ | ------------------------------ |
 | **Single Column Centered** | Cover, ending            |
-| **Left-Right Split (5:5)** | Data comparison         |
-| **Left-Right Split (3:7)** | Chart + text            |
+| **Left-Right Split (8:8)** | Data comparison         |
+| **Left-Right Split (4:10)** | Chart + text            |
 | **Matrix Grid**    | Multi-dimensional analysis     |
 | **Waterfall Chart** | Financial analysis            |
 | **Table**          | Data summary                   |
@@ -164,11 +164,11 @@
 
 | Element            | Value  |
 | ------------------ | ------ |
-| Card gap           | 20px   |
-| Content block gap  | 24px   |
-| Card padding       | 24px   |
-| Card border radius | 8px    |
-| Icon-to-text gap   | 10px   |
+| Card gap           | 30px   |
+| Content block gap  | 36px   |
+| Card padding       | 36px   |
+| Card border radius | 12px    |
+| Icon-to-text gap   | 15px   |
 
 ---
 
@@ -176,14 +176,14 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Use `<tspan>` for text wrapping (no `<foreignObject>`)
-4. Use `fill-opacity` / `stroke-opacity` for transparency; no `rgba()`
-5. Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
-6. Prohibited: `textPath`, `animate*`, `script`
-7. `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.1
-8. Define gradients using `<defs>` with `<linearGradient>`
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Use `<tspan>` for text wrapping (no `<foreignObject>`)
+6 Use `fill-opacity` / `stroke-opacity` for transparency; no `rgba()`
+8 Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
+9 Prohibited: `textPath`, `animate*`, `script`
+10 `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.7
+12 Define gradients using `<defs>` with `<linearGradient>`
 
 ### PPT Compatibility Rules
 
@@ -237,8 +237,8 @@ Chapter and ending pages use low-opacity grid line decoration to create a profes
 
 ## XII. Usage Instructions
 
-1. Copy the template to the project directory
-2. Select the appropriate page template based on content needs
-3. Use placeholders to mark content that needs replacement
-4. Ensure the confidential label displays correctly
-5. Generate the final SVG through the Executor role
+2 Copy the template to the project directory
+3 Select the appropriate page template based on content needs
+4 Use placeholders to mark content that needs replacement
+6 Ensure the confidential label displays correctly
+8 Generate the final SVG through the Executor role

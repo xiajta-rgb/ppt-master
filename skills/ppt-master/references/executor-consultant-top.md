@@ -84,22 +84,22 @@ Every MBB-level presentation follows the SCQA narrative structure:
 
 ## MBB-level Layout Patterns
 
-### Content Page Standard Structure (1280x720)
+### Content Page Standard Structure (1920x1080)
 
 ```
-┌──────────────────────────────────┐
-│ Gradient top bar (0,0 → 1280,6)  │
-├──────────────────────────────────┤
-│ Assertion title (x=40, y=50, 24px)│
-├──────────────────────────────────┤
-│ Takeaway Box (x=40, y=75,        │  ← Dark background + white text, one-sentence conclusion
-│   w=1200, h=45)                  │
-├──────────────────────────────────┤
-│ Content area (x=40, y=140,       │  ← Charts / data / analysis
-│   w=1200, h=520)                 │
-├──────────────────────────────────┤
-│ Source | CONFIDENTIAL | Page #    │  ← y=700, 10px
-└──────────────────────────────────┘
+┌──────────────────────────────────────────────┐
+│ Gradient top bar (0,0 → 1920,8)              │
+├──────────────────────────────────────────────┤
+│ Assertion title (x=96, y=60, 28px)           │
+├──────────────────────────────────────────────┤
+│ Takeaway Box (x=96, y=95,                    │  ← Dark background + white text, one-sentence conclusion
+│   w=1728, h=55)                              │
+├──────────────────────────────────────────────┤
+│ Content area (x=96, y=175,                   │  ← Charts / data / analysis
+│   w=1728, h=780)                             │
+├──────────────────────────────────────────────┤
+│ Source | CONFIDENTIAL | Page #                │  ← y=1050, 12px
+└──────────────────────────────────────────────┘
 ```
 
 ### Strategic Roadmap
@@ -108,7 +108,7 @@ Three phases laid out horizontally, `<rect rx="8">` + title + action list, `<pol
 
 ```
 Focus Core (0-6mo)  ──>  Expand Capability (6-12mo)  ──>  Scale Up (12-18mo)
-x=40,w=380              x=450,w=380                     x=860,w=380
+x=96,w=560               x=692,w=560                    x=1288,w=560
 ```
 
 ### Benchmarking Matrix

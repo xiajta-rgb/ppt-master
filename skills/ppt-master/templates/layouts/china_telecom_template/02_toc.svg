@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1280 720">
-  <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF" />
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF" />
 
-  <rect x="0" y="32" width="158" height="64" rx="24" fill="#C00000" />
-  <rect x="114" y="32" width="1166" height="64" fill="#C00000" />
-  <rect x="206" y="39" width="1074" height="50" rx="22" fill="#D9D9D9" />
-  <text x="40" y="73" fill="#FFFFFF" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">目录</text>
-  <image x="1032" y="38" width="176" height="48" xlink:href="logo.png" preserveAspectRatio="xMidYMid meet" />
+  <rect x="0" y="48" width="237" height="96" rx="36" fill="#C00000" />
+  <rect x="171" y="48" width="1749" height="96" fill="#C00000" />
+  <rect x="309" y="58" width="1611" height="75" rx="33" fill="#D9D9D9" />
+  <text x="60" y="110" fill="#FFFFFF" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="36" font-weight="700">目录</text>
+  <image x="1548" y="57" width="264" height="72" xlink:href="logo.png" preserveAspectRatio="xMidYMid meet" />
 
-  <rect x="72" y="140" width="264" height="504" rx="26" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="2" />
-  <text x="102" y="188" fill="#C00000" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="18" font-weight="700">中国电信模板</text>
-  <text x="102" y="218" fill="#6B7280" font-family="Arial, sans-serif" font-size="13">TELECOM / GOV-ENTERPRISE</text>
-  <rect x="102" y="242" width="176" height="4" rx="2" fill="#C00000" />
-  <rect x="102" y="288" width="120" height="4" rx="2" fill="#C00000" fill-opacity="0.75" />
-  <rect x="102" y="306" width="86" height="4" rx="2" fill="#E55B5B" fill-opacity="0.55" />
-  <text x="102" y="394" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="13">政企汇报 / 转型规划 / 方案呈现</text>
-  <rect x="102" y="438" width="156" height="4" rx="2" fill="#C00000" fill-opacity="0.68" />
-  <rect x="102" y="456" width="120" height="4" rx="2" fill="#E55B5B" fill-opacity="0.48" />
-  <rect x="102" y="474" width="176" height="4" rx="2" fill="#C00000" fill-opacity="0.28" />
-  <rect x="102" y="540" width="140" height="4" rx="2" fill="#C00000" fill-opacity="0.7" />
-  <text x="102" y="586" fill="#111827" font-family="Arial, sans-serif" font-size="13" font-weight="700">CHINA TELECOM TEMPLATE</text>
+  <rect x="108" y="210" width="396" height="756" rx="39" fill="#F8FAFC" stroke="#E5E7EB" stroke-width="3" />
+  <text x="153" y="282" fill="#C00000" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="27" font-weight="700">中国电信模板</text>
+  <text x="153" y="327" fill="#6B7280" font-family="Arial, sans-serif" font-size="20">TELECOM / GOV-ENTERPRISE</text>
+  <rect x="153" y="363" width="264" height="6" rx="3" fill="#C00000" />
+  <rect x="153" y="432" width="180" height="6" rx="3" fill="#C00000" fill-opacity="0.75" />
+  <rect x="153" y="459" width="129" height="6" rx="3" fill="#E55B5B" fill-opacity="0.55" />
+  <text x="153" y="591" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="20">政企汇报 / 转型规划 / 方案呈现</text>
+  <rect x="153" y="657" width="234" height="6" rx="3" fill="#C00000" fill-opacity="0.68" />
+  <rect x="153" y="684" width="180" height="6" rx="3" fill="#E55B5B" fill-opacity="0.48" />
+  <rect x="153" y="711" width="264" height="6" rx="3" fill="#C00000" fill-opacity="0.28" />
+  <rect x="153" y="810" width="210" height="6" rx="3" fill="#C00000" fill-opacity="0.7" />
+  <text x="153" y="879" fill="#111827" font-family="Arial, sans-serif" font-size="20" font-weight="700">CHINA TELECOM TEMPLATE</text>
 
-  <rect x="376" y="140" width="832" height="504" rx="26" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2" />
+  <rect x="564" y="210" width="1248" height="756" rx="39" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="3" />
 
-  <circle cx="438" cy="220" r="32" fill="#C00000" />
-  <text x="438" y="229" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700">1</text>
-  <text x="496" y="212" fill="#C00000" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">{{TOC_ITEM_1_TITLE}}</text>
-  <line x1="496" y1="228" x2="1080" y2="228" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="3 6" />
-  <text x="1120" y="212" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="14">{{TOC_ITEM_1_DESC}}</text>
+  <circle cx="657" cy="330" r="48" fill="#C00000" />
+  <text x="657" y="344" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="33" font-weight="700">1</text>
+  <text x="744" y="318" fill="#C00000" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="36" font-weight="700">{{TOC_ITEM_1_TITLE}}</text>
+  <line x1="744" y1="342" x2="1620" y2="342" stroke="#9CA3AF" stroke-width="2.2" stroke-dasharray="3 6" />
+  <text x="1680" y="318" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="21">{{TOC_ITEM_1_DESC}}</text>
 
-  <circle cx="438" cy="324" r="32" fill="#C00000" />
-  <text x="438" y="333" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700">2</text>
-  <text x="496" y="316" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">{{TOC_ITEM_2_TITLE}}</text>
-  <line x1="496" y1="332" x2="1080" y2="332" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="3 6" />
-  <text x="1120" y="316" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="14">{{TOC_ITEM_2_DESC}}</text>
+  <circle cx="657" cy="486" r="48" fill="#C00000" />
+  <text x="657" y="500" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="33" font-weight="700">2</text>
+  <text x="744" y="474" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="36" font-weight="700">{{TOC_ITEM_2_TITLE}}</text>
+  <line x1="744" y1="498" x2="1620" y2="498" stroke="#9CA3AF" stroke-width="2.2" stroke-dasharray="3 6" />
+  <text x="1680" y="474" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="21">{{TOC_ITEM_2_DESC}}</text>
 
-  <circle cx="438" cy="428" r="32" fill="#C00000" />
-  <text x="438" y="437" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700">3</text>
-  <text x="496" y="420" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">{{TOC_ITEM_3_TITLE}}</text>
-  <line x1="496" y1="436" x2="1080" y2="436" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="3 6" />
-  <text x="1120" y="420" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="14">{{TOC_ITEM_3_DESC}}</text>
+  <circle cx="657" cy="642" r="48" fill="#C00000" />
+  <text x="657" y="656" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="33" font-weight="700">3</text>
+  <text x="744" y="630" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="36" font-weight="700">{{TOC_ITEM_3_TITLE}}</text>
+  <line x1="744" y1="654" x2="1620" y2="654" stroke="#9CA3AF" stroke-width="2.2" stroke-dasharray="3 6" />
+  <text x="1680" y="630" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="21">{{TOC_ITEM_3_DESC}}</text>
 
-  <circle cx="438" cy="532" r="32" fill="#C00000" />
-  <text x="438" y="541" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="22" font-weight="700">4</text>
-  <text x="496" y="524" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="24" font-weight="700">{{TOC_ITEM_4_TITLE}}</text>
-  <line x1="496" y1="540" x2="1080" y2="540" stroke="#9CA3AF" stroke-width="1.5" stroke-dasharray="3 6" />
-  <text x="1120" y="524" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="14">{{TOC_ITEM_4_DESC}}</text>
+  <circle cx="657" cy="798" r="48" fill="#C00000" />
+  <text x="657" y="812" text-anchor="middle" fill="#FFFFFF" font-family="Arial, sans-serif" font-size="33" font-weight="700">4</text>
+  <text x="744" y="786" fill="#111827" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="36" font-weight="700">{{TOC_ITEM_4_TITLE}}</text>
+  <line x1="744" y1="810" x2="1620" y2="810" stroke="#9CA3AF" stroke-width="2.2" stroke-dasharray="3 6" />
+  <text x="1680" y="786" text-anchor="end" fill="#6B7280" font-family="Microsoft YaHei, PingFang SC, Arial, sans-serif" font-size="21">{{TOC_ITEM_4_DESC}}</text>
 </svg>

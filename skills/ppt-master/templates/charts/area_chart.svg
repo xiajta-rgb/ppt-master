@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
     <!-- 
     面积图模板
     用途: 趋势变化、累积数据展示
@@ -23,7 +23,7 @@
         <!-- 数据点阴影 -->
         <filter id="dotShadow">
             <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
-            <feOffset dx="0" dy="1"/>
+            <feOffset dx="0" dy="2"/>
             <feComponentTransfer>
                 <feFuncA type="linear" slope="0.3"/>
             </feComponentTransfer>
@@ -35,32 +35,32 @@
     </defs>
     
     <!-- 背景 -->
-    <rect width="1280" height="720" fill="#FFFFFF"/>
+    <rect width="1920" height="1080" fill="#FFFFFF"/>
     
     <!-- 标题 -->
-    <text x="60" y="70" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-          font-size="32" font-weight="bold" fill="#2C3E50">
+    <text x="90" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+          font-size="48" font-weight="bold" fill="#2C3E50">
         <tspan>网站流量趋势分析</tspan>
     </text>
     
-    <text x="60" y="105" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-          font-size="18" fill="#7F8C8D">
+    <text x="90" y="158" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+          font-size="27" fill="#7F8C8D">
         <tspan>2025年度月度数据 · 单位：万次访问</tspan>
     </text>
     
     <!-- 图例 -->
-    <g id="legend" transform="translate(950, 70)">
-        <line x1="0" y1="10" x2="30" y2="10" stroke="#2196F3" stroke-width="3"/>
-        <circle cx="15" cy="10" r="5" fill="#2196F3"/>
-        <text x="40" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="15" fill="#5D6D7E">
+    <g id="legend" transform="translate(1425, 105)">
+        <line x1="0" y1="15" x2="45" y2="15" stroke="#2196F3" stroke-width="4"/>
+        <circle cx="22" cy="15" r="8" fill="#2196F3"/>
+        <text x="60" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="22" fill="#5D6D7E">
             <tspan>PC端访问</tspan>
         </text>
         
-        <line x1="150" y1="10" x2="180" y2="10" stroke="#4CAF50" stroke-width="3"/>
-        <circle cx="165" cy="10" r="5" fill="#4CAF50"/>
-        <text x="190" y="15" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="15" fill="#5D6D7E">
+        <line x1="225" y1="15" x2="270" y2="15" stroke="#4CAF50" stroke-width="4"/>
+        <circle cx="248" cy="15" r="8" fill="#4CAF50"/>
+        <text x="285" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="22" fill="#5D6D7E">
             <tspan>移动端访问</tspan>
         </text>
     </g>
@@ -68,64 +68,64 @@
     <!-- 图表区域 -->
     <g id="chartArea">
         <!-- Y轴网格线 -->
-        <line x1="120" y1="560" x2="1200" y2="560" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="120" y1="470" x2="1200" y2="470" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="120" y1="380" x2="1200" y2="380" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="120" y1="290" x2="1200" y2="290" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
-        <line x1="120" y1="200" x2="1200" y2="200" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4"/>
+        <line x1="180" y1="840" x2="1800" y2="840" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="4,4"/>
+        <line x1="180" y1="705" x2="1800" y2="705" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="4,4"/>
+        <line x1="180" y1="570" x2="1800" y2="570" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="4,4"/>
+        <line x1="180" y1="435" x2="1800" y2="435" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="4,4"/>
+        <line x1="180" y1="300" x2="1800" y2="300" stroke="#E0E0E0" stroke-width="2" stroke-dasharray="4,4"/>
         
         <!-- Y轴刻度标签 -->
-        <text x="105" y="565" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="end">
+        <text x="158" y="848" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="end">
             <tspan>0</tspan>
         </text>
-        <text x="105" y="475" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="end">
+        <text x="158" y="712" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="end">
             <tspan>200</tspan>
         </text>
-        <text x="105" y="385" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="end">
+        <text x="158" y="578" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="end">
             <tspan>400</tspan>
         </text>
-        <text x="105" y="295" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="end">
+        <text x="158" y="442" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="end">
             <tspan>600</tspan>
         </text>
-        <text x="105" y="205" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="end">
+        <text x="158" y="308" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="end">
             <tspan>800</tspan>
         </text>
         
         <!-- 坐标轴 -->
-        <line x1="120" y1="160" x2="120" y2="560" stroke="#95A5A6" stroke-width="2"/>
-        <line x1="120" y1="560" x2="1200" y2="560" stroke="#95A5A6" stroke-width="2"/>
+        <line x1="180" y1="240" x2="180" y2="840" stroke="#95A5A6" stroke-width="3"/>
+        <line x1="180" y1="840" x2="1800" y2="840" stroke="#95A5A6" stroke-width="3"/>
         
         <!-- X轴标签（12个月） -->
         <!-- 每个月间距: (1200-120)/12 = 90px -->
-        <text x="165" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>1月</tspan></text>
-        <text x="255" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>2月</tspan></text>
-        <text x="345" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>3月</tspan></text>
-        <text x="435" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>4月</tspan></text>
-        <text x="525" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>5月</tspan></text>
-        <text x="615" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>6月</tspan></text>
-        <text x="705" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>7月</tspan></text>
-        <text x="795" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>8月</tspan></text>
-        <text x="885" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>9月</tspan></text>
-        <text x="975" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>10月</tspan></text>
-        <text x="1065" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>11月</tspan></text>
-        <text x="1155" y="590" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="14" fill="#7F8C8D" text-anchor="middle"><tspan>12月</tspan></text>
+        <text x="248" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>1月</tspan></text>
+        <text x="382" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>2月</tspan></text>
+        <text x="518" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>3月</tspan></text>
+        <text x="652" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>4月</tspan></text>
+        <text x="788" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>5月</tspan></text>
+        <text x="922" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>6月</tspan></text>
+        <text x="1058" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>7月</tspan></text>
+        <text x="1192" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>8月</tspan></text>
+        <text x="1328" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>9月</tspan></text>
+        <text x="1462" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>10月</tspan></text>
+        <text x="1598" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>11月</tspan></text>
+        <text x="1732" y="885" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="21" fill="#7F8C8D" text-anchor="middle"><tspan>12月</tspan></text>
         
         <!-- 
         数据点计算：
@@ -137,118 +137,118 @@
         -->
         
         <!-- 面积1: PC端（蓝色） -->
-        <path d="M 165,560 
-                 L 165,416 L 255,434 L 345,402.5 L 435,371 L 525,344 L 615,326 L 705,299 L 795,281 L 885,312.5 L 975,339.5 L 1065,353 L 1155,326 
-                 L 1155,560 Z" 
+        <path d="M 248,840 
+                 L 248,624 L 382,651 L 518,603.8 L 652,556 L 788,516 L 922,489 L 1058,448 L 1192,422 L 1328,468.8 L 1462,509.2 L 1598,530 L 1732,489 
+                 L 1732,840 Z" 
               fill="url(#areaGrad1)"/>
         
         <!-- 折线1: PC端 -->
-        <path d="M 165,416 L 255,434 L 345,402.5 L 435,371 L 525,344 L 615,326 L 705,299 L 795,281 L 885,312.5 L 975,339.5 L 1065,353 L 1155,326" 
-              fill="none" stroke="#2196F3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 248,624 L 382,651 L 518,603.8 L 652,556 L 788,516 L 922,489 L 1058,448 L 1192,422 L 1328,468.8 L 1462,509.2 L 1598,530 L 1732,489" 
+              fill="none" stroke="#2196F3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         
         <!-- 面积2: 移动端（绿色） -->
-        <path d="M 165,560 
-                 L 165,479 L 255,488 L 345,465.5 L 435,434 L 525,402.5 L 615,371 L 705,344 L 795,317 L 885,335 L 975,353 L 1065,366.5 L 1155,339.5 
-                 L 1155,560 Z" 
+        <path d="M 248,840 
+                 L 248,718 L 382,732 L 518,698.2 L 652,651 L 788,603.8 L 922,556 L 1058,516 L 1192,476 L 1328,502 L 1462,530 L 1598,549.8 L 1732,509.2 
+                 L 1732,840 Z" 
               fill="url(#areaGrad2)"/>
         
         <!-- 折线2: 移动端 -->
-        <path d="M 165,479 L 255,488 L 345,465.5 L 435,434 L 525,402.5 L 615,371 L 705,344 L 795,317 L 885,335 L 975,353 L 1065,366.5 L 1155,339.5" 
-              fill="none" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M 248,718 L 382,732 L 518,698.2 L 652,651 L 788,603.8 L 922,556 L 1058,516 L 1192,476 L 1328,502 L 1462,530 L 1598,549.8 L 1732,509.2" 
+              fill="none" stroke="#4CAF50" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
         
         <!-- PC端数据点 -->
-        <circle cx="165" cy="416" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="255" cy="434" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="345" cy="402.5" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="435" cy="371" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="525" cy="344" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="615" cy="326" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="705" cy="299" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="795" cy="281" r="6" fill="#2196F3" stroke="#FFFFFF" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="885" cy="312.5" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="975" cy="339.5" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="1065" cy="353" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="1155" cy="326" r="5" fill="#FFFFFF" stroke="#2196F3" stroke-width="2" filter="url(#dotShadow)"/>
+        <circle cx="248" cy="624" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="382" cy="651" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="518" cy="603.8" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="652" cy="556" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="788" cy="516" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="922" cy="489" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1058" cy="448" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1192" cy="422" r="9" fill="#2196F3" stroke="#FFFFFF" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1328" cy="468.8" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1462" cy="509.2" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1598" cy="530" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1732" cy="489" r="8" fill="#FFFFFF" stroke="#2196F3" stroke-width="3" filter="url(#dotShadow)"/>
         
         <!-- 移动端数据点 -->
-        <circle cx="165" cy="479" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="255" cy="488" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="345" cy="465.5" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="435" cy="434" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="525" cy="402.5" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="615" cy="371" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="705" cy="344" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="795" cy="317" r="6" fill="#4CAF50" stroke="#FFFFFF" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="885" cy="335" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="975" cy="353" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="1065" cy="366.5" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
-        <circle cx="1155" cy="339.5" r="5" fill="#FFFFFF" stroke="#4CAF50" stroke-width="2" filter="url(#dotShadow)"/>
+        <circle cx="248" cy="718" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="382" cy="732" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="518" cy="698.2" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="652" cy="651" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="788" cy="603.8" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="922" cy="556" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1058" cy="516" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1192" cy="476" r="9" fill="#4CAF50" stroke="#FFFFFF" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1328" cy="502" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1462" cy="530" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1598" cy="549.8" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
+        <circle cx="1732" cy="509.2" r="8" fill="#FFFFFF" stroke="#4CAF50" stroke-width="3" filter="url(#dotShadow)"/>
         
         <!-- 峰值标注（8月） -->
         <g>
-            <rect x="755" y="225" width="80" height="45" rx="6" fill="#2196F3"/>
-            <text x="795" y="245" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-                  font-size="14" font-weight="600" fill="#FFFFFF" text-anchor="middle">
+            <rect x="1132" y="338" width="120" height="68" rx="9" fill="#2196F3"/>
+            <text x="1192" y="368" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+                  font-size="21" font-weight="600" fill="#FFFFFF" text-anchor="middle">
                 <tspan>峰值</tspan>
             </text>
-            <text x="795" y="262" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-                  font-size="13" fill="#FFFFFF" text-anchor="middle">
+            <text x="1192" y="393" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+                  font-size="20" fill="#FFFFFF" text-anchor="middle">
                 <tspan>620万</tspan>
             </text>
-            <path d="M 795,270 L 790,281 L 800,281 Z" fill="#2196F3"/>
+            <path d="M 1192,405 L 1185,422 L 1200,422 Z" fill="#2196F3"/>
         </g>
     </g>
     
     <!-- 统计卡片 -->
-    <g id="statsCards" transform="translate(60, 620)">
+    <g id="statsCards" transform="translate(90, 930)">
         <!-- 卡片1: 总访问量 -->
-        <rect x="0" y="0" width="200" height="70" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1"/>
-        <text x="20" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="14" fill="#7F8C8D">
+        <rect x="0" y="0" width="300" height="105" rx="12" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="2"/>
+        <text x="30" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="21" fill="#7F8C8D">
             <tspan>年度总访问量</tspan>
         </text>
-        <text x="20" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="24" font-weight="bold" fill="#2C3E50">
+        <text x="30" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="36" font-weight="bold" fill="#2C3E50">
             <tspan>10,240万</tspan>
         </text>
         
         <!-- 卡片2: PC端占比 -->
-        <rect x="220" y="0" width="180" height="70" rx="8" fill="#E3F2FD" stroke="#2196F3" stroke-width="1"/>
-        <text x="240" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="14" fill="#1976D2">
+        <rect x="330" y="0" width="270" height="105" rx="12" fill="#E3F2FD" stroke="#2196F3" stroke-width="2"/>
+        <text x="360" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="21" fill="#1976D2">
             <tspan>PC端占比</tspan>
         </text>
-        <text x="240" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="24" font-weight="bold" fill="#2196F3">
+        <text x="360" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="36" font-weight="bold" fill="#2196F3">
             <tspan>55.8%</tspan>
         </text>
         
         <!-- 卡片3: 移动端占比 -->
-        <rect x="420" y="0" width="180" height="70" rx="8" fill="#E8F5E9" stroke="#4CAF50" stroke-width="1"/>
-        <text x="440" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="14" fill="#388E3C">
+        <rect x="630" y="0" width="270" height="105" rx="12" fill="#E8F5E9" stroke="#4CAF50" stroke-width="2"/>
+        <text x="660" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="21" fill="#388E3C">
             <tspan>移动端占比</tspan>
         </text>
-        <text x="440" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="24" font-weight="bold" fill="#4CAF50">
+        <text x="660" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="36" font-weight="bold" fill="#4CAF50">
             <tspan>44.2%</tspan>
         </text>
         
         <!-- 卡片4: 同比增长 -->
-        <rect x="620" y="0" width="180" height="70" rx="8" fill="#FFF3E0" stroke="#FF9800" stroke-width="1"/>
-        <text x="640" y="25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-              font-size="14" fill="#F57C00">
+        <rect x="930" y="0" width="270" height="105" rx="12" fill="#FFF3E0" stroke="#FF9800" stroke-width="2"/>
+        <text x="960" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+              font-size="21" fill="#F57C00">
             <tspan>同比增长</tspan>
         </text>
-        <text x="640" y="55" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
-              font-size="24" font-weight="bold" fill="#FF9800">
+        <text x="960" y="82" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" 
+              font-size="36" font-weight="bold" fill="#FF9800">
             <tspan>+23.5%</tspan>
         </text>
     </g>
     
     <!-- 数据来源 -->
-    <text x="1220" y="695" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
-          font-size="14" fill="#95A5A6" text-anchor="end">
+    <text x="1830" y="1042" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif" 
+          font-size="21" fill="#95A5A6" text-anchor="end">
         <tspan>数据来源: 网站分析平台</tspan>
     </text>
 </svg>

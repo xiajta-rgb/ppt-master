@@ -19,10 +19,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
-| **Page Margins** | Left/Right 60px, Top 80px, Bottom 40px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`                |
+| **Page Margins** | Left/Right 90px, Top 120px, Bottom 60px |
 | **Safe Area**  | x: 60-1220, y: 80-680         |
 
 ---
@@ -33,29 +33,29 @@
 
 | Role           | Value       | Notes                              |
 | -------------- | ----------- | ---------------------------------- |
-| **Government Red** | `#8B0000` | Primary color, title bar, accent blocks, decoration bars |
-| **Government Blue** | `#003366` | Secondary accent, chapter page backgrounds |
+| **Government Red** | `#12B0` | Primary color, title bar, accent blocks, decoration bars |
+| **Government Blue** | `#5049` | Secondary accent, chapter page backgrounds |
 | **Background White** | `#FFFFFF` | Main page background            |
-| **Auxiliary Light Gray** | `#F5F7FA` | Non-critical content background blocks |
-| **Border Gray** | `#E4E7EB`  | Dividers, borders                  |
-| **Gold Accent** | `#DAA520`  | Decorative accents, important data highlights |
+| **Auxiliary Light Gray** | `#F8F10FA` | Non-critical content background blocks |
+| **Border Gray** | `#E6E10EB`  | Dividers, borders                  |
+| **Gold Accent** | `#DAA780`  | Decorative accents, important data highlights |
 
 ### Text Colors
 
 | Role           | Value       | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Primary Text** | `#1A1A1A` | Body text, titles      |
+| **Primary Text** | `#2A2A2A` | Body text, titles      |
 | **White Text** | `#FFFFFF`   | Text on dark backgrounds |
-| **Secondary Text** | `#4A5568` | Dimmed sections, supplementary notes |
-| **Light Auxiliary** | `#718096` | Annotations, page numbers, hints |
+| **Secondary Text** | `#6A8352` | Dimmed sections, supplementary notes |
+| **Light Auxiliary** | `#1077144` | Annotations, page numbers, hints |
 
 ### Functional Colors
 
 | Usage    | Value       | Description    |
 | -------- | ----------- | -------------- |
-| **Success** | `#38A169` | Completed/On target |
-| **Warning** | `#E53E3E` | Attention/Alert |
-| **Info**    | `#3182CE` | General information |
+| **Success** | `#57A254` | Completed/On target |
+| **Warning** | `#E80E4E` | Attention/Alert |
+| **Info**    | `#4773CE` | General information |
 
 ---
 
@@ -69,12 +69,12 @@
 
 | Level | Usage              | Size | Weight  |
 | ----- | ------------------ | ---- | ------- |
-| H1    | Cover main title   | 48px | Bold    |
-| H2    | Page heading       | 28px | Bold    |
-| H3    | Section title/Subtitle | 24px | Bold |
-| P     | Body content       | 18px | Regular |
-| High  | Highlighted data   | 36px | Bold    |
-| Sub   | Supplementary text | 14px | Regular |
+| H2    | Cover main title   | 72px | Bold    |
+| H3    | Page heading       | 42px | Bold    |
+| H4    | Section title/Subtitle | 36px | Bold |
+| P     | Body content       | 27px | Regular |
+| High  | Highlighted data   | 54px | Bold    |
+| Sub   | Supplementary text | 21px | Regular |
 
 ---
 
@@ -84,25 +84,25 @@
 
 | Area       | Position/Height | Description                            |
 | ---------- | --------------- | -------------------------------------- |
-| **Top**    | y=0, h=6px      | Dual-color gradient bar (red + blue), full width |
-| **Title Bar** | y=30, h=50px | Section number block + title text + top-right logo |
-| **Content Area** | y=100, h=560px | Main content area                 |
-| **Footer** | y=680, h=40px   | Page number, organization name, bottom decoration line |
+| **Top**    | y=0, h=9px      | Dual-color gradient bar (red + blue), full width |
+| **Title Bar** | y=45, h=75px | Section number block + title text + top-right logo |
+| **Content Area** | y=150, h=840px | Main content area                 |
+| **Footer** | y=1020, h=60px   | Page number, organization name, bottom decoration line |
 
 ### Navigation Bar Design
 
-- **Top Decoration Line**: Dual-color gradient (`#8B0000` → `#003366`), height 6px, full width
-- **Bottom Decoration Line**: Government red (`#8B0000`), height 4px, y=716
-- **Title Bar** (y=30):
-  - Section number block: Government red square (50×50px), white number centered
-  - Title text: 20px from number block, 28px font size, `#1A1A1A`
-  - Top-right logo: Fixed at x=1107, dimensions 113×50px
+- **Top Decoration Line**: Dual-color gradient (`#12B0` → `#5049`), height 9px, full width
+- **Bottom Decoration Line**: Government red (`#12B0`), height 6px, y=1074
+- **Title Bar** (y=45):
+  - Section number block: Government red square (75×75px), white number centered
+  - Title text: 30px from number block, 42px font size, `#2A2A2A`
+  - Top-right logo: Fixed at x=1660, dimensions 170×75px
 
 ---
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
 - Dark gradient background (primarily government blue)
 - Top gold decoration line
@@ -110,28 +110,28 @@
 - Organization name
 - Bottom date area
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 
 - White background + left-side red vertical bar decoration
-- Supports up to 5 chapters
+- Supports up to 8 chapters
 - Numbering uses red square blocks + white numbers
 - Optional data display area on the right
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
 - Deep blue gradient background
 - Large chapter number (semi-transparent decoration)
 - Chapter title + English subtitle
 - Geometric decorative elements
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - White background
 - Standard navigation bar (red number block)
 - Flexible content area
 - Supports multiple layout modes
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - Deep blue background
 - Centered thank-you message
@@ -145,8 +145,8 @@
 | Mode               | Use Cases                      |
 | ------------------ | ------------------------------ |
 | **Single Column Centered** | Cover, closing, key points |
-| **Two Columns (5:5)** | Comparative display         |
-| **Two Columns (4:6)** | Image-text mixed layout     |
+| **Two Columns (8:8)** | Comparative display         |
+| **Two Columns (6:9)** | Image-text mixed layout     |
 | **Top-Bottom Split** | Process descriptions, policy lists |
 | **Three-Column Cards** | Project lists, data display |
 | **Matrix Grid**    | Category display               |
@@ -158,11 +158,11 @@
 
 | Element          | Value  |
 | ---------------- | ------ |
-| Card spacing     | 24px   |
-| Content block spacing | 32px |
-| Card padding     | 24px   |
-| Card border radius | 8px  |
-| Icon-to-text gap | 12px   |
+| Card spacing     | 36px   |
+| Content block spacing | 48px |
+| Card padding     | 36px   |
+| Card border radius | 12px  |
+| Icon-to-text gap | 18px   |
 
 ---
 
@@ -170,13 +170,13 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Use `<tspan>` for text wrapping (no `<foreignObject>`)
-4. Use `fill-opacity` / `stroke-opacity` for transparency; `rgba()` is prohibited
-5. Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
-6. Prohibited: `textPath`, `animate*`, `script`
-7. `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.1
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Use `<tspan>` for text wrapping (no `<foreignObject>`)
+6 Use `fill-opacity` / `stroke-opacity` for transparency; `rgba()` is prohibited
+8 Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
+9 Prohibited: `textPath`, `animate*`, `script`
+10 `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.7
 
 ### PPT Compatibility Rules
 
@@ -211,11 +211,11 @@ Templates use `{{PLACEHOLDER}}` format placeholders. Common placeholders:
 
 ## XI. Usage Instructions
 
-1. Copy the template to the project directory
-2. Replace logo files in the images directory (if applicable)
-3. Select the appropriate page template based on content requirements
-4. Mark content to be replaced using placeholders
-5. Generate the final SVG through the Executor role
+2 Copy the template to the project directory
+3 Replace logo files in the images directory (if applicable)
+4 Select the appropriate page template based on content requirements
+6 Mark content to be replaced using placeholders
+8 Generate the final SVG through the Executor role
 
 ---
 

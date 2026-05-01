@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <!-- 模板: 章节页 - 政府蓝风格 (优化版) -->
 
     <defs>
@@ -22,60 +22,60 @@
     </defs>
 
     <!-- 背景 -->
-    <rect width="1280" height="720" fill="url(#gradChapter)"/>
+    <rect width="1920" height="1080" fill="url(#gradChapter)"/>
 
     <!-- 径向光晕装饰 -->
-    <rect width="1280" height="720" fill="url(#glowGrad)"/>
+    <rect width="1920" height="1080" fill="url(#glowGrad)"/>
 
     <!-- 装饰元素 - 几何图案 -->
-    <circle cx="1200" cy="100" r="300" fill="#FFFFFF" fill-opacity="0.02"/>
-    <circle cx="100" cy="620" r="250" fill="#FFFFFF" fill-opacity="0.02"/>
-    <circle cx="1100" cy="150" r="150" fill="#00B4D8" fill-opacity="0.03"/>
+    <circle cx="1800" cy="150" r="450" fill="#FFFFFF" fill-opacity="0.02"/>
+    <circle cx="150" cy="930" r="375" fill="#FFFFFF" fill-opacity="0.02"/>
+    <circle cx="1650" cy="225" r="225" fill="#00B4D8" fill-opacity="0.03"/>
 
     <!-- 顶部渐变装饰线 -->
-    <rect x="0" y="0" width="1280" height="6" fill="url(#topGrad)"/>
+    <rect x="0" y="0" width="1920" height="9" fill="url(#topGrad)"/>
 
     <!-- 网格装饰线 -->
-    <line x1="0" y1="240" x2="1280" y2="240" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.05"/>
-    <line x1="0" y1="480" x2="1280" y2="480" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.05"/>
-    <line x1="426" y1="0" x2="426" y2="720" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.05"/>
-    <line x1="854" y1="0" x2="854" y2="720" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.05"/>
+    <line x1="0" y1="360" x2="1920" y2="360" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.05"/>
+    <line x1="0" y1="720" x2="1920" y2="720" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.05"/>
+    <line x1="639" y1="0" x2="639" y2="1080" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.05"/>
+    <line x1="1281" y1="0" x2="1281" y2="1080" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.05"/>
 
     <!-- 左侧装饰竖条 -->
-    <rect x="80" y="260" width="6" height="200" fill="#00B4D8"/>
-    <rect x="92" y="280" width="3" height="160" fill="#90E0EF" fill-opacity="0.6"/>
+    <rect x="120" y="390" width="9" height="300" fill="#00B4D8"/>
+    <rect x="138" y="420" width="4" height="240" fill="#90E0EF" fill-opacity="0.6"/>
 
     <!-- 章节内容 -->
-    <g transform="translate(640, 360)">
+    <g transform="translate(960, 540)">
         <!-- 章节编号 - 大号半透明背景 -->
-        <text x="0" y="-50" text-anchor="middle" font-family="Arial" font-size="180" font-weight="bold" fill="#FFFFFF" fill-opacity="0.05">
+        <text x="0" y="-75" text-anchor="middle" font-family="Arial" font-size="270" font-weight="bold" fill="#FFFFFF" fill-opacity="0.05">
             0{{CHAPTER_NUM}}
         </text>
         
         <!-- 章节编号描边效果 -->
-        <text x="0" y="-50" text-anchor="middle" font-family="Arial" font-size="180" font-weight="bold" fill="none" stroke="#00B4D8" stroke-width="1" stroke-opacity="0.2">
+        <text x="0" y="-75" text-anchor="middle" font-family="Arial" font-size="270" font-weight="bold" fill="none" stroke="#00B4D8" stroke-width="2" stroke-opacity="0.2">
             0{{CHAPTER_NUM}}
         </text>
         
         <!-- 装饰方块 -->
-        <rect x="-60" y="10" width="120" height="6" fill="#00B4D8"/>
-        <rect x="-40" y="22" width="80" height="3" fill="#90E0EF" fill-opacity="0.6"/>
+        <rect x="-90" y="15" width="180" height="9" fill="#00B4D8"/>
+        <rect x="-60" y="33" width="120" height="4" fill="#90E0EF" fill-opacity="0.6"/>
         
         <!-- 章节标题 -->
-        <text x="0" y="80" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">
+        <text x="0" y="120" text-anchor="middle" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">
             {{CHAPTER_TITLE}}
         </text>
         
         <!-- 英文标题/副标题 -->
-        <text x="0" y="130" text-anchor="middle" font-family="Arial" font-size="22" fill="#90E0EF" letter-spacing="4">
+        <text x="0" y="195" text-anchor="middle" font-family="Arial" font-size="33" fill="#90E0EF" letter-spacing="6">
             {{CHAPTER_SUBTITLE}}
         </text>
     </g>
 
     <!-- 底部装饰 -->
-    <rect x="0" y="680" width="1280" height="40" fill="#001F4D" fill-opacity="0.5"/>
-    <rect x="0" y="680" width="400" height="40" fill="url(#topGrad)" fill-opacity="0.3"/>
-    <text x="640" y="707" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#FFFFFF" fill-opacity="0.6">
+    <rect x="0" y="1020" width="1920" height="60" fill="#001F4D" fill-opacity="0.5"/>
+    <rect x="0" y="1020" width="600" height="60" fill="url(#topGrad)" fill-opacity="0.3"/>
+    <text x="960" y="1060" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#FFFFFF" fill-opacity="0.6">
         {{ORGANIZATION}}
     </text>
 

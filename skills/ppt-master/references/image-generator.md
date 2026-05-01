@@ -114,7 +114,31 @@ Full directive: "color palette: deep navy blue (#1E3A5F), light gray (#F8F9FA), 
 
 > Supported aspect ratios: `1:1`, `2:3`, `3:2`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9` (Gemini also supports `1:4`, `1:8`, `4:1`, `8:1`)
 
-### 2.6 Multi-Image Coherence Strategy
+### 2.6 Aspect Ratio Matching Rule
+
+Generated images **MUST** match the aspect ratio of their target container in the SVG layout. Mismatched ratios cause stretching in PowerPoint (which ignores `preserveAspectRatio`).
+
+**Matching strategy by image intent**:
+
+| Image Intent | Target Aspect Ratio | Generation Rule |
+|-------------|---------------------|-----------------|
+| Hero / full-bleed background | Canvas ratio (e.g., 16:9) | Generate at canvas aspect ratio |
+| Side-by-side image | Image area ratio from layout spec | Calculate from image area dimensions in the resource list |
+| Circular / rounded frame | 1:1 (square source for circle crop) | Generate as square, clipPath crops to shape |
+| Card image | Card area ratio (e.g., 560:380 ≈ 3:2) | Generate at card area aspect ratio |
+| Decorative / accent | Match the display area ratio | Generate at display area aspect ratio |
+
+**How to determine the target ratio**:
+1. Read the "Image area" column from the image resource list in the design spec
+2. Calculate ratio = width / height
+3. Find the closest supported aspect ratio from §2.5
+4. If no close match exists, use `--aspect_ratio` with the exact ratio (e.g., `5:3`)
+
+**Example**: Image area is 1160x663 → ratio ≈ 1.75 → use `--aspect_ratio 16:9` (closest match). Image area is 560x380 → ratio ≈ 1.47 → use `--aspect_ratio 3:2`.
+
+> **Why this matters**: When the generated image's aspect ratio matches the SVG container, `fix_image_aspect.py` post-processing becomes a no-op. The image fits perfectly without adjustment, reducing pipeline complexity and preventing visual artifacts.
+
+### 2.7 Multi-Image Coherence Strategy
 
 When generating multiple images for a single deck, visual coherence is critical. Use a **Deck Style Anchor** — a shared prefix of 15-25 words prepended to every image prompt.
 

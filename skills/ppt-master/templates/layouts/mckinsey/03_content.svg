@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <!-- 模板: 内容页 - 麦肯锡风格 (精装版) -->
     
     <defs>
@@ -10,32 +10,32 @@
     </defs>
     
     <!-- 白色背景 -->
-    <rect width="1280" height="720" fill="#FFFFFF"/>
+    <rect width="1920" height="1080" fill="#FFFFFF"/>
 
     <!-- 顶部渐变装饰条 -->
-    <rect x="0" y="0" width="1280" height="5" fill="url(#headerGrad)"/>
+    <rect x="0" y="0" width="1920" height="8" fill="url(#headerGrad)"/>
 
     <!-- 页眉区域 -->
-    <rect x="0" y="5" width="1280" height="75" fill="#FAFBFC"/>
-    <line x1="0" y1="80" x2="1280" y2="80" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="0" y="8" width="1920" height="112" fill="#FAFBFC"/>
+    <line x1="0" y1="120" x2="1920" y2="120" stroke="#E5E7EB" stroke-width="2"/>
 
     <!-- 章节编号标签 -->
-    <rect x="60" y="22" width="50" height="40" fill="#005587" rx="4"/>
-    <text x="85" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#FFFFFF">{{SECTION_NUM}}</text>
+    <rect x="90" y="33" width="75" height="60" fill="#005587" rx="6"/>
+    <text x="128" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="bold" fill="#FFFFFF">{{SECTION_NUM}}</text>
 
     <!-- 页面标题 -->
-    <text x="130" y="52" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2C3E50">
+    <text x="195" y="78" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#2C3E50">
         {{PAGE_TITLE}}
     </text>
 
     <!-- 右侧章节指示 -->
-    <text x="1160" y="52" text-anchor="end" font-family="Arial, sans-serif" font-size="14" fill="#7F8C8D">{{SECTION_NAME}}</text>
+    <text x="1740" y="78" text-anchor="end" font-family="Arial, sans-serif" font-size="21" fill="#7F8C8D">{{SECTION_NAME}}</text>
 
     <!-- 核心观点条 (Key Insight Bar) -->
-    <rect x="60" y="100" width="1160" height="50" fill="#FFF8E1" stroke="#F5A623" stroke-width="1" rx="4"/>
-    <rect x="60" y="100" width="5" height="50" fill="#F5A623" rx="2"/>
-    <text x="85" y="132" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#E89207">💡 KEY INSIGHT</text>
-    <text x="220" y="132" font-family="Arial, sans-serif" font-size="15" fill="#5D6D7E">{{KEY_MESSAGE}}</text>
+    <rect x="90" y="150" width="1740" height="75" fill="#FFF8E1" stroke="#F5A623" stroke-width="2" rx="6"/>
+    <rect x="90" y="150" width="8" height="75" fill="#F5A623" rx="3"/>
+    <text x="128" y="198" font-family="Arial, sans-serif" font-size="21" font-weight="bold" fill="#E89207">💡 KEY INSIGHT</text>
+    <text x="330" y="198" font-family="Arial, sans-serif" font-size="22" fill="#5D6D7E">{{KEY_MESSAGE}}</text>
 
     <!-- 内容区域 - 灵活布局 -->
     <!-- 
@@ -50,43 +50,43 @@
         - 漏斗图/时间轴
         - 表格 (带边框)
     -->
-    <rect x="60" y="170" width="1160" height="450" fill="none" stroke="#E5E7EB" stroke-width="1.5" stroke-dasharray="8,6" rx="6"/>
-    <text x="640" y="385" text-anchor="middle" fill="#BDC3C7" font-family="Arial, sans-serif" font-size="18">
+    <rect x="90" y="255" width="1740" height="675" fill="none" stroke="#E5E7EB" stroke-width="2.2" stroke-dasharray="8,6" rx="9"/>
+    <text x="960" y="578" text-anchor="middle" fill="#BDC3C7" font-family="Arial, sans-serif" font-size="27">
         {{CONTENT_AREA}}
     </text>
-    <text x="640" y="415" text-anchor="middle" fill="#D5DBDB" font-family="Arial, sans-serif" font-size="14">
+    <text x="960" y="622" text-anchor="middle" fill="#D5DBDB" font-family="Arial, sans-serif" font-size="21">
         Content Area: 1160 × 450 px
     </text>
 
     <!-- 常用设计元素指南 -->
     <!-- 
         数据卡片: 
-        <rect fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5" rx="6"/>
-        <rect x="" y="" width="4" fill="#005587"/> (左侧装饰条)
+        <rect fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2.2" rx="9"/>
+        <rect x="" y="" width="6" fill="#005587"/> (左侧装饰条)
         
         关键数据: 
-        <text fill="#F5A623" font-size="44" font-weight="bold"/> (正向)
-        <text fill="#E74C3C" font-size="44" font-weight="bold"/> (负向)
+        <text fill="#F5A623" font-size="66" font-weight="bold"/> (正向)
+        <text fill="#E74C3C" font-size="66" font-weight="bold"/> (负向)
         
         问题标注圆点: 
-        <circle r="8" fill="#E74C3C"/>
+        <circle r="12" fill="#E74C3C"/>
         
         分隔线: 
-        <line stroke="#ECF0F1" stroke-width="1"/>
+        <line stroke="#ECF0F1" stroke-width="2"/>
     -->
 
     <!-- 页脚区域 -->
-    <rect x="0" y="640" width="1280" height="80" fill="#FAFBFC"/>
-    <line x1="0" y1="640" x2="1280" y2="640" stroke="#E5E7EB" stroke-width="1"/>
+    <rect x="0" y="960" width="1920" height="120" fill="#FAFBFC"/>
+    <line x1="0" y1="960" x2="1920" y2="960" stroke="#E5E7EB" stroke-width="2"/>
 
     <!-- 数据来源 -->
-    <text x="60" y="675" font-family="Arial, sans-serif" font-size="12" fill="#95A5A6">Source: {{SOURCE}}</text>
+    <text x="90" y="1012" font-family="Arial, sans-serif" font-size="18" fill="#95A5A6">Source: {{SOURCE}}</text>
     
     <!-- 备注区 -->
-    <text x="60" y="700" font-family="Arial, sans-serif" font-size="11" fill="#BDC3C7">{{NOTE}}</text>
+    <text x="90" y="1050" font-family="Arial, sans-serif" font-size="16" fill="#BDC3C7">{{NOTE}}</text>
 
     <!-- 页码 -->
-    <rect x="1140" y="655" width="80" height="30" fill="#005587" rx="4"/>
-    <text x="1180" y="676" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#FFFFFF">{{PAGE_NUM}}</text>
+    <rect x="1710" y="982" width="120" height="45" fill="#005587" rx="6"/>
+    <text x="1770" y="1014" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="bold" fill="#FFFFFF">{{PAGE_NUM}}</text>
 
 </svg>

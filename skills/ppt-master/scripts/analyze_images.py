@@ -38,14 +38,14 @@ except ImportError:
     CANVAS_FORMATS = {
         'ppt169': {
             'name': 'PPT 16:9',
-            'width': 1280,
-            'height': 720,
+            'width': 1920,
+            'height': 1080,
         },
     }
     LAYOUT_MARGINS = {
         'ppt169': {
-            'top': 60, 'right': 60, 'bottom': 60, 'left': 60,
-            'content_width': 1160, 'content_height': 600
+            'top': 80, 'right': 96, 'bottom': 80, 'left': 96,
+            'content_width': 1728, 'content_height': 920
         },
     }
 

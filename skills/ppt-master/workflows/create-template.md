@@ -199,7 +199,7 @@ python3 skills/ppt-master/scripts/svg_quality_checker.py "skills/ppt-master/temp
 - [ ] `design_spec.md` contains complete design specification
 - [ ] All 4 core templates present
 - [ ] If TOC exists, placeholder pattern uses the canonical indexed form
-- [ ] SVG viewBox matches the chosen canvas format (for `ppt169`: `0 0 1280 720`)
+- [ ] SVG viewBox matches the chosen canvas format (for `ppt169`: `0 0 1920 1080`)
 - [ ] Placeholder names are consistent with the new-template contract and `design_spec.md`
 - [ ] Asset files referenced by SVGs actually exist in the template package
 

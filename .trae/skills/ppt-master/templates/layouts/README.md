@@ -224,7 +224,7 @@ cp templates/layouts/government_red/* projects/<project>/templates/
 1. Create a new directory under `templates/layouts/`
 2. Create required files following the existing template structure
 3. Ensure `design_spec.md` follows the standard chapter structure
-4. All SVGs use `viewBox="0 0 1280 720"`
+4. All SVGs use `viewBox="0 0 1920 1080"`
 5. Follow SVG technical constraints (see below)
 6. Validate the template directory with `python3 scripts/svg_quality_checker.py templates/layouts/<template_name> --format ppt169`
 7. Register the new template in `templates/layouts/layouts_index.json` with three fields: `label`, `summary`, `keywords`
@@ -235,7 +235,7 @@ cp templates/layouts/government_red/* projects/<project>/templates/
 
 #### Required
 
-- viewBox: `0 0 1280 720`
+- viewBox: `0 0 1920 1080`
 - Backgrounds use `<rect>` elements
 - Text wrapping uses `<tspan>`
 - Transparency uses `fill-opacity` / `stroke-opacity`

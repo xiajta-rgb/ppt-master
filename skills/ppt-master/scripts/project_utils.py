@@ -19,8 +19,8 @@ except ImportError:
     CANVAS_FORMATS = {
         'ppt169': {
             'name': 'PPT 16:9',
-            'dimensions': '1280×720',
-            'viewbox': '0 0 1280 720',
+            'dimensions': '1920×1080',
+            'viewbox': '0 0 1920 1080',
             'aspect_ratio': '16:9'
         },
         'ppt43': {
@@ -54,7 +54,7 @@ except ImportError:
             'aspect_ratio': '9:16'
         },
         'banner': {
-            'name': 'Horizontal Banner',
+            'name': 'Horizontal Banner (Legacy)',
             'dimensions': '1920×1080',
             'viewbox': '0 0 1920 1080',
             'aspect_ratio': '16:9'

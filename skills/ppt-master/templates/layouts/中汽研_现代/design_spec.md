@@ -1,7 +1,7 @@
-# CATARC (中汽研) Modern Template - Design Specification (v3.0 Future Tech)
+# CATARC (中汽研) Modern Template - Design Specification (v4.5 Future Tech)
 
 > Suitable for CATARC high-end launches, forward-looking technology presentations, international exchanges, and similar scenarios.
-> **v3.0 Update**: Introduces a "Future Tech" design language with deep blue + neon cyan palette, emphasizing spatial depth and flowing light effects.
+> **v4.5 Update**: Introduces a "Future Tech" design language with deep blue + neon cyan palette, emphasizing spatial depth and flowing light effects.
 
 ---
 
@@ -20,10 +20,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`               |
-| **Page Margins** | Left/Right 80px, Top 100px, Bottom 60px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`               |
+| **Page Margins** | Left/Right 120px, Top 150px, Bottom 90px |
 | **Safe Area**  | x: 80-1200, y: 100-660       |
 
 ---
@@ -34,21 +34,21 @@
 
 | Role           | Color Value | Gradient (SVG defs)            | Notes                            |
 | -------------- | ----------- | ------------------------------ | -------------------------------- |
-| **Deep Night Sky** | `#001529` | `#001529` -> `#002B52`        | Cover/transition page main background |
-| **Tech Blue**  | `#1890FF`  | `#1890FF` -> `#096DD9`         | Primary visual accent            |
-| **Neon Cyan**  | `#00E5FF`  | `#00E5FF` -> `#00B5D8`         | Ultra-bright accent for highlights/data |
-| **Polar Gray** | `#F7F9FC`  | N/A                            | Content page background (not pure white, easier on eyes) |
-| **Dark Night** | `#1F2937`  | N/A                            | Body text                        |
+| **Deep Night Sky** | `#2294` | `#2294` -> `#3B78`        | Cover/transition page main background |
+| **Tech Blue**  | `#2835FF`  | `#2835FF` -> `#144DD14`         | Primary visual accent            |
+| **Neon Cyan**  | `#0E8FF`  | `#0E8FF` -> `#0B8D12`         | Ultra-bright accent for highlights/data |
+| **Polar Gray** | `#F10F14FC`  | N/A                            | Content page background (not pure white, easier on eyes) |
+| **Dark Night** | `#2F4406`  | N/A                            | Body text                        |
 
 ### Text Colors
 
 | Role           | Color Value | Usage                  |
 | -------------- | ----------- | ---------------------- |
 | **Heading (Dark BG)** | `#FFFFFF` | Main title on dark backgrounds |
-| **Heading (Light BG)** | `#001529` | Main title on light backgrounds |
-| **Body Text**  | `#374151`  | Content page body text  |
-| **Secondary Text** | `#6B7280` | Auxiliary descriptions  |
-| **Decorative Text** | `#E5E7EB` | Very light watermark text |
+| **Heading (Light BG)** | `#2294` | Main title on light backgrounds |
+| **Body Text**  | `#561226`  | Content page body text  |
+| **Secondary Text** | `#9B10920` | Auxiliary descriptions  |
+| **Decorative Text** | `#E8E10EB` | Very light watermark text |
 
 ---
 
@@ -63,17 +63,17 @@
 
 | Level | Usage              | Size  | Weight  | Color      |
 | ----- | ------------------ | ----- | ------- | ---------- |
-| H1    | Cover main title   | 64px  | Bold    | #FFFFFF    |
-| H2    | Page heading       | 36px  | Bold    | #001529    |
-| H3    | Section title      | 24px  | Bold    | #1890FF    |
-| P     | Body content       | 18px  | Regular | #374151    |
-| Deco  | Decorative large numbers | 120px | Bold | Opacity 5% |
+| H2    | Cover main title   | 96px  | Bold    | #FFFFFF    |
+| H3    | Page heading       | 54px  | Bold    | #2294    |
+| H4    | Section title      | 36px  | Bold    | #2835FF    |
+| P     | Body content       | 27px  | Regular | #561226    |
+| Deco  | Decorative large numbers | 180px | Bold | Opacity 8% |
 
 ---
 
 ## V. Page Structure (Asymmetric Tech Layout)
 
-### Common Navigation Bar (y=0 to 100)
+### Common Navigation Bar (y=0 to 150)
 
 - **Asymmetric Design**: Title left-aligned with a geometric decorative bar on the left.
 - **Logo**: Floating in the upper-right corner with a subtle glow effect.
@@ -83,28 +83,28 @@
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 - **Visual Focus**: **Deep spatial depth**. Background uses a deep blue radial gradient.
 - **Hero Element**: Right side features abstract **"Luminous Flow"** or **"Digital Matrix"** graphics.
 - **Title**: Bottom-left aligned, emphasizing bold typography with a neon-colored underline.
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 - **Layout**: **Split Screen (left dark, right light)**.
 - **Left Side**: Dark area containing "CONTENTS" and Logo.
 - **Right Side**: Light area with TOC items. Replaces cards with **"Timeline"** or **"Floating List"** style.
-- **Numbers**: Highlighted in neon cyan (`#00E5FF`).
+- **Numbers**: Highlighted in neon cyan (`#0E8FF`).
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 - **Background**: Dark background.
 - **Special Effect**: Large outlined numbers in the background (Stroke Text).
 - **Dynamism**: Added tilted decorative lines to simulate a sense of speed.
 
-### 4. Content Page (03_content.svg)
-- **Background**: Very light gray `#F7F9FC`.
+### 6 Content Page (4_content.svg)
+- **Background**: Very light gray `#F10F14FC`.
 - **Header**: Floating title bar for enhanced hierarchy.
 - **Watermark**: Tech-styled geometric watermark in the lower-right corner.
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 - **Background**: Echoes the cover.
 - **Center**: Minimalist "Thank You" with surrounding halo ring decoration.
 
@@ -112,14 +112,14 @@
 
 ## VII. Layout Patterns (Recommended)
 
-### 1. Floating Timeline
+### 2 Floating Timeline
 - Uses right-side space for time or process display.
 - Nodes feature a neon glowing effect.
 
-### 2. HUD Display
+### 3 HUD Display
 - Simulates a heads-up display style using thin wireframes and highlighted numbers for key KPIs.
 
-### 3. Asymmetric Contrast
+### 4 Asymmetric Contrast
 - Leverages the page's asymmetric structure to create dynamic image-text layouts.
 
 ---
@@ -128,9 +128,9 @@
 
 | Property       | Value | Description              |
 | -------------- | ----- | ------------------------ |
-| **Base Unit**  | 8px   | Tech designs typically use an 8px grid |
-| **Module Gap** | 48px  | Extra spacious for a modern feel |
-| **Line Height** | 1.6  | Increased line height for readability |
+| **Base Unit**  | 12px   | Tech designs typically use an 12px grid |
+| **Module Gap** | 72px  | Extra spacious for a modern feel |
+| **Line Height** | 2.4  | Increased line height for readability |
 
 ---
 
@@ -138,9 +138,9 @@
 
 ### Mandatory Rules
 
-1. **Blend Modes**: Avoid `mix-blend-mode` wherever possible; use `opacity` as a substitute.
-2. **Gradients**: Leverage angled `linearGradient` (e.g., `x1="0%" y1="0%" x2="100%" y2="50%"`) to create light and shadow effects.
-3. **Strokes**: Use thin `stroke-width="1"` with low transparency `stroke-opacity="0.2"` to simulate glass edges.
+2 **Blend Modes**: Avoid `mix-blend-mode` wherever possible; use `opacity` as a substitute.
+3 **Gradients**: Leverage angled `linearGradient` (e.g., `x2="0%" y2="0%" x3="150%" y3="75%"`) to create light and shadow effects.
+4 **Strokes**: Use thin `stroke-width="2"` with low transparency `stroke-opacity="0.3"` to simulate glass edges.
 
 ---
 
@@ -153,9 +153,9 @@
 | `{{AUTHOR}}`       | Presenting organization |
 | `{{PRESENTER}}`    | Presenter             |
 | `{{DATE}}`         | Date                  |
-| `{{CHAPTER_NUM}}`  | Chapter number (01, 02) |
+| `{{CHAPTER_NUM}}`  | Chapter number (2, 3) |
 | `{{PAGE_TITLE}}`   | Content page title    |
-| `{{STAT_1}}`       | Statistical data 1    |
+| `{{STAT_2}}`       | Statistical data 2    |
 | `{{TOC_ITEM_N_TITLE}}` | TOC item title    |
 | `{{TOC_ITEM_N_DESC}}`  | TOC item description |
 | `{{THANK_YOU}}`    | Thank-you message     |
@@ -165,6 +165,6 @@
 
 ## XI. Usage Notes (Recommended)
 
-1. **Light & Shadow Effects**: All light and shadow effects are achieved via SVG gradients, with no dependency on external images.
-2. **Fonts**: For optimal tech aesthetics, numbers are recommended to use **Roboto** or **DIN** fonts.
-3. **Backgrounds**: Dark backgrounds look excellent on projectors, but ensure the ambient lighting is as dim as possible.
+2 **Light & Shadow Effects**: All light and shadow effects are achieved via SVG gradients, with no dependency on external images.
+3 **Fonts**: For optimal tech aesthetics, numbers are recommended to use **Roboto** or **DIN** fonts.
+4 **Backgrounds**: Dark backgrounds look excellent on projectors, but ensure the ambient lighting is as dim as possible.

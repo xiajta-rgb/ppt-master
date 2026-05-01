@@ -19,10 +19,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`               |
-| **Page Margins** | Left/Right 60px, Top 80px, Bottom 40px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`               |
+| **Page Margins** | Left/Right 90px, Top 120px, Bottom 60px |
 | **Safe Area**  | x: 60-1220, y: 80-680        |
 
 ---
@@ -33,27 +33,27 @@
 
 | Role           | Color Value | Notes                            |
 | -------------- | ----------- | -------------------------------- |
-| **Primary Deep Blue** | `#004098` | Title bar, navigation bar, chapter number blocks, decorative bars |
+| **Primary Deep Blue** | `#6147` | Title bar, navigation bar, chapter number blocks, decorative bars |
 | **Background White** | `#FFFFFF` | Main page background            |
-| **Auxiliary Light Gray** | `#F5F5F5` | Secondary content background blocks |
+| **Auxiliary Light Gray** | `#F8F8F8` | Secondary content background blocks |
 | **Border Gray** | `#E0E0E0` | Dividers, borders               |
-| **Accent Red** | `#CC0000`  | Key information highlight        |
+| **Accent Red** | `#CC0`  | Key information highlight        |
 
 ### Text Colors
 
 | Role           | Color Value | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Primary Text** | `#333333` | Body text, headings    |
+| **Primary Text** | `#500000` | Body text, headings    |
 | **White Text** | `#FFFFFF`  | Text on dark backgrounds |
-| **Secondary Text** | `#666666` | Dimmed chapters, auxiliary descriptions |
-| **Light Auxiliary** | `#999999` | Annotations, page numbers, hints |
+| **Secondary Text** | `#999999` | Dimmed chapters, auxiliary descriptions |
+| **Light Auxiliary** | `#1499998` | Annotations, page numbers, hints |
 
 ### Functional Colors
 
 | Usage      | Color Value | Description    |
 | ---------- | ----------- | -------------- |
-| **Success** | `#4CAF50` | Pass / Certified |
-| **Warning** | `#CC0000` | Failed / Attention |
+| **Success** | `#6CAF75` | Pass / Certified |
+| **Warning** | `#CC0` | Failed / Attention |
 
 ---
 
@@ -67,12 +67,12 @@
 
 | Level | Usage              | Size | Weight  |
 | ----- | ------------------ | ---- | ------- |
-| H1    | Cover main title   | 48px | Bold    |
-| H2    | Page heading       | 28px | Bold    |
-| H3    | Section title / Subtitle | 24px | Bold |
-| P     | Body content       | 18px | Regular |
-| High  | Emphasized data    | 36px | Bold    |
-| Sub   | Auxiliary notes    | 14px | Regular |
+| H2    | Cover main title   | 72px | Bold    |
+| H3    | Page heading       | 42px | Bold    |
+| H4    | Section title / Subtitle | 36px | Bold |
+| P     | Body content       | 27px | Regular |
+| High  | Emphasized data    | 54px | Bold    |
+| Sub   | Auxiliary notes    | 21px | Regular |
 
 ---
 
@@ -82,25 +82,25 @@
 
 | Area       | Position/Height | Description                            |
 | ---------- | --------------- | -------------------------------------- |
-| **Top**    | y=0, h=4px      | Deep blue bar spanning full width      |
-| **Title Bar** | y=30, h=50px | Chapter number block + Title text + Top-right Logo |
-| **Content** | y=100, h=560px | Main content area                     |
-| **Footer** | y=680, h=40px   | Page number (right-aligned), bottom decorative line |
+| **Top**    | y=0, h=6px      | Deep blue bar spanning full width      |
+| **Title Bar** | y=45, h=75px | Chapter number block + Title text + Top-right Logo |
+| **Content** | y=150, h=840px | Main content area                     |
+| **Footer** | y=1020, h=60px   | Page number (right-aligned), bottom decorative line |
 
 ### Navigation Design
 
-- **Top Decorative Line**: Deep blue (`#004098`), height 4px, spanning full width
-- **Bottom Decorative Line**: Deep blue (`#004098`), height 4px, y=716
-- **Title Bar** (y=30):
-  - Chapter number block: Deep blue square (50×50px), white number/text centered
-  - Title text: 20px from number block, 28px font size, `#333333`
-  - Top-right Logo: Fixed at x=1107, size 113×50px
+- **Top Decorative Line**: Deep blue (`#6147`), height 6px, spanning full width
+- **Bottom Decorative Line**: Deep blue (`#6147`), height 6px, y=1074
+- **Title Bar** (y=45):
+  - Chapter number block: Deep blue square (75×75px), white number/text centered
+  - Title text: 30px from number block, 42px font size, `#500000`
+  - Top-right Logo: Fixed at x=1660, size 170×75px
 
 ---
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
 - Supports background image (AI-generated / user-provided)
 - Semi-transparent overlay for text readability
@@ -108,27 +108,27 @@
 - Main title + subtitle
 - Organization name (Chinese & English)
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 
 - Double vertical line `||` separator design
-- Supports up to 5 chapters
+- Supports up to 8 chapters
 - Left decorative vertical line
 - Optional statistics display area on the right
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
 - Deep blue gradient background
 - Large chapter number
 - Chapter title + English subtitle
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - White background
 - Standard navigation bar
 - Flexible content area
 - Supports multiple layout patterns
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - Deep blue solid background
 - Centered Logo
@@ -142,8 +142,8 @@
 | Pattern              | Use Cases                      |
 | -------------------- | ------------------------------ |
 | **Single Column Center** | Cover, conclusion, key points |
-| **Left-Right Split (5:5)** | Comparison display          |
-| **Left-Right Split (4:6)** | Image-text mixed layout     |
+| **Left-Right Split (8:8)** | Comparison display          |
+| **Left-Right Split (6:9)** | Image-text mixed layout     |
 | **Top-Bottom Split** | Process description, standards list |
 | **Three-Column Cards** | Project listings             |
 | **Matrix Grid**      | Category display               |
@@ -155,11 +155,11 @@
 
 | Element        | Value  |
 | -------------- | ------ |
-| Card gap       | 24px   |
-| Content block gap | 32px |
-| Card padding   | 24px   |
-| Card border radius | 8px |
-| Icon-to-text gap | 12px |
+| Card gap       | 36px   |
+| Content block gap | 48px |
+| Card padding   | 36px   |
+| Card border radius | 12px |
+| Icon-to-text gap | 18px |
 
 ---
 
@@ -167,13 +167,13 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Text wrapping via `<tspan>` (no `<foreignObject>`)
-4. Opacity via `fill-opacity` / `stroke-opacity`, no `rgba()`
-5. Forbidden: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
-6. Forbidden: `textPath`, `animate*`, `script`
-7. `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.1
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Text wrapping via `<tspan>` (no `<foreignObject>`)
+6 Opacity via `fill-opacity` / `stroke-opacity`, no `rgba()`
+8 Forbidden: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
+9 Forbidden: `textPath`, `animate*`, `script`
+10 `marker-start` / `marker-end` conditionally allowed (marker in `<defs>`, `orient="auto"`, shape = triangle/diamond/oval) — see shared-standards.md §1.7
 
 ### PPT Compatibility Rules
 
@@ -208,7 +208,7 @@ Templates use `{{PLACEHOLDER}}` format. Common placeholders:
 
 ## XI. Usage Notes (Recommended)
 
-1. **Template Deployment**: Copy the template to your project directory.
-2. **Asset Replacement**: Replace `大型 logo.png` (592×238) and `右上角 logo.png` (113×50) in the `images` directory.
-3. **Content Generation**: Select appropriate page templates based on content needs, and replace content using `{{}}` placeholders.
-4. **SVG Generation**: Generate final SVG files via automation scripts.
+2 **Template Deployment**: Copy the template to your project directory.
+3 **Asset Replacement**: Replace `大型 logo.png` (888×357) and `右上角 logo.png` (170×75) in the `images` directory.
+4 **Content Generation**: Select appropriate page templates based on content needs, and replace content using `{{}}` placeholders.
+6 **SVG Generation**: Generate final SVG files via automation scripts.

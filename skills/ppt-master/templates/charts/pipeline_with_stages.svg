@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
   <!--
   数据/处理管道图模板 (Pipeline with Stages)
   用途: 水平依次经过的多个阶段，每个阶段承载标题 + 描述 + 输入输出
@@ -14,31 +14,31 @@
   -->
 
   <!-- 背景 -->
-  <rect x="0" y="0" width="1280" height="720" fill="#FFFFFF"/>
+  <rect x="0" y="0" width="1920" height="1080" fill="#FFFFFF"/>
 
   <!-- 标题 -->
-  <rect x="30" y="22" width="10" height="40" fill="#C00000"/>
-  <text x="52" y="55" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#C00000">数据处理管道全流程</text>
+  <rect x="45" y="33" width="15" height="60" fill="#C00000"/>
+  <text x="78" y="82" font-family="Microsoft YaHei, sans-serif" font-size="45" font-weight="700" fill="#C00000">数据处理管道全流程</text>
 
   <!-- 副标题带 -->
-  <rect x="30" y="78" width="1220" height="46" fill="#F2F2F2"/>
-  <text x="640" y="99" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#1A252F">
-    <tspan x="640" dy="0">从原始数据到业务产出的五阶段流水 · 每阶段的产物即下一阶段的输入</tspan>
-    <tspan x="640" dy="22" fill="#7F8C8D" font-weight="400">阶段卡 = 编号 + 标题 + 职责定位 + 要点描述 + 产物；缺产物或缺描述请改用 process_flow 或 numbered_steps</tspan>
+  <rect x="45" y="117" width="1830" height="69" fill="#F2F2F2"/>
+  <text x="960" y="148" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#1A252F">
+    <tspan x="960" dy="0">从原始数据到业务产出的五阶段流水 · 每阶段的产物即下一阶段的输入</tspan>
+    <tspan x="960" dy="33" fill="#7F8C8D" font-weight="400">阶段卡 = 编号 + 标题 + 职责定位 + 要点描述 + 产物；缺产物或缺描述请改用 process_flow 或 numbered_steps</tspan>
   </text>
 
   <!-- ==================== 左侧行标签 ==================== -->
-  <rect x="30" y="150" width="30" height="30" fill="#C00000"/>
-  <text x="45" y="172" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">⟶</text>
-  <text x="32" y="220" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#1A252F">流水</text>
-  <text x="32" y="246" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#1A252F">阶段</text>
-  <text x="32" y="272" font-family="Microsoft YaHei, sans-serif" font-size="12" fill="#7F8C8D">Pipeline</text>
-  <text x="32" y="288" font-family="Microsoft YaHei, sans-serif" font-size="12" fill="#7F8C8D">Stages</text>
+  <rect x="45" y="225" width="45" height="45" fill="#C00000"/>
+  <text x="68" y="258" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">⟶</text>
+  <text x="48" y="330" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#1A252F">流水</text>
+  <text x="48" y="369" font-family="Microsoft YaHei, sans-serif" font-size="30" font-weight="700" fill="#1A252F">阶段</text>
+  <text x="48" y="408" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#7F8C8D">Pipeline</text>
+  <text x="48" y="432" font-family="Microsoft YaHei, sans-serif" font-size="18" fill="#7F8C8D">Stages</text>
 
   <!-- ==================== 流水线整体外框 ==================== -->
-  <rect x="100" y="150" width="1150" height="430" fill="none" stroke="#C00000" stroke-width="2" stroke-dasharray="6 4"/>
-  <rect x="100" y="150" width="1150" height="32" fill="#FDF3EB"/>
-  <text x="675" y="172" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" font-weight="700" fill="#1A252F">五阶段串行流水 · Raw → Clean → Wide → Enriched → Products</text>
+  <rect x="150" y="225" width="1725" height="645" fill="none" stroke="#C00000" stroke-width="3" stroke-dasharray="6 4"/>
+  <rect x="150" y="225" width="1725" height="48" fill="#FDF3EB"/>
+  <text x="1012" y="258" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#1A252F">五阶段串行流水 · Raw → Clean → Wide → Enriched → Products</text>
 
   <!--
   阶段卡布局计算:
@@ -49,188 +49,188 @@
   -->
 
   <!-- ==================== 阶段 1: 采集 ==================== -->
-  <rect x="120" y="200" width="190" height="360" fill="#FFFFFF" stroke="#2E75B6" stroke-width="1"/>
-  <rect x="120" y="200" width="190" height="48" fill="#2E75B6"/>
-  <rect x="132" y="210" width="28" height="28" fill="#FFFFFF"/>
-  <text x="146" y="230" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#2E75B6">01</text>
-  <text x="172" y="230" font-family="Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">采集</text>
-  <text x="172" y="244" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#FFFFFF" fill-opacity="0.85">Ingest</text>
+  <rect x="180" y="300" width="285" height="540" fill="#FFFFFF" stroke="#2E75B6" stroke-width="2"/>
+  <rect x="180" y="300" width="285" height="72" fill="#2E75B6"/>
+  <rect x="198" y="315" width="42" height="42" fill="#FFFFFF"/>
+  <text x="219" y="345" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#2E75B6">01</text>
+  <text x="258" y="345" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">采集</text>
+  <text x="258" y="366" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF" fill-opacity="0.85">Ingest</text>
 
-  <rect x="120" y="248" width="190" height="30" fill="#EAF1F8"/>
-  <text x="215" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#2E75B6">多源接入与实时抓取</text>
+  <rect x="180" y="372" width="285" height="45" fill="#EAF1F8"/>
+  <text x="322" y="402" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#2E75B6">多源接入与实时抓取</text>
 
-  <rect x="134" y="296" width="6" height="6" fill="#2E75B6"/>
-  <text x="148" y="304" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">多通道接入</text>
-  <text x="148" y="322" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">埋点 · CDC · 文件同步</text>
+  <rect x="201" y="444" width="9" height="9" fill="#2E75B6"/>
+  <text x="222" y="456" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">多通道接入</text>
+  <text x="222" y="483" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">埋点 · CDC · 文件同步</text>
 
-  <rect x="134" y="344" width="6" height="6" fill="#2E75B6"/>
-  <text x="148" y="352" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">统一协议</text>
-  <text x="148" y="370" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">队列缓冲 · 背压控制</text>
+  <rect x="201" y="516" width="9" height="9" fill="#2E75B6"/>
+  <text x="222" y="528" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">统一协议</text>
+  <text x="222" y="555" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">队列缓冲 · 背压控制</text>
 
-  <rect x="134" y="392" width="6" height="6" fill="#2E75B6"/>
-  <text x="148" y="400" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">弹性吞吐</text>
-  <text x="148" y="418" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">分片并行 · 自动扩缩</text>
+  <rect x="201" y="588" width="9" height="9" fill="#2E75B6"/>
+  <text x="222" y="600" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">弹性吞吐</text>
+  <text x="222" y="627" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">分片并行 · 自动扩缩</text>
 
-  <rect x="134" y="460" width="162" height="82" fill="#F7F9FC"/>
-  <text x="215" y="478" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="10" fill="#7F8C8D">产物 · Output</text>
-  <line x1="148" y1="486" x2="282" y2="486" stroke="#E7E6E6" stroke-width="1"/>
-  <text x="215" y="510" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#2E75B6">Raw Events</text>
-  <text x="215" y="530" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#7F8C8D">原始事件流</text>
+  <rect x="201" y="690" width="243" height="123" fill="#F7F9FC"/>
+  <text x="322" y="717" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#7F8C8D">产物 · Output</text>
+  <line x1="222" y1="729" x2="423" y2="729" stroke="#E7E6E6" stroke-width="2"/>
+  <text x="322" y="765" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#2E75B6">Raw Events</text>
+  <text x="322" y="795" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#7F8C8D">原始事件流</text>
 
   <!-- ==================== 阶段 2: 校验 ==================== -->
-  <rect x="350" y="200" width="190" height="360" fill="#FFFFFF" stroke="#2E75B6" stroke-width="1"/>
-  <rect x="350" y="200" width="190" height="48" fill="#2E75B6"/>
-  <rect x="362" y="210" width="28" height="28" fill="#FFFFFF"/>
-  <text x="376" y="230" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#2E75B6">02</text>
-  <text x="402" y="230" font-family="Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">校验</text>
-  <text x="402" y="244" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#FFFFFF" fill-opacity="0.85">Validate</text>
+  <rect x="525" y="300" width="285" height="540" fill="#FFFFFF" stroke="#2E75B6" stroke-width="2"/>
+  <rect x="525" y="300" width="285" height="72" fill="#2E75B6"/>
+  <rect x="543" y="315" width="42" height="42" fill="#FFFFFF"/>
+  <text x="564" y="345" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#2E75B6">02</text>
+  <text x="603" y="345" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">校验</text>
+  <text x="603" y="366" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF" fill-opacity="0.85">Validate</text>
 
-  <rect x="350" y="248" width="190" height="30" fill="#EAF1F8"/>
-  <text x="445" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#2E75B6">规则校验与脏数据隔离</text>
+  <rect x="525" y="372" width="285" height="45" fill="#EAF1F8"/>
+  <text x="668" y="402" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#2E75B6">规则校验与脏数据隔离</text>
 
-  <rect x="364" y="296" width="6" height="6" fill="#2E75B6"/>
-  <text x="378" y="304" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">格式与范围校验</text>
-  <text x="378" y="322" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">字段类型 · 取值域</text>
+  <rect x="546" y="444" width="9" height="9" fill="#2E75B6"/>
+  <text x="567" y="456" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">格式与范围校验</text>
+  <text x="567" y="483" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">字段类型 · 取值域</text>
 
-  <rect x="364" y="344" width="6" height="6" fill="#2E75B6"/>
-  <text x="378" y="352" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">业务规则校验</text>
-  <text x="378" y="370" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">唯一性 · 引用完整性</text>
+  <rect x="546" y="516" width="9" height="9" fill="#2E75B6"/>
+  <text x="567" y="528" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">业务规则校验</text>
+  <text x="567" y="555" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">唯一性 · 引用完整性</text>
 
-  <rect x="364" y="392" width="6" height="6" fill="#2E75B6"/>
-  <text x="378" y="400" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">异常隔离告警</text>
-  <text x="378" y="418" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">死信队列 · 触发重试</text>
+  <rect x="546" y="588" width="9" height="9" fill="#2E75B6"/>
+  <text x="567" y="600" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">异常隔离告警</text>
+  <text x="567" y="627" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">死信队列 · 触发重试</text>
 
-  <rect x="364" y="460" width="162" height="82" fill="#F7F9FC"/>
-  <text x="445" y="478" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="10" fill="#7F8C8D">产物 · Output</text>
-  <line x1="378" y1="486" x2="512" y2="486" stroke="#E7E6E6" stroke-width="1"/>
-  <text x="445" y="510" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#2E75B6">Clean Events</text>
-  <text x="445" y="530" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#7F8C8D">合规事件流</text>
+  <rect x="546" y="690" width="243" height="123" fill="#F7F9FC"/>
+  <text x="668" y="717" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#7F8C8D">产物 · Output</text>
+  <line x1="567" y1="729" x2="768" y2="729" stroke="#E7E6E6" stroke-width="2"/>
+  <text x="668" y="765" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#2E75B6">Clean Events</text>
+  <text x="668" y="795" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#7F8C8D">合规事件流</text>
 
   <!-- ==================== 阶段 3: 转换 ==================== -->
-  <rect x="580" y="200" width="190" height="360" fill="#FFFFFF" stroke="#C00000" stroke-width="1"/>
-  <rect x="580" y="200" width="190" height="48" fill="#C00000"/>
-  <rect x="592" y="210" width="28" height="28" fill="#FFFFFF"/>
-  <text x="606" y="230" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#C00000">03</text>
-  <text x="632" y="230" font-family="Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">转换</text>
-  <text x="632" y="244" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#FFFFFF" fill-opacity="0.85">Transform</text>
+  <rect x="870" y="300" width="285" height="540" fill="#FFFFFF" stroke="#C00000" stroke-width="2"/>
+  <rect x="870" y="300" width="285" height="72" fill="#C00000"/>
+  <rect x="888" y="315" width="42" height="42" fill="#FFFFFF"/>
+  <text x="909" y="345" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#C00000">03</text>
+  <text x="948" y="345" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">转换</text>
+  <text x="948" y="366" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF" fill-opacity="0.85">Transform</text>
 
-  <rect x="580" y="248" width="190" height="30" fill="#FDF3EB"/>
-  <text x="675" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#C00000">结构化与口径对齐</text>
+  <rect x="870" y="372" width="285" height="45" fill="#FDF3EB"/>
+  <text x="1012" y="402" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#C00000">结构化与口径对齐</text>
 
-  <rect x="594" y="296" width="6" height="6" fill="#C00000"/>
-  <text x="608" y="304" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">反规范化建模</text>
-  <text x="608" y="322" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">维度补齐 · 粒度聚合</text>
+  <rect x="891" y="444" width="9" height="9" fill="#C00000"/>
+  <text x="912" y="456" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">反规范化建模</text>
+  <text x="912" y="483" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">维度补齐 · 粒度聚合</text>
 
-  <rect x="594" y="344" width="6" height="6" fill="#C00000"/>
-  <text x="608" y="352" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">派生指标计算</text>
-  <text x="608" y="370" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">统一指标口径</text>
+  <rect x="891" y="516" width="9" height="9" fill="#C00000"/>
+  <text x="912" y="528" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">派生指标计算</text>
+  <text x="912" y="555" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">统一指标口径</text>
 
-  <rect x="594" y="392" width="6" height="6" fill="#C00000"/>
-  <text x="608" y="400" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">主题宽表产出</text>
-  <text x="608" y="418" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">可复用 · 可下钻</text>
+  <rect x="891" y="588" width="9" height="9" fill="#C00000"/>
+  <text x="912" y="600" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">主题宽表产出</text>
+  <text x="912" y="627" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">可复用 · 可下钻</text>
 
-  <rect x="594" y="460" width="162" height="82" fill="#F7F9FC"/>
-  <text x="675" y="478" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="10" fill="#7F8C8D">产物 · Output</text>
-  <line x1="608" y1="486" x2="742" y2="486" stroke="#E7E6E6" stroke-width="1"/>
-  <text x="675" y="510" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#C00000">Wide Tables</text>
-  <text x="675" y="530" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#7F8C8D">主题宽表</text>
+  <rect x="891" y="690" width="243" height="123" fill="#F7F9FC"/>
+  <text x="1012" y="717" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#7F8C8D">产物 · Output</text>
+  <line x1="912" y1="729" x2="1113" y2="729" stroke="#E7E6E6" stroke-width="2"/>
+  <text x="1012" y="765" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#C00000">Wide Tables</text>
+  <text x="1012" y="795" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#7F8C8D">主题宽表</text>
 
   <!-- ==================== 阶段 4: 增强 ==================== -->
-  <rect x="810" y="200" width="190" height="360" fill="#FFFFFF" stroke="#5B9BD5" stroke-width="1"/>
-  <rect x="810" y="200" width="190" height="48" fill="#5B9BD5"/>
-  <rect x="822" y="210" width="28" height="28" fill="#FFFFFF"/>
-  <text x="836" y="230" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#5B9BD5">04</text>
-  <text x="862" y="230" font-family="Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">增强</text>
-  <text x="862" y="244" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#FFFFFF" fill-opacity="0.85">Enrich</text>
+  <rect x="1215" y="300" width="285" height="540" fill="#FFFFFF" stroke="#5B9BD5" stroke-width="2"/>
+  <rect x="1215" y="300" width="285" height="72" fill="#5B9BD5"/>
+  <rect x="1233" y="315" width="42" height="42" fill="#FFFFFF"/>
+  <text x="1254" y="345" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#5B9BD5">04</text>
+  <text x="1293" y="345" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">增强</text>
+  <text x="1293" y="366" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF" fill-opacity="0.85">Enrich</text>
 
-  <rect x="810" y="248" width="190" height="30" fill="#E9F2FA"/>
-  <text x="905" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#5B9BD5">AI 标签与语义注入</text>
+  <rect x="1215" y="372" width="285" height="45" fill="#E9F2FA"/>
+  <text x="1358" y="402" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#5B9BD5">AI 标签与语义注入</text>
 
-  <rect x="824" y="296" width="6" height="6" fill="#5B9BD5"/>
-  <text x="838" y="304" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">AI 标签推理</text>
-  <text x="838" y="322" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">画像 · 意图 · 归因</text>
+  <rect x="1236" y="444" width="9" height="9" fill="#5B9BD5"/>
+  <text x="1257" y="456" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">AI 标签推理</text>
+  <text x="1257" y="483" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">画像 · 意图 · 归因</text>
 
-  <rect x="824" y="344" width="6" height="6" fill="#5B9BD5"/>
-  <text x="838" y="352" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">知识图谱补充</text>
-  <text x="838" y="370" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">实体关联 · 关系扩展</text>
+  <rect x="1236" y="516" width="9" height="9" fill="#5B9BD5"/>
+  <text x="1257" y="528" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">知识图谱补充</text>
+  <text x="1257" y="555" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">实体关联 · 关系扩展</text>
 
-  <rect x="824" y="392" width="6" height="6" fill="#5B9BD5"/>
-  <text x="838" y="400" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">语义标签落地</text>
-  <text x="838" y="418" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">可被业务直接消费</text>
+  <rect x="1236" y="588" width="9" height="9" fill="#5B9BD5"/>
+  <text x="1257" y="600" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">语义标签落地</text>
+  <text x="1257" y="627" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">可被业务直接消费</text>
 
-  <rect x="824" y="460" width="162" height="82" fill="#F7F9FC"/>
-  <text x="905" y="478" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="10" fill="#7F8C8D">产物 · Output</text>
-  <line x1="838" y1="486" x2="972" y2="486" stroke="#E7E6E6" stroke-width="1"/>
-  <text x="905" y="510" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#5B9BD5">Enriched Set</text>
-  <text x="905" y="530" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#7F8C8D">增强数据集</text>
+  <rect x="1236" y="690" width="243" height="123" fill="#F7F9FC"/>
+  <text x="1358" y="717" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#7F8C8D">产物 · Output</text>
+  <line x1="1257" y1="729" x2="1458" y2="729" stroke="#E7E6E6" stroke-width="2"/>
+  <text x="1358" y="765" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#5B9BD5">Enriched Set</text>
+  <text x="1358" y="795" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#7F8C8D">增强数据集</text>
 
   <!-- ==================== 阶段 5: 输出 ==================== -->
-  <rect x="1040" y="200" width="190" height="360" fill="#FFFFFF" stroke="#2E75B6" stroke-width="1"/>
-  <rect x="1040" y="200" width="190" height="48" fill="#2E75B6"/>
-  <rect x="1052" y="210" width="28" height="28" fill="#FFFFFF"/>
-  <text x="1066" y="230" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="14" font-weight="700" fill="#2E75B6">05</text>
-  <text x="1092" y="230" font-family="Microsoft YaHei, sans-serif" font-size="17" font-weight="700" fill="#FFFFFF">输出</text>
-  <text x="1092" y="244" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#FFFFFF" fill-opacity="0.85">Serve</text>
+  <rect x="1560" y="300" width="285" height="540" fill="#FFFFFF" stroke="#2E75B6" stroke-width="2"/>
+  <rect x="1560" y="300" width="285" height="72" fill="#2E75B6"/>
+  <rect x="1578" y="315" width="42" height="42" fill="#FFFFFF"/>
+  <text x="1599" y="345" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="21" font-weight="700" fill="#2E75B6">05</text>
+  <text x="1638" y="345" font-family="Microsoft YaHei, sans-serif" font-size="26" font-weight="700" fill="#FFFFFF">输出</text>
+  <text x="1638" y="366" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#FFFFFF" fill-opacity="0.85">Serve</text>
 
-  <rect x="1040" y="248" width="190" height="30" fill="#EAF1F8"/>
-  <text x="1135" y="268" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#2E75B6">数据服务与消费入口</text>
+  <rect x="1560" y="372" width="285" height="45" fill="#EAF1F8"/>
+  <text x="1702" y="402" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#2E75B6">数据服务与消费入口</text>
 
-  <rect x="1054" y="296" width="6" height="6" fill="#2E75B6"/>
-  <text x="1068" y="304" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">BI 看板</text>
-  <text x="1068" y="322" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">决策可视化</text>
+  <rect x="1581" y="444" width="9" height="9" fill="#2E75B6"/>
+  <text x="1602" y="456" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">BI 看板</text>
+  <text x="1602" y="483" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">决策可视化</text>
 
-  <rect x="1054" y="344" width="6" height="6" fill="#2E75B6"/>
-  <text x="1068" y="352" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">数据 API</text>
-  <text x="1068" y="370" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">应用方按需调用</text>
+  <rect x="1581" y="516" width="9" height="9" fill="#2E75B6"/>
+  <text x="1602" y="528" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">数据 API</text>
+  <text x="1602" y="555" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">应用方按需调用</text>
 
-  <rect x="1054" y="392" width="6" height="6" fill="#2E75B6"/>
-  <text x="1068" y="400" font-family="Microsoft YaHei, sans-serif" font-size="12" font-weight="700" fill="#1A252F">推送订阅</text>
-  <text x="1068" y="418" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#566573">变更事件触发</text>
+  <rect x="1581" y="588" width="9" height="9" fill="#2E75B6"/>
+  <text x="1602" y="600" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">推送订阅</text>
+  <text x="1602" y="627" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#566573">变更事件触发</text>
 
-  <rect x="1054" y="460" width="162" height="82" fill="#F7F9FC"/>
-  <text x="1135" y="478" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="10" fill="#7F8C8D">产物 · Output</text>
-  <line x1="1068" y1="486" x2="1202" y2="486" stroke="#E7E6E6" stroke-width="1"/>
-  <text x="1135" y="510" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" font-weight="700" fill="#2E75B6">Products</text>
-  <text x="1135" y="530" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="11" fill="#7F8C8D">业务可用产物</text>
+  <rect x="1581" y="690" width="243" height="123" fill="#F7F9FC"/>
+  <text x="1702" y="717" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="15" fill="#7F8C8D">产物 · Output</text>
+  <line x1="1602" y1="729" x2="1803" y2="729" stroke="#E7E6E6" stroke-width="2"/>
+  <text x="1702" y="765" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="700" fill="#2E75B6">Products</text>
+  <text x="1702" y="795" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="16" fill="#7F8C8D">业务可用产物</text>
 
   <!-- ==================== 阶段间箭头 (手绘多边形, 不受 stroke 缩放影响) ==================== -->
   <!-- 箭头位于 y=380, 卡片间隙内, 每个箭头宽 24, 由短尾线 + 三角头组成 -->
   <g fill="#B0B8C4">
-    <rect x="315" y="378" width="16" height="4"/>
-    <polygon points="331,372 345,380 331,388"/>
-    <rect x="545" y="378" width="16" height="4"/>
-    <polygon points="561,372 575,380 561,388"/>
-    <rect x="775" y="378" width="16" height="4"/>
-    <polygon points="791,372 805,380 791,388"/>
-    <rect x="1005" y="378" width="16" height="4"/>
-    <polygon points="1021,372 1035,380 1021,388"/>
+    <rect x="472" y="567" width="24" height="6"/>
+    <polygon points="496,558 518,570 496,582"/>
+    <rect x="818" y="567" width="24" height="6"/>
+    <polygon points="842,558 862,570 842,582"/>
+    <rect x="1162" y="567" width="24" height="6"/>
+    <polygon points="1186,558 1208,570 1186,582"/>
+    <rect x="1508" y="567" width="24" height="6"/>
+    <polygon points="1532,558 1552,570 1532,582"/>
   </g>
 
   <!-- ==================== 底部产物流向带 ==================== -->
-  <rect x="30" y="610" width="30" height="30" fill="#C00000"/>
-  <text x="45" y="632" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#FFFFFF">▸</text>
-  <text x="32" y="674" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">端到</text>
-  <text x="32" y="696" font-family="Microsoft YaHei, sans-serif" font-size="18" font-weight="700" fill="#1A252F">端</text>
+  <rect x="45" y="915" width="45" height="45" fill="#C00000"/>
+  <text x="68" y="948" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#FFFFFF">▸</text>
+  <text x="48" y="1011" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#1A252F">端到</text>
+  <text x="48" y="1044" font-family="Microsoft YaHei, sans-serif" font-size="27" font-weight="700" fill="#1A252F">端</text>
 
-  <rect x="100" y="610" width="1150" height="90" fill="none" stroke="#E7E6E6" stroke-width="2"/>
-  <text x="675" y="628" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" font-weight="700" fill="#1A252F">起点 · 原始数据 ——— 经五个阶段加工 ——— 终点 · 业务可消费产物</text>
-  <line x1="120" y1="638" x2="1230" y2="638" stroke="#000000" stroke-width="1" stroke-dasharray="2 2"/>
+  <rect x="150" y="915" width="1725" height="135" fill="none" stroke="#E7E6E6" stroke-width="3"/>
+  <text x="1012" y="942" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#1A252F">起点 · 原始数据 ——— 经五个阶段加工 ——— 终点 · 业务可消费产物</text>
+  <line x1="180" y1="957" x2="1845" y2="957" stroke="#000000" stroke-width="2" stroke-dasharray="2 2"/>
 
-  <rect x="120" y="650" width="200" height="40" fill="#FDF3EB" stroke="#F8CBAD" stroke-width="1"/>
-  <text x="220" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" font-weight="700" fill="#C00000">起点 · 原始数据</text>
+  <rect x="180" y="975" width="300" height="60" fill="#FDF3EB" stroke="#F8CBAD" stroke-width="2"/>
+  <text x="330" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#C00000">起点 · 原始数据</text>
 
-  <rect x="340" y="650" width="160" height="40" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
-  <text x="420" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" fill="#1A252F">Raw Events</text>
+  <rect x="510" y="975" width="240" height="60" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="630" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1A252F">Raw Events</text>
 
-  <rect x="520" y="650" width="160" height="40" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
-  <text x="600" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" fill="#1A252F">Clean Events</text>
+  <rect x="780" y="975" width="240" height="60" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="900" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1A252F">Clean Events</text>
 
-  <rect x="700" y="650" width="160" height="40" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
-  <text x="780" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" fill="#1A252F">Wide Tables</text>
+  <rect x="1050" y="975" width="240" height="60" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="1170" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1A252F">Wide Tables</text>
 
-  <rect x="880" y="650" width="160" height="40" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="1"/>
-  <text x="960" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" fill="#1A252F">Enriched Set</text>
+  <rect x="1320" y="975" width="240" height="60" fill="#F2F2F2" stroke="#D9D9D9" stroke-width="2"/>
+  <text x="1440" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" fill="#1A252F">Enriched Set</text>
 
-  <rect x="1060" y="650" width="170" height="40" fill="#FDF3EB" stroke="#F8CBAD" stroke-width="1"/>
-  <text x="1145" y="675" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="13" font-weight="700" fill="#C00000">终点 · Products</text>
+  <rect x="1590" y="975" width="255" height="60" fill="#FDF3EB" stroke="#F8CBAD" stroke-width="2"/>
+  <text x="1718" y="1012" text-anchor="middle" font-family="Microsoft YaHei, sans-serif" font-size="20" font-weight="700" fill="#C00000">终点 · Products</text>
 </svg>

@@ -14,14 +14,14 @@ A data-driven, consulting-style SVG design executor. Suitable for business analy
 
 ### 1. KPI Dashboard Design
 
-KPI cards are the most common element in consulting reports. Standard layout (1280x720):
+KPI cards are the most common element in consulting reports. Standard layout (1920x1080):
 
 ```
-4-card layout: each card 280x180, gap 30
-  Card 1: x=45,  y=160
-  Card 2: x=355, y=160
-  Card 3: x=665, y=160
-  Card 4: x=975, y=160
+4-card layout: each card 400x260, gap 36
+  Card 1: x=96,  y=200
+  Card 2: x=532, y=200
+  Card 3: x=968, y=200
+  Card 4: x=1404, y=200
 ```
 
 **Card internal structure** (top to bottom):

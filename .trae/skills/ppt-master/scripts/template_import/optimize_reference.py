@@ -166,7 +166,7 @@ def collect_icon_candidates(root: ET.Element, svg_name: str) -> list[dict[str, s
         d = path.attrib.get("d", "")
         if not d or len(d) > 220:
             continue
-        if any(ancestor in d for ancestor in ("960V540", "1280V720")):
+        if any(ancestor in d for ancestor in ("960V540", "1280V720", "1920V1080")):
             continue
         candidates.append(
             {

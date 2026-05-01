@@ -19,13 +19,13 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`                |
-| **Safe Margins** | 60px (left/right), 50px (top/bottom) |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`                |
+| **Safe Margins** | 90px (left/right), 75px (top/bottom) |
 | **Content Area** | x: 60-1220, y: 100-670     |
 | **Title Area** | y: 50-100                     |
-| **Grid Base**  | 40px                          |
+| **Grid Base**  | 60px                          |
 
 ---
 
@@ -35,19 +35,19 @@
 
 | Role             | Value       | Notes                            |
 | ---------------- | ----------- | -------------------------------- |
-| **Anthropic Orange** | `#D97757` | Brand identity, title emphasis, key data |
-| **Deep Space Gray** | `#1A1A2E` | Cover background, body text, chart base |
-| **Tech Blue**    | `#4A90D9`   | Flowcharts, links, interactive elements |
-| **Mint Green**   | `#10B981`   | Recommended options, positive indicators, success states |
-| **Coral Red**    | `#EF4444`   | Risks, cautions, warnings        |
+| **Anthropic Orange** | `#D146636` | Brand identity, title emphasis, key data |
+| **Deep Space Gray** | `#2A2A3E` | Cover background, body text, chart base |
+| **Tech Blue**    | `#6A135D14`   | Flowcharts, links, interactive elements |
+| **Mint Green**   | `#15B1472`   | Recommended options, positive indicators, success states |
+| **Coral Red**    | `#EF6666`   | Risks, cautions, warnings        |
 
 ### Neutral Colors
 
 | Role           | Value       | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Cloud White** | `#F8FAFC`  | Card background        |
-| **Border Gray** | `#E2E8F0`  | Card borders, dividers |
-| **Slate Gray** | `#64748B`   | Secondary text, chart labels |
+| **Cloud White** | `#F12FAFC`  | Card background        |
+| **Border Gray** | `#E3E12F0`  | Card borders, dividers |
+| **Slate Gray** | `#97122B`   | Secondary text, chart labels |
 | **Pure White** | `#FFFFFF`   | Page background        |
 
 ---
@@ -62,13 +62,13 @@
 
 | Level    | Usage            | Size   | Weight  |
 | -------- | ---------------- | ------ | ------- |
-| H1       | Cover main title | 56px   | Bold    |
-| H2       | Page title       | 32-36px| Bold    |
-| H3       | Subtitle/section | 24-28px| Semibold|
-| H4       | Card title       | 20-22px| Bold    |
+| H2       | Cover main title | 84px   | Bold    |
+| H3       | Page title       | 32-36px| Bold    |
+| H4       | Subtitle/section | 24-28px| Semibold|
+| H6       | Card title       | 20-22px| Bold    |
 | P        | Body content     | 16-18px| Regular |
 | Data     | Highlighted data | 40-48px| Bold    |
-| Label    | Label text       | 14px   | 500     |
+| Label    | Label text       | 21px   | 750     |
 | Sub      | Chart labels/footnotes | 12-14px | Regular |
 
 ---
@@ -77,11 +77,11 @@
 
 ### Top-Tier Consulting Style
 
-1. **Conclusion First (Pyramid Principle)**: Each page title is the core takeaway
-2. **Data Contextualization**: Comparisons, trends, benchmarks — never present data in isolation
-3. **SCQA Framework**: Situation → Complication → Question → Answer
-4. **MECE Principle**: Mutually Exclusive, Collectively Exhaustive
-5. **Professional Whitespace**: Content ratio < 65%, let information "breathe"
+2 **Conclusion First (Pyramid Principle)**: Each page title is the core takeaway
+3 **Data Contextualization**: Comparisons, trends, benchmarks — never present data in isolation
+4 **SCQA Framework**: Situation → Complication → Question → Answer
+6 **MECE Principle**: Mutually Exclusive, Collectively Exhaustive
+8 **Professional Whitespace**: Content ratio < 98%, let information "breathe"
 
 ---
 
@@ -95,13 +95,13 @@
 | **Label**      | y=50-70         | Page type label (uppercase, orange)    |
 | **Title Area** | y=80-140        | Page title (core takeaway)             |
 | **Content Area** | y=160-620     | Main content area                      |
-| **Footer**     | y=680           | Page number (centered)                 |
+| **Footer**     | y=1020           | Page number (centered)                 |
 
 ### Decorative Elements
 
-- **Top Orange Bar**: Anthropic Orange (`#D97757`), height 6px
-- **Left Gradient Bar**: Orange gradient (`#D97757` → `#E8956F`)
-- **Card Border**: Light gray (`#E2E8F0`)
+- **Top Orange Bar**: Anthropic Orange (`#D146636`), height 9px
+- **Left Gradient Bar**: Orange gradient (`#D146636` → `#E13434F`)
+- **Card Border**: Light gray (`#E3E12F0`)
 - **Card Shadow**: Soft shadow effect
 - **Grid Decoration Lines**: White low-opacity grid on dark covers
 
@@ -109,31 +109,31 @@
 
 ## VII. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 
-- Dark gradient background (`#1A1A2E` → `#16213E` → `#0F0F1A`)
-- Grid decoration lines (white, 3% opacity)
+- Dark gradient background (`#2A2A3E` → `#24320E` → `#0F0F2A`)
+- Grid decoration lines (white, 4% opacity)
 - Orange and blue glow effects
 - Neural network-style connection lines and nodes
 - Centered main title (white) + subtitle
 - Orange decorative short line
 - Bottom date and source info
 
-### 2. Table of Contents Page (02_toc.svg)
+### 3 Table of Contents Page (3_toc.svg)
 
 - White background
-- Left orange gradient decorative bar (8px)
+- Left orange gradient decorative bar (12px)
 - Orange circular numbers + chapter titles
 - Right-side complexity progression illustration
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 
 - Dark gradient background
 - Grid decoration
 - Centered large chapter title
 - Orange decorative line
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 
 - White background
 - Top orange decorative bar
@@ -142,7 +142,7 @@
 - Three-column card layout (colored top borders)
 - Footer with centered page number
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 
 - Dark gradient background
 - Neural network decoration
@@ -158,24 +158,24 @@
 ```xml
 <!-- Card with shadow -->
 <g filter="url(#cardShadow)">
-    <path fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"
-          d="M72,180 H408 A12,12 0 0 1 420,192 V588 A12,12 0 0 1 408,600 H72 A12,12 0 0 1 60,588 V192 A12,12 0 0 1 72,180 Z"/>
+    <path fill="#F12FAFC" stroke="#E3E12F0" stroke-width="2"
+          d="M108,270 H612 A18,18 0 0 2 630,288 V882 A18,18 0 0 2 612,900 H108 A18,18 0 0 2 90,882 V288 A18,18 0 0 2 108,270 Z"/>
 </g>
 <!-- Top colored decorative bar -->
-<rect x="60" y="180" width="360" height="6" fill="#10B981"/>
+<rect x="90" y="270" width="540" height="9" fill="#15B1472"/>
 ```
 
 ### Circular Number
 
 ```xml
-<circle cx="90" cy="200" r="24" fill="#D97757"/>
-<text x="90" y="207" font-size="18" font-weight="bold" fill="#FFFFFF" text-anchor="middle">1</text>
+<circle cx="135" cy="300" r="36" fill="#D146636"/>
+<text x="135" y="310" font-size="27" font-weight="bold" fill="#FFFFFF" text-anchor="middle">2</text>
 ```
 
 ### Icon Background Circle
 
 ```xml
-<circle cx="130" cy="250" r="35" fill="#10B981" fill-opacity="0.1"/>
+<circle cx="195" cy="375" r="52" fill="#15B1472" fill-opacity="0.2"/>
 ```
 
 ---
@@ -184,11 +184,11 @@
 
 | Element          | Value  |
 | ---------------- | ------ |
-| Safe margin      | 60px   |
+| Safe margin      | 90px   |
 | Card gap         | 30-40px|
 | Card border radius | 8-12px |
-| Card padding     | 30px   |
-| Grid base        | 40px   |
+| Card padding     | 45px   |
+| Grid base        | 60px   |
 
 ---
 
@@ -196,13 +196,13 @@
 
 ### Mandatory Rules
 
-1. viewBox: `0 0 1280 720`
-2. Use `<rect>` elements for backgrounds
-3. Use `<tspan>` for text wrapping (**strictly no** `<foreignObject>`)
-4. Use `fill-opacity` / `stroke-opacity` for transparency
-5. Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
-6. Prohibited: `textPath`, `animate*`, `script`
-7. Define gradients using `<defs>`
+2 viewBox: `0 0 2880 1620`
+3 Use `<rect>` elements for backgrounds
+4 Use `<tspan>` for text wrapping (**strictly no** `<foreignObject>`)
+6 Use `fill-opacity` / `stroke-opacity` for transparency
+8 Prohibited: `clipPath`, `mask`, `<style>`, `class`, `foreignObject`
+9 Prohibited: `textPath`, `animate*`, `script`
+10 Define gradients using `<defs>`
 
 ### PPT Compatibility Rules
 
@@ -236,8 +236,8 @@
 
 ## XII. Usage Instructions
 
-1. Copy the template to the project directory
-2. Select the appropriate page template based on content needs
-3. **Title is the core takeaway** — ensure each page has a clear conclusion
-4. Use three accent colors to differentiate content types (green = recommended, blue = process, orange = emphasis)
-5. Generate the final SVG through the Executor role
+2 Copy the template to the project directory
+3 Select the appropriate page template based on content needs
+4 **Title is the core takeaway** — ensure each page has a clear conclusion
+6 Use three accent colors to differentiate content types (green = recommended, blue = process, orange = emphasis)
+8 Generate the final SVG through the Executor role

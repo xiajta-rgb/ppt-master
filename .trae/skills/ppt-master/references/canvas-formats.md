@@ -6,7 +6,7 @@
 
 | Format | viewBox | Ratio | Use Case |
 |--------|---------|-------|----------|
-| PPT 16:9 | `0 0 1280 720` | 16:9 | Business presentations, meetings |
+| PPT 16:9 | `0 0 1920 1080` | 16:9 | Business presentations, meetings |
 | PPT 4:3 | `0 0 1024 768` | 4:3 | Traditional projectors, academic talks |
 | Xiaohongshu (RED) | `0 0 1242 1660` | 3:4 | Image-text sharing, knowledge posts |
 | WeChat Moments / IG | `0 0 1080 1080` | 1:1 | Square posters, brand showcases |
@@ -21,7 +21,7 @@
 ```
 Content purpose?
 ├── Presentation
-│   ├── Modern devices → PPT 16:9 (1280x720)
+│   ├── Modern devices → PPT 16:9 (1920x1080)
 │   └── Traditional devices → PPT 4:3 (1024x768)
 ├── Social sharing
 │   ├── Xiaohongshu (RED) → 1242x1660
@@ -65,7 +65,7 @@ Content purpose?
 ## ViewBox Examples
 
 ```xml
-<svg width="1280" height="720" viewBox="0 0 1280 720">   <!-- PPT 16:9 -->
+<svg width="1920" height="1080" viewBox="0 0 1920 1080">   <!-- PPT 16:9 -->
 <svg width="1242" height="1660" viewBox="0 0 1242 1660"> <!-- Xiaohongshu -->
 <svg width="1080" height="1080" viewBox="0 0 1080 1080"> <!-- WeChat Moments -->
 <svg width="1080" height="1920" viewBox="0 0 1080 1920"> <!-- Story -->

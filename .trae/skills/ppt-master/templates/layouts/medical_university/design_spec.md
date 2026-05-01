@@ -21,8 +21,8 @@
 | Property           | Value                        |
 | ------------------ | ---------------------------- |
 | **Format**         | Standard 16:9                |
-| **Dimensions**     | 1280 × 720 px               |
-| **viewBox**        | `0 0 1280 720`              |
+| **Dimensions**     | 1920 × 1080 px               |
+| **viewBox**        | `0 0 1920 1080`              |
 | **Page Margins**   | Left/right 40px, top 0px, bottom 35px |
 | **Content Safe Area** | x: 40-1240, y: 70-665    |
 
@@ -201,7 +201,7 @@ To adapt to other medical institution branding, replace the corresponding values
 
 ### Mandatory Rules
 
-- viewBox fixed at `0 0 1280 720`
+- viewBox fixed at `0 0 1920 1080`
 - Use `<rect>` elements for backgrounds
 - Use `<tspan>` for text wrapping
 - All colors in HEX format (no rgba)

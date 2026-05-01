@@ -1,21 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <!-- 背景 -->
-    <rect width="1280" height="720" fill="#F8FAFC" />
+    <rect width="1920" height="1080" fill="#F8FAFC" />
 
     <!-- 左侧装饰条 -->
-    <rect x="0" y="0" width="8" height="720" fill="#2E5C8E" />
+    <rect x="0" y="0" width="12" height="1080" fill="#2E5C8E" />
 
     <!-- 标题区域 -->
-    <text x="60" y="75" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="28" font-weight="bold"
+    <text x="90" y="112" font-family="PingFang SC, Microsoft YaHei, sans-serif" font-size="42" font-weight="bold"
         fill="#1E293B">
         {{PAGE_TITLE}}
     </text>
-    <text x="60" y="105" font-family="system-ui, sans-serif" font-size="16" fill="#64748B">
+    <text x="90" y="158" font-family="system-ui, sans-serif" font-size="24" fill="#64748B">
         {{TITLE_EN}}
     </text>
 
     <!-- 分隔线 -->
-    <line x1="60" y1="125" x2="500" y2="125" stroke="#E5E7EB" stroke-width="2" />
+    <line x1="90" y1="188" x2="750" y2="188" stroke="#E5E7EB" stroke-width="3" />
 
     <!-- ==================== 内容区域 ==================== -->
     <!-- 
@@ -28,14 +28,14 @@
     - 四格对比（依恋类型）
     - 单栏居中
   -->
-    <rect x="60" y="140" width="1180" height="490" fill="none" stroke="#E5E7EB" stroke-width="1" stroke-dasharray="8,4"
-        rx="8" />
-    <text x="650" y="390" text-anchor="middle" fill="#CBD5E1" font-family="PingFang SC, Microsoft YaHei, sans-serif"
-        font-size="14">
+    <rect x="90" y="210" width="1770" height="735" fill="none" stroke="#E5E7EB" stroke-width="2" stroke-dasharray="8,4"
+        rx="12" />
+    <text x="975" y="585" text-anchor="middle" fill="#CBD5E1" font-family="PingFang SC, Microsoft YaHei, sans-serif"
+        font-size="21">
         {{CONTENT_AREA}}
     </text>
 
     <!-- 页码 -->
-    <text x="1220" y="700" font-family="system-ui, sans-serif" font-size="14" fill="#9CA3AF"
+    <text x="1830" y="1050" font-family="system-ui, sans-serif" font-size="21" fill="#9CA3AF"
         text-anchor="end">{{PAGE_NUM}}</text>
 </svg>

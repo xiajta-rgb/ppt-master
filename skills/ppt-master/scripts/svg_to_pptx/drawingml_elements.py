@@ -1030,12 +1030,16 @@ def convert_image(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
     Supports clip-path attribute: when present, the clipPath shape is mapped
     to DrawingML picture geometry (prstGeom or custGeom) so the image is
     natively clipped in PowerPoint.
+
+    Supports preserveAspectRatio mapping:
+    - 'meet' (default): image fits within box maintaining aspect ratio
+    - 'slice': image fills box maintaining aspect ratio (may crop)
+    - 'none': image stretches to fill box
     """
     href = elem.get('href') or elem.get(f'{{{XLINK_NS}}}href')
     if not href:
         return None
 
-    # Raw coordinates (pre-context-transform) for clip path calculations
     raw_x = _f(elem.get('x'))
     raw_y = _f(elem.get('y'))
     raw_w = _f(elem.get('width'))
@@ -1049,7 +1053,6 @@ def convert_image(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
     if w <= 0 or h <= 0:
         return None
 
-    # Extract image data
     if href.startswith('data:'):
         match = re.match(r'data:image/(\w+);base64,(.+)', href, re.DOTALL)
         if not match:
@@ -1091,8 +1094,10 @@ def convert_image(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
             rot = int(float(r_match.group(1)) * ANGLE_UNIT)
     rot_attr = f' rot="{rot}"' if rot else ''
 
-    # Resolve clip-path → DrawingML geometry
     clip_geom = _resolve_clip_geometry(elem, ctx, raw_x, raw_y, raw_w, raw_h)
+
+    par = elem.get('preserveAspectRatio', '')
+    fill_xml = _par_to_fill(par, img_data, w, h)
 
     shape_id = ctx.next_id()
     off_x = px_to_emu(x)
@@ -1108,7 +1113,7 @@ def convert_image(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
 </p:nvPicPr>
 <p:blipFill>
 <a:blip r:embed="{r_id}"/>
-<a:stretch><a:fillRect/></a:stretch>
+{fill_xml}
 </p:blipFill>
 <p:spPr>
 <a:xfrm{rot_attr}><a:off x="{off_x}" y="{off_y}"/>
@@ -1116,6 +1121,134 @@ def convert_image(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
 {clip_geom}
 </p:spPr>
 </p:pic>''', bounds_emu=(off_x, off_y, off_x + ext_cx, off_y + ext_cy))
+
+
+def _par_to_fill(par: str, img_data: bytes, box_w: float, box_h: float) -> str:
+    """Map SVG preserveAspectRatio to DrawingML blipFill.
+
+    - 'none' → stretch fillRect (stretch to fill, may distort)
+    - 'meet' (SVG default when par is absent) → stretch with srcRect padding (contain)
+    - 'slice' → stretch fillRect (cover, image fills box)
+    """
+    if not par:
+        par = 'xMidYMid meet'
+
+    parts = par.strip().split()
+    align = parts[0] if parts else 'xMidYMid'
+    meet_or_slice = parts[1] if len(parts) > 1 else 'meet'
+
+    if align == 'none':
+        return '<a:stretch><a:fillRect/></a:stretch>'
+
+    if meet_or_slice == 'slice':
+        return '<a:stretch><a:fillRect/></a:stretch>'
+
+    img_w, img_h = _get_image_pixel_dims(img_data)
+    if (img_w is None or img_h is None or img_w <= 0 or img_h <= 0):
+        try:
+            from io import BytesIO
+            from PIL import Image
+            pil_img = Image.open(BytesIO(img_data))
+            img_w, img_h = pil_img.size
+            pil_img.close()
+        except Exception:
+            pass
+    if img_w is None or img_h is None or img_w <= 0 or img_h <= 0:
+        return '<a:stretch><a:fillRect/></a:stretch>'
+
+    img_ratio = img_w / img_h
+    box_ratio = box_w / box_h
+
+    if abs(img_ratio - box_ratio) < 0.01:
+        return '<a:stretch><a:fillRect/></a:stretch>'
+
+    if img_ratio > box_ratio:
+        display_w = box_w
+        display_h = box_w / img_ratio
+    else:
+        display_h = box_h
+        display_w = box_h * img_ratio
+
+    pad_pct_left = 0.0
+    pad_pct_top = 0.0
+    pad_pct_right = 0.0
+    pad_pct_bottom = 0.0
+
+    if img_ratio > box_ratio:
+        v_space = box_h - display_h
+        pad_pct_top = v_space / 2 / box_h * 100000
+        pad_pct_bottom = pad_pct_top
+    else:
+        h_space = box_w - display_w
+        pad_pct_left = h_space / 2 / box_w * 100000
+        pad_pct_right = pad_pct_left
+
+    x_map = {'xMin': 0.0, 'xMid': 0.5, 'xMax': 1.0}
+    y_map = {'YMin': 0.0, 'YMid': 0.5, 'YMax': 1.0}
+
+    if img_ratio > box_ratio:
+        y_key = None
+        for k in y_map:
+            if k in align:
+                y_key = k
+                break
+        anchor_y = y_map.get(y_key, 0.5)
+        pad_pct_top = v_space * anchor_y / box_h * 100000
+        pad_pct_bottom = v_space * (1 - anchor_y) / box_h * 100000
+    else:
+        x_key = None
+        for k in x_map:
+            if k in align:
+                x_key = k
+                break
+        anchor_x = x_map.get(x_key, 0.5)
+        pad_pct_left = h_space * anchor_x / box_w * 100000
+        pad_pct_right = h_space * (1 - anchor_x) / box_w * 100000
+
+    parts_xml = []
+    if pad_pct_left > 0:
+        parts_xml.append(f'l="{int(round(pad_pct_left))}"')
+    if pad_pct_top > 0:
+        parts_xml.append(f't="{int(round(pad_pct_top))}"')
+    if pad_pct_right > 0:
+        parts_xml.append(f'r="{int(round(pad_pct_right))}"')
+    if pad_pct_bottom > 0:
+        parts_xml.append(f'b="{int(round(pad_pct_bottom))}"')
+
+    if parts_xml:
+        return f'<a:stretch><a:fillRect {" ".join(parts_xml)}/></a:stretch>'
+    return '<a:stretch><a:fillRect/></a:stretch>'
+
+
+def _get_image_pixel_dims(img_data: bytes) -> tuple[int | None, int | None]:
+    """Get image pixel dimensions from raw bytes (PNG/JPEG headers)."""
+    if img_data[:8] == b'\x89PNG\r\n\x1a\n' and len(img_data) >= 24:
+        w = int.from_bytes(img_data[16:20], 'big')
+        h = int.from_bytes(img_data[20:24], 'big')
+        return w, h
+
+    if img_data[:2] == b'\xff\xd8':
+        try:
+            i = 2
+            while i < len(img_data) - 1:
+                if img_data[i] != 0xff:
+                    break
+                m = img_data[i + 1]
+                if m in (0xc0, 0xc2):
+                    h = int.from_bytes(img_data[i + 5:i + 7], 'big')
+                    w = int.from_bytes(img_data[i + 7:i + 9], 'big')
+                    return w, h
+                if 0xd0 <= m <= 0xd7:
+                    i += 2
+                elif m == 0xd9:
+                    break
+                else:
+                    length = int.from_bytes(img_data[i + 2:i + 4], 'big')
+                    i += 2 + length
+        except (IndexError, ValueError):
+            pass
+
+    return None, None
 
 
 # ---------------------------------------------------------------------------

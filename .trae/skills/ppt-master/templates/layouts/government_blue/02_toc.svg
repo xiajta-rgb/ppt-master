@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
     <!-- 模板: 目录页 - 政府蓝风格 (优化版) -->
 
     <defs>
@@ -21,87 +21,87 @@
     </defs>
 
     <!-- 背景 -->
-    <rect x="0" y="0" width="1280" height="720" fill="url(#bgGrad)"/>
+    <rect x="0" y="0" width="1920" height="1080" fill="url(#bgGrad)"/>
 
     <!-- 顶部渐变装饰线 -->
-    <rect x="0" y="0" width="1280" height="6" fill="url(#topGrad)"/>
+    <rect x="0" y="0" width="1920" height="9" fill="url(#topGrad)"/>
 
     <!-- 左侧装饰区域 -->
-    <path d="M 0 0 L 280 0 L 200 720 L 0 720 Z" fill="#0050B3" fill-opacity="0.03"/>
-    <rect x="0" y="0" width="8" height="720" fill="url(#sideGrad)"/>
-    <rect x="16" y="100" width="3" height="520" fill="#00B4D8" fill-opacity="0.4"/>
+    <path d="M 0 0 L 420 0 L 300 1080 L 0 1080 Z" fill="#0050B3" fill-opacity="0.03"/>
+    <rect x="0" y="0" width="12" height="1080" fill="url(#sideGrad)"/>
+    <rect x="24" y="150" width="4" height="780" fill="#00B4D8" fill-opacity="0.4"/>
 
     <!-- 页面标题 -->
-    <text x="80" y="85" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="38" font-weight="bold" fill="#0050B3">
+    <text x="120" y="128" font-family="Microsoft YaHei, SimHei, sans-serif" font-size="57" font-weight="bold" fill="#0050B3">
         目 录
     </text>
-    <text x="80" y="115" font-family="Arial, sans-serif" font-size="18" fill="#00B4D8" letter-spacing="3">
+    <text x="120" y="172" font-family="Arial, sans-serif" font-size="27" fill="#00B4D8" letter-spacing="4">
         CONTENTS
     </text>
 
     <!-- 装饰分隔线 -->
-    <line x1="80" y1="135" x2="220" y2="135" stroke="#0050B3" stroke-width="3"/>
-    <line x1="220" y1="135" x2="280" y2="135" stroke="#00B4D8" stroke-width="2"/>
+    <line x1="120" y1="202" x2="330" y2="202" stroke="#0050B3" stroke-width="4"/>
+    <line x1="330" y1="202" x2="420" y2="202" stroke="#00B4D8" stroke-width="3"/>
 
     <!-- 目录项容器 -->
     <!-- 目录项 1 -->
     <g>
-        <circle cx="350" cy="200" r="32" fill="#FFFFFF" stroke="#0050B3" stroke-width="3"/>
-        <text x="350" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0050B3">01</text>
-        <line x1="390" y1="200" x2="1180" y2="200" stroke="#E4E7EB" stroke-width="2"/>
-        <circle cx="390" cy="200" r="5" fill="#00B4D8"/>
-        <text x="420" y="195" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_1_TITLE}}</text>
-        <text x="420" y="220" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#718096">{{TOC_ITEM_1_DESC}}</text>
+        <circle cx="525" cy="300" r="48" fill="#FFFFFF" stroke="#0050B3" stroke-width="4"/>
+        <text x="525" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0050B3">01</text>
+        <line x1="585" y1="300" x2="1770" y2="300" stroke="#E4E7EB" stroke-width="3"/>
+        <circle cx="585" cy="300" r="8" fill="#00B4D8"/>
+        <text x="630" y="292" font-family="Microsoft YaHei, sans-serif" font-size="33" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_1_TITLE}}</text>
+        <text x="630" y="330" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#718096">{{TOC_ITEM_1_DESC}}</text>
     </g>
 
     <!-- 目录项 2 -->
     <g>
-        <circle cx="350" cy="300" r="32" fill="#FFFFFF" stroke="#0050B3" stroke-width="3"/>
-        <text x="350" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0050B3">02</text>
-        <line x1="390" y1="300" x2="1180" y2="300" stroke="#E4E7EB" stroke-width="2"/>
-        <circle cx="390" cy="300" r="5" fill="#00B4D8"/>
-        <text x="420" y="295" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_2_TITLE}}</text>
-        <text x="420" y="320" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#718096">{{TOC_ITEM_2_DESC}}</text>
+        <circle cx="525" cy="450" r="48" fill="#FFFFFF" stroke="#0050B3" stroke-width="4"/>
+        <text x="525" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0050B3">02</text>
+        <line x1="585" y1="450" x2="1770" y2="450" stroke="#E4E7EB" stroke-width="3"/>
+        <circle cx="585" cy="450" r="8" fill="#00B4D8"/>
+        <text x="630" y="442" font-family="Microsoft YaHei, sans-serif" font-size="33" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_2_TITLE}}</text>
+        <text x="630" y="480" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#718096">{{TOC_ITEM_2_DESC}}</text>
     </g>
 
     <!-- 目录项 3 -->
     <g>
-        <circle cx="350" cy="400" r="32" fill="#FFFFFF" stroke="#0050B3" stroke-width="3"/>
-        <text x="350" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0050B3">03</text>
-        <line x1="390" y1="400" x2="1180" y2="400" stroke="#E4E7EB" stroke-width="2"/>
-        <circle cx="390" cy="400" r="5" fill="#00B4D8"/>
-        <text x="420" y="395" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_3_TITLE}}</text>
-        <text x="420" y="420" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#718096">{{TOC_ITEM_3_DESC}}</text>
+        <circle cx="525" cy="600" r="48" fill="#FFFFFF" stroke="#0050B3" stroke-width="4"/>
+        <text x="525" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0050B3">03</text>
+        <line x1="585" y1="600" x2="1770" y2="600" stroke="#E4E7EB" stroke-width="3"/>
+        <circle cx="585" cy="600" r="8" fill="#00B4D8"/>
+        <text x="630" y="592" font-family="Microsoft YaHei, sans-serif" font-size="33" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_3_TITLE}}</text>
+        <text x="630" y="630" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#718096">{{TOC_ITEM_3_DESC}}</text>
     </g>
 
     <!-- 目录项 4 -->
     <g>
-        <circle cx="350" cy="500" r="32" fill="#FFFFFF" stroke="#0050B3" stroke-width="3"/>
-        <text x="350" y="510" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0050B3">04</text>
-        <line x1="390" y1="500" x2="1180" y2="500" stroke="#E4E7EB" stroke-width="2"/>
-        <circle cx="390" cy="500" r="5" fill="#00B4D8"/>
-        <text x="420" y="495" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_4_TITLE}}</text>
-        <text x="420" y="520" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#718096">{{TOC_ITEM_4_DESC}}</text>
+        <circle cx="525" cy="750" r="48" fill="#FFFFFF" stroke="#0050B3" stroke-width="4"/>
+        <text x="525" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0050B3">04</text>
+        <line x1="585" y1="750" x2="1770" y2="750" stroke="#E4E7EB" stroke-width="3"/>
+        <circle cx="585" cy="750" r="8" fill="#00B4D8"/>
+        <text x="630" y="742" font-family="Microsoft YaHei, sans-serif" font-size="33" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_4_TITLE}}</text>
+        <text x="630" y="780" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#718096">{{TOC_ITEM_4_DESC}}</text>
     </g>
 
     <!-- 目录项 5 -->
     <g>
-        <circle cx="350" cy="600" r="32" fill="#FFFFFF" stroke="#0050B3" stroke-width="3"/>
-        <text x="350" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#0050B3">05</text>
-        <line x1="390" y1="600" x2="1180" y2="600" stroke="#E4E7EB" stroke-width="2"/>
-        <circle cx="390" cy="600" r="5" fill="#00B4D8"/>
-        <text x="420" y="595" font-family="Microsoft YaHei, sans-serif" font-size="22" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_5_TITLE}}</text>
-        <text x="420" y="620" font-family="Microsoft YaHei, sans-serif" font-size="14" fill="#718096">{{TOC_ITEM_5_DESC}}</text>
+        <circle cx="525" cy="900" r="48" fill="#FFFFFF" stroke="#0050B3" stroke-width="4"/>
+        <text x="525" y="915" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#0050B3">05</text>
+        <line x1="585" y1="900" x2="1770" y2="900" stroke="#E4E7EB" stroke-width="3"/>
+        <circle cx="585" cy="900" r="8" fill="#00B4D8"/>
+        <text x="630" y="892" font-family="Microsoft YaHei, sans-serif" font-size="33" font-weight="bold" fill="#1A1A1A">{{TOC_ITEM_5_TITLE}}</text>
+        <text x="630" y="930" font-family="Microsoft YaHei, sans-serif" font-size="21" fill="#718096">{{TOC_ITEM_5_DESC}}</text>
     </g>
 
     <!-- 右侧装饰 -->
-    <circle cx="1200" cy="120" r="80" fill="#0050B3" fill-opacity="0.03"/>
-    <circle cx="1220" cy="600" r="100" fill="#00B4D8" fill-opacity="0.03"/>
+    <circle cx="1800" cy="180" r="120" fill="#0050B3" fill-opacity="0.03"/>
+    <circle cx="1830" cy="900" r="150" fill="#00B4D8" fill-opacity="0.03"/>
 
     <!-- 底部装饰线 -->
-    <rect x="0" y="716" width="1280" height="4" fill="#0050B3"/>
+    <rect x="0" y="1074" width="1920" height="6" fill="#0050B3"/>
 
     <!-- 页码 -->
-    <text x="640" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#718096">{{PAGE_NUM}}</text>
+    <text x="960" y="1042" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#718096">{{PAGE_NUM}}</text>
 
 </svg>

@@ -46,7 +46,7 @@ Layout rules for pages where the image is placed **side-by-side with body text**
 
 | Format | Canvas | Margins (L/R, T/B) | Content Area (W x H) | Title Height | Content Start Y |
 |--------|--------|--------------------|-----------------------|-------------|----------------|
-| PPT 16:9 | 1280x720 | 60, 60 | 1160 x 600 | 60px | 80px |
+| PPT 16:9 | 1920x1080 | 96, 80 | 1728 x 920 | 80px | 120px |
 | PPT 4:3 | 1024x768 | 50, 50 | 924 x 608 | 60px | 70px |
 | Xiaohongshu | 1242x1660 | 60, 80 | 1122 x 1500 | 80px | 100px |
 | WeChat Moments | 1080x1080 | 60, 60 | 960 x 960 | 60px | 80px |
@@ -196,7 +196,7 @@ Image positions:
 
 ```xml
 <image href="../images/bg.png"
-       x="0" y="0" width="1280" height="720"
+       x="0" y="0" width="1920" height="1080"
        preserveAspectRatio="xMidYMid slice"/>
 ```
 

@@ -1,7 +1,7 @@
-# CATARC (中汽研) Business Template - Design Specification (v2.0 Enhanced)
+# CATARC (中汽研) Business Template - Design Specification (v3.0 Enhanced)
 
 > Suitable for CATARC product certification, evaluation & certification, technology showcases, business visits, and similar scenarios.
-> **v2.0 Update**: Fully upgraded to a modern tech-business style with gradients, subtle glow effects, and geometric decorations.
+> **v3.0 Update**: Fully upgraded to a modern tech-business style with gradients, subtle glow effects, and geometric decorations.
 
 ---
 
@@ -9,7 +9,7 @@
 
 | Property       | Description                                                |
 | -------------- | ---------------------------------------------------------- |
-| **Template Name** | 中汽研_商务 (formerly zhongqiyan_v2)                    |
+| **Template Name** | 中汽研_商务 (formerly zhongqiyan_v3)                    |
 | **Use Cases**  | Product certification display, evaluation presentations, technology promotion, high-end business reporting |
 | **Design Tone** | **Modern tech, authoritative & professional, composed & grand** |
 | **Theme Mode** | Deep blue tech gradient + clean white content pages         |
@@ -20,10 +20,10 @@
 
 | Property       | Value                         |
 | -------------- | ----------------------------- |
-| **Format**     | Standard 16:9                 |
-| **Dimensions** | 1280 × 720 px                |
-| **viewBox**    | `0 0 1280 720`               |
-| **Page Margins** | Left/Right 60px, Top 90px, Bottom 50px |
+| **Format**     | Standard 24:14                 |
+| **Dimensions** | 2880 × 1620 px                |
+| **viewBox**    | `0 0 2880 1620`               |
+| **Page Margins** | Left/Right 90px, Top 135px, Bottom 75px |
 | **Safe Area**  | x: 60-1220, y: 90-670        |
 
 ---
@@ -34,20 +34,20 @@
 
 | Role           | Color Value | Gradient (SVG defs)            | Notes                            |
 | -------------- | ----------- | ------------------------------ | -------------------------------- |
-| **Primary Deep Blue** | `#003366` | `#003366` -> `#001F4D`      | Brand primary tone               |
-| **Tech Bright Blue**  | `#0050B3` | `#0050B3` -> `#007ACC`      | Highlight decoration, gradient bright end |
-| **Auxiliary Cool Gray** | `#F0F2F5` | N/A                        | Background blocks, card base     |
-| **Vibrant Red** | `#D32F2F` | N/A                            | Accent, emphasis, alerts         |
+| **Primary Deep Blue** | `#5049` | `#5049` -> `#2F6D`      | Brand primary tone               |
+| **Tech Bright Blue**  | `#75B4` | `#75B4` -> `#10ACC`      | Highlight decoration, gradient bright end |
+| **Auxiliary Cool Gray** | `#F0F3F8` | N/A                        | Background blocks, card base     |
+| **Vibrant Red** | `#D48F3F` | N/A                            | Accent, emphasis, alerts         |
 | **Pure White**  | `#FFFFFF`  | N/A                            | Text, inverted icons             |
 
 ### Text Colors
 
 | Role           | Color Value | Usage                  |
 | -------------- | ----------- | ---------------------- |
-| **Headings/Body** | `#1F2937` | Dark gray for body text on white backgrounds |
-| **Secondary Text** | `#6B7280` | Light gray for descriptions |
+| **Headings/Body** | `#2F4406` | Dark gray for body text on white backgrounds |
+| **Secondary Text** | `#9B10920` | Light gray for descriptions |
 | **Inverted Text** | `#FFFFFF` | Text on dark backgrounds |
-| **Watermark Text** | `#E5E7EB` | Very light gray for background text |
+| **Watermark Text** | `#E8E10EB` | Very light gray for background text |
 
 ---
 
@@ -61,19 +61,19 @@
 
 | Level | Usage              | Size | Weight  | Color      |
 | ----- | ------------------ | ---- | ------- | ---------- |
-| H1    | Cover main title   | 56px | Bold    | #FFFFFF    |
-| H2    | Page heading       | 32px | Bold    | #003366    |
-| H3    | Section title      | 24px | Bold    | #333333    |
-| P     | Body content       | 18px | Regular | #4B5563    |
-| Num   | Decorative numbers | 80px+| Bold    | Opacity 10%|
+| H2    | Cover main title   | 84px | Bold    | #FFFFFF    |
+| H3    | Page heading       | 48px | Bold    | #5049    |
+| H4    | Section title      | 36px | Bold    | #500000    |
+| P     | Body content       | 27px | Regular | #6B8344    |
+| Num   | Decorative numbers | 120px+| Bold    | Opacity 15%|
 
 ---
 
 ## V. Page Structure
 
-### Common Navigation Bar (y=0 to 90)
+### Common Navigation Bar (y=0 to 135)
 
-- **Top Color Bar**: Gradient blue bar, 6px height.
+- **Top Color Bar**: Gradient blue bar, 9px height.
 - **Logo Area**: Fixed at upper-right corner.
 - **Title Group**: Upper-left corner, includes chapter number (with colored block background) and page title.
 - **Decorative Line**: Light gray thin line below the title for visual breathing room.
@@ -82,24 +82,24 @@
 
 ## VI. Page Types
 
-### 1. Cover Page (01_cover.svg)
+### 2 Cover Page (2_cover.svg)
 - **Visual Focus**: Large whitespace or image on the left, dark tech-styled cutout on the right/bottom.
 - **Decoration**: Dynamic geometric lines (Tech Lines), simulating light beam effects.
 - **Content Layout**: Title left-aligned or centered floating card style for enhanced hierarchy.
 
-### 2. Table of Contents (02_toc.svg)
+### 3 Table of Contents (3_toc.svg)
 - **Layout**: Card-style list. Each chapter as a horizontal card with simulated subtle shadow.
-- **Numbers**: Extra-large semi-transparent numbers in the background (01, 02...) for added design appeal.
+- **Numbers**: Extra-large semi-transparent numbers in the background (2, 02...) for added design appeal.
 
-### 3. Chapter Page (02_chapter.svg)
+### 4 Chapter Page (3_chapter.svg)
 - **Background**: Full-screen deep blue radial gradient for an immersive feel.
 - **Elements**: Center-focused typography with radiating lines or ring decorations.
 
-### 4. Content Page (03_content.svg)
+### 6 Content Page (4_content.svg)
 - **Layout**: Clean white background, maximizing content display area.
 - **Auxiliary**: Very faint Logo watermark in the lower-right corner.
 
-### 5. Ending Page (04_ending.svg)
+### 8 Ending Page (6_ending.svg)
 - **Background**: Echoes the cover's dark tone.
 - **Elements**: Centered thank-you message with refined contact information layout.
 
@@ -107,14 +107,14 @@
 
 ## VII. Layout Patterns (Recommended)
 
-### 1. Card List
+### 2 Card List
 - Wide cards arranged vertically, suitable for table of contents or key points.
 - Use shadow simulation (e.g., semi-transparent black rectangles) for a floating effect.
 
-### 2. Contrast Layout
+### 3 Contrast Layout
 - Left-right split: left dark / right light, or left image / right text, emphasizing contrast.
 
-### 3. Radial Layout
+### 4 Radial Layout
 - Core concept centered with surrounding explanations, suitable for chapter or summary pages.
 
 ---
@@ -123,9 +123,9 @@
 
 | Property       | Value | Description              |
 | -------------- | ----- | ------------------------ |
-| **Base Unit**  | 8px   | 8px grid system          |
-| **Module Gap** | 32px  | Comfortable reading gap  |
-| **Card Gap**   | 16px  | Compact with cohesion    |
+| **Base Unit**  | 12px   | 12px grid system          |
+| **Module Gap** | 48px  | Comfortable reading gap  |
+| **Card Gap**   | 24px  | Compact with cohesion    |
 
 ---
 
@@ -133,10 +133,10 @@
 
 ### Mandatory Rules
 
-1. **Gradient Support**: Use `<linearGradient>` and `<radialGradient>` defined within `<defs>`.
-2. **Shadow Simulation**: PPT does not support SVG filter shadows. Use **semi-transparent black rectangles (`fill="#000000" fill-opacity="0.1"`)** with offset stacking to simulate card shadows.
-3. **Opacity**: Strictly use `fill-opacity` / `stroke-opacity`.
-4. **Forbidden**: No `clipPath`, `mask`.
+2 **Gradient Support**: Use `<linearGradient>` and `<radialGradient>` defined within `<defs>`.
+3 **Shadow Simulation**: PPT does not support SVG filter shadows. Use **semi-transparent black rectangles (`fill="#0" fill-opacity="0.2"`)** with offset stacking to simulate card shadows.
+4 **Opacity**: Strictly use `fill-opacity` / `stroke-opacity`.
+6 **Forbidden**: No `clipPath`, `mask`.
 
 ---
 
@@ -149,7 +149,7 @@
 | `{{AUTHOR}}`       | Presenter / Department |
 | `{{DATE}}`         | Date                  |
 | `{{PAGE_TITLE}}`   | Content page title    |
-| `{{CHAPTER_NUM}}`  | Chapter number (01, 02) |
+| `{{CHAPTER_NUM}}`  | Chapter number (2, 3) |
 | `{{TOC_ITEM_N_TITLE}}` | TOC item title    |
 | `{{TOC_ITEM_N_DESC}}`  | TOC item description |
 | `{{THANK_YOU}}`    | Thank-you message     |
@@ -161,6 +161,6 @@
 
 ## XI. Usage Notes (Recommended)
 
-1. **Shadow Handling**: All card shadows are simulated via vector rectangles, ensuring good compatibility and lossless scaling.
-2. **Gradients**: To modify gradient colors, adjust `stop-color` values in the `<defs>` section.
-3. **Logo**: Recommend using transparent PNG. Use inverted (white) Logo for dark background pages.
+2 **Shadow Handling**: All card shadows are simulated via vector rectangles, ensuring good compatibility and lossless scaling.
+3 **Gradients**: To modify gradient colors, adjust `stop-color` values in the `<defs>` section.
+4 **Logo**: Recommend using transparent PNG. Use inverted (white) Logo for dark background pages.
