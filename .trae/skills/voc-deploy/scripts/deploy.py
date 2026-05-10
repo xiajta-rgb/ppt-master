@@ -8,7 +8,19 @@ import subprocess
 import time
 import requests
 import sys
+import ssl
 from pathlib import Path
+
+import urllib3
+
+class TLS12Adapter(requests.adapters.HTTPAdapter):
+    def init_poolmanager(self, *args, **kwargs):
+        ctx = ssl.create_default_context()
+        ctx.maximum_version = ssl.TLSVersion.TLSv1_2
+        kwargs['ssl_context'] = ctx
+        return super().init_poolmanager(*args, **kwargs)
+
+tls12_adapter = TLS12Adapter()
 
 USERNAME = 'ppt'
 API_TOKEN = 'c061620aaca584d026e45dc2baede02bd46ae0de'
@@ -338,15 +350,36 @@ def application(environ, start_response):
     return [content]
 '''
 
+def _get_session():
+    s = requests.Session()
+    s.mount('https://', tls12_adapter)
+    s.headers.update(HEADERS)
+    return s
+
+def api_request(method, url, max_retries=3, retry_delay=10, **kwargs):
+    session = _get_session()
+    for attempt in range(max_retries):
+        try:
+            resp = getattr(session, method)(url, timeout=30, **kwargs)
+            return resp
+        except requests.exceptions.SSLError as e:
+            print(f"    [SSL] 尝试 {attempt+1}/{max_retries} 失败: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+        except requests.exceptions.ConnectionError as e:
+            print(f"    [CONN] 尝试 {attempt+1}/{max_retries} 失败: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+        except Exception as e:
+            print(f"    [ERR] 尝试 {attempt+1}/{max_retries} 失败: {e}")
+            if attempt < max_retries - 1:
+                time.sleep(retry_delay)
+    return None
+
 def git_pull():
     try:
-        result = requests.post(
-            f'https://{HOST}/api/v0/user/{USERNAME}/consoles/',
-            headers=HEADERS,
-            json={'executable': '/bin/bash'},
-            timeout=30
-        )
-        if result.status_code == 201:
+        result = api_request('post', f'https://{HOST}/api/v0/user/{USERNAME}/consoles/', json={'executable': '/bin/bash'})
+        if result and result.status_code == 201:
             console_id = result.json()['id']
             print(f"[INFO] 创建控制台: {console_id}")
             
@@ -355,25 +388,16 @@ def git_pull():
             ]
             
             for cmd in commands:
-                exec_result = requests.post(
-                    f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}/send_input/',
-                    headers=HEADERS,
-                    json={'input': cmd + '\\n'},
-                    timeout=30
-                )
+                api_request('post', f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}/send_input/', json={'input': cmd + '\\n'})
                 print(f"[INFO] 执行: {cmd}")
             
             time.sleep(10)
             
-            requests.delete(
-                f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}',
-                headers=HEADERS,
-                timeout=10
-            )
+            api_request('delete', f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}')
             print("[OK] git pull 完成")
             return True
         else:
-            print(f"[!] 无法创建控制台: {result.status_code}")
+            print(f"[!] 无法创建控制台: {result.status_code if result else 'N/A'}")
             return False
     except Exception as e:
         print(f"[!] git pull 失败: {e}")
@@ -381,24 +405,22 @@ def git_pull():
 
 def upload_wsgi():
     url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
-    try:
-        resp = requests.post(url, headers=HEADERS, files={'content': WSGI_CONTENT}, timeout=30)
-        resp.raise_for_status()
+    resp = api_request('post', url, files={'content': WSGI_CONTENT}, max_retries=5, retry_delay=15)
+    if resp and resp.ok:
         print("[OK] WSGI 上传成功")
         return True
-    except Exception as e:
-        print(f"[X] WSGI 上传失败: {e}")
+    else:
+        print(f"[X] WSGI 上传失败: {resp.status_code if resp else 'Connection failed'}")
         return False
 
 def reload_webapp():
     url = f'https://{HOST}/api/v0/user/{USERNAME}/webapps/{WEBAPP_DOMAIN}/reload/'
-    try:
-        resp = requests.post(url, headers=HEADERS, timeout=90)
-        resp.raise_for_status()
+    resp = api_request('post', url, max_retries=3, retry_delay=15)
+    if resp and resp.ok:
         print("[OK] Web App 重载成功!")
         return True
-    except Exception as e:
-        print(f"[X] Web App 重载失败: {e}")
+    else:
+        print(f"[X] Web App 重载失败: {resp.status_code if resp else 'Connection failed'}")
         return False
 
 def verify():
@@ -414,9 +436,10 @@ def verify():
     ]
 
     all_ok = True
+    session = _get_session()
     for name, url in test_urls:
         try:
-            response = requests.get(url, timeout=15)
+            response = session.get(url, timeout=15)
             if response.status_code == 200:
                 print(f"[OK] {name}: {response.status_code} ({len(response.text)} bytes)")
             else:

@@ -174,7 +174,7 @@ def scan_projects():
                         slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
                 projects.append({
                     'id': item.name,
-                    'folder': item.name,
+                    'folder': f'examples/{item.name}/svg_final',
                     'slides': slides,
                     'alias': [k for k, v in PROJECT_ALIASES.items() if v == item.name]
                 })

@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.06"/>
+    </filter>
+    <linearGradient id="tpackGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E86A2A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="#F8F9FA"/>
+  
+  <!-- Music note background decorations -->
+  <g opacity="0.10" fill="#E86A2A">
+    <g transform="translate(1680, 160) rotate(-20)">
+      <text font-size="110" font-family="serif">♪</text>
+    </g>
+    <g transform="translate(1780, 580) rotate(18)">
+      <text font-size="90" font-family="serif"></text>
+    </g>
+    <g transform="translate(120, 720) rotate(-28)">
+      <text font-size="80" font-family="serif"></text>
+    </g>
+    <g transform="translate(1500, 100) rotate(12)">
+      <text font-size="65" font-family="serif">♬</text>
+    </g>
+    <g transform="translate(1750, 820) rotate(-15)">
+      <text font-size="70" font-family="serif">♪</text>
+    </g>
+    <g transform="translate(200, 200) rotate(20)">
+      <text font-size="55" font-family="serif">♫</text>
+    </g>
+    <g transform="translate(1600, 380) rotate(-25)">
+      <text font-size="50" font-family="serif">♩</text>
+    </g>
+    <g transform="translate(100, 420) rotate(28)">
+      <text font-size="45" font-family="serif">♬</text>
+    </g>
+    <g transform="translate(1850, 320) rotate(-10)">
+      <text font-size="60" font-family="serif">♫</text>
+    </g>
+    <g transform="translate(300, 880) rotate(22)">
+      <text font-size="40" font-family="serif">♪</text>
+    </g>
+  </g>
+  
+  <!-- Header -->
+  <text x="80" y="100" font-size="72" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">02</text>
+  <text x="190" y="90" font-size="44" fill="#2C1810" font-family="'Noto Serif SC', serif" font-weight="600">理论基础与研究定位</text>
+  <text x="190" y="125" font-size="22" fill="#8B7355">Theoretical Foundation</text>
+  <line x1="80" y1="145" x2="1840" y2="145" stroke="#F5A623" stroke-width="3"/>
+  
+  <!-- Left column: Research status -->
+  <rect x="80" y="180" width="760" height="220" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="80" y="180" width="8" height="220" rx="4" fill="#F5A623"/>
+  
+  <!-- Ant Design style icon: Book -->
+  <g transform="translate(130, 210)">
+    <path d="M4 4 L20 8 L36 4 L36 32 L20 36 L4 32 Z" fill="none" stroke="#F5A623" stroke-width="2"/>
+    <line x1="20" y1="8" x2="20" y2="36" stroke="#F5A623" stroke-width="2"/>
+  </g>
+  <text x="190" y="252" font-size="28" fill="#2C1810" font-weight="600">国外研究现状</text>
+  <text x="130" y="300" font-size="22" fill="#5A5D75">TPACK理论在欧美国家已形成较为成熟的理论框架，</text>
+  <text x="130" y="335" font-size="22" fill="#5A5D75">并成功向理工科、人文社科等多学科教学场景应用拓展。</text>
+  <text x="130" y="375" font-size="22" fill="#5A5D75">Mishra &amp; Koehler (2006) 提出TPACK框架后，该理论迅速</text>
+  <text x="130" y="410" font-size="22" fill="#5A5D75">成为教师教育领域的核心范式。</text>
+  
+  <rect x="80" y="420" width="760" height="220" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="80" y="420" width="8" height="220" rx="4" fill="#E86A2A"/>
+  
+  <!-- Ant Design style icon: Book -->
+  <g transform="translate(130, 450)">
+    <path d="M4 4 L20 8 L36 4 L36 32 L20 36 L4 32 Z" fill="none" stroke="#E86A2A" stroke-width="2"/>
+    <line x1="20" y1="8" x2="20" y2="36" stroke="#E86A2A" stroke-width="2"/>
+  </g>
+  <text x="190" y="488" font-size="28" fill="#2C1810" font-weight="600">国内研究现状</text>
+  <text x="130" y="535" font-size="22" fill="#5A5D75">国内相关研究起步较晚但发展迅速，研究内容多集中于</text>
+  <text x="130" y="570" font-size="22" fill="#5A5D75">理论内涵探讨与教师TPACK能力测评。</text>
+  <text x="130" y="610" font-size="22" fill="#5A5D75">针对小学音乐欣赏教学的系统性实践研究尚显不足，</text>
+  <text x="130" y="645" font-size="22" fill="#5A5D75">缺乏可操作的落地模型。</text>
+  
+  <rect x="80" y="660" width="760" height="220" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="80" y="660" width="8" height="220" rx="4" fill="#8B7355"/>
+  
+  <!-- Ant Design style icon: Target -->
+  <g transform="translate(130, 690)">
+    <circle cx="20" cy="20" r="18" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <circle cx="20" cy="20" r="12" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <circle cx="20" cy="20" r="6" fill="none" stroke="#8B7355" stroke-width="2"/>
+    <circle cx="20" cy="20" r="2" fill="#8B7355"/>
+  </g>
+  <text x="190" y="728" font-size="28" fill="#2C1810" font-weight="600">本研究定位</text>
+  <text x="130" y="775" font-size="22" fill="#5A5D75">聚焦小学音乐欣赏领域，构建并验证一个可落地、</text>
+  <text x="130" y="810" font-size="22" fill="#5A5D75">可操作的TPACK教学实践模型。</text>
+  <text x="130" y="850" font-size="22" fill="#5A5D75">填补"理论-实践"之间的鸿沟，为一线教师提供</text>
+  <text x="130" y="885" font-size="22" fill="#5A5D75">可复制的教学范式。</text>
+  
+  <!-- Right column: TPACK diagram -->
+  <rect x="880" y="180" width="960" height="740" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  
+  <!-- Ant Design style icon: Experiment -->
+  <g transform="translate(940, 210)">
+    <path d="M12 4 L28 4 L36 28 L4 28 Z" fill="none" stroke="#E86A2A" stroke-width="2"/>
+    <line x1="16" y1="4" x2="24" y2="4" stroke="#E86A2A" stroke-width="2"/>
+    <line x1="20" y1="4" x2="20" y2="8" stroke="#E86A2A" stroke-width="2"/>
+  </g>
+  <text x="990" y="248" font-size="28" fill="#2C1810" font-weight="600">核心理论：TPACK 整合技术的学科教学知识</text>
+  
+  <!-- TPACK nodes -->
+  <circle cx="1060" cy="440" r="95" fill="#E86A2A"/>
+  <text x="1060" y="432" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">技术知识</text>
+  <text x="1060" y="465" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">TK</text>
+  
+  <circle cx="1360" cy="440" r="95" fill="#F5A623"/>
+  <text x="1360" y="432" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">教学法知识</text>
+  <text x="1360" y="465" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">PK</text>
+  
+  <circle cx="1660" cy="440" r="95" fill="#8B7355"/>
+  <text x="1660" y="432" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">学科内容知识</text>
+  <text x="1660" y="465" font-size="24" fill="#FFFFFF" text-anchor="middle" font-weight="600">CK</text>
+  
+  <!-- Center TPACK -->
+  <circle cx="1360" cy="640" r="115" fill="url(#tpackGrad)"/>
+  <text x="1360" y="632" font-size="32" fill="#FFFFFF" text-anchor="middle" font-weight="700">TPACK</text>
+  <text x="1360" y="670" font-size="26" fill="#FFFFFF" text-anchor="middle">整合</text>
+  
+  <!-- Description -->
+  <text x="940" y="810" font-size="22" fill="#5A5D75" text-anchor="middle">非三者的简单线性叠加，而是强调技术与教学内容的深度融合，</text>
+  <text x="940" y="845" font-size="22" fill="#5A5D75" text-anchor="middle">旨在创造出适用于信息化教学环境的新教学知识与实践智慧。</text>
+  
+  <!-- Bottom decorative element -->
+  <line x1="80" y1="960" x2="1840" y2="960" stroke="#F5A623" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="960" y="995" font-size="18" text-anchor="middle" fill="#8B7355" letter-spacing="2">基于TPACK理论的小学音乐欣赏教学实践研究</text>
+  <text x="960" y="1025" font-size="16" text-anchor="middle" fill="#8B7355" letter-spacing="1">XX师范大学 · 音乐学院</text>
+</svg>

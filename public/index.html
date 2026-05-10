@@ -317,6 +317,28 @@
             background: linear-gradient(135deg, #f97316, #ef4444);
         }
 
+        .edit-btn {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+            z-index: 2;
+        }
+
+        .edit-btn:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
         .card-content {
             padding: 20px;
         }
@@ -717,6 +739,70 @@
     </footer>
 
     <script>
+        // Project data loaded dynamically from API
+        let projects = [];
+
+        // Style metadata mapping
+        const STYLE_MAP = {
+            '顶级咨询风': { style: 'consulting', styleName: '顶级咨询风格' },
+            '高端咨询风': { style: 'consulting', styleName: '高端咨询风格' },
+            '麦肯锡风': { style: 'consulting', styleName: '麦肯锡风格' },
+            '谷歌风': { style: 'consulting', styleName: 'Google 品牌风格' },
+            '通用灵活': { style: 'general', styleName: '通用灵活' },
+            'general_dark_tech': { style: 'general', styleName: 'Dark Tech' },
+            '暗色奢华': { style: 'general', styleName: '暗色奢华战术风' },
+            '战术服装': { style: 'general', styleName: '暗色奢华战术风' },
+            '易理风': { style: 'creative', styleName: '易理玄学风格' },
+            '禅意风': { style: 'creative', styleName: '禅意学术风格' },
+            '像素风': { style: 'creative', styleName: '像素复古游戏风' },
+            '宇宙深空风': { style: 'creative', styleName: '宇宙深空风格' },
+            '小学音乐教育答辩': { style: 'creative', styleName: '温暖珊瑚橙风格' },
+        };
+
+        const PROJECT_META = {
+            'ppt169_顶级咨询风_心理治疗中的依恋': { title: '心理治疗中的依恋', pages: 32, desc: '螺旋上升结构，从 Bowlby → Ainsworth → Main → Fonagy 的理论演进，到临床实践的应用深化。', tags: ['MBB 级', '心理学', '专业蓝系'], cover: 'P01_封面.svg' },
+            'ppt169_顶级咨询风_重庆市区域报告_ppt169_20251213': { title: '重庆市区域报告', pages: 20, desc: '基于企业预警通数据，全面分析重庆市经济、财政债务、城投、银行业等七大模块。', tags: ['MBB 级', '政务财政', '数据驱动'], cover: 'P01_封面.svg' },
+            'ppt169_顶级咨询风_甘孜州经济财政分析': { title: '甘孜州经济财政分析', pages: 17, desc: '基于 2024 年甘孜州决算数据，涵盖 GDP、财政收支、政府债务等多维分析。', tags: ['MBB 级', '政务蓝', '藏区文化'], cover: 'slide_01_cover.svg' },
+            'ppt169_顶级咨询风_构建有效AI代理_Anthropic': { title: '构建有效 AI 代理', pages: 15, desc: '基于 Anthropic 官方博客，涵盖 Workflows、Agents、工具设计原则等。', tags: ['MBB 级', 'AI/LLM', 'Anthropic'], cover: 'P01_Cover.svg' },
+            'ppt169_高端咨询风_南欧江水电站战略评估': { title: '南欧江水电站战略评估', pages: 20, desc: '老挝南欧江梯级水电站项目、主权债务危机与仲裁案全景分析。', tags: ['战略评估', '湄公河色系', '流域危机'], cover: 'slide_01_cover.svg' },
+            'ppt169_高端咨询风_汽车认证五年战略规划': { title: '汽车认证五年战略规划', pages: 20, desc: '汽车及零部件领域自愿性产品认证 2026-2030 五年战略规划。', tags: ['战略规划', '新能源', '绿色低碳'], cover: 'slide_01_cover.svg' },
+            'ppt169_麦肯锡风_kimsoong_customer_loyalty': { title: '客户忠诚度计划分析', pages: 8, desc: '展示麦肯锡经典的结构化思维与图表矩阵设计。', tags: ['McKinsey', 'MECE 原则', '数据驱动'], cover: 'slide_01_cover.svg' },
+            'ppt169_谷歌风_google_annual_report': { title: 'Google 年度工作汇报', pages: 10, desc: 'Google 2025 年度工作汇报模板，融合 Google 设计语言与咨询专业度。', tags: ['Google 色系', '品牌一致', '数据驱动'], cover: 'slide_01_cover.svg' },
+            'ppt169_通用灵活+代码_debug六步法': { title: 'Debug 六步法', pages: 10, desc: '深色科技风格，适合技术团队内部培训分享。', tags: ['GitHub 暗色', '程序员', '技术培训'], cover: 'slide_01_cover.svg' },
+            'ppt169_general_dark_tech_claude_code_auto_mode': { title: 'Claude Code Auto Mode', pages: 10, desc: 'Based on Anthropic\'s engineering blog — classifier-based permission system for safer autonomous coding.', tags: ['Dark Theme', 'AI Safety', 'Anthropic'], cover: '01_cover.svg' },
+            'ppt169_通过灵活+代码_三大AI编程神器横向对比': { title: '三大 AI 编程神器横向对比', pages: 11, desc: 'OpenSpec vs ZCF vs Spec Kit 三大 AI 编程工具横向对比分析。', tags: ['技术评测', '科技蓝', 'AI 工具'], cover: 'slide_01_cover.svg' },
+            'ppt169_战术服装_市场分析': { title: '亚马逊战术服装市场分析', pages: 4, desc: '亚马逊美国站休闲工装战术服装市场深度分析，从市场规模、竞争格局到产品设计DNA的全方位专业解读。', tags: ['战术服装', '电商市场', '亚马逊', '户外装备'], cover: 'P01_封面.svg' },
+            'ppt169_易理风_地山谦卦深度研究': { title: '地山谦卦深度研究', pages: 20, desc: '采用「阴阳爻变」设计语言，从象数理占到现代哲学的多维同构。', tags: ['易经', '阴阳对立', '六爻结构'], cover: 'P01_封面.svg' },
+            'ppt169_禅意风_金刚经第一品研究': { title: '金刚经第一品研究', pages: 15, desc: '页面布局如同禅画，以留白营造意境，暗示「空」的智慧。', tags: ['禅意', '水墨留白', '般若思想'], cover: 'P01_封面.svg' },
+            'ppt169_像素风_git_introduction': { title: 'Git 入门完全指南', pages: 10, desc: '复古游戏像素风格，用「存档点」隐喻版本控制概念。', tags: ['像素风', '霓虹系', '游戏感'], cover: 'slide_01_cover.svg' },
+            'demo_project_intro_ppt169_20251211': { title: 'PPT Master 官方介绍', pages: 10, desc: 'PPT Master 项目官方介绍，展示系统架构与四大角色协作机制。', tags: ['官方介绍', '靛蓝渐变', '系统架构'], cover: 'slide_01_cover.svg' },
+            'ppt169_宇宙深空风_占星学五大底层人性原型': { title: '西方占星学五大底层人性原型', pages: 18, desc: '基于占星学·进化心理学·社会学与游戏设计学的跨学科原型框架，映射五大底层人性原型。', tags: ['占星学', '人性原型', '深空金蓝'], cover: '01_封面.svg' },
+            'ppt169_小学音乐教育答辩TPACK': { title: '小学音乐教育答辩TPACK', pages: 10, desc: '基于TPACK理论的小学音乐欣赏教学实践研究答辩PPT，融合AI数字人与VR全景技术。', tags: ['音乐教育', 'TPACK', '珊瑚橙'], cover: 'P01_封面.svg' },
+        };
+
+        function parseProjectId(id) {
+            const meta = PROJECT_META[id];
+            if (meta) return meta;
+            const parts = id.split('_');
+            let title = id;
+            for (const [key, val] of Object.entries(STYLE_MAP)) {
+                if (id.includes(key)) {
+                    const idx = id.indexOf(key);
+                    const after = id.substring(idx + key.length).replace(/^_/, '');
+                    title = after || id;
+                    break;
+                }
+            }
+            return { title, pages: 0, desc: '', tags: [], cover: '' };
+        }
+
+        function detectStyle(id) {
+            for (const [key, val] of Object.entries(STYLE_MAP)) {
+                if (id.includes(key)) return val;
+            }
+            return { style: 'general', styleName: '通用风格' };
+        }
+
         // Update stats with actual data
         function updateStats() {
             const examplesCount = projects.length;
@@ -728,219 +814,44 @@
             document.getElementById('stat-templates').textContent = uniqueStyles;
         }
 
-        // Project data
-        const projects = [
-            {
-                id: 'ppt169_顶级咨询风_心理治疗中的依恋',
-                alias: 'attachment-therapy',
-                title: '心理治疗中的依恋',
-                pages: 32,
-                style: 'consulting',
-                styleName: '顶级咨询风格',
-                desc: '螺旋上升结构，从 Bowlby → Ainsworth → Main → Fonagy 的理论演进，到临床实践的应用深化。',
-                tags: ['MBB 级', '心理学', '专业蓝系'],
-                isNew: false,
-                cover: 'P01_封面.svg'
-            },
-            {
-                id: 'ppt169_顶级咨询风_重庆市区域报告_ppt169_20251213',
-                alias: 'chongqing-report',
-                title: '重庆市区域报告',
-                pages: 20,
-                style: 'consulting',
-                styleName: '顶级咨询风格',
-                desc: '基于企业预警通数据，全面分析重庆市经济、财政债务、城投、银行业等七大模块。',
-                tags: ['MBB 级', '政务财政', '数据驱动'],
-                isNew: true,
-                cover: 'P01_封面.svg'
-            },
-            {
-                id: 'ppt169_顶级咨询风_甘孜州经济财政分析',
-                alias: 'ganzi-economy',
-                title: '甘孜州经济财政分析',
-                pages: 17,
-                style: 'consulting',
-                styleName: '顶级咨询风格',
-                desc: '基于 2024 年甘孜州决算数据，涵盖 GDP、财政收支、政府债务等多维分析。',
-                tags: ['MBB 级', '政务蓝', '藏区文化'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_顶级咨询风_构建有效AI代理_Anthropic',
-                alias: 'ai-agent-anthropic',
-                title: '构建有效 AI 代理',
-                pages: 15,
-                style: 'consulting',
-                styleName: '顶级咨询风格',
-                desc: '基于 Anthropic 官方博客，涵盖 Workflows、Agents、工具设计原则等。',
-                tags: ['MBB 级', 'AI/LLM', 'Anthropic'],
-                isNew: false,
-                cover: 'P01_Cover.svg'
-            },
-            {
-                id: 'ppt169_高端咨询风_南欧江水电站战略评估',
-                alias: 'nam-ou-hydro',
-                title: '南欧江水电站战略评估',
-                pages: 20,
-                style: 'consulting',
-                styleName: '高端咨询风格',
-                desc: '老挝南欧江梯级水电站项目、主权债务危机与仲裁案全景分析。',
-                tags: ['战略评估', '湄公河色系', '流域危机'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_高端咨询风_汽车认证五年战略规划',
-                alias: 'car-certification',
-                title: '汽车认证五年战略规划',
-                pages: 20,
-                style: 'consulting',
-                styleName: '高端咨询风格',
-                desc: '汽车及零部件领域自愿性产品认证 2026-2030 五年战略规划。',
-                tags: ['战略规划', '新能源', '绿色低碳'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_麦肯锡风_kimsoong_customer_loyalty',
-                alias: 'customer-loyalty',
-                title: '客户忠诚度计划分析',
-                pages: 8,
-                style: 'consulting',
-                styleName: '麦肯锡风格',
-                desc: '展示麦肯锡经典的结构化思维与图表矩阵设计。',
-                tags: ['McKinsey', 'MECE 原则', '数据驱动'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_谷歌风_google_annual_report',
-                alias: 'google-annual',
-                title: 'Google 年度工作汇报',
-                pages: 10,
-                style: 'consulting',
-                styleName: 'Google 品牌风格',
-                desc: 'Google 2025 年度工作汇报模板，融合 Google 设计语言与咨询专业度。',
-                tags: ['Google 色系', '品牌一致', '数据驱动'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_通用灵活+代码_debug六步法',
-                alias: 'debug六步法',
-                title: 'Debug 六步法',
-                pages: 10,
-                style: 'general',
-                styleName: '通用灵活 + 代码',
-                desc: '深色科技风格，适合技术团队内部培训分享。',
-                tags: ['GitHub 暗色', '程序员', '技术培训'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_general_dark_tech_claude_code_auto_mode',
-                alias: 'dark-tech',
-                title: 'Claude Code Auto Mode',
-                pages: 10,
-                style: 'general',
-                styleName: 'General + Dark Tech',
-                desc: 'Based on Anthropic\'s engineering blog — classifier-based permission system for safer autonomous coding.',
-                tags: ['Dark Theme', 'AI Safety', 'Anthropic'],
-                isNew: true,
-                cover: '01_cover.svg'
-            },
-            {
-                id: 'ppt169_通过灵活+代码_三大AI编程神器横向对比',
-                alias: 'ai-programming-tools',
-                title: '三大 AI 编程神器横向对比',
-                pages: 11,
-                style: 'general',
-                styleName: '通用灵活',
-                desc: 'OpenSpec vs ZCF vs Spec Kit 三大 AI 编程工具横向对比分析。',
-                tags: ['技术评测', '科技蓝', 'AI 工具'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_战术服装_市场分析',
-                alias: 'tactical-clothing',
-                title: '亚马逊战术服装市场分析',
-                pages: 4,
-                style: 'general',
-                styleName: '暗色奢华战术风',
-                desc: '亚马逊美国站休闲工装战术服装市场深度分析，从市场规模、竞争格局到产品设计DNA的全方位专业解读。',
-                tags: ['战术服装', '电商市场', '亚马逊', '户外装备'],
-                isNew: true,
-                cover: 'P01_封面.svg'
-            },
-            {
-                id: 'ppt169_易理风_地山谦卦深度研究',
-                alias: 'yili-feng',
-                title: '地山谦卦深度研究',
-                pages: 20,
-                style: 'creative',
-                styleName: '易理玄学风格',
-                desc: '采用「阴阳爻变」设计语言，从象数理占到现代哲学的多维同构。',
-                tags: ['易经', '阴阳对立', '六爻结构'],
-                isNew: false,
-                cover: 'P01_封面.svg'
-            },
-            {
-                id: 'ppt169_禅意风_金刚经第一品研究',
-                alias: 'chan-yi-feng',
-                title: '金刚经第一品研究',
-                pages: 15,
-                style: 'creative',
-                styleName: '禅意学术风格',
-                desc: '页面布局如同禅画，以留白营造意境，暗示「空」的智慧。',
-                tags: ['禅意', '水墨留白', '般若思想'],
-                isNew: false,
-                cover: 'P01_封面.svg'
-            },
-            {
-                id: 'ppt169_像素风_git_introduction',
-                alias: 'git-intro',
-                title: 'Git 入门完全指南',
-                pages: 10,
-                style: 'creative',
-                styleName: '像素复古游戏风',
-                desc: '复古游戏像素风格，用「存档点」隐喻版本控制概念。',
-                tags: ['像素风', '霓虹系', '游戏感'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'demo_project_intro_ppt169_20251211',
-                alias: 'demo-project',
-                title: 'PPT Master 官方介绍',
-                pages: 10,
-                style: 'creative',
-                styleName: '清新科技风格',
-                desc: 'PPT Master 项目官方介绍，展示系统架构与四大角色协作机制。',
-                tags: ['官方介绍', '靛蓝渐变', '系统架构'],
-                isNew: false,
-                cover: 'slide_01_cover.svg'
-            },
-            {
-                id: 'ppt169_宇宙深空风_占星学五大底层人性原型',
-                alias: 'astrology-archetypes',
-                title: '西方占星学五大底层人性原型',
-                pages: 18,
-                style: 'creative',
-                styleName: '宇宙深空风格',
-                desc: '基于占星学·进化心理学·社会学与游戏设计学的跨学科原型框架，映射五大底层人性原型。',
-                tags: ['占星学', '人性原型', '深空金蓝'],
-                isNew: true,
-                cover: '01_封面.svg'
-            }
-        ];
-
         // Global state
         let currentUser = localStorage.getItem('currentUser');
         let currentFilter = 'all';
         let currentSearch = '';
         let availableTags = ['consulting', 'general', 'creative'];
+
+        // Load projects from API
+        async function loadProjects() {
+            try {
+                const res = await fetch('/api/scan-projects');
+                if (!res.ok) throw new Error('API error');
+                const data = await res.json();
+                const apiProjects = data.projects || [];
+
+                projects = apiProjects.map(p => {
+                    const meta = parseProjectId(p.id);
+                    const styleInfo = detectStyle(p.id);
+                    const slides = p.slides || [];
+                    const cover = meta.cover || (slides.length > 0 ? slides[0].file : '');
+
+                    return {
+                        id: p.id,
+                        alias: p.alias?.[0] || '',
+                        title: meta.title || p.id,
+                        pages: meta.pages || slides.length,
+                        style: styleInfo.style,
+                        styleName: styleInfo.styleName,
+                        desc: meta.desc,
+                        tags: meta.tags,
+                        isNew: false,
+                        cover: cover
+                    };
+                });
+            } catch (e) {
+                console.error('Failed to load projects:', e);
+                projects = [];
+            }
+        }
 
         // Render skeleton loading
         function renderSkeleton() {
@@ -1001,8 +912,8 @@
                 const s = search.toLowerCase();
                 filtered = filtered.filter(p =>
                     p.title.toLowerCase().includes(s) ||
-                    p.desc.toLowerCase().includes(s) ||
-                    p.tags.some(t => t.toLowerCase().includes(s))
+                    (p.desc && p.desc.toLowerCase().includes(s)) ||
+                    (p.tags && p.tags.some(t => t.toLowerCase().includes(s)))
                 );
             }
 
@@ -1017,6 +928,7 @@
             filtered.forEach((project, index) => {
                 const card = document.createElement('div');
                 card.className = 'project-card';
+                card.style.cursor = 'pointer';
 
                 const styleClass = project.style === 'consulting' ? 'style-consulting'
                     : project.style === 'general' ? 'style-general'
@@ -1028,7 +940,10 @@
 
                 const tagColor = getTagColor(project.style);
 
-                const coverUrl = encodeURI(`examples/${project.id}/svg_final/${project.cover}`);
+                const coverUrl = project.cover
+                    ? encodeURI(`examples/${project.id}/svg_final/${project.cover}`)
+                    : '';
+
                 const img = document.createElement('img');
                 img.src = coverUrl;
                 img.alt = project.title;
@@ -1041,36 +956,36 @@
                     this.parentElement.appendChild(placeholder);
                 };
 
+                const editBtnHtml = currentUser
+                    ? `<button class="edit-btn" title="Edit" onclick="event.stopPropagation(); showEditDialog(projects.find(p=>p.id==='${project.id}'))">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                            <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                        </svg>
+                      </button>`
+                    : '';
+
                 card.innerHTML = `
                     <div class="card-preview" data-project-id="${project.alias || project.id}">
                         ${project.isNew ? '<span class="card-badge new">NEW</span>' : ''}
+                        ${editBtnHtml}
                     </div>
-                    <div class="card-content" data-edit-project="${project.alias || project.id}">
+                    <div class="card-content">
                         <h3 class="card-title"><span class="card-id">#${index + 1}</span> ${project.title}</h3>
                         <div class="card-meta">
                             <span class="tag ${styleClass}" style="background: ${tagColor.bg}; color: ${tagColor.color};">${styleLabel}</span>
                             <span>${project.pages} pages</span>
                         </div>
-                        <p class="card-desc">${project.desc}</p>
+                        <p class="card-desc">${project.desc || ''}</p>
                     </div>
                 `;
 
-                const preview = card.querySelector('.card-preview');
-                preview.addEventListener('click', () => {
+                card.addEventListener('click', () => {
                     const projectId = project.alias || project.id;
                     window.location.href = `viewer.html?project=${encodeURIComponent(projectId)}`;
                 });
 
-                const content = card.querySelector('.card-content');
-                content.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    if (!currentUser) {
-                        showToast('Please login first', 'error');
-                        return;
-                    }
-                    showEditDialog(project);
-                });
-
+                const preview = card.querySelector('.card-preview');
                 preview.insertBefore(img, preview.firstChild);
                 grid.appendChild(card);
             });
@@ -1413,10 +1328,8 @@
 
                 document.body.appendChild(overlay);
 
-                // Close on cancel (only on click, not on mousedown to avoid closing when dragging)
                 document.getElementById('cancelEdit').addEventListener('click', () => overlay.remove());
 
-                // Flag to track if mouse down was inside the dialog
                 let mouseDownInside = false;
                 overlay.addEventListener('mousedown', (e) => {
                     if (e.target === overlay) {
@@ -1426,26 +1339,22 @@
                     }
                 });
                 overlay.addEventListener('click', (e) => {
-                    // Only close if mousedown was on the overlay background
                     if (e.target === overlay && !mouseDownInside) {
                         overlay.remove();
                     }
                 });
 
-                // Save
                 document.getElementById('saveEdit').addEventListener('click', async () => {
                     const newTitle = document.getElementById('editTitle').value;
                     const newDesc = document.getElementById('editDesc').value;
                     const newStyle = document.getElementById('editStyle').value;
                     const newTags = document.getElementById('editTags').value.split(',').map(t => t.trim()).filter(t => t);
 
-                    // Update project data
                     project.title = newTitle;
                     project.desc = newDesc;
                     project.style = newStyle;
                     project.tags = newTags;
 
-                    // Save to backend
                     try {
                         const response = await fetch('/api/save-project', {
                             method: 'POST',
@@ -1468,7 +1377,6 @@
                         showToast('Save error: ' + err.message, 'error');
                     }
 
-                    // Re-render
                     renderProjects();
                     updateStats();
                     overlay.remove();
@@ -1535,8 +1443,6 @@
             closeConfirm();
         }
 
-        // Filter buttons - using .tag-btn
-
         // Load saved project data from backend
         async function loadSavedProjectData() {
             try {
@@ -1554,7 +1460,7 @@
         async function initProjects() {
             renderSkeleton();
 
-            await new Promise(resolve => setTimeout(resolve, 300));
+            await loadProjects();
 
             const savedData = await loadSavedProjectData();
 
@@ -1582,4 +1488,5 @@
     </script>
 </body>
 
+</html>
 </html>

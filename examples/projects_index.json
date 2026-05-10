@@ -1503,6 +1503,68 @@
         }
       ],
       "seqId": "PPT-017"
+    },
+    {
+      "version": 1,
+      "id": "ppt169_小学音乐教育答辩TPACK",
+      "title": "小学音乐教育答辩TPACK",
+      "description": "基于TPACK理论的小学音乐欣赏教学实践研究答辩PPT",
+      "icon": "🎵",
+      "color": "#E07A5F",
+      "folder": "examples/ppt169_小学音乐教育答辩TPACK",
+      "slides": [
+        {
+          "file": "P01_封面.svg",
+          "title": "封面",
+          "desc": "硕士学位论文答辩"
+        },
+        {
+          "file": "P02_目录.svg",
+          "title": "目录",
+          "desc": "汇报内容"
+        },
+        {
+          "file": "P03_研究背景.svg",
+          "title": "研究背景",
+          "desc": "研究缘起与问题提出"
+        },
+        {
+          "file": "P04_理论基础.svg",
+          "title": "理论基础",
+          "desc": "理论基础与研究定位"
+        },
+        {
+          "file": "P05_研究方法.svg",
+          "title": "研究方法",
+          "desc": "研究设计与方法"
+        },
+        {
+          "file": "P06_教学实践.svg",
+          "title": "教学实践",
+          "desc": "教学实践与案例分析"
+        },
+        {
+          "file": "P07_研究结果.svg",
+          "title": "研究结果",
+          "desc": "研究结果与分析"
+        },
+        {
+          "file": "P08_结论展望.svg",
+          "title": "结论展望",
+          "desc": "结论与展望"
+        },
+        {
+          "file": "P09_感谢聆听.svg",
+          "title": "感谢聆听",
+          "desc": "Thank You"
+        },
+        {
+          "file": "P10_谢谢.svg",
+          "title": "谢谢",
+          "desc": "结束页"
+        }
+      ],
+      "seqId": "PPT-018"
     }
   ],
   "generated": true

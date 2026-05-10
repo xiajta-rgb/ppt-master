@@ -131,7 +131,7 @@ async function loadDynamicCollections() {
                 description: staticData?.description || `Project: ${p.id}`,
                 icon: staticData?.icon || '📊',
                 color: staticData?.color || '#6366f1',
-                folder: staticData?.folder || `examples/${p.folder}/svg_final`,
+                folder: staticData?.folder || p.folder,
                 slides: slides
             };
         });
