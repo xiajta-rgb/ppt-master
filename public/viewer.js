@@ -106,9 +106,10 @@ async function loadDynamicCollections() {
 
         const data = await res.json();
         const staticMap = new Map(collections.map(c => [c.id, c]));
+        const staticAliasMap = new Map(collections.map(c => [c.alias, c]).filter(([k]) => k));
 
         collections = data.projects.map(p => {
-            const staticData = staticMap.get(p.id) || staticMap.get(p.alias?.[0]);
+            const staticData = staticMap.get(p.id) || staticAliasMap.get(p.alias?.[0]) || staticMap.get(p.alias?.[0]);
             let slides;
             if (staticData?.slides?.length) {
                 slides = p.slides.map(s => {
@@ -248,7 +249,7 @@ function renderFilteredCollections() {
     emptyState.classList.add('hidden');
     grid.innerHTML = filteredCollections.map(collection => {
         const firstSlide = collection.slides && collection.slides[0];
-        const coverPath = firstSlide ? encodePath(`${collection.folder}/${firstSlide.file}`) : '';
+        const coverPath = firstSlide ? '/' + encodePath(`${collection.folder}/${firstSlide.file}`) : '';
         const slideCount = collection.slides ? collection.slides.length : 0;
         const category = getCategoryFromTitle(collection.title);
         const categoryLabels = {
@@ -1782,7 +1783,7 @@ function generateThumbnails() {
     if (!currentCollection) return;
 
     const container = document.getElementById('thumbnailContainer');
-    const basePath = encodePath(currentCollection.folder) + '/';
+    const basePath = '/' + encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
         const slidePath = basePath + encodeURIComponent(slide.file);
@@ -1809,7 +1810,7 @@ function generateOverview() {
     if (!currentCollection) return;
 
     const container = document.getElementById('overviewGrid');
-    const basePath = encodePath(currentCollection.folder) + '/';
+    const basePath = '/' + encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
         const slidePath = basePath + encodeURIComponent(slide.file);

@@ -29,8 +29,13 @@ import urllib.parse
 PROJECT_DIR = '/home/ppt/ppt-master'
 STATIC_DIR = PROJECT_DIR
 EXAMPLES_DIR = os.path.join(PROJECT_DIR, 'examples')
+PUBLIC_DIR = os.path.join(PROJECT_DIR, 'public')
 
 LOG_FILE = '/home/ppt/wsgi_export.log'
+
+BLOCKED_EXTENSIONS = {'.py', '.pyc', '.pyo', '.env', '.sh', '.bash', '.cfg', '.ini', '.toml', '.yaml', '.yml', '.log', '.sql', '.db', '.sqlite', '.git', '.gitignore', '.htaccess', '.dockerfile'}
+
+BLOCKED_PREFIXES = {'.git', '.env', '__pycache__', 'node_modules', '.trae', '.vscode', '.idea'}
 
 PROJECT_ALIASES = {
     'git-intro': 'ppt169_像素风_git_introduction',
@@ -57,6 +62,7 @@ PROJECT_ALIASES = {
 SCAN_CACHE_TTL = 60
 _scan_cache = {'data': None, 'timestamp': 0}
 _last_reload_time = time.time()
+_file_watch_initialized = False
 _file_watch_cache = {}
 
 def log(msg):
@@ -106,7 +112,7 @@ def scan_projects():
     return result
 
 def check_changes():
-    global _file_watch_cache
+    global _file_watch_cache, _file_watch_initialized
     current_files = {}
     if os.path.exists(EXAMPLES_DIR):
         for project_dir_name in os.listdir(EXAMPLES_DIR):
@@ -118,6 +124,12 @@ def check_changes():
                         if svg_file.endswith('.svg'):
                             key = os.path.join(project_dir_name, 'svg_final', svg_file)
                             current_files[key] = get_file_mtime(os.path.join(svg_final, svg_file))
+    
+    if not _file_watch_initialized:
+        _file_watch_cache = current_files
+        _file_watch_initialized = True
+        return []
+    
     changed = [k for k, v in current_files.items() if k not in _file_watch_cache or _file_watch_cache[k] != v]
     _file_watch_cache = current_files
     if changed:
@@ -144,7 +156,26 @@ def resolve_path(path):
             pass
     return path
 
+def is_path_safe(path):
+    resolved = os.path.normpath(path)
+    resolved = resolved.replace('\\\\', '/')
+    if '..' in resolved.split('/'):
+        return False
+    for part in resolved.split('/'):
+        if part in BLOCKED_PREFIXES:
+            return False
+    _, ext = os.path.splitext(resolved)
+    if ext.lower() in BLOCKED_EXTENSIONS:
+        return False
+    return True
+
 def read_file_safe(file_path):
+    try:
+        real = os.path.realpath(file_path)
+        if not real.startswith(os.path.realpath(STATIC_DIR)):
+            return None
+    except:
+        return None
     if not os.path.exists(file_path) or not os.path.isfile(file_path):
         return None
     try:
@@ -177,69 +208,131 @@ def get_content_type(file_path):
     else:
         return 'application/octet-stream'
 
+def not_found(path):
+    return (b'<html><body><h1>404</h1></body></html>', '404 Not Found', 'text/html; charset=utf-8')
+
+def serve_static_file(path):
+    if not is_path_safe(path):
+        return not_found(path)
+    
+    static_file = os.path.join(STATIC_DIR, path.lstrip('/'))
+    content = read_file_safe(static_file)
+    if content is not None:
+        return (content, '200 OK', get_content_type(static_file))
+    
+    public_file = os.path.join(PUBLIC_DIR, path.lstrip('/'))
+    content = read_file_safe(public_file)
+    if content is not None:
+        return (content, '200 OK', get_content_type(public_file))
+    
+    return not_found(path)
+
 def application(environ, start_response):
-    path = environ.get('PATH_INFO', '/')
-    path = resolve_path(path)
-
-    log('request: ' + path)
-
-    if path == '/' or path == '':
-        content = read_file_safe(os.path.join(STATIC_DIR, 'public', 'index.html'))
-        if content:
+    try:
+        path = environ.get('PATH_INFO', '/')
+        path = resolve_path(path)
+        
+        log('request: ' + path[:200])
+        
+        if path == '/' or path == '':
+            content = read_file_safe(os.path.join(PUBLIC_DIR, 'index.html'))
+            if content:
+                status = '200 OK'
+                content_type = 'text/html; charset=utf-8'
+            else:
+                content, status, content_type = not_found(path)
+        
+        elif path == '/viewer.html':
+            content = read_file_safe(os.path.join(PUBLIC_DIR, 'viewer.html'))
+            if content:
+                status = '200 OK'
+                content_type = 'text/html; charset=utf-8'
+            else:
+                content, status, content_type = not_found(path)
+        
+        elif path == '/index.html':
+            content = read_file_safe(os.path.join(PUBLIC_DIR, 'index.html'))
+            if content:
+                status = '200 OK'
+                content_type = 'text/html; charset=utf-8'
+            else:
+                content, status, content_type = not_found(path)
+        
+        elif path == '/api/scan-projects':
+            content = scan_projects().encode('utf-8')
             status = '200 OK'
-            content_type = 'text/html; charset=utf-8'
-        else:
-            content = b'<html><body><h1>index.html not found</h1></body></html>'
-            status = '404 Not Found'
-            content_type = 'text/html; charset=utf-8'
-
-    elif path == '/viewer.html':
-        content = read_file_safe(os.path.join(STATIC_DIR, 'public', 'viewer.html'))
-        if content:
+            content_type = 'application/json; charset=utf-8'
+        
+        elif path == '/api/projects-data':
+            content = get_projects_data().encode('utf-8')
             status = '200 OK'
-            content_type = 'text/html; charset=utf-8'
-        else:
-            content = b'<html><body><h1>viewer.html not found</h1></body></html>'
-            status = '404 Not Found'
-            content_type = 'text/html; charset=utf-8'
-
-    elif path == '/api/scan-projects':
-        content = scan_projects().encode('utf-8')
-        status = '200 OK'
-        content_type = 'application/json; charset=utf-8'
-
-    elif path == '/api/projects-data':
-        content = get_projects_data().encode('utf-8')
-        status = '200 OK'
-        content_type = 'application/json; charset=utf-8'
-
-    elif path == '/api/check-changes':
-        changed = check_changes()
-        content = json.dumps({
-            'changed': len(changed) > 0,
-            'files': changed,
-            'timestamp': _last_reload_time
-        }, ensure_ascii=False).encode('utf-8')
-        status = '200 OK'
-        content_type = 'application/json; charset=utf-8'
-
-    else:
-        static_file = os.path.join(STATIC_DIR, path.lstrip('/'))
-        content = read_file_safe(static_file)
-        if content is not None:
+            content_type = 'application/json; charset=utf-8'
+        
+        elif path == '/api/check-changes':
+            changed = check_changes()
+            content = json.dumps({
+                'changed': len(changed) > 0,
+                'files': changed,
+                'timestamp': _last_reload_time
+            }, ensure_ascii=False).encode('utf-8')
             status = '200 OK'
-            content_type = get_content_type(static_file)
+            content_type = 'application/json; charset=utf-8'
+        
+        elif path == '/api/save-svg' and environ.get('REQUEST_METHOD') == 'POST':
+            try:
+                body_len = int(environ.get('CONTENT_LENGTH', 0))
+                if body_len > 0 and body_len < 10 * 1024 * 1024:
+                    body = environ['wsgi.input'].read(body_len)
+                    data = json.loads(body.decode('utf-8'))
+                    folder = data.get('folder', '')
+                    filename = data.get('file', '')
+                    svg_content = data.get('content', '')
+                    
+                    if not folder or not filename or not svg_content:
+                        content = json.dumps({'success': False, 'error': 'Missing fields'}).encode('utf-8')
+                    elif not filename.endswith('.svg'):
+                        content = json.dumps({'success': False, 'error': 'Invalid file type'}).encode('utf-8')
+                    elif '..' in folder or '..' in filename:
+                        content = json.dumps({'success': False, 'error': 'Invalid path'}).encode('utf-8')
+                    else:
+                        save_dir = os.path.join(PROJECT_DIR, folder)
+                        save_path = os.path.join(save_dir, filename)
+                        real_save = os.path.realpath(save_path)
+                        if not real_save.startswith(os.path.realpath(EXAMPLES_DIR)):
+                            content = json.dumps({'success': False, 'error': 'Access denied'}).encode('utf-8')
+                        else:
+                            os.makedirs(save_dir, exist_ok=True)
+                            with open(save_path, 'w', encoding='utf-8') as f:
+                                f.write(svg_content)
+                            content = json.dumps({'success': True}).encode('utf-8')
+                            _scan_cache['data'] = None
+                    status = '200 OK'
+                    content_type = 'application/json; charset=utf-8'
+                else:
+                    content = json.dumps({'success': False, 'error': 'Invalid request'}).encode('utf-8')
+                    status = '400 Bad Request'
+                    content_type = 'application/json; charset=utf-8'
+            except Exception as e:
+                log('save-svg error: ' + str(e))
+                content = json.dumps({'success': False, 'error': str(e)}).encode('utf-8')
+                status = '500 Internal Server Error'
+                content_type = 'application/json; charset=utf-8'
+        
         else:
-            content = ('<html><body><h1>404: ' + path + '</h1></body></html>').encode('utf-8')
-            status = '404 Not Found'
-            content_type = 'text/html; charset=utf-8'
-
+            content, status, content_type = serve_static_file(path)
+    
+    except Exception as e:
+        log('unhandled error: ' + str(e))
+        content = b'<html><body><h1>500 Internal Server Error</h1></body></html>'
+        status = '500 Internal Server Error'
+        content_type = 'text/html; charset=utf-8'
+    
     response_headers = [
         ('Content-Type', content_type),
         ('Cache-Control', 'no-cache, no-store, must-revalidate'),
     ]
     start_response(status, response_headers)
-
+    
     if isinstance(content, str):
         return [content.encode('utf-8')]
     return [content]
