@@ -22,12 +22,42 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent.parent.parent
 
 WSGI_CONTENT = '''import os
 import sys
+import json
+import time
 import urllib.parse
 
 PROJECT_DIR = '/home/ppt/ppt-master'
 STATIC_DIR = PROJECT_DIR
+EXAMPLES_DIR = os.path.join(PROJECT_DIR, 'examples')
 
 LOG_FILE = '/home/ppt/wsgi_export.log'
+
+PROJECT_ALIASES = {
+    'git-intro': 'ppt169_像素风_git_introduction',
+    'tactical-clothing': 'ppt169_战术服装_市场分析',
+    'yili-feng': 'ppt169_易理风_地山谦卦深度研究',
+    'chan-yi-feng': 'ppt169_禅意风_金刚经第一品研究',
+    'demo-project': 'demo_project_intro_ppt169_20251211',
+    'dark-tech': 'ppt169_general_dark_tech_claude_code_auto_mode',
+    'claude-code-auto-mode': 'ppt169_general_dark_tech_claude_code_auto_mode',
+    'google-annual': 'ppt169_谷歌风_google_annual_report',
+    'debug六步法': 'ppt169_通用灵活+代码_debug六步法',
+    'ai-programming-tools': 'ppt169_通过灵活+代码_三大AI编程神器横向对比',
+    'attachment-therapy': 'ppt169_顶级咨询风_心理治疗中的依恋',
+    'chongqing-report': 'ppt169_顶级咨询风_重庆市区域报告_ppt169_20251213',
+    'ganzi-economy': 'ppt169_顶级咨询风_甘孜州经济财政分析',
+    'ai-agent-anthropic': 'ppt169_顶级咨询风_构建有效AI代理_Anthropic',
+    'nam-ou-hydro': 'ppt169_高端咨询风_南欧江水电站战略评估',
+    'car-certification': 'ppt169_高端咨询风_汽车认证五年战略规划',
+    'customer-loyalty': 'ppt169_麦肯锡风_kimsoong_customer_loyalty',
+    'tactical-clothing-report': 'TacticalClothingReport',
+    'astrology-archetypes': 'ppt169_宇宙深空风_占星学五大底层人性原型',
+}
+
+SCAN_CACHE_TTL = 60
+_scan_cache = {'data': None, 'timestamp': 0}
+_last_reload_time = time.time()
+_file_watch_cache = {}
 
 def log(msg):
     try:
@@ -40,64 +70,221 @@ def log(msg):
 
 log('WSGI starting')
 
-def read_index_html():
-    INDEX_FILE = os.path.join(STATIC_DIR, 'public', 'index.html')
-    if os.path.exists(INDEX_FILE):
-        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
-            return f.read()
-    INDEX_FILE = os.path.join(STATIC_DIR, 'index.html')
-    if os.path.exists(INDEX_FILE):
-        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
-            return f.read()
-    return '<html><body><h1>index.html not found</h1></body></html>'
+def get_file_mtime(file_path):
+    try:
+        return os.path.getmtime(file_path)
+    except:
+        return 0
 
-def application(environ, start_response):
-    path = environ.get('PATH_INFO', '/')
+def scan_projects():
+    global _scan_cache
+    now = time.time()
+    if _scan_cache['data'] and (now - _scan_cache['timestamp']) < SCAN_CACHE_TTL:
+        return _scan_cache['data']
+    
+    projects = []
+    if os.path.exists(EXAMPLES_DIR):
+        for item in os.listdir(EXAMPLES_DIR):
+            item_path = os.path.join(EXAMPLES_DIR, item)
+            if os.path.isdir(item_path):
+                svg_final = os.path.join(item_path, 'svg_final')
+                slides = []
+                if os.path.exists(svg_final):
+                    for svg_file in sorted(os.listdir(svg_final)):
+                        if svg_file.endswith('.svg'):
+                            svg_path = os.path.join(svg_final, svg_file)
+                            slides.append({'file': svg_file, 'mtime': get_file_mtime(svg_path)})
+                projects.append({
+                    'id': item,
+                    'folder': item,
+                    'slides': slides,
+                    'alias': [k for k, v in PROJECT_ALIASES.items() if v == item]
+                })
+    
+    result = json.dumps({'projects': projects, 'timestamp': now}, ensure_ascii=False)
+    _scan_cache = {'data': result, 'timestamp': now}
+    return result
 
-    if '%' in path or any(ord(c) > 127 for c in path):
+def check_changes():
+    global _file_watch_cache
+    current_files = {}
+    if os.path.exists(EXAMPLES_DIR):
+        for project_dir_name in os.listdir(EXAMPLES_DIR):
+            project_dir = os.path.join(EXAMPLES_DIR, project_dir_name)
+            if os.path.isdir(project_dir):
+                svg_final = os.path.join(project_dir, 'svg_final')
+                if os.path.exists(svg_final):
+                    for svg_file in os.listdir(svg_final):
+                        if svg_file.endswith('.svg'):
+                            key = os.path.join(project_dir_name, 'svg_final', svg_file)
+                            current_files[key] = get_file_mtime(os.path.join(svg_final, svg_file))
+    changed = [k for k, v in current_files.items() if k not in _file_watch_cache or _file_watch_cache[k] != v]
+    _file_watch_cache = current_files
+    if changed:
+        _scan_cache['data'] = None
+    return changed
+
+def get_projects_data():
+    data_file = os.path.join(EXAMPLES_DIR, 'projects_data.json')
+    if os.path.exists(data_file):
+        with open(data_file, 'r', encoding='utf-8') as f:
+            return f.read()
+    return '{}'
+
+def resolve_path(path):
+    if '%' in path:
+        try:
+            path = urllib.parse.unquote(path)
+        except:
+            pass
+    if any(ord(c) > 127 for c in path):
         try:
             path = path.encode('latin-1').decode('utf-8')
         except:
             pass
+    return path
+
+def read_file_safe(file_path):
+    if not os.path.exists(file_path) or not os.path.isfile(file_path):
+        return None
+    try:
+        with open(file_path, 'rb') as f:
+            return f.read()
+    except:
+        return None
+
+def get_content_type(file_path):
+    if file_path.endswith('.html'):
+        return 'text/html; charset=utf-8'
+    elif file_path.endswith('.css'):
+        return 'text/css; charset=utf-8'
+    elif file_path.endswith('.js'):
+        return 'application/javascript; charset=utf-8'
+    elif file_path.endswith('.svg'):
+        return 'image/svg+xml; charset=utf-8'
+    elif file_path.endswith('.png'):
+        return 'image/png'
+    elif file_path.endswith('.jpg') or file_path.endswith('.jpeg'):
+        return 'image/jpeg'
+    elif file_path.endswith('.json'):
+        return 'application/json; charset=utf-8'
+    elif file_path.endswith('.ico'):
+        return 'image/x-icon'
+    elif file_path.endswith('.woff') or file_path.endswith('.woff2'):
+        return 'font/woff2'
+    elif file_path.endswith('.ttf'):
+        return 'font/ttf'
+    else:
+        return 'application/octet-stream'
+
+def application(environ, start_response):
+    path = environ.get('PATH_INFO', '/')
+    path = resolve_path(path)
 
     log('request: ' + path)
 
     if path == '/' or path == '':
-        content = read_index_html()
+        content = read_file_safe(os.path.join(STATIC_DIR, 'public', 'index.html'))
+        if content:
+            status = '200 OK'
+            content_type = 'text/html; charset=utf-8'
+        else:
+            content = b'<html><body><h1>index.html not found</h1></body></html>'
+            status = '404 Not Found'
+            content_type = 'text/html; charset=utf-8'
+
+    elif path == '/viewer.html':
+        content = read_file_safe(os.path.join(STATIC_DIR, 'public', 'viewer.html'))
+        if content:
+            status = '200 OK'
+            content_type = 'text/html; charset=utf-8'
+        else:
+            content = b'<html><body><h1>viewer.html not found</h1></body></html>'
+            status = '404 Not Found'
+            content_type = 'text/html; charset=utf-8'
+
+    elif path == '/api/scan-projects':
+        content = scan_projects().encode('utf-8')
         status = '200 OK'
-        content_type = 'text/html; charset=utf-8'
+        content_type = 'application/json; charset=utf-8'
+
+    elif path == '/api/projects-data':
+        content = get_projects_data().encode('utf-8')
+        status = '200 OK'
+        content_type = 'application/json; charset=utf-8'
+
+    elif path == '/api/check-changes':
+        changed = check_changes()
+        content = json.dumps({
+            'changed': len(changed) > 0,
+            'files': changed,
+            'timestamp': _last_reload_time
+        }, ensure_ascii=False).encode('utf-8')
+        status = '200 OK'
+        content_type = 'application/json; charset=utf-8'
+
     else:
         static_file = os.path.join(STATIC_DIR, path.lstrip('/'))
-        if os.path.exists(static_file) and os.path.isfile(static_file):
-            with open(static_file, 'rb') as f:
-                content = f.read()
+        content = read_file_safe(static_file)
+        if content is not None:
             status = '200 OK'
-            if static_file.endswith('.html'):
-                content_type = 'text/html; charset=utf-8'
-            elif static_file.endswith('.css'):
-                content_type = 'text/css; charset=utf-8'
-            elif static_file.endswith('.js'):
-                content_type = 'application/javascript; charset=utf-8'
-            elif static_file.endswith('.svg'):
-                content_type = 'image/svg+xml; charset=utf-8'
-            elif static_file.endswith('.png'):
-                content_type = 'image/png'
-            elif static_file.endswith('.jpg') or static_file.endswith('.jpeg'):
-                content_type = 'image/jpeg'
-            else:
-                content_type = 'text/plain; charset=utf-8'
+            content_type = get_content_type(static_file)
         else:
             content = ('<html><body><h1>404: ' + path + '</h1></body></html>').encode('utf-8')
             status = '404 Not Found'
             content_type = 'text/html; charset=utf-8'
 
-    response_headers = [('Content-Type', content_type)]
+    response_headers = [
+        ('Content-Type', content_type),
+        ('Cache-Control', 'no-cache, no-store, must-revalidate'),
+    ]
     start_response(status, response_headers)
 
     if isinstance(content, str):
         return [content.encode('utf-8')]
     return [content]
 '''
+
+def git_pull():
+    try:
+        result = requests.post(
+            f'https://{HOST}/api/v0/user/{USERNAME}/consoles/',
+            headers=HEADERS,
+            json={'executable': '/bin/bash'},
+            timeout=30
+        )
+        if result.status_code == 201:
+            console_id = result.json()['id']
+            print(f"[INFO] 创建控制台: {console_id}")
+            
+            commands = [
+                f'cd /home/ppt/ppt-master && git pull origin main',
+            ]
+            
+            for cmd in commands:
+                exec_result = requests.post(
+                    f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}/send_input/',
+                    headers=HEADERS,
+                    json={'input': cmd + '\\n'},
+                    timeout=30
+                )
+                print(f"[INFO] 执行: {cmd}")
+            
+            time.sleep(10)
+            
+            requests.delete(
+                f'https://{HOST}/api/v0/user/{USERNAME}/consoles/{console_id}',
+                headers=HEADERS,
+                timeout=10
+            )
+            print("[OK] git pull 完成")
+            return True
+        else:
+            print(f"[!] 无法创建控制台: {result.status_code}")
+            return False
+    except Exception as e:
+        print(f"[!] git pull 失败: {e}")
+        return False
 
 def upload_wsgi():
     url = f'https://{HOST}/api/v0/user/{USERNAME}/files/path{WSGI_FILE_PATH}'
@@ -126,54 +313,55 @@ def verify():
     print("验证网站...")
     print("="*50)
 
-    url = "https://ppt.pythonanywhere.com/"
-    max_retries = 3
-    retry_delay = 10
+    test_urls = [
+        ("首页", "https://ppt.pythonanywhere.com/"),
+        ("Viewer", "https://ppt.pythonanywhere.com/viewer.html"),
+        ("API", "https://ppt.pythonanywhere.com/api/scan-projects"),
+        ("Check", "https://ppt.pythonanywhere.com/api/check-changes"),
+    ]
 
-    for attempt in range(max_retries):
+    all_ok = True
+    for name, url in test_urls:
         try:
             response = requests.get(url, timeout=15)
-            if response.status_code == 200 and len(response.text) > 1000:
-                print(f"[OK] 网站验证成功!")
-                print(f"     URL: {url}")
-                print(f"     Status: {response.status_code}")
-                print(f"     Content-Length: {len(response.text)}")
-                return True
+            if response.status_code == 200:
+                print(f"[OK] {name}: {response.status_code} ({len(response.text)} bytes)")
             else:
-                print(f"[X] 验证失败 (尝试 {attempt+1}/{max_retries})")
+                print(f"[FAIL] {name}: {response.status_code}")
+                all_ok = False
         except Exception as e:
-            print(f"[X] 请求失败 (尝试 {attempt+1}/{max_retries}): {e}")
+            print(f"[FAIL] {name}: {e}")
+            all_ok = False
 
-        if attempt < max_retries - 1:
-            print(f"[INFO] {retry_delay}秒后重试...")
-            time.sleep(retry_delay)
-
-    print("[X] 验证失败")
-    return False
+    return all_ok
 
 def main():
     print("\n" + "#"*50)
     print("# PPT Master Deploy - 部署脚本")
     print("#"*50)
 
-    print("\n[Step 1] 上传 WSGI...")
+    print("\n[Step 1] 同步代码 (git pull)...")
+    git_pull()
+
+    print("\n[Step 2] 上传 WSGI...")
     if not upload_wsgi():
         print("\n[X] WSGI 上传失败")
         sys.exit(1)
 
-    print("\n[Step 2] 重载 Web App...")
+    print("\n[Step 3] 重载 Web App...")
     if not reload_webapp():
         print("\n[!] 重载失败，请手动重载")
     else:
-        time.sleep(3)
+        time.sleep(5)
 
-    print("\n[Step 3] 验证网站...")
+    print("\n[Step 4] 验证网站...")
     verify()
 
     print("\n" + "#"*50)
     print("# 部署完成!")
     print("#"*50)
     print(f"\n访问: https://ppt.pythonanywhere.com/")
+    print(f"Viewer: https://ppt.pythonanywhere.com/viewer.html?project=chongqing-report")
 
 if __name__ == "__main__":
     main()
