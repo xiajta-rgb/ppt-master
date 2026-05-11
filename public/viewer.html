@@ -186,10 +186,14 @@
                     <span class="text-xs text-gray-500">Drag to move, handles to resize</span>
                     <span class="text-xs text-gray-600">|</span>
                     <span class="text-xs text-gray-500">Del to remove image</span>
+                    <span class="text-xs text-gray-600">|</span>
+                    <span class="text-xs text-gray-500">Shift+click to multi-select</span>
                     <button onclick="toggleEditMode()" class="px-3 py-1.5 text-sm bg-red-500 text-white hover:bg-red-600 rounded-lg transition-all">
                         Exit Edit
                     </button>
                 </div>
+
+                <input type="file" id="imageUploadInput" accept="image/*" class="hidden">
 
                 <div id="editHint" class="hidden fixed bottom-36 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-brand-500 to-brand-400 text-white px-4 py-2 rounded-full text-sm z-40 shadow-lg shadow-brand-500/30">
                     Double-click text to edit | Click image to select & drag

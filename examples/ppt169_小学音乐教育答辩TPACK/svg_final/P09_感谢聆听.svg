@@ -18,87 +18,74 @@
   <rect width="1920" height="1080" fill="url(#endGlow)"/>
   
   <!-- Music note background decorations -->
-  <g opacity="0.08" fill="#FFFFFF">
-    <g transform="translate(150, 120) rotate(-22)">
-      <text font-size="120" font-family="serif">♪</text>
+  <g opacity="0.06" fill="#FFFFFF">
+    <g transform="translate(180, 160) rotate(-22)">
+      <text font-size="96" font-family="serif">♪</text>
     </g>
-    <g transform="translate(1750, 180) rotate(18)">
-      <text font-size="100" font-family="serif">♫</text>
+    <g transform="translate(1720, 220) rotate(18)">
+      <text font-size="80" font-family="serif">♫</text>
     </g>
-    <g transform="translate(1650, 850) rotate(-28)">
-      <text font-size="90" font-family="serif">♩</text>
+    <g transform="translate(1620, 880) rotate(-28)">
+      <text font-size="72" font-family="serif">♩</text>
     </g>
-    <g transform="translate(180, 880) rotate(25)">
-      <text font-size="80" font-family="serif">♬</text>
+    <g transform="translate(220, 900) rotate(25)">
+      <text font-size="64" font-family="serif">♬</text>
     </g>
-    <g transform="translate(1800, 450) rotate(-15)">
-      <text font-size="70" font-family="serif">♪</text>
+    <g transform="translate(1780, 500) rotate(-15)">
+      <text font-size="56" font-family="serif">♪</text>
     </g>
-    <g transform="translate(120, 480) rotate(20)">
-      <text font-size="65" font-family="serif">♫</text>
-    </g>
-    <g transform="translate(1450, 100) rotate(-12)">
-      <text font-size="55" font-family="serif">♩</text>
-    </g>
-    <g transform="translate(280, 280) rotate(30)">
-      <text font-size="50" font-family="serif">♬</text>
-    </g>
-    <g transform="translate(1550, 600) rotate(-20)">
-      <text font-size="60" font-family="serif">♪</text>
-    </g>
-    <g transform="translate(350, 650) rotate(15)">
-      <text font-size="45" font-family="serif">♫</text>
+    <g transform="translate(160, 520) rotate(20)">
+      <text font-size="48" font-family="serif">♫</text>
     </g>
   </g>
   
   <!-- Academic decorative elements - subtle geometric patterns -->
-  <g opacity="0.05">
-    <circle cx="200" cy="200" r="150" fill="none" stroke="#FFFFFF" stroke-width="1"/>
-    <circle cx="1720" cy="880" r="120" fill="none" stroke="#FFFFFF" stroke-width="1"/>
-    <line x1="0" y1="1080" x2="1920" y2="0" stroke="#FFFFFF" stroke-width="1"/>
+  <g opacity="0.04">
+    <circle cx="240" cy="240" r="120" fill="none" stroke="#FFFFFF" stroke-width="1"/>
+    <circle cx="1680" cy="840" r="100" fill="none" stroke="#FFFFFF" stroke-width="1"/>
   </g>
   
-  <!-- Ant Design style icon: Heart/Thanks -->
-  <g transform="translate(900, 220)">
+  <!-- Heart icon -->
+  <g transform="translate(900, 180)">
     <path d="M60 100 C60 100 10 60 10 35 C10 15 30 5 45 20 L60 35 L75 20 C90 5 110 15 110 35 C110 60 60 100 60 100Z" fill="none" stroke="#F5A623" stroke-width="3"/>
   </g>
   
   <!-- Main title -->
-  <text x="960" y="420" font-size="80" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="700" letter-spacing="16">感谢聆听</text>
+  <text x="960" y="380" font-size="72" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="700" letter-spacing="12">感谢聆听</text>
   
   <!-- Subtitle -->
-  <text x="960" y="480" font-size="24" text-anchor="middle" fill="#FFFFFF" opacity="0.8" letter-spacing="6">THANK YOU FOR YOUR ATTENTION</text>
+  <text x="960" y="432" font-size="22" text-anchor="middle" fill="#FFFFFF" opacity="0.75" letter-spacing="4">THANK YOU FOR YOUR ATTENTION</text>
   
   <!-- Decorative line -->
-  <line x1="700" y1="520" x2="1220" y2="520" stroke="#F5A623" stroke-width="2"/>
+  <line x1="720" y1="468" x2="1200" y2="468" stroke="#F5A623" stroke-width="2"/>
   
   <!-- Request for feedback -->
-  <text x="960" y="580" font-size="28" text-anchor="middle" fill="#FFFFFF" opacity="0.9">敬请各位评委老师批评指正</text>
+  <text x="960" y="520" font-size="26" text-anchor="middle" fill="#FFFFFF" opacity="0.85">敬请各位评委老师批评指正</text>
   
   <!-- Info cards -->
-  <rect x="500" y="640" width="920" height="180" rx="12" fill="rgba(255,255,255,0.1)" filter="url(#cardShadow)"/>
+  <rect x="520" y="580" width="880" height="160" rx="12" fill="rgba(255,255,255,0.08)" filter="url(#cardShadow)"/>
   
   <!-- Divider lines -->
-  <line x1="800" y1="660" x2="800" y2="800" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <line x1="1120" y1="660" x2="1120" y2="800" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <line x1="800" y1="600" x2="800" y2="720" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="1120" y1="600" x2="1120" y2="720" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
   
   <!-- Info 1: 答辩人 -->
-  <text x="650" y="700" font-size="20" text-anchor="middle" fill="#FFFFFF" opacity="0.7">答辩人</text>
-  <text x="650" y="745" font-size="26" text-anchor="middle" fill="#FFFFFF" font-weight="600">夏周慧</text>
+  <text x="660" y="640" font-size="18" text-anchor="middle" fill="#FFFFFF" opacity="0.65">答辩人</text>
+  <text x="660" y="680" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="600">夏周慧</text>
   
   <!-- Info 2: 指导教师 -->
-  <text x="960" y="700" font-size="20" text-anchor="middle" fill="#FFFFFF" opacity="0.7">指导教师</text>
-  <text x="960" y="745" font-size="26" text-anchor="middle" fill="#FFFFFF" font-weight="600">XXX 教授</text>
+  <text x="960" y="640" font-size="18" text-anchor="middle" fill="#FFFFFF" opacity="0.65">指导教师</text>
+  <text x="960" y="680" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="600">XXX 教授</text>
   
   <!-- Info 3: 日期 -->
-  <text x="1270" y="700" font-size="20" text-anchor="middle" fill="#FFFFFF" opacity="0.7">日 期</text>
-  <text x="1270" y="745" font-size="26" text-anchor="middle" fill="#FFFFFF" font-weight="600">2026年5月</text>
+  <text x="1260" y="640" font-size="18" text-anchor="middle" fill="#FFFFFF" opacity="0.65">日 期</text>
+  <text x="1260" y="680" font-size="24" text-anchor="middle" fill="#FFFFFF" font-weight="600">2026年5月</text>
   
   <!-- Bottom academic info -->
-  <line x1="760" y1="880" x2="1160" y2="880" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <text x="960" y="920" font-size="18" text-anchor="middle" fill="#FFFFFF" opacity="0.6" letter-spacing="4">XX师范大学 · 音乐学院</text>
-  <text x="960" y="950" font-size="14" text-anchor="middle" fill="#FFFFFF" opacity="0.4" letter-spacing="2">XX NORMAL UNIVERSITY · SCHOOL OF MUSIC</text>
+  <line x1="760" y1="800" x2="1160" y2="800" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <text x="960" y="840" font-size="18" text-anchor="middle" fill="#FFFFFF" opacity="0.55" letter-spacing="3">XX师范大学 · 音乐学院</text>
+  <text x="960" y="872" font-size="14" text-anchor="middle" fill="#FFFFFF" opacity="0.35" letter-spacing="2">XX NORMAL UNIVERSITY · SCHOOL OF MUSIC</text>
   
   <!-- Quote -->
-  <text x="960" y="1010" font-size="16" text-anchor="middle" fill="#FFFFFF" opacity="0.5" letter-spacing="2">让音乐与技术共舞，让教育更美好</text>
+  <text x="960" y="940" font-size="16" text-anchor="middle" fill="#FFFFFF" opacity="0.45" letter-spacing="2">让音乐与技术共舞，让教育更美好</text>
 </svg>
