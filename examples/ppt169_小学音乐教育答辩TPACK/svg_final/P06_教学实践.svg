@@ -78,7 +78,6 @@
   <!-- Image placeholder wrapped in group -->
   <g class="image-placeholder-group" data-editable="true">
     <rect x="1120" y="224" width="400" height="160" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4" pointer-events="all" style="opacity: 1;"/>
-    <text x="1320" y="312" font-size="20" text-anchor="middle" fill="#8C8C8C" class="upload-trigger" pointer-events="all" cursor="pointer">📷 上传图片</text>
   </g>
   
   <!-- Step 2 -->
@@ -100,7 +99,6 @@
   <!-- Image placeholder wrapped in group -->
   <g class="image-placeholder-group" data-editable="true">
     <rect x="1120" y="480" width="400" height="160" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4" pointer-events="all" style="opacity: 1;"/>
-    <text x="1320" y="568" font-size="20" text-anchor="middle" fill="#8C8C8C" class="upload-trigger" pointer-events="all" cursor="pointer">📷 上传图片</text>
   </g>
   
   <!-- Step 3 -->
@@ -121,8 +119,7 @@
   
   <!-- Image placeholder wrapped in group -->
   <g class="image-placeholder-group" data-editable="true">
-    <rect x="1202.0645161290322" y="731.3548387096774" width="400" height="160" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4" pointer-events="all" style="opacity: 1;"/>
-    <text x="1402" y="819" font-size="20" text-anchor="middle" fill="#8C8C8C" class="upload-trigger" pointer-events="all" cursor="pointer">📷 上传图片</text>
+    <rect x="1120" y="480" width="400" height="160" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="4,4" pointer-events="all" style="opacity: 1;"/>
   </g>
   
   <!-- Footer -->

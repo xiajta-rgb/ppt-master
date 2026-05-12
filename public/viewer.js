@@ -858,6 +858,7 @@ async function doSaveCurrentSvg() {
 
         clone.querySelectorAll('[data-image-edit-listener]').forEach(el => {
             el.removeAttribute('data-image-edit-listener');
+            el.removeAttribute('data-overlay-listener');
             el.removeAttribute('pointer-events');
             el.removeAttribute('data-container-x');
             el.removeAttribute('data-container-y');
@@ -868,6 +869,12 @@ async function doSaveCurrentSvg() {
             el.style.opacity = '';
             el.style.cursor = '';
             if (el.style.cssText === '') el.removeAttribute('style');
+        });
+
+        // Clean up placeholder groups
+        clone.querySelectorAll('g.image-placeholder-group').forEach(el => {
+            el.removeAttribute('data-overlay-listener');
+            el.removeAttribute('data-image-edit-listener');
         });
 
         clone.querySelectorAll('[data-resize-handle]').forEach(el => el.remove());
@@ -1008,6 +1015,9 @@ function setupImageEditListeners() {
     const svgEl = slideWrapper.querySelector('svg');
     if (!svgEl) return;
 
+    // Remove any existing overlay text elements
+    document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
+
     // Handle <image> elements
     const images = svgEl.querySelectorAll('image');
     console.log(`[Edit] Found ${images.length} image elements`);
@@ -1031,7 +1041,9 @@ function setupImageEditListeners() {
     console.log(`[Edit] Found ${placeholderGroups.length} placeholder groups`);
     
     placeholderGroups.forEach((group, idx) => {
-        if (group.dataset.imageEditListener) return;
+        // Clear any saved listener attributes from SVG file
+        group.removeAttribute('data-overlay-listener');
+        group.removeAttribute('data-image-edit-listener');
         group.dataset.imageEditListener = 'true';
         group.style.cursor = 'move';
         group.setAttribute('pointer-events', 'all');
@@ -1042,19 +1054,169 @@ function setupImageEditListeners() {
             rect.setAttribute('pointer-events', 'all');
             rect.addEventListener('mousedown', onImageMouseDown);
             console.log(`[Edit] Bound mousedown to placeholder group ${idx} rect at (${rect.getAttribute('x')}, ${rect.getAttribute('y')})`);
-        }
 
-        // Find upload trigger text and bind click
-        const uploadTrigger = group.querySelector('text.upload-trigger');
-        if (uploadTrigger) {
-            uploadTrigger.addEventListener('click', onUploadTriggerClick);
-            console.log(`[Edit] Bound upload trigger click for group ${idx}`);
+            // Create HTML overlay text that is always centered
+            const overlay = document.createElement('div');
+            overlay.className = 'image-placeholder-overlay';
+            overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
+            overlay.style.cssText = `
+                position: absolute;
+                pointer-events: none;
+                font-size: 18px;
+                color: #8C8C8C;
+                text-align: center;
+                white-space: nowrap;
+                user-select: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 100;
+                background: rgba(255,255,255,0.05);
+                border-radius: 4px;
+            `;
+            slideWrapper.appendChild(overlay);
+
+            // Style the text span to be clickable
+            const textSpan = overlay.querySelector('.upload-text');
+            textSpan.style.pointerEvents = 'auto';
+            textSpan.style.cursor = 'pointer';
+            textSpan.style.padding = '8px 16px';
+            textSpan.style.borderRadius = '4px';
+            textSpan.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window._uploadTargetRect = rect;
+                window._uploadTargetGroup = group;
+                document.getElementById('imageUploadInput').click();
+            });
+
+            // Store reference on rect for positioning updates
+            rect._overlayEl = overlay;
+            rect._slideWrapper = slideWrapper;
+            rect._svgEl = svgEl;
+            updateOverlayPosition(rect);
         }
     });
 
     if (!slideWrapper.dataset.slideWrapperEditListener) {
         slideWrapper.dataset.slideWrapperEditListener = 'true';
         slideWrapper.addEventListener('mousedown', onSlideWrapperMouseDown);
+    }
+
+    // Update overlay positions on window resize
+    if (!window._overlayResizeListener) {
+        window._overlayResizeListener = true;
+        window.addEventListener('resize', () => {
+            document.querySelectorAll('rect._overlayEl').forEach(rect => {
+                // This won't work, we need a different approach
+            });
+            // Update all overlays by re-querying placeholder groups
+            const svgEl = document.querySelector('#slideWrapper svg');
+            if (svgEl) {
+                svgEl.querySelectorAll('g.image-placeholder-group rect').forEach(rect => {
+                    if (rect._overlayEl) updateOverlayPosition(rect);
+                });
+            }
+        });
+    }
+}
+
+function updateOverlayPosition(rect) {
+    if (!rect._overlayEl || !rect._slideWrapper || !rect._svgEl) return;
+
+    const svgRect = rect._svgEl.getBoundingClientRect();
+    const slideRect = rect._slideWrapper.getBoundingClientRect();
+    const svgViewBox = rect._svgEl.viewBox.baseVal;
+    const scaleX = svgRect.width / svgViewBox.width;
+    const scaleY = svgRect.height / svgViewBox.height;
+
+    const x = parseFloat(rect.getAttribute('x') || 0);
+    const y = parseFloat(rect.getAttribute('y') || 0);
+    const w = parseFloat(rect.getAttribute('width') || 400);
+    const h = parseFloat(rect.getAttribute('height') || 300);
+
+    const overlayLeft = svgRect.left - slideRect.left + x * scaleX;
+    const overlayTop = svgRect.top - slideRect.top + y * scaleY;
+    const overlayWidth = w * scaleX;
+    const overlayHeight = h * scaleY;
+
+    rect._overlayEl.style.left = overlayLeft + 'px';
+    rect._overlayEl.style.top = overlayTop + 'px';
+    rect._overlayEl.style.width = overlayWidth + 'px';
+    rect._overlayEl.style.height = overlayHeight + 'px';
+}
+
+function setupImagePlaceholderOverlays() {
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (!slideWrapper) return;
+
+    const svgEl = slideWrapper.querySelector('svg');
+    if (!svgEl) return;
+
+    document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
+
+    const placeholderGroups = svgEl.querySelectorAll('g.image-placeholder-group');
+    console.log(`[Overlay] Found ${placeholderGroups.length} placeholder groups`);
+    
+    placeholderGroups.forEach((group, idx) => {
+        // Clear any saved overlay-listener attribute from SVG file
+        group.removeAttribute('data-overlay-listener');
+        group.dataset.overlayListener = 'true';
+        
+        const rect = group.querySelector('rect');
+        if (rect) {
+            rect.setAttribute('pointer-events', 'all');
+
+            const overlay = document.createElement('div');
+            overlay.className = 'image-placeholder-overlay';
+            overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
+            overlay.style.cssText = `
+                position: absolute;
+                pointer-events: none;
+                font-size: 18px;
+                color: #8C8C8C;
+                text-align: center;
+                white-space: nowrap;
+                user-select: none;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 100;
+                background: rgba(255,255,255,0.05);
+                border-radius: 4px;
+            `;
+            slideWrapper.appendChild(overlay);
+
+            const textSpan = overlay.querySelector('.upload-text');
+            textSpan.style.pointerEvents = 'auto';
+            textSpan.style.cursor = 'pointer';
+            textSpan.style.padding = '8px 16px';
+            textSpan.style.borderRadius = '4px';
+            textSpan.addEventListener('click', (e) => {
+                e.stopPropagation();
+                e.preventDefault();
+                window._uploadTargetRect = rect;
+                window._uploadTargetGroup = group;
+                document.getElementById('imageUploadInput').click();
+            });
+
+            rect._overlayEl = overlay;
+            rect._slideWrapper = slideWrapper;
+            rect._svgEl = svgEl;
+            updateOverlayPosition(rect);
+        }
+    });
+
+    if (!window._overlayResizeListener) {
+        window._overlayResizeListener = true;
+        window.addEventListener('resize', () => {
+            const svgEl = document.querySelector('#slideWrapper svg');
+            if (svgEl) {
+                svgEl.querySelectorAll('g.image-placeholder-group rect').forEach(rect => {
+                    if (rect._overlayEl) updateOverlayPosition(rect);
+                });
+            }
+        });
     }
 }
 
@@ -1426,6 +1588,9 @@ function onImageMouseMove(e) {
 
             pos.el.setAttribute('x', newX);
             pos.el.setAttribute('y', newY);
+
+            // Update HTML overlay position
+            updateOverlayPosition(pos.el);
         });
 
         updateSelectionBoxesPosition();
@@ -1467,6 +1632,10 @@ function onImageMouseMove(e) {
         selectedImage.setAttribute('y', newY);
         selectedImage.setAttribute('width', newWidth);
         selectedImage.setAttribute('height', newHeight);
+
+        // Update HTML overlay position
+        updateOverlayPosition(selectedImage);
+
         updateSelectionBoxesPosition();
         updatePropertiesPanel();
     }
@@ -2162,10 +2331,19 @@ function performSlideUpdate() {
 
             const parser = new DOMParser();
             const doc = parser.parseFromString(svgContent, 'image/svg+xml');
+            
+            // Check for parser errors
+            const parserError = doc.querySelector('parsererror');
+            if (parserError) {
+                console.error('SVG Parse Error:', parserError.textContent.substring(0, 500));
+                throw new Error('Invalid SVG content: ' + parserError.textContent.substring(0, 200));
+            }
+            
             const svgEl = doc.documentElement;
             
-            if (!svgEl || svgEl.nodeName === 'parsererror' || svgEl.tagName === 'html') {
-                throw new Error('Invalid SVG content');
+            if (!svgEl || svgEl.tagName !== 'svg') {
+                console.error('Unexpected documentElement:', svgEl?.tagName, svgEl);
+                throw new Error('Invalid SVG content: expected svg element, got ' + (svgEl?.tagName || 'null'));
             }
             
             svgEl.classList.add('w-full', 'h-full', 'rounded-lg', 'fade-in', 'cursor-pointer');
@@ -2179,11 +2357,19 @@ function performSlideUpdate() {
 
             svgEl.addEventListener('load', () => {
                 setupTextEditListeners(svgEl);
-                if (isEditMode) setupImageEditListeners();
+                if (isEditMode) {
+                    setupImageEditListeners();
+                } else {
+                    setupImagePlaceholderOverlays();
+                }
             });
             setTimeout(() => {
                 setupTextEditListeners(svgEl);
-                if (isEditMode) setupImageEditListeners();
+                if (isEditMode) {
+                    setupImageEditListeners();
+                } else {
+                    setupImagePlaceholderOverlays();
+                }
             }, 50);
 
             currentEditingSlidePath = slidePath;
