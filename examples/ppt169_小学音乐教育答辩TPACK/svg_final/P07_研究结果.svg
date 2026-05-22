@@ -3,119 +3,93 @@
     <filter id="cardShadow">
       <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.06"/>
     </filter>
-    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5A623;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#E8961E;stop-opacity:1" />
-    </linearGradient>
   </defs>
   
   <!-- Background -->
   <rect width="1920" height="1080" fill="#F8F9FA"/>
   
   <!-- Music note background decorations -->
-  <g opacity="0.10" fill="#E86A2A">
-    <g transform="translate(1650, 150) rotate(-15)">
-      <text font-size="115" font-family="serif">♪</text>
+  <g opacity="0.08" fill="#E86A2A">
+    <g transform="translate(1720, 180) rotate(-15)">
+      <text font-size="88" font-family="serif">♪</text>
     </g>
-    <g transform="translate(1780, 550) rotate(20)">
-      <text font-size="90" font-family="serif">♫</text>
+    <g transform="translate(1840, 600) rotate(20)">
+      <text font-size="72" font-family="serif">♫</text>
     </g>
-    <g transform="translate(100, 700) rotate(-25)">
-      <text font-size="80" font-family="serif">♩</text>
+    <g transform="translate(130, 750) rotate(-25)">
+      <text font-size="64" font-family="serif">♩</text>
     </g>
-    <g transform="translate(1450, 100) rotate(10)">
-      <text font-size="60" font-family="serif">♬</text>
+    <g transform="translate(1520, 150) rotate(10)">
+      <text font-size="52" font-family="serif">♬</text>
     </g>
-    <g transform="translate(1700, 800) rotate(-20)">
-      <text font-size="75" font-family="serif">♪</text>
+    <g transform="translate(1760, 850) rotate(-20)">
+      <text font-size="56" font-family="serif">♪</text>
     </g>
-    <g transform="translate(200, 200) rotate(15)">
-      <text font-size="55" font-family="serif">♫</text>
-    </g>
-    <g transform="translate(1550, 350) rotate(-30)">
-      <text font-size="50" font-family="serif">♩</text>
-    </g>
-    <g transform="translate(150, 400) rotate(25)">
-      <text font-size="45" font-family="serif">♬</text>
-    </g>
-    <g transform="translate(1850, 300) rotate(-10)">
-      <text font-size="65" font-family="serif">♫</text>
-    </g>
-    <g transform="translate(300, 850) rotate(20)">
-      <text font-size="40" font-family="serif">♪</text>
+    <g transform="translate(240, 240) rotate(15)">
+      <text font-size="44" font-family="serif">♫</text>
     </g>
   </g>
   
   <!-- Header -->
-  <text x="80" y="100" font-size="72" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">05</text>
-  <text x="190" y="90" font-size="44" fill="#2C1810" font-family="'Noto Serif SC', serif" font-weight="600">研究结果与分析</text>
-  <text x="190" y="125" font-size="22" fill="#8B7355">Research Results &amp; Analysis</text>
-  <line x1="80" y1="145" x2="1840" y2="145" stroke="#F5A623" stroke-width="3"/>
+  <text x="96" y="108" font-size="64" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">05</text>
+  <text x="200" y="96" font-size="40" fill="#2C1810" font-family="'Noto Serif SC', serif" font-weight="600">研究结果与分析</text>
+  <text x="200" y="128" font-size="20" fill="#8B7355">Research Results &amp; Analysis</text>
+  <line x1="96" y1="152" x2="1824" y2="152" stroke="#F5A623" stroke-width="3"/>
   
   <!-- Left section: Quantitative -->
-  <rect x="80" y="180" width="860" height="760" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="80" y="180" width="8" height="760" rx="4" fill="#F5A623"/>
+  <rect x="96" y="184" width="848" height="760" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="96" y="184" width="6" height="760" rx="3" fill="#F5A623"/>
   
-  <g transform="translate(130, 210)">
+  <!-- Icon and title -->
+  <g transform="translate(144, 224)">
     <rect x="0" y="12" width="8" height="16" rx="2" fill="#F5A623"/>
     <rect x="12" y="6" width="8" height="22" rx="2" fill="#F5A623"/>
     <rect x="24" y="0" width="8" height="28" rx="2" fill="#F5A623"/>
   </g>
-  <text x="190" y="248" font-size="28" fill="#2C1810" font-weight="600">量化数据分析</text>
+  <text x="200" y="260" font-size="26" fill="#2C1810" font-weight="600">量化数据分析</text>
   
-  <line x1="130" y1="290" x2="890" y2="290" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="150" y="335" font-size="22" fill="#5A5D75"> 课堂表现：实验组学生在课堂参与度、</text>
-  <text x="150" y="375" font-size="22" fill="#5A5D75"> 互动频率上显著高于对照组</text>
-  <line x1="130" y1="410" x2="890" y2="410" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="150" y="455" font-size="22" fill="#5A5D75"> 学习效果：实验组在旋律模唱、音乐知识</text>
-  <text x="150" y="495" font-size="22" fill="#5A5D75"> 问答等课后测试中的正确率更高</text>
-  <line x1="130" y1="530" x2="890" y2="530" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="150" y="575" font-size="22" fill="#5A5D75"> 课程接受度：问卷调查显示，学生对课程</text>
-  <text x="150" y="615" font-size="22" fill="#5A5D75"> 的喜爱程度和学习兴趣显著提升</text>
-  <line x1="130" y1="650" x2="890" y2="650" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="150" y="695" font-size="22" fill="#5A5D75"> 情感态度：学生在音乐审美体验中表现出</text>
-  <text x="150" y="735" font-size="22" fill="#5A5D75"> 更积极的情感投入与探究欲望</text>
-  <line x1="130" y1="770" x2="890" y2="770" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="150" y="815" font-size="22" fill="#5A5D75"> 知识掌握：实验组对"起承转合"曲式结构</text>
-  <text x="150" y="855" font-size="22" fill="#5A5D75"> 和"鱼咬尾"技法的掌握更准确</text>
+  <!-- Data items - 2 items to make room for 4:3 chart -->
+  <rect x="144" y="296" width="752" height="72" rx="8" fill="#F8F9FA"/>
+  <text x="184" y="328" font-size="18" fill="#2C1810" font-weight="600">课堂表现</text>
+  <text x="184" y="352" font-size="16" fill="#5A5D75">实验组学生在课堂参与度、互动频率上显著高于对照组</text>
   
-  <!-- Chart placeholder - larger -->
-  <rect x="130" y="880" width="760" height="60" rx="8" fill="#F0F2F5" stroke="#D9D9D9" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="510" y="915" font-size="20" text-anchor="middle" fill="#8C8C8C">数据对比图表（柱状图/折线图）</text>
+  <rect x="144" y="384" width="752" height="72" rx="8" fill="#F8F9FA"/>
+  <text x="184" y="416" font-size="18" fill="#2C1810" font-weight="600">学习效果</text>
+  <text x="184" y="440" font-size="16" fill="#5A5D75">实验组在旋律模唱、音乐知识问答等课后测试中的正确率更高</text>
+  
+  <!-- Chart placeholder wrapped in group (4:3 ratio 560x420) -->
+  <g class="image-placeholder-group" data-editable="true">
+    <rect x="244" y="488" width="560" height="420" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="6,4"/>
+  </g>
   
   <!-- Right section: Qualitative -->
-  <rect x="980" y="180" width="860" height="760" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="980" y="180" width="8" height="760" rx="4" fill="#E86A2A"/>
+  <rect x="976" y="184" width="848" height="760" rx="12" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="976" y="184" width="6" height="760" rx="3" fill="#E86A2A"/>
   
-  <g transform="translate(1030, 210)">
+  <!-- Icon and title -->
+  <g transform="translate(1024, 224)">
     <path d="M4 4 L36 4 L36 24 L12 24 L4 32 Z" fill="none" stroke="#E86A2A" stroke-width="2"/>
     <line x1="12" y1="12" x2="28" y2="12" stroke="#E86A2A" stroke-width="2"/>
     <line x1="12" y1="18" x2="24" y2="18" stroke="#E86A2A" stroke-width="2"/>
   </g>
-  <text x="1090" y="248" font-size="28" fill="#2C1810" font-weight="600">质性分析反馈</text>
+  <text x="1080" y="260" font-size="26" fill="#2C1810" font-weight="600">质性分析反馈</text>
   
-  <line x1="1030" y1="290" x2="1790" y2="290" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="1050" y="335" font-size="22" fill="#5A5D75"> 课堂观察：实验组课堂氛围活跃，</text>
-  <text x="1050" y="375" font-size="22" fill="#5A5D75"> 学生主动提问与互动频率高</text>
-  <line x1="1030" y1="410" x2="1790" y2="410" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="1050" y="455" font-size="22" fill="#5A5D75"> 教师访谈：TPACK模型有效整合技术，</text>
-  <text x="1050" y="495" font-size="22" fill="#5A5D75"> 教学设计更具系统性与针对性</text>
-  <line x1="1030" y1="530" x2="1790" y2="530" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="1050" y="575" font-size="22" fill="#5A5D75"> 学生反馈：喜欢AI数字人、VR全景等</text>
-  <text x="1050" y="615" font-size="22" fill="#5A5D75"> 新技术手段，学习体验更丰富</text>
-  <line x1="1030" y1="650" x2="1790" y2="650" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="1050" y="695" font-size="22" fill="#5A5D75"> 教学成效：技术不再是孤立工具，</text>
-  <text x="1050" y="735" font-size="22" fill="#5A5D75"> 而是与教学内容、方法深度融合</text>
-  <line x1="1030" y1="770" x2="1790" y2="770" stroke="#F0F2F5" stroke-width="1"/>
-  <text x="1050" y="815" font-size="22" fill="#5A5D75"> 模式验证：TPACK教学实践模型在</text>
-  <text x="1050" y="855" font-size="22" fill="#5A5D75"> 小学音乐欣赏教学中具有可行性</text>
+  <!-- Feedback items - 2 items to make room for 4:3 image -->
+  <rect x="1024" y="296" width="752" height="72" rx="8" fill="#F8F9FA"/>
+  <text x="1064" y="328" font-size="18" fill="#2C1810" font-weight="600">课堂观察</text>
+  <text x="1064" y="352" font-size="16" fill="#5A5D75">实验组课堂氛围活跃，学生主动提问与互动频率高</text>
   
-  <!-- Chart placeholder - larger -->
-  <rect x="1030" y="880" width="760" height="60" rx="8" fill="#F0F2F5" stroke="#D9D9D9" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="1410" y="915" font-size="20" text-anchor="middle" fill="#8C8C8C">访谈记录/课堂观察照片</text>
+  <rect x="1024" y="384" width="752" height="72" rx="8" fill="#F8F9FA"/>
+  <text x="1064" y="416" font-size="18" fill="#2C1810" font-weight="600">教师访谈</text>
+  <text x="1064" y="440" font-size="16" fill="#5A5D75">TPACK模型有效整合技术，教学设计更具系统性与针对性</text>
   
-  <!-- Bottom decorative element -->
-  <line x1="80" y1="980" x2="1840" y2="980" stroke="#F5A623" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="960" y="1015" font-size="18" text-anchor="middle" fill="#8B7355" letter-spacing="2">基于TPACK理论的小学音乐欣赏教学实践研究</text>
-  <text x="960" y="1045" font-size="16" text-anchor="middle" fill="#8B7355" letter-spacing="1">XX师范大学 · 音乐学院</text>
+  <!-- Image placeholder wrapped in group (4:3 ratio 560x420) -->
+  <g class="image-placeholder-group" data-editable="true">
+    <rect x="1124" y="488" width="560" height="420" rx="8" fill="#F8F9FA" stroke="#E0E0E0" stroke-width="1" stroke-dasharray="6,4"/>
+  </g>
+  
+  <!-- Footer -->
+  <line x1="96" y1="984" x2="1824" y2="984" stroke="#F5A623" stroke-width="1" stroke-dasharray="4,4"/>
+  <text x="960" y="1016" font-size="16" text-anchor="middle" fill="#8B7355" letter-spacing="2">基于TPACK理论的小学音乐欣赏教学实践研究</text>
+  <text x="960" y="1044" font-size="14" text-anchor="middle" fill="#8B7355" letter-spacing="1">XX师范大学 · 音乐学院</text>
 </svg>

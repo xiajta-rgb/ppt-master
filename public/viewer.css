@@ -773,6 +773,20 @@ header button[title]:hover {
     pointer-events: auto !important;
 }
 
+.edit-mode #slideWrapper svg image,
+.edit-mode #slideWrapper svg g.image-placeholder-group {
+    cursor: move !important;
+    pointer-events: all !important;
+}
+
+.edit-mode #slideWrapper svg g.image-placeholder-group rect {
+    pointer-events: all !important;
+}
+
+.edit-mode #slideWrapper svg g.image-placeholder-group text {
+    pointer-events: none !important;
+}
+
 .edit-mode #slideWrapper svg text,
 .edit-mode #slideWrapper svg tspan {
     cursor: text !important;

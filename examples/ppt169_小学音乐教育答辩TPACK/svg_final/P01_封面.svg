@@ -2,113 +2,76 @@
   <defs>
     <linearGradient id="coverGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#E86A2A;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#D35400;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#E86A2A;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5A623;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#E8961E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" />
     </linearGradient>
     <filter id="shadow">
       <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.15"/>
     </filter>
-    <pattern id="gridPattern" width="40" height="40" patternUnits="userSpaceOnUse">
-      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-    </pattern>
   </defs>
   
   <!-- Background -->
   <rect width="1920" height="1080" fill="url(#coverGrad)"/>
-  <rect width="1920" height="1080" fill="url(#gridPattern)"/>
   
-  <!-- Music note background decorations -->
+  <!-- Music note background decorations - refined -->
   <g opacity="0.06" fill="#FFFFFF">
-    <g transform="translate(150, 150) rotate(-20)">
+    <g transform="translate(160, 160) rotate(-18)">
       <text font-size="100" font-family="serif">♪</text>
     </g>
-    <g transform="translate(1750, 200) rotate(15)">
-      <text font-size="90" font-family="serif">♫</text>
+    <g transform="translate(1740, 200) rotate(12)">
+      <text font-size="85" font-family="serif">♫</text>
     </g>
-    <g transform="translate(1600, 850) rotate(-25)">
-      <text font-size="80" font-family="serif">♩</text>
+    <g transform="translate(1620, 860) rotate(-22)">
+      <text font-size="75" font-family="serif">♩</text>
     </g>
-    <g transform="translate(200, 900) rotate(20)">
-      <text font-size="70" font-family="serif">♬</text>
-    </g>
-    <g transform="translate(1800, 500) rotate(-15)">
-      <text font-size="60" font-family="serif">♪</text>
-    </g>
-    <g transform="translate(100, 500) rotate(25)">
-      <text font-size="55" font-family="serif">♫</text>
-    </g>
-    <g transform="translate(1400, 100) rotate(-10)">
-      <text font-size="50" font-family="serif">♩</text>
-    </g>
-    <g transform="translate(300, 300) rotate(30)">
-      <text font-size="45" font-family="serif">♬</text>
+    <g transform="translate(180, 900) rotate(16)">
+      <text font-size="65" font-family="serif">♬</text>
     </g>
   </g>
   
-  <!-- Academic decorative lines -->
-  <line x1="0" y1="0" x2="1920" y2="0" stroke="#F5A623" stroke-width="4"/>
-  <line x1="0" y1="1080" x2="1920" y2="1080" stroke="#F5A623" stroke-width="4"/>
-  <line x1="0" y1="0" x2="0" y2="1080" stroke="#F5A623" stroke-width="4"/>
-  <line x1="1920" y1="0" x2="1920" y2="1080" stroke="#F5A623" stroke-width="4"/>
+  <!-- Top accent line -->
+  <line x1="96" y1="96" x2="1824" y2="96" stroke="#F5A623" stroke-width="3"/>
   
-  <!-- Inner border -->
-  <rect x="40" y="40" width="1840" height="1000" fill="none" stroke="rgba(245,166,35,0.3)" stroke-width="1"/>
+  <!-- Left: Logo placeholder - converted to image element for drag/resize -->
+  <image x="120" y="140" width="160" height="160" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIgcng9IjgiLz48dGV4dCB4PSI4MCIgeT0iNzAiIGZvbnQtc2l6ZT0iMTQiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC40KSI+5Y+35Y+3PC90ZXh0Pjx0ZXh0IHg9IjgwIiB5PSI5MCIgZm9udC1zaXplPSIxMiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjMpIj5MT0dPPC90ZXh0Pjwvc3ZnPg==" preserveAspectRatio="xMidYMid meet"/>
   
-  <!-- Left side: University logo placeholder -->
-  <rect x="120" y="100" width="180" height="180" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-  <text x="210" y="180" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.4)">校徽</text>
-  <text x="210" y="200" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.3)">LOGO</text>
-  
-  <!-- Right side: Image placeholder for music/education -->
-  <rect x="1580" y="100" width="220" height="180" rx="8" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="1690" y="180" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.4)">教学场景图</text>
-  <text x="1690" y="200" font-size="12" text-anchor="middle" fill="rgba(255,255,255,0.3)">IMAGE</text>
+  <!-- Right: Image placeholder - converted to image element for drag/resize -->
+  <image x="1640" y="140" width="160" height="160" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA4KSIgcng9IjgiIHN0cm9rZT0icmdiYSgyNTUsMjU1LDI1NSwwLjIpIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1kYXNoYXJyYXk9IjQsNCIvPjx0ZXh0IHg9IjgwIiB5PSI3MCIgZm9udC1zaXplPSIxMyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjQpIj7kuK3lkI3lrZjlnKjnlbDmja7llqDmlbA8L3RleHQ+PHRleHQgeD0iODAiIHk9IjkwIiBmb250LXNpemU9IjExIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJyZ2JhKDI1NSwyNTUsMjU1LDAuMykiPklNQUdFPC90ZXh0Pjwvc3ZnPg==" preserveAspectRatio="xMidYMid meet"/>
   
   <!-- Content - centered -->
-  <text x="960" y="380" font-size="28" text-anchor="middle" fill="#F5A623" letter-spacing="12" font-family="sans-serif" font-weight="300">硕士学位论文答辩</text>
+  <text x="960" y="380" font-size="24" text-anchor="middle" fill="#F5A623" letter-spacing="10" font-family="'Noto Sans SC', sans-serif" font-weight="300">硕士学位论文答辩</text>
   
-  <text x="960" y="480" font-size="52" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="700" filter="url(#shadow)">
+  <text x="960" y="470" font-size="48" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="700" filter="url(#shadow)">
     <tspan x="960" dy="0">基于TPACK理论的小学</tspan>
-    <tspan x="960" dy="75">音乐欣赏教学实践研究</tspan>
+    <tspan x="960" dy="72">音乐欣赏教学实践研究</tspan>
   </text>
   
-  <text x="960" y="620" font-size="22" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-style="italic" font-family="sans-serif" letter-spacing="2">
+  <text x="960" y="610" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-style="italic" font-family="'Noto Sans SC', sans-serif" letter-spacing="1">
     Research on Primary School Music Appreciation Teaching Practice Based on TPACK Theory
   </text>
   
   <!-- Decorative line -->
-  <line x1="600" y1="670" x2="1320" y2="670" stroke="#F5A623" stroke-width="2"/>
-  <circle cx="960" cy="670" r="6" fill="#F5A623"/>
+  <line x1="640" y1="660" x2="1280" y2="660" stroke="#F5A623" stroke-width="2"/>
+  <circle cx="960" cy="660" r="5" fill="#F5A623"/>
   
-  <!-- Info bar -->
-  <rect x="400" y="720" width="1120" height="140" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <!-- Info bar - simplified 3 columns -->
+  <rect x="480" y="710" width="960" height="120" rx="8" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
   
-  <line x1="586" y1="720" x2="586" y2="860" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="773" y1="720" x2="773" y2="860" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="960" y1="720" x2="960" y2="860" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1146" y1="720" x2="1146" y2="860" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
-  <line x1="1333" y1="720" x2="1333" y2="860" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="800" y1="710" x2="800" y2="830" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="1120" y1="710" x2="1120" y2="830" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
   
-  <text x="493" y="765" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="sans-serif">答辩人</text>
-  <text x="493" y="805" font-size="24" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="600">夏周慧</text>
+  <text x="640" y="755" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="'Noto Sans SC', sans-serif">答辩人</text>
+  <text x="640" y="795" font-size="22" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Sans SC', sans-serif" font-weight="600">夏周慧</text>
   
-  <text x="680" y="765" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="sans-serif">指导教师</text>
-  <text x="680" y="805" font-size="24" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="600">XXX 教授</text>
+  <text x="960" y="755" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="'Noto Sans SC', sans-serif">指导教师</text>
+  <text x="960" y="795" font-size="22" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Sans SC', sans-serif" font-weight="600">XXX 教授</text>
   
-  <text x="866" y="765" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="sans-serif">学科专业</text>
-  <text x="866" y="805" font-size="24" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="600">音乐教育</text>
-  
-  <text x="1053" y="765" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="sans-serif">研究方向</text>
-  <text x="1053" y="805" font-size="24" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="600">TPACK理论</text>
-  
-  <text x="1240" y="765" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="sans-serif">日 期</text>
-  <text x="1240" y="805" font-size="24" text-anchor="middle" fill="#FFFFFF" font-family="sans-serif" font-weight="600">2026年5月</text>
+  <text x="1280" y="755" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="'Noto Sans SC', sans-serif">日 期</text>
+  <text x="1280" y="795" font-size="22" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Sans SC', sans-serif" font-weight="600">2026年5月</text>
   
   <!-- Bottom: University info -->
-  <text x="960" y="940" font-size="20" text-anchor="middle" fill="rgba(255,255,255,0.5)" letter-spacing="6" font-family="sans-serif">XX师范大学 音乐学院</text>
-  <text x="960" y="970" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.35)" letter-spacing="3" font-family="sans-serif">SCHOOL OF MUSIC, XX NORMAL UNIVERSITY</text>
+  <text x="960" y="920" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.5)" letter-spacing="4" font-family="'Noto Sans SC', sans-serif">XX师范大学 音乐学院</text>
+  <text x="960" y="950" font-size="13" text-anchor="middle" fill="rgba(255,255,255,0.35)" letter-spacing="2" font-family="'Noto Sans SC', sans-serif">SCHOOL OF MUSIC, XX NORMAL UNIVERSITY</text>
+  
+  <!-- Bottom accent line -->
+  <line x1="96" y1="984" x2="1824" y2="984" stroke="#F5A623" stroke-width="3"/>
 </svg>

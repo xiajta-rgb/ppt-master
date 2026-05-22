@@ -350,6 +350,36 @@ def edit_svg():
         logger.error(f"Edit SVG error: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
+@app.route('/api/save-svg', methods=['POST'])
+def save_svg():
+    try:
+        data = request.get_json()
+        file_name = data.get('file')
+        folder = data.get('folder')
+        content = data.get('content')
+
+        if not all([file_name, folder, content]):
+            return jsonify({'success': False, 'error': 'Missing required parameters'}), 400
+
+        svg_path = PROJECT_DIR / folder / file_name
+        if not svg_path.exists():
+            return jsonify({'success': False, 'error': f'File not found: {svg_path}'}), 404
+
+        backup_path = svg_path.with_suffix('.svg.bak')
+        if not backup_path.exists():
+            svg_path.rename(backup_path)
+
+        svg_path.write_text(content, encoding='utf-8')
+        invalidate_scan_cache()
+
+        return jsonify({'success': True, 'message': 'SVG saved successfully'})
+
+    except json.JSONDecodeError as e:
+        return jsonify({'success': False, 'error': f'Invalid JSON: {str(e)}'}), 400
+    except Exception as e:
+        logger.error(f"Save SVG error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
 @app.route('/api/save-project', methods=['POST'])
 def save_project():
     if not check_user_auth():

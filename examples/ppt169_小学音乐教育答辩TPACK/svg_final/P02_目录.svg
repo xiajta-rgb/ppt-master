@@ -5,112 +5,93 @@
       <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" />
     </linearGradient>
     <filter id="cardShadow">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-opacity="0.08"/>
     </filter>
-    <pattern id="gridPattern" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 30 0 L 0 0 0 30" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
-    </pattern>
   </defs>
   
   <!-- Left panel -->
   <rect width="672" height="1080" fill="url(#tocGrad)"/>
-  <rect width="672" height="1080" fill="url(#gridPattern)"/>
   
-  <!-- Academic border -->
-  <line x1="0" y1="0" x2="672" y2="0" stroke="#F5A623" stroke-width="3"/>
-  <line x1="0" y1="1080" x2="672" y2="1080" stroke="#F5A623" stroke-width="3"/>
-  <line x1="0" y1="0" x2="0" y2="1080" stroke="#F5A623" stroke-width="3"/>
+  <!-- Top accent line -->
+  <line x1="0" y1="96" x2="672" y2="96" stroke="#F5A623" stroke-width="3"/>
   
   <!-- Badge with icon -->
-  <circle cx="336" cy="350" r="65" fill="rgba(255,255,255,0.1)" stroke="rgba(245,166,35,0.5)" stroke-width="2"/>
-  <!-- Ant Design style list icon -->
-  <g transform="translate(316, 330)">
+  <circle cx="336" cy="340" r="60" fill="rgba(255,255,255,0.1)" stroke="rgba(245,166,35,0.5)" stroke-width="2"/>
+  <g transform="translate(316, 320)">
     <rect x="0" y="0" width="40" height="4" rx="2" fill="#F5A623"/>
     <rect x="0" y="12" width="40" height="4" rx="2" fill="#F5A623"/>
     <rect x="0" y="24" width="40" height="4" rx="2" fill="#F5A623"/>
   </g>
   
-  <text x="336" y="490" font-size="76" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="600" letter-spacing="12">目录</text>
-  <text x="336" y="545" font-size="18" text-anchor="middle" fill="rgba(255,255,255,0.6)" letter-spacing="4">CONTENTS</text>
+  <text x="336" y="480" font-size="72" text-anchor="middle" fill="#FFFFFF" font-family="'Noto Serif SC', serif" font-weight="600" letter-spacing="10">目录</text>
+  <text x="336" y="530" font-size="16" text-anchor="middle" fill="rgba(255,255,255,0.5)" letter-spacing="3" font-family="'Noto Sans SC', sans-serif">CONTENTS</text>
   
-  <!-- Bottom decoration on left panel -->
-  <line x1="200" y1="950" x2="472" y2="950" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-  <text x="336" y="990" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.4)" letter-spacing="2">XX师范大学 · 音乐学院</text>
+  <!-- Bottom decoration -->
+  <line x1="200" y1="940" x2="472" y2="940" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+  <text x="336" y="980" font-size="14" text-anchor="middle" fill="rgba(255,255,255,0.4)" letter-spacing="2" font-family="'Noto Sans SC', sans-serif">XX师范大学 · 音乐学院</text>
   
   <!-- Right panel -->
-  <rect x="672" y="0" width="1248" height="1080" fill="#FFF8F0"/>
+  <rect x="672" y="0" width="1248" height="1080" fill="#FFFAF5"/>
   
-  <!-- Music note background decorations -->
+  <!-- Music note decorations -->
   <g opacity="0.04" fill="#E86A2A">
-    <g transform="translate(1700, 150) rotate(-18)">
-      <text font-size="100" font-family="serif">♪</text>
+    <g transform="translate(1720, 160) rotate(-15)">
+      <text font-size="90" font-family="serif">♪</text>
     </g>
-    <g transform="translate(1800, 700) rotate(22)">
-      <text font-size="85" font-family="serif">♫</text>
+    <g transform="translate(1800, 700) rotate(18)">
+      <text font-size="75" font-family="serif">♫</text>
     </g>
-    <g transform="translate(1500, 400) rotate(-25)">
-      <text font-size="70" font-family="serif">♩</text>
-    </g>
-    <g transform="translate(1650, 850) rotate(15)">
-      <text font-size="60" font-family="serif">♬</text>
-    </g>
-    <g transform="translate(1850, 300) rotate(-10)">
-      <text font-size="55" font-family="serif">♪</text>
-    </g>
-    <g transform="translate(1450, 600) rotate(28)">
-      <text font-size="50" font-family="serif">♫</text>
+    <g transform="translate(1500, 420) rotate(-20)">
+      <text font-size="60" font-family="serif">♩</text>
     </g>
   </g>
   
   <!-- Header -->
-  <line x1="732" y1="120" x2="1860" y2="120" stroke="#E86A2A" stroke-width="2"/>
-  <text x="732" y="100" font-size="28" fill="#2C1810" font-family="'Noto Serif SC', serif" font-weight="600">汇报内容</text>
-  <text x="1860" y="100" font-size="16" fill="#8B7355" text-anchor="end" letter-spacing="3">PRESENTATION OUTLINE</text>
+  <line x1="732" y1="120" x2="1860" y2="120" stroke="#E86A2A" stroke-width="2" opacity="0.3"/>
+  <text x="732" y="100" font-size="24" fill="#2C1810" font-family="'Noto Serif SC', serif" font-weight="600">汇报内容</text>
+  <text x="1860" y="100" font-size="14" fill="#A08B72" text-anchor="end" letter-spacing="2" font-family="'Noto Sans SC', sans-serif">PRESENTATION OUTLINE</text>
   
-  <!-- TOC items -->
-  <!-- TOC Item 01 -->
-  <rect x="732" y="160" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="160" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="210" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">01</text>
-  <text x="840" y="200" font-size="24" fill="#2C1810" font-weight="600">研究缘起与问题提出</text>
-  <text x="840" y="230" font-size="15" fill="#8B7355" font-style="italic">Background &amp; Research Questions</text>
+  <!-- TOC items - 2 columns -->
+  <!-- Row 1 -->
+  <rect x="732" y="160" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="732" y="160" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="772" y="210" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">01</text>
+  <text x="830" y="200" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">研究缘起与问题提出</text>
+  <text x="830" y="230" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Background &amp; Research Questions</text>
   
-  <!-- TOC Item 02 -->
-  <rect x="732" y="280" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="280" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="330" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">02</text>
-  <text x="840" y="320" font-size="24" fill="#2C1810" font-weight="600">理论基础与研究定位</text>
-  <text x="840" y="350" font-size="15" fill="#8B7355" font-style="italic">Theoretical Foundation</text>
+  <rect x="1312" y="160" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="1312" y="160" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="1352" y="210" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">02</text>
+  <text x="1410" y="200" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">理论基础与研究定位</text>
+  <text x="1410" y="230" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Theoretical Foundation</text>
   
-  <!-- TOC Item 03 -->
-  <rect x="732" y="400" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="400" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="450" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">03</text>
-  <text x="840" y="440" font-size="24" fill="#2C1810" font-weight="600">研究设计与方法</text>
-  <text x="840" y="470" font-size="15" fill="#8B7355" font-style="italic">Research Design &amp; Methods</text>
+  <!-- Row 2 -->
+  <rect x="732" y="280" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="732" y="280" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="772" y="330" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">03</text>
+  <text x="830" y="320" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">研究设计与方法</text>
+  <text x="830" y="350" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Research Design &amp; Methods</text>
   
-  <!-- TOC Item 04 -->
-  <rect x="732" y="520" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="520" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="570" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">04</text>
-  <text x="840" y="560" font-size="24" fill="#2C1810" font-weight="600">教学实践与案例分析</text>
-  <text x="840" y="590" font-size="15" fill="#8B7355" font-style="italic">Teaching Practice &amp; Case Study</text>
+  <rect x="1312" y="280" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="1312" y="280" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="1352" y="330" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">04</text>
+  <text x="1410" y="320" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">教学实践与案例分析</text>
+  <text x="1410" y="350" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Teaching Practice &amp; Case Study</text>
   
-  <!-- TOC Item 05 -->
-  <rect x="732" y="640" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="640" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="690" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">05</text>
-  <text x="840" y="680" font-size="24" fill="#2C1810" font-weight="600">研究结果与分析</text>
-  <text x="840" y="710" font-size="15" fill="#8B7355" font-style="italic">Research Results &amp; Analysis</text>
+  <!-- Row 3 -->
+  <rect x="732" y="400" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="732" y="400" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="772" y="450" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">05</text>
+  <text x="830" y="440" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">研究结果与分析</text>
+  <text x="830" y="470" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Research Results &amp; Analysis</text>
   
-  <!-- TOC Item 06 -->
-  <rect x="732" y="760" width="1148" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
-  <rect x="732" y="760" width="8" height="100" rx="4" fill="#E86A2A"/>
-  <text x="772" y="810" font-size="42" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">06</text>
-  <text x="840" y="800" font-size="24" fill="#2C1810" font-weight="600">结论与展望</text>
-  <text x="840" y="830" font-size="15" fill="#8B7355" font-style="italic">Conclusion &amp; Future Outlook</text>
+  <rect x="1312" y="400" width="540" height="100" rx="8" fill="#FFFFFF" filter="url(#cardShadow)"/>
+  <rect x="1312" y="400" width="6" height="100" rx="3" fill="#E86A2A"/>
+  <text x="1352" y="450" font-size="36" fill="#E86A2A" font-family="'Noto Serif SC', serif" font-weight="700">06</text>
+  <text x="1410" y="440" font-size="22" fill="#2C1810" font-family="'Noto Sans SC', sans-serif" font-weight="600">结论与展望</text>
+  <text x="1410" y="470" font-size="14" fill="#A08B72" font-family="'Noto Sans SC', sans-serif">Conclusion &amp; Future Outlook</text>
   
-  <!-- Bottom decorative element -->
-  <line x1="732" y1="920" x2="1860" y2="920" stroke="#E86A2A" stroke-width="1" stroke-dasharray="4,4"/>
-  <text x="1296" y="960" font-size="14" text-anchor="middle" fill="#8B7355" letter-spacing="2">共6个章节 · 预计汇报时间20分钟</text>
+  <!-- Bottom -->
+  <line x1="732" y1="920" x2="1860" y2="920" stroke="#E0D5C8" stroke-width="1"/>
+  <text x="1296" y="955" font-size="14" text-anchor="middle" fill="#A08B72" letter-spacing="1" font-family="'Noto Sans SC', sans-serif">共6个章节 · 预计汇报时间20分钟</text>
 </svg>
