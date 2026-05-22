@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0a0e1a"/>
+
+  <rect x="60" y="40" width="1800" height="44" rx="8" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+  <text x="80" y="68" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">LASEN.Digital</text>
+  <text x="1840" y="68" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">系统设计报告 v2.0</text>
+
+  <text x="60" y="130" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" font-weight="600" fill="#06b6d4" letter-spacing="0.15em">ARCHITECTURE</text>
+  <text x="60" y="168" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="32" font-weight="700" fill="#f1f5f9">一核四翼架构设计</text>
+
+  <rect x="60" y="190" width="1800" height="50" rx="10" fill="#06b6d4" fill-opacity="0.06" stroke="#06b6d4" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="960" y="221" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">VOC为核心中枢，AMZN/COLOR/YFB/LASEN四翼环绕，底部统一数据中台支撑</text>
+
+  <ellipse cx="960" cy="560" rx="320" ry="240" fill="url(#centerGlow)"/>
+
+  <line x1="760" y1="440" x2="540" y2="340" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="1160" y1="440" x2="1380" y2="340" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="760" y1="680" x2="540" y2="780" stroke="#10b981" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="1160" y1="680" x2="1380" y2="780" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <g>
+    <rect x="810" y="460" width="300" height="200" rx="20" fill="#161d2e" stroke="#06b6d4" stroke-opacity="0.5" stroke-width="2"/>
+    <rect x="810" y="460" width="300" height="6" rx="3" fill="#06b6d4"/>
+    <use data-icon="chunk/hexagon" x="920" y="488" width="48" height="48" fill="#06b6d4"/>
+    <text x="960" y="560" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="24" font-weight="700" fill="#f1f5f9">VOC</text>
+    <text x="960" y="588" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#06b6d4">数智化企划设计中心</text>
+    <text x="960" y="612" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="12" fill="#64748b">24 API Modules</text>
+    <rect x="870" y="628" width="180" height="24" rx="6" fill="#06b6d4" fill-opacity="0.1"/>
+    <text x="960" y="645" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" font-weight="600" fill="#06b6d4">核心中枢 · 一核</text>
+  </g>
+
+  <g>
+    <rect x="300" y="270" width="280" height="160" rx="16" fill="#161d2e" stroke="#f59e0b" stroke-opacity="0.4" stroke-width="1.5"/>
+    <rect x="300" y="270" width="280" height="4" rx="2" fill="#f59e0b"/>
+    <use data-icon="chunk/magnifying-glass" x="400" y="296" width="36" height="36" fill="#f59e0b"/>
+    <text x="440" y="358" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">AMZN</text>
+    <text x="440" y="384" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#f59e0b">亚马逊数据爬虫</text>
+    <text x="440" y="406" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">市场情报采集引擎</text>
+  </g>
+
+  <g>
+    <rect x="1340" y="270" width="280" height="160" rx="16" fill="#161d2e" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="1.5"/>
+    <rect x="1340" y="270" width="280" height="4" rx="2" fill="#8b5cf6"/>
+    <use data-icon="chunk/palette" x="1440" y="296" width="36" height="36" fill="#8b5cf6"/>
+    <text x="1480" y="358" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">COLOR</text>
+    <text x="1480" y="384" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#8b5cf6">品牌色彩库</text>
+    <text x="1480" y="406" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">设计标准化体系</text>
+  </g>
+
+  <g>
+    <rect x="300" y="700" width="280" height="160" rx="16" fill="#161d2e" stroke="#10b981" stroke-opacity="0.4" stroke-width="1.5"/>
+    <rect x="300" y="700" width="280" height="4" rx="2" fill="#10b981"/>
+    <use data-icon="chunk/calculator" x="400" y="726" width="36" height="36" fill="#10b981"/>
+    <text x="440" y="788" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">YFB</text>
+    <text x="440" y="814" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#10b981">利润测算与货盘工具</text>
+    <text x="440" y="836" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">商业决策引擎</text>
+  </g>
+
+  <g>
+    <rect x="1340" y="700" width="280" height="160" rx="16" fill="#161d2e" stroke="#f43f5e" stroke-opacity="0.4" stroke-width="1.5"/>
+    <rect x="1340" y="700" width="280" height="4" rx="2" fill="#f43f5e"/>
+    <use data-icon="chunk/chart-bar" x="1440" y="726" width="36" height="36" fill="#f43f5e"/>
+    <text x="1480" y="788" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" font-weight="700" fill="#f1f5f9">LASEN</text>
+    <text x="1480" y="814" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#f43f5e">中台产品表现分析</text>
+    <text x="1480" y="836" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">运营反馈仪表盘</text>
+  </g>
+
+  <g>
+    <rect x="540" y="910" width="840" height="60" rx="12" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <use data-icon="chunk/database" x="560" y="922" width="32" height="32" fill="#3b82f6"/>
+    <text x="604" y="946" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#3b82f6">统一数据中台</text>
+    <text x="780" y="946" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">Supabase · PostgreSQL · 统一数据存储与共享</text>
+  </g>
+
+  <g fill="#64748b" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11">
+    <text x="620" y="400" text-anchor="middle" fill="#f59e0b" fill-opacity="0.7">竞品数据</text>
+    <text x="1300" y="400" text-anchor="middle" fill="#8b5cf6" fill-opacity="0.7">色彩数据</text>
+    <text x="620" y="730" text-anchor="middle" fill="#10b981" fill-opacity="0.7">成本数据</text>
+    <text x="1300" y="730" text-anchor="middle" fill="#f43f5e" fill-opacity="0.7">运营数据</text>
+  </g>
+
+  <text x="960" y="1060" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">05 / 14</text>
+</svg>

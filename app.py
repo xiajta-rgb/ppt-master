@@ -28,6 +28,25 @@ USERS = {
     'lasen': '123456'
 }
 
+_session_tokens = {}
+
+def check_user_auth():
+    """Check if user is logged in via cookie or header."""
+    import secrets
+    auth_header = request.headers.get('Authorization', '')
+    if auth_header.startswith('Bearer '):
+        token = auth_header[7:]
+        if token in _session_tokens.values():
+            for user, t in _session_tokens.items():
+                if t == token:
+                    return user
+    cookie_token = request.cookies.get('auth_token')
+    if cookie_token and cookie_token in _session_tokens.values():
+        for user, t in _session_tokens.items():
+            if t == cookie_token:
+                return user
+    return None
+
 TAG_COLORS = {
     'consulting': {'bg': 'rgba(99, 102, 241, 0.2)', 'border': 'rgba(99, 102, 241, 0.5)'},
     'general': {'bg': 'rgba(6, 182, 212, 0.2)', 'border': 'rgba(6, 182, 212, 0.5)'},
@@ -200,6 +219,7 @@ def get_projects_data():
 @app.route('/api/login', methods=['POST'])
 def login():
     try:
+        import secrets
         data = request.get_json()
         username = data.get('username', '')
         password = data.get('password', '')
@@ -207,7 +227,11 @@ def login():
         logger.info(f"Login attempt: username={username}")
 
         if username in USERS and USERS[username] == password:
-            return jsonify({'success': True, 'username': username})
+            token = secrets.token_hex(32)
+            _session_tokens[username] = token
+            resp = jsonify({'success': True, 'username': username, 'token': token})
+            resp.set_cookie('auth_token', token, httponly=True, path='/')
+            return resp
         else:
             return jsonify({'success': False, 'error': 'Invalid credentials'}), 401
     except Exception as e:
@@ -216,7 +240,12 @@ def login():
 
 @app.route('/api/logout', methods=['POST'])
 def logout():
-    return jsonify({'success': True})
+    user = check_user_auth()
+    if user and user in _session_tokens:
+        del _session_tokens[user]
+    resp = jsonify({'success': True})
+    resp.set_cookie('auth_token', '', expires=0, path='/')
+    return resp
 
 @app.route('/api/tags', methods=['GET', 'POST'])
 def tags():
@@ -229,6 +258,8 @@ def tags():
             tags_data = {'tags': ['consulting', 'general', 'creative']}
 
         if request.method == 'POST':
+            if not check_user_auth():
+                return jsonify({'success': False, 'error': '请先登录'}), 401
             data = request.get_json()
             action = data.get('action')
             if action == 'add':
@@ -261,6 +292,8 @@ def tags():
 
 @app.route('/api/edit-svg', methods=['POST'])
 def edit_svg():
+    if not check_user_auth():
+        return jsonify({'success': False, 'error': '请先登录'}), 401
     try:
         data = request.get_json()
         file_name = data.get('file')
@@ -319,6 +352,8 @@ def edit_svg():
 
 @app.route('/api/save-project', methods=['POST'])
 def save_project():
+    if not check_user_auth():
+        return jsonify({'success': False, 'error': '请先登录'}), 401
     try:
         import json
         data = request.get_json()
@@ -348,6 +383,8 @@ def save_project():
 
 @app.route('/api/export')
 def export():
+    if not check_user_auth():
+        return jsonify({'success': False, 'error': '请先登录'}), 401
     project_id = request.args.get('project')
     if not project_id:
         return Response('project parameter required', mimetype='text/plain', status=400)

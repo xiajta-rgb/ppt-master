@@ -1,0 +1,180 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <rect width="1920" height="1080" fill="#0a0e1a"/>
+
+  <rect x="60" y="40" width="1800" height="44" rx="8" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+  <text x="80" y="68" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">LASEN.Digital</text>
+  <text x="1840" y="68" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">系统设计报告 v2.0</text>
+
+  <text x="60" y="130" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" font-weight="600" fill="#06b6d4" letter-spacing="0.15em">GAP ANALYSIS</text>
+  <text x="60" y="168" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="32" font-weight="700" fill="#f1f5f9">集成度与缺口分析</text>
+
+  <rect x="60" y="190" width="1800" height="50" rx="10" fill="#f43f5e" fill-opacity="0.06" stroke="#f43f5e" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="960" y="221" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">五大子系统间存在三大关键数据断点，LASEN→VOC集成度为0%是最严重缺口</text>
+
+  <g>
+    <rect x="60" y="270" width="1060" height="540" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <text x="100" y="306" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" font-weight="600" fill="#f1f5f9">系统集成度矩阵</text>
+
+    <rect x="100" y="330" width="160" height="40" rx="0" fill="#06b6d4" fill-opacity="0.1"/>
+    <text x="180" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">数据源</text>
+
+    <rect x="260" y="330" width="160" height="40" rx="0" fill="#06b6d4" fill-opacity="0.1"/>
+    <text x="340" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">VOC</text>
+
+    <rect x="420" y="330" width="160" height="40" rx="0" fill="#f59e0b" fill-opacity="0.1"/>
+    <text x="500" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">AMZN</text>
+
+    <rect x="580" y="330" width="160" height="40" rx="0" fill="#8b5cf6" fill-opacity="0.1"/>
+    <text x="660" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">COLOR</text>
+
+    <rect x="740" y="330" width="160" height="40" rx="0" fill="#10b981" fill-opacity="0.1"/>
+    <text x="820" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">YFB</text>
+
+    <rect x="900" y="330" width="160" height="40" rx="0" fill="#f43f5e" fill-opacity="0.1"/>
+    <text x="980" y="356" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f43f5e">LASEN</text>
+
+    <rect x="100" y="370" width="160" height="50" rx="0" fill="#161d2e"/>
+    <text x="180" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">VOC</text>
+
+    <rect x="260" y="370" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="340" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">—</text>
+
+    <rect x="420" y="370" width="160" height="50" rx="0" fill="#10b981" fill-opacity="0.08"/>
+    <text x="500" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">85%</text>
+
+    <rect x="580" y="370" width="160" height="50" rx="0" fill="#10b981" fill-opacity="0.08"/>
+    <text x="660" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">80%</text>
+
+    <rect x="740" y="370" width="160" height="50" rx="0" fill="#10b981" fill-opacity="0.08"/>
+    <text x="820" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">90%</text>
+
+    <rect x="900" y="370" width="160" height="50" rx="0" fill="#f43f5e" fill-opacity="0.08"/>
+    <text x="980" y="400" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f43f5e">0%</text>
+
+    <rect x="100" y="420" width="160" height="50" rx="0" fill="#161d2e" fill-opacity="0.5"/>
+    <text x="180" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">AMZN</text>
+
+    <rect x="260" y="420" width="160" height="50" rx="0" fill="#f43f5e" fill-opacity="0.08"/>
+    <text x="340" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f43f5e">15%</text>
+
+    <rect x="420" y="420" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="500" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">—</text>
+
+    <rect x="580" y="420" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="660" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="740" y="420" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="820" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="900" y="420" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="980" y="450" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="100" y="470" width="160" height="50" rx="0" fill="#161d2e"/>
+    <text x="180" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#8b5cf6">COLOR</text>
+
+    <rect x="260" y="470" width="160" height="50" rx="0" fill="#f59e0b" fill-opacity="0.08"/>
+    <text x="340" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f59e0b">20%</text>
+
+    <rect x="420" y="470" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="500" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="580" y="470" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="660" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">—</text>
+
+    <rect x="740" y="470" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="820" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="900" y="470" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="980" y="500" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="100" y="520" width="160" height="50" rx="0" fill="#161d2e" fill-opacity="0.5"/>
+    <text x="180" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">YFB</text>
+
+    <rect x="260" y="520" width="160" height="50" rx="0" fill="#10b981" fill-opacity="0.08"/>
+    <text x="340" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#10b981">90%</text>
+
+    <rect x="420" y="520" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="500" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="580" y="520" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="660" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="740" y="520" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="820" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">—</text>
+
+    <rect x="900" y="520" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="980" y="550" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="100" y="570" width="160" height="50" rx="0" fill="#161d2e"/>
+    <text x="180" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f43f5e">LASEN</text>
+
+    <rect x="260" y="570" width="160" height="50" rx="0" fill="#f43f5e" fill-opacity="0.08"/>
+    <text x="340" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#f43f5e">0%</text>
+
+    <rect x="420" y="570" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="500" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="580" y="570" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="660" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="740" y="570" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="820" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">0%</text>
+
+    <rect x="900" y="570" width="160" height="50" rx="0" fill="#06b6d4" fill-opacity="0.05"/>
+    <text x="980" y="600" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">—</text>
+
+    <line x1="100" y1="640" x2="1060" y2="640" stroke="#1e293b" stroke-width="1"/>
+
+    <text x="100" y="672" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#64748b">说明：行=数据源，列=数据消费方；数值=数据从源到目标的集成度</text>
+    <text x="100" y="696" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#64748b">绿色(≥60%)=良好 · 黄色(20-59%)=待加强 · 红色(&lt;20%)=关键断点 · 灰色=无直接集成</text>
+  </g>
+
+  <g>
+    <rect x="1140" y="270" width="720" height="540" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <text x="1180" y="306" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" font-weight="600" fill="#f1f5f9">三大关键断点</text>
+
+    <rect x="1180" y="330" width="640" height="140" rx="12" fill="#f43f5e" fill-opacity="0.06" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="1"/>
+    <rect x="1180" y="330" width="640" height="4" rx="2" fill="#f43f5e"/>
+
+    <rect x="1200" y="350" width="36" height="36" rx="8" fill="#f43f5e" fill-opacity="0.15"/>
+    <text x="1218" y="374" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#f43f5e">1</text>
+
+    <text x="1248" y="374" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#f1f5f9">LASEN → VOC</text>
+    <rect x="1390" y="356" width="60" height="24" rx="6" fill="#f43f5e" fill-opacity="0.15"/>
+    <text x="1420" y="373" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" font-weight="700" fill="#f43f5e">0%</text>
+
+    <text x="1200" y="404" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">运营反馈数据完全未回流至企划系统</text>
+    <text x="1200" y="428" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">产品评分、销量、退货率等运营数据无法驱动迭代</text>
+    <text x="1200" y="452" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#f43f5e">⚠ 最严重断点 — 运营闭环断裂</text>
+
+    <rect x="1180" y="490" width="640" height="140" rx="12" fill="#f59e0b" fill-opacity="0.06" stroke="#f59e0b" stroke-opacity="0.25" stroke-width="1"/>
+    <rect x="1180" y="490" width="640" height="4" rx="2" fill="#f59e0b"/>
+
+    <rect x="1200" y="510" width="36" height="36" rx="8" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="1218" y="534" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#f59e0b">2</text>
+
+    <text x="1248" y="534" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#f1f5f9">AMZN → VOC</text>
+    <rect x="1390" y="516" width="60" height="24" rx="6" fill="#f59e0b" fill-opacity="0.15"/>
+    <text x="1420" y="533" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">15%</text>
+
+    <text x="1200" y="564" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">爬虫数据仅部分同步至VOC竞品分析</text>
+    <text x="1200" y="588" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">Best Sellers/New Releases数据未实时更新</text>
+    <text x="1200" y="612" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#f59e0b">⚠ 市场情报时效性不足</text>
+
+    <rect x="1180" y="650" width="640" height="140" rx="12" fill="#8b5cf6" fill-opacity="0.06" stroke="#8b5cf6" stroke-opacity="0.25" stroke-width="1"/>
+    <rect x="1180" y="650" width="640" height="4" rx="2" fill="#8b5cf6"/>
+
+    <rect x="1200" y="670" width="36" height="36" rx="8" fill="#8b5cf6" fill-opacity="0.15"/>
+    <text x="1218" y="694" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#8b5cf6">3</text>
+
+    <text x="1248" y="694" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="700" fill="#f1f5f9">COLOR → VOC</text>
+    <rect x="1390" y="676" width="60" height="24" rx="6" fill="#8b5cf6" fill-opacity="0.15"/>
+    <text x="1420" y="693" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" font-weight="700" fill="#8b5cf6">20%</text>
+
+    <text x="1200" y="724" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">色彩库数据仅部分关联VOC色彩调研</text>
+    <text x="1200" y="748" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">2914色标准色未与产品设计流程深度绑定</text>
+    <text x="1200" y="772" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#8b5cf6">⚠ 设计标准化潜力未释放</text>
+  </g>
+
+  <text x="960" y="1060" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">09 / 14</text>
+</svg>

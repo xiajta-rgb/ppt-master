@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4"/>
+      <stop offset="50%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1920" height="1080" fill="#0a0e1a"/>
+
+  <rect x="60" y="40" width="1800" height="44" rx="8" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+  <text x="80" y="68" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" font-weight="600" fill="#06b6d4">LASEN.Digital</text>
+  <text x="1840" y="68" text-anchor="end" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">系统设计报告 v2.0</text>
+
+  <text x="60" y="130" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="12" font-weight="600" fill="#06b6d4" letter-spacing="0.15em">OVERVIEW</text>
+  <text x="60" y="168" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="32" font-weight="700" fill="#f1f5f9">系统总览</text>
+
+  <rect x="60" y="190" width="1800" height="50" rx="10" fill="#06b6d4" fill-opacity="0.06" stroke="#06b6d4" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="960" y="221" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">以VOC数智化企划设计中心为轴心，融合亚马逊市场爬虫、品牌色彩库、利润测算工具与中台运营分析，构建一体化数智业务平台</text>
+
+  <g>
+    <rect x="60" y="270" width="420" height="160" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <rect x="60" y="270" width="420" height="4" rx="2" fill="#06b6d4"/>
+    <use data-icon="chunk/hexagon" x="84" y="296" width="36" height="36" fill="#06b6d4"/>
+    <text x="132" y="322" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">核心子系统</text>
+    <text x="84" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="56" font-weight="700" fill="#06b6d4">5</text>
+    <text x="140" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">大系统协同</text>
+
+    <rect x="500" y="270" width="420" height="160" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <rect x="500" y="270" width="420" height="4" rx="2" fill="#3b82f6"/>
+    <use data-icon="chunk/layers" x="524" y="296" width="36" height="36" fill="#3b82f6"/>
+    <text x="572" y="322" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">API 能力模块</text>
+    <text x="524" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="56" font-weight="700" fill="#3b82f6">24</text>
+    <text x="590" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">个API模块</text>
+
+    <rect x="940" y="270" width="420" height="160" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <rect x="940" y="270" width="420" height="4" rx="2" fill="#8b5cf6"/>
+    <use data-icon="chunk/radar" x="964" y="296" width="36" height="36" fill="#8b5cf6"/>
+    <text x="1012" y="322" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">业务域覆盖</text>
+    <text x="964" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="56" font-weight="700" fill="#8b5cf6">6</text>
+    <text x="1004" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">大业务域</text>
+
+    <rect x="1380" y="270" width="480" height="160" rx="16" fill="#161d2e" stroke="#1e293b" stroke-width="1"/>
+    <rect x="1380" y="270" width="480" height="4" rx="2" fill="#f59e0b"/>
+    <use data-icon="chunk/palette" x="1404" y="296" width="36" height="36" fill="#f59e0b"/>
+    <text x="1452" y="322" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#64748b">品牌色彩体系</text>
+    <text x="1404" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="56" font-weight="700" fill="#f59e0b">2914</text>
+    <text x="1498" y="390" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" fill="#94a3b8">色LASEN标准色</text>
+  </g>
+
+  <text x="60" y="490" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" font-weight="600" fill="#f1f5f9">五大子系统定位</text>
+
+  <g>
+    <rect x="60" y="516" width="348" height="200" rx="12" fill="#161d2e" stroke="#06b6d4" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="60" y="516" width="348" height="3" rx="1" fill="#06b6d4"/>
+    <use data-icon="chunk/hexagon" x="84" y="540" width="28" height="28" fill="#06b6d4"/>
+    <text x="120" y="562" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#f1f5f9">VOC · 数智化企划设计中心</text>
+    <text x="84" y="590" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">voc.pythonanywhere.com</text>
+    <text x="84" y="618" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">核心中枢系统，24个API模块</text>
+    <text x="84" y="642" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">消费者洞察·竞品分析·规划管理</text>
+    <text x="84" y="666" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">灵感库·色彩调研·知识库RAG</text>
+
+    <rect x="428" y="516" width="348" height="200" rx="12" fill="#161d2e" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="428" y="516" width="348" height="3" rx="1" fill="#f59e0b"/>
+    <use data-icon="chunk/magnifying-glass" x="452" y="540" width="28" height="28" fill="#f59e0b"/>
+    <text x="488" y="562" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#f1f5f9">AMZN · 亚马逊数据爬虫</text>
+    <text x="452" y="590" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">amzn.pythonanywhere.com</text>
+    <text x="452" y="618" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">市场情报采集引擎</text>
+    <text x="452" y="642" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">Best Sellers·New Releases</text>
+    <text x="452" y="666" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">Playwright·Supabase</text>
+
+    <rect x="796" y="516" width="348" height="200" rx="12" fill="#161d2e" stroke="#8b5cf6" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="796" y="516" width="348" height="3" rx="1" fill="#8b5cf6"/>
+    <use data-icon="chunk/palette" x="820" y="540" width="28" height="28" fill="#8b5cf6"/>
+    <text x="856" y="562" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#f1f5f9">COLOR · 品牌色彩库</text>
+    <text x="820" y="590" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">color.pythonanywhere.com</text>
+    <text x="820" y="618" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">设计标准化体系</text>
+    <text x="820" y="642" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">2914色·KMeans聚类</text>
+    <text x="820" y="666" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">AI图片理解·调色工具</text>
+
+    <rect x="1164" y="516" width="348" height="200" rx="12" fill="#161d2e" stroke="#10b981" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="1164" y="516" width="348" height="3" rx="1" fill="#10b981"/>
+    <use data-icon="chunk/calculator" x="1188" y="540" width="28" height="28" fill="#10b981"/>
+    <text x="1224" y="562" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#f1f5f9">YFB · 利润测算与货盘工具</text>
+    <text x="1188" y="590" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">yfb.pythonanywhere.com</text>
+    <text x="1188" y="618" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">商业决策引擎</text>
+    <text x="1188" y="642" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">FBA全链路·利润计算器</text>
+    <text x="1188" y="666" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">货盘规划·净利润率</text>
+
+    <rect x="1532" y="516" width="328" height="200" rx="12" fill="#161d2e" stroke="#f43f5e" stroke-opacity="0.3" stroke-width="1"/>
+    <rect x="1532" y="516" width="328" height="3" rx="1" fill="#f43f5e"/>
+    <use data-icon="chunk/chart-bar" x="1556" y="540" width="28" height="28" fill="#f43f5e"/>
+    <text x="1592" y="562" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="16" font-weight="600" fill="#f1f5f9">LASEN · 中台运营分析</text>
+    <text x="1556" y="590" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">lasen.pythonanywhere.com</text>
+    <text x="1556" y="618" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">运营反馈仪表盘</text>
+    <text x="1556" y="642" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">评分预警·爆款监控</text>
+    <text x="1556" y="666" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="14" fill="#94a3b8">数据仪表盘·自动爬取</text>
+  </g>
+
+  <text x="60" y="770" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="18" font-weight="600" fill="#f1f5f9">业务闭环链路</text>
+
+  <g>
+    <rect x="60" y="796" width="260" height="80" rx="10" fill="#f59e0b" fill-opacity="0.08" stroke="#f59e0b" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="190" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#f59e0b">市场洞察</text>
+    <text x="190" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">AMZN + VOC</text>
+
+    <text x="340" y="840" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" fill="#64748b">→</text>
+
+    <rect x="370" y="796" width="260" height="80" rx="10" fill="#3b82f6" fill-opacity="0.08" stroke="#3b82f6" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="500" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#3b82f6">企划立项</text>
+    <text x="500" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">VOC</text>
+
+    <text x="650" y="840" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" fill="#64748b">→</text>
+
+    <rect x="680" y="796" width="260" height="80" rx="10" fill="#8b5cf6" fill-opacity="0.08" stroke="#8b5cf6" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="810" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#8b5cf6">设计研发</text>
+    <text x="810" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">VOC + COLOR</text>
+
+    <text x="960" y="840" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" fill="#64748b">→</text>
+
+    <rect x="990" y="796" width="260" height="80" rx="10" fill="#10b981" fill-opacity="0.08" stroke="#10b981" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="1120" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#10b981">成本定价</text>
+    <text x="1120" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">YFB + VOC</text>
+
+    <text x="1270" y="840" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" fill="#64748b">→</text>
+
+    <rect x="1300" y="796" width="260" height="80" rx="10" fill="#06b6d4" fill-opacity="0.08" stroke="#06b6d4" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="1430" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#06b6d4">上架执行</text>
+    <text x="1430" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">VOC</text>
+
+    <text x="1580" y="840" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="20" fill="#64748b">→</text>
+
+    <rect x="1610" y="796" width="250" height="80" rx="10" fill="#f43f5e" fill-opacity="0.08" stroke="#f43f5e" stroke-opacity="0.25" stroke-width="1"/>
+    <text x="1735" y="830" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="15" font-weight="600" fill="#f43f5e">运营反馈</text>
+    <text x="1735" y="854" text-anchor="middle" font-family="Consolas, &quot;Courier New&quot;, monospace" font-size="11" fill="#64748b">LASEN</text>
+  </g>
+
+  <text x="960" y="920" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="13" fill="#64748b">↻ 运营数据回流驱动迭代优化</text>
+
+  <text x="960" y="1060" text-anchor="middle" font-family="&quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, Arial, sans-serif" font-size="11" fill="#64748b">02 / 14</text>
+</svg>

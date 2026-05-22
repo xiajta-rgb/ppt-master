@@ -1041,6 +1041,9 @@
                 if (result.success) {
                     currentUser = result.username;
                     localStorage.setItem('currentUser', currentUser);
+                    if (result.token) {
+                        localStorage.setItem('authToken', result.token);
+                    }
                     hideLoginModal();
                     updateUIForUser();
                     loadTags();
@@ -1056,8 +1059,14 @@
         }
 
         async function handleLogout() {
-            currentUser = null;
+            try {
+                await fetch('/api/logout', { method: 'POST' });
+            } catch (err) {
+                console.error('Logout error:', err);
+            }
             localStorage.removeItem('currentUser');
+            localStorage.removeItem('authToken');
+            currentUser = null;
             updateUIForUser();
             location.reload();
         }
@@ -1287,6 +1296,12 @@
 
         // Edit dialog functions
         function showEditDialog(project) {
+            // 检查登录状态
+            if (!localStorage.getItem('authToken')) {
+                showToast('请先登录', 'error');
+                document.getElementById('loginModal').style.display = 'flex';
+                return;
+            }
             try {
                 const existing = document.getElementById('editDialog');
                 if (existing) existing.remove();

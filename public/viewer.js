@@ -428,6 +428,12 @@ function toggleViewMode() {
 }
 
 function toggleEditMode() {
+    if (!localStorage.getItem('authToken')) {
+        showToast('请先登录', 'error');
+        const loginModal = document.getElementById('loginModal');
+        if (loginModal) loginModal.style.display = 'flex';
+        return;
+    }
     isEditMode = !isEditMode;
     const toolbar = document.getElementById('editToolbar');
     const editHint = document.getElementById('editHint');
@@ -828,6 +834,11 @@ function removeOutOfBoundsIndicator() {
 
 async function doSaveCurrentSvg() {
     if (!currentEditingSlidePath) return;
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+        showToast('请先登录', 'error');
+        return;
+    }
 
     try {
         const svgEl = document.querySelector('#slideWrapper svg');
@@ -933,6 +944,10 @@ function showToast(message, type = 'success') {
 
 async function saveTextEdit(textElement, newText, elementIndex) {
     if (!editingElement) return;
+    if (!localStorage.getItem('authToken')) {
+        showToast('请先登录', 'error');
+        return;
+    }
 
     const slidePath = currentEditingSlidePath;
     const originalText = textElement.getAttribute('data-original-text') || textElement.textContent;
@@ -1359,6 +1374,10 @@ function pushUndoState(type, element, data) {
 }
 
 async function undoLastEdit() {
+    if (!localStorage.getItem('authToken')) {
+        showToast('请先登录', 'error');
+        return;
+    }
     if (undoStack.length === 0) {
         showToast('Nothing to undo', 'info');
         return;
@@ -2061,7 +2080,15 @@ document.addEventListener('keydown', (e) => {
             break;
         case 'e':
         case 'E':
-            if (currentCollection && !isFullscreen) toggleEditMode();
+            if (currentCollection && !isFullscreen) {
+                if (!localStorage.getItem('authToken')) {
+                    showToast('请先登录', 'error');
+                    const loginModal = document.getElementById('loginModal');
+                    if (loginModal) loginModal.style.display = 'flex';
+                } else {
+                    toggleEditMode();
+                }
+            }
             break;
     }
 });
@@ -2105,6 +2132,10 @@ document.addEventListener('touchend', (e) => {
 });
 
 async function saveImageChanges() {
+    if (!localStorage.getItem('authToken')) {
+        showToast('请先登录', 'error');
+        return;
+    }
     if (!selectedImage || !currentEditingSlidePath) {
         showToast('No image selected', 'info');
         return;
@@ -2168,6 +2199,10 @@ async function saveImageChanges() {
 }
 
 async function exportPPT() {
+    if (!localStorage.getItem('authToken')) {
+        showToast('请先登录', 'error');
+        return;
+    }
     if (!currentCollection) return;
 
     const exportBtn = document.getElementById('exportBtn');

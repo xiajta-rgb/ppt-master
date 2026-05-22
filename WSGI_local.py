@@ -22,6 +22,27 @@ TAG_COLORS = {
     'creative': {'bg': 'rgba(245, 194, 231, 0.2)', 'border': 'rgba(245, 194, 231, 0.5)'}
 }
 
+def check_user_auth(environ):
+    """Check if user is logged in. Returns username if logged in, None otherwise."""
+    import secrets
+    auth_header = environ.get('HTTP_AUTHORIZATION', '')
+    if auth_header.startswith('Bearer '):
+        token = auth_header[7:]
+        if token in _session_tokens.values():
+            for user, t in _session_tokens.items():
+                if t == token:
+                    return user
+    cookie_header = environ.get('HTTP_COOKIE', '')
+    for cookie in cookie_header.split(';'):
+        if cookie.strip().startswith('auth_token='):
+            token = cookie.strip()[11:]
+            for user, t in _session_tokens.items():
+                if t == token:
+                    return user
+    return None
+
+_session_tokens = {}
+
 SCAN_CACHE_TTL = 60
 _scan_cache = {'data': None, 'timestamp': 0}
 _cache_lock = threading.Lock()
@@ -188,7 +209,7 @@ def handle_api_path(path, environ, start_response):
         return handle_login(environ, start_response)
 
     if path == '/api/logout':
-        return handle_logout(start_response)
+        return handle_logout(environ, start_response)
 
     if path == '/api/tags':
         return handle_tags(environ, start_response)
@@ -196,6 +217,10 @@ def handle_api_path(path, environ, start_response):
     return None
 
 def handle_export(path, environ, start_response):
+    if not check_user_auth(environ):
+        resp = json.dumps({'success': False, 'error': '请先登录'}).encode('utf-8')
+        start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
     query = environ.get('QUERY_STRING', '')
     params = urllib.parse.parse_qs(query)
     project_id = params.get('project', [None])[0]
@@ -249,6 +274,10 @@ def handle_export(path, environ, start_response):
         return [content]
 
 def handle_edit_svg(environ, start_response):
+    if not check_user_auth(environ):
+        resp = json.dumps({'success': False, 'error': '请先登录'}).encode('utf-8')
+        start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
     try:
         content_length = int(environ.get('CONTENT_LENGTH', 0))
         request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
@@ -329,6 +358,10 @@ def handle_edit_svg(environ, start_response):
         return [content]
 
 def handle_save_svg(environ, start_response):
+    if not check_user_auth(environ):
+        resp = json.dumps({'success': False, 'error': '请先登录'}).encode('utf-8')
+        start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
     try:
         content_length = int(environ.get('CONTENT_LENGTH', 0))
         request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
@@ -371,6 +404,10 @@ def handle_save_svg(environ, start_response):
         return [resp]
 
 def handle_save_project(environ, start_response):
+    if not check_user_auth(environ):
+        resp = json.dumps({'success': False, 'error': '请先登录'}).encode('utf-8')
+        start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
     try:
         content_length = int(environ.get('CONTENT_LENGTH', 0))
         request_body = environ['wsgi.input'].read(content_length).decode('utf-8')
@@ -434,8 +471,15 @@ def handle_login(environ, start_response):
         print(f"Login attempt: username={username}, password={password}, USERS={USERS}")
 
         if username in USERS and USERS[username] == password:
-            content = json.dumps({'success': True, 'username': username}, ensure_ascii=False).encode('utf-8')
-            start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+            import secrets
+            token = secrets.token_hex(32)
+            _session_tokens[username] = token
+            content = json.dumps({'success': True, 'username': username, 'token': token}, ensure_ascii=False).encode('utf-8')
+            start_response('200 OK', [
+                ('Content-Type', 'application/json'),
+                ('Content-Length', str(len(content))),
+                ('Set-Cookie', f'auth_token={token}; HttpOnly; Path=/')
+            ])
             return [content]
         else:
             content = json.dumps({'success': False, 'error': 'Invalid credentials'}).encode('utf-8')
@@ -449,12 +493,24 @@ def handle_login(environ, start_response):
         start_response('500 Internal Server Error', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
         return [content]
 
-def handle_logout(start_response):
+def handle_logout(environ, start_response):
+    user = check_user_auth(environ)
+    if user and user in _session_tokens:
+        del _session_tokens[user]
     content = json.dumps({'success': True}).encode('utf-8')
-    start_response('200 OK', [('Content-Type', 'application/json'), ('Content-Length', str(len(content)))])
+    start_response('200 OK', [
+        ('Content-Type', 'application/json'),
+        ('Content-Length', str(len(content))),
+        ('Set-Cookie', 'auth_token=; HttpOnly; Path=/; Max-Age=0')
+    ])
     return [content]
 
 def handle_tags(environ, start_response):
+    method = environ.get('REQUEST_METHOD', 'GET')
+    if method == 'POST' and not check_user_auth(environ):
+        resp = json.dumps({'success': False, 'error': '请先登录'}).encode('utf-8')
+        start_response('401 Unauthorized', [('Content-Type', 'application/json'), ('Content-Length', str(len(resp)))])
+        return [resp]
     try:
         data_file = PROJECT_DIR / 'examples' / 'tags.json'
         if data_file.exists():
