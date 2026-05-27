@@ -2,6 +2,8 @@
 let collections = collectionsData;
 let currentCollection = null;
 let currentSlide = 0;
+let deleteHistory = [];
+let lastDeletedToast = null;
 let isFullscreen = false;
 let dropdownOpen = false;
 let viewMode = 'normal';
@@ -21,6 +23,7 @@ const svgCache = new Map();
 
 let selectedImage = null;
 let selectedImages = [];
+let selectedPlaceholderRect = null;
 let selectionBoxes = [];
 let resizeHandles = [];
 let isDragging = false;
@@ -38,6 +41,7 @@ let imageStartHeight = 0;
 let alignmentGuides = [];
 let snapThreshold = 5;
 let propertiesPanel = null;
+let pasteImageMode = false;
 
 // Hot reload check
 let hotReloadInFlight = false;
@@ -96,6 +100,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (fileInput) {
         fileInput.addEventListener('change', onImageFileSelected);
     }
+
+    // Setup clipboard paste handler for images
+    document.addEventListener('paste', handleClipboardPaste);
 
     const urlParams = new URLSearchParams(window.location.search);
     const collectionId = urlParams.get('project');
@@ -861,6 +868,7 @@ async function doSaveCurrentSvg() {
         clone.querySelectorAll('[data-edit-listener]').forEach(el => {
             el.removeAttribute('data-edit-listener');
             el.removeAttribute('data-image-placeholder');
+            el.removeAttribute('data-img-placeholder');
             el.removeAttribute('data-original-text');
             el.style.cursor = '';
             el.style.opacity = '';
@@ -877,7 +885,17 @@ async function doSaveCurrentSvg() {
             el.removeAttribute('data-container-height');
             el.removeAttribute('data-container-clip-id');
             el.removeAttribute('data-out-of-bounds');
+            el.removeAttribute('data-img-placeholder');
+            el.removeAttribute('data-img-placeholder-checked');
             el.style.opacity = '';
+            el.style.cursor = '';
+            if (el.style.cssText === '') el.removeAttribute('style');
+        });
+
+        clone.querySelectorAll('[data-img-placeholder]').forEach(el => {
+            el.removeAttribute('data-img-placeholder');
+            el.removeAttribute('data-img-placeholder-checked');
+            el.removeAttribute('pointer-events');
             el.style.cursor = '';
             if (el.style.cssText === '') el.removeAttribute('style');
         });
@@ -1030,10 +1048,115 @@ function setupImageEditListeners() {
     const svgEl = slideWrapper.querySelector('svg');
     if (!svgEl) return;
 
-    // Remove any existing overlay text elements
     document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
 
-    // Handle <image> elements
+    const viewBox = svgEl.viewBox.baseVal;
+    const svgW = viewBox.width || 1280;
+    const svgH = viewBox.height || 720;
+
+    const allRects = svgEl.querySelectorAll('rect');
+    const imagePlaceholders = [];
+
+    allRects.forEach(rect => {
+        if (rect.dataset.imgPlaceholder === 'true') return;
+        if (rect.style.display === 'none') return;
+
+        const w = parseFloat(rect.getAttribute('width') || 0);
+        const h = parseFloat(rect.getAttribute('height') || 0);
+        const fill = rect.getAttribute('fill') || '';
+        const stroke = rect.getAttribute('stroke') || '';
+        const rx = rect.getAttribute('rx') || rect.getAttribute('ry') || '';
+
+        if (w < 80 || h < 80) return;
+        if (w >= svgW * 0.95 && h >= svgH * 0.95) return;
+        if (!stroke) return;
+
+        const isDarkFill = /^#[0-3]/i.test(fill) || fill === 'none';
+        if (!isDarkFill && !rx) return;
+
+        const parent = rect.parentElement;
+        const hasImageSibling = parent && parent.querySelector('image');
+        if (hasImageSibling) return;
+
+        const nextEl = rect.nextElementSibling;
+        if (nextEl && nextEl.tagName && nextEl.tagName.toLowerCase() === 'image') return;
+
+        imagePlaceholders.push(rect);
+    });
+
+    console.log(`[Edit] Found ${imagePlaceholders.length} image placeholder rects`);
+
+    imagePlaceholders.forEach((rect, idx) => {
+        rect.setAttribute('pointer-events', 'all');
+        rect.style.cursor = 'pointer';
+        rect.dataset.imgPlaceholder = 'true';
+
+        let el = rect.parentElement;
+        while (el && el !== svgEl) {
+            if (el.setAttribute) {
+                el.setAttribute('pointer-events', 'all');
+            }
+            el = el.parentElement;
+        }
+
+        rect.addEventListener('click', function(e) {
+            if (!isEditMode) return;
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('[Edit] Placeholder rect clicked:', rect);
+            selectPlaceholderRect(rect);
+        });
+
+        rect.addEventListener('mousedown', function(e) {
+            if (!isEditMode) return;
+            e.stopPropagation();
+            e.preventDefault();
+            console.log('[Edit] Placeholder rect mousedown:', rect);
+            selectPlaceholderRect(rect);
+        });
+
+        const overlay = document.createElement('div');
+        overlay.className = 'image-placeholder-overlay';
+        overlay.innerHTML = '<span class="upload-text">📷 点击上传 / Ctrl+V 粘贴</span>';
+        overlay.style.cssText = `
+            position: absolute;
+            pointer-events: none;
+            font-size: 14px;
+            color: #8C8C8C;
+            text-align: center;
+            white-space: nowrap;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            background: rgba(0,0,0,0.3);
+            border-radius: 4px;
+            border: 1px dashed rgba(140,140,140,0.4);
+        `;
+        slideWrapper.appendChild(overlay);
+
+        const textSpan = overlay.querySelector('.upload-text');
+        textSpan.style.pointerEvents = 'auto';
+        textSpan.style.cursor = 'pointer';
+        textSpan.style.padding = '6px 12px';
+        textSpan.style.borderRadius = '4px';
+        textSpan.style.fontSize = '13px';
+        textSpan.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            if (!isEditMode) return;
+            selectPlaceholderRect(rect);
+            window._uploadTargetRect = rect;
+            document.getElementById('imageUploadInput').click();
+        });
+
+        rect._overlayEl = overlay;
+        rect._slideWrapper = slideWrapper;
+        rect._svgEl = svgEl;
+        updateOverlayPosition(rect);
+    });
+
     const images = svgEl.querySelectorAll('image');
     console.log(`[Edit] Found ${images.length} image elements`);
     
@@ -1043,7 +1166,6 @@ function setupImageEditListeners() {
         img.style.cursor = 'move';
         img.setAttribute('pointer-events', 'all');
         img.addEventListener('mousedown', onImageMouseDown);
-        console.log(`[Edit] Bound mousedown to image ${idx} at (${img.getAttribute('x')}, ${img.getAttribute('y')})`);
 
         if (!img.dataset.containerX) {
             detectImageContainerBounds(img);
@@ -1051,33 +1173,26 @@ function setupImageEditListeners() {
         checkImageOutOfBounds(img);
     });
 
-    // Handle <g class="image-placeholder-group"> elements
     const placeholderGroups = svgEl.querySelectorAll('g.image-placeholder-group');
-    console.log(`[Edit] Found ${placeholderGroups.length} placeholder groups`);
-    
     placeholderGroups.forEach((group, idx) => {
-        // Clear any saved listener attributes from SVG file
         group.removeAttribute('data-overlay-listener');
         group.removeAttribute('data-image-edit-listener');
         group.dataset.imageEditListener = 'true';
         group.style.cursor = 'move';
         group.setAttribute('pointer-events', 'all');
         
-        // Find the rect inside the group
         const rect = group.querySelector('rect');
         if (rect) {
             rect.setAttribute('pointer-events', 'all');
             rect.addEventListener('mousedown', onImageMouseDown);
-            console.log(`[Edit] Bound mousedown to placeholder group ${idx} rect at (${rect.getAttribute('x')}, ${rect.getAttribute('y')})`);
 
-            // Create HTML overlay text that is always centered
             const overlay = document.createElement('div');
             overlay.className = 'image-placeholder-overlay';
-            overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
+            overlay.innerHTML = '<span class="upload-text">📷 点击上传 / Ctrl+V 粘贴</span>';
             overlay.style.cssText = `
                 position: absolute;
                 pointer-events: none;
-                font-size: 18px;
+                font-size: 14px;
                 color: #8C8C8C;
                 text-align: center;
                 white-space: nowrap;
@@ -1086,26 +1201,28 @@ function setupImageEditListeners() {
                 align-items: center;
                 justify-content: center;
                 z-index: 100;
-                background: rgba(255,255,255,0.05);
+                background: rgba(0,0,0,0.3);
                 border-radius: 4px;
+                border: 1px dashed rgba(140,140,140,0.4);
             `;
             slideWrapper.appendChild(overlay);
 
-            // Style the text span to be clickable
             const textSpan = overlay.querySelector('.upload-text');
             textSpan.style.pointerEvents = 'auto';
             textSpan.style.cursor = 'pointer';
-            textSpan.style.padding = '8px 16px';
+            textSpan.style.padding = '6px 12px';
             textSpan.style.borderRadius = '4px';
+            textSpan.style.fontSize = '13px';
             textSpan.addEventListener('click', (e) => {
                 e.stopPropagation();
                 e.preventDefault();
+                if (!isEditMode) return;
+                selectPlaceholderRect(rect);
                 window._uploadTargetRect = rect;
                 window._uploadTargetGroup = group;
                 document.getElementById('imageUploadInput').click();
             });
 
-            // Store reference on rect for positioning updates
             rect._overlayEl = overlay;
             rect._slideWrapper = slideWrapper;
             rect._svgEl = svgEl;
@@ -1118,42 +1235,66 @@ function setupImageEditListeners() {
         slideWrapper.addEventListener('mousedown', onSlideWrapperMouseDown);
     }
 
-    // Update overlay positions on window resize
     if (!window._overlayResizeListener) {
         window._overlayResizeListener = true;
         window.addEventListener('resize', () => {
-            document.querySelectorAll('rect._overlayEl').forEach(rect => {
-                // This won't work, we need a different approach
-            });
-            // Update all overlays by re-querying placeholder groups
-            const svgEl = document.querySelector('#slideWrapper svg');
-            if (svgEl) {
-                svgEl.querySelectorAll('g.image-placeholder-group rect').forEach(rect => {
-                    if (rect._overlayEl) updateOverlayPosition(rect);
+            const svg = document.querySelector('#slideWrapper svg');
+            if (svg) {
+                svg.querySelectorAll('rect[data-img-placeholder]').forEach(r => {
+                    if (r._overlayEl) updateOverlayPosition(r);
+                });
+                svg.querySelectorAll('g.image-placeholder-group rect').forEach(r => {
+                    if (r._overlayEl) updateOverlayPosition(r);
                 });
             }
         });
     }
 }
 
+function selectPlaceholderRect(rect) {
+    clearImageSelection();
+    removeOutOfBoundsIndicator();
+    
+    selectedPlaceholderRect = rect;
+    pasteImageMode = true;
+
+    const boundingRect = rect.getBoundingClientRect();
+    const slideWrapper = document.getElementById('slideWrapper');
+    const wrapperRect = slideWrapper.getBoundingClientRect();
+    slideWrapper.style.position = 'relative';
+
+    const box = document.createElement('div');
+    box.id = 'imageSelectionBox';
+    box.className = 'absolute border-2 border-green-500 z-40 paste-ready';
+    box.style.cssText = `
+        left: ${boundingRect.left - wrapperRect.left}px;
+        top: ${boundingRect.top - wrapperRect.top}px;
+        width: ${boundingRect.width}px;
+        height: ${boundingRect.height}px;
+        pointer-events: none;
+        box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+    `;
+    slideWrapper.appendChild(box);
+    selectionBoxes.push(box);
+
+    rect.style.fill = '#1a3a1a';
+    rect.style.stroke = '#22c55e';
+    rect.style.strokeWidth = '2';
+
+    showPasteHint();
+    updatePropertiesPanel();
+}
+
 function updateOverlayPosition(rect) {
     if (!rect._overlayEl || !rect._slideWrapper || !rect._svgEl) return;
 
-    const svgRect = rect._svgEl.getBoundingClientRect();
+    const boundingRect = rect.getBoundingClientRect();
     const slideRect = rect._slideWrapper.getBoundingClientRect();
-    const svgViewBox = rect._svgEl.viewBox.baseVal;
-    const scaleX = svgRect.width / svgViewBox.width;
-    const scaleY = svgRect.height / svgViewBox.height;
 
-    const x = parseFloat(rect.getAttribute('x') || 0);
-    const y = parseFloat(rect.getAttribute('y') || 0);
-    const w = parseFloat(rect.getAttribute('width') || 400);
-    const h = parseFloat(rect.getAttribute('height') || 300);
-
-    const overlayLeft = svgRect.left - slideRect.left + x * scaleX;
-    const overlayTop = svgRect.top - slideRect.top + y * scaleY;
-    const overlayWidth = w * scaleX;
-    const overlayHeight = h * scaleY;
+    const overlayLeft = boundingRect.left - slideRect.left;
+    const overlayTop = boundingRect.top - slideRect.top;
+    const overlayWidth = boundingRect.width;
+    const overlayHeight = boundingRect.height;
 
     rect._overlayEl.style.left = overlayLeft + 'px';
     rect._overlayEl.style.top = overlayTop + 'px';
@@ -1170,11 +1311,86 @@ function setupImagePlaceholderOverlays() {
 
     document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
 
+    const viewBox = svgEl.viewBox.baseVal;
+    const svgW = viewBox.width || 1280;
+    const svgH = viewBox.height || 720;
+
+    const allRects = svgEl.querySelectorAll('rect');
+    const imagePlaceholders = [];
+
+    allRects.forEach(rect => {
+        if (rect.dataset.imgPlaceholder === 'true') return;
+        if (rect.style.display === 'none') return;
+
+        const w = parseFloat(rect.getAttribute('width') || 0);
+        const h = parseFloat(rect.getAttribute('height') || 0);
+        const fill = rect.getAttribute('fill') || '';
+        const stroke = rect.getAttribute('stroke') || '';
+        const rx = rect.getAttribute('rx') || rect.getAttribute('ry') || '';
+
+        if (w < 80 || h < 80) return;
+        if (w >= svgW * 0.95 && h >= svgH * 0.95) return;
+        if (!stroke) return;
+
+        const isDarkFill = /^#[0-3]/i.test(fill) || fill === 'none';
+        if (!isDarkFill && !rx) return;
+
+        const parent = rect.parentElement;
+        const hasImageSibling = parent && parent.querySelector('image');
+        if (hasImageSibling) return;
+
+        const nextEl = rect.nextElementSibling;
+        if (nextEl && nextEl.tagName && nextEl.tagName.toLowerCase() === 'image') return;
+
+        imagePlaceholders.push(rect);
+    });
+
+    imagePlaceholders.forEach((rect, idx) => {
+        rect.dataset.imgPlaceholder = 'true';
+        rect.setAttribute('pointer-events', 'all');
+
+        const overlay = document.createElement('div');
+        overlay.className = 'image-placeholder-overlay';
+        overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
+        overlay.style.cssText = `
+            position: absolute;
+            pointer-events: none;
+            font-size: 18px;
+            color: #8C8C8C;
+            text-align: center;
+            white-space: nowrap;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        `;
+        slideWrapper.appendChild(overlay);
+
+        const textSpan = overlay.querySelector('.upload-text');
+        textSpan.style.pointerEvents = 'auto';
+        textSpan.style.cursor = 'pointer';
+        textSpan.style.padding = '8px 16px';
+        textSpan.style.borderRadius = '4px';
+        textSpan.addEventListener('click', (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            window._uploadTargetRect = rect;
+            document.getElementById('imageUploadInput').click();
+        });
+
+        rect._overlayEl = overlay;
+        rect._slideWrapper = slideWrapper;
+        rect._svgEl = svgEl;
+        updateOverlayPosition(rect);
+    });
+
     const placeholderGroups = svgEl.querySelectorAll('g.image-placeholder-group');
-    console.log(`[Overlay] Found ${placeholderGroups.length} placeholder groups`);
+    console.log(`[Overlay] Found ${placeholderGroups.length} placeholder groups, ${imagePlaceholders.length} auto-detected placeholders`);
     
     placeholderGroups.forEach((group, idx) => {
-        // Clear any saved overlay-listener attribute from SVG file
         group.removeAttribute('data-overlay-listener');
         group.dataset.overlayListener = 'true';
         
@@ -1227,6 +1443,9 @@ function setupImagePlaceholderOverlays() {
         window.addEventListener('resize', () => {
             const svgEl = document.querySelector('#slideWrapper svg');
             if (svgEl) {
+                svgEl.querySelectorAll('rect[data-img-placeholder]').forEach(rect => {
+                    if (rect._overlayEl) updateOverlayPosition(rect);
+                });
                 svgEl.querySelectorAll('g.image-placeholder-group rect').forEach(rect => {
                     if (rect._overlayEl) updateOverlayPosition(rect);
                 });
@@ -1263,56 +1482,61 @@ async function onImageFileSelected(e) {
     
     const rect = window._uploadTargetRect;
     const group = window._uploadTargetGroup;
-    if (!rect || !group) return;
     
     try {
-        // Read file as base64
-        const reader = new FileReader();
-        reader.onload = async (event) => {
-            const base64Data = event.target.result;
-            
-            // Get rect dimensions
-            const x = parseFloat(rect.getAttribute('x') || 0);
-            const y = parseFloat(rect.getAttribute('y') || 0);
-            const width = parseFloat(rect.getAttribute('width') || 400);
-            const height = parseFloat(rect.getAttribute('height') || 300);
-            
-            // Create image element
-            const svgEl = rect.closest('svg');
-            const ns = 'http://www.w3.org/2000/svg';
-            const img = document.createElementNS(ns, 'image');
-            img.setAttribute('x', x);
-            img.setAttribute('y', y);
-            img.setAttribute('width', width);
-            img.setAttribute('height', height);
-            img.setAttribute('href', base64Data);
-            img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
-            img.setAttribute('pointer-events', 'all');
-            img.style.cursor = 'move';
-            
-            // Insert before the rect
-            rect.parentNode.insertBefore(img, rect);
-            
-            // Hide the placeholder rect
-            rect.style.display = 'none';
-            
-            // Hide the upload trigger text
-            const trigger = group.querySelector('text.upload-trigger');
-            if (trigger) {
-                trigger.style.display = 'none';
-            }
-            
-            // Setup edit listeners on the new image
-            img.addEventListener('mousedown', onImageMouseDown);
-            
-            // Auto save
-            saveCurrentSvg(true);
-            
-            // Clear upload target
+        const base64Data = await readFileAsBase64(file);
+        
+        if (pasteImageMode && selectedPlaceholderRect && !rect) {
+            await insertImageToPlaceholder(selectedPlaceholderRect, base64Data);
+            return;
+        }
+        
+        if (pasteImageMode && selectedImage && !rect) {
+            await replaceSelectedImage(base64Data);
+            return;
+        }
+        
+        if (rect && rect.dataset.imgPlaceholder) {
+            await insertImageToPlaceholder(rect, base64Data);
             window._uploadTargetRect = null;
             window._uploadTargetGroup = null;
-        };
-        reader.readAsDataURL(file);
+            return;
+        }
+        
+        if (!rect || !group) return;
+        
+        const x = parseFloat(rect.getAttribute('x') || 0);
+        const y = parseFloat(rect.getAttribute('y') || 0);
+        const width = parseFloat(rect.getAttribute('width') || 400);
+        const height = parseFloat(rect.getAttribute('height') || 300);
+        
+        const svgEl = rect.closest('svg');
+        const ns = 'http://www.w3.org/2000/svg';
+        const img = document.createElementNS(ns, 'image');
+        img.setAttribute('x', x);
+        img.setAttribute('y', y);
+        img.setAttribute('width', width);
+        img.setAttribute('height', height);
+        img.setAttribute('href', base64Data);
+        img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+        img.setAttribute('pointer-events', 'all');
+        img.style.cursor = 'move';
+        
+        rect.parentNode.insertBefore(img, rect);
+        
+        rect.style.display = 'none';
+        
+        const trigger = group.querySelector('text.upload-trigger');
+        if (trigger) {
+            trigger.style.display = 'none';
+        }
+        
+        img.addEventListener('mousedown', onImageMouseDown);
+        
+        saveCurrentSvg(true);
+        
+        window._uploadTargetRect = null;
+        window._uploadTargetGroup = null;
     } catch (err) {
         console.error('Image upload failed:', err);
     }
@@ -1344,7 +1568,6 @@ function detectImageContainerBounds(img) {
 function onImageMouseDown(e) {
     if (!isEditMode) return;
     
-    // Check if clicking on upload trigger text
     if (e.target.classList.contains('upload-trigger')) {
         return;
     }
@@ -1352,12 +1575,32 @@ function onImageMouseDown(e) {
     e.stopPropagation();
     e.preventDefault();
 
-    console.log(`[Edit] Image/Rect mousedown on ${e.target.tagName} at (${e.target.getAttribute('x')}, ${e.target.getAttribute('y')})`);
-
-    const target = e.target.closest('image') || e.target.closest('g.image-placeholder-group');
+    let target = null;
+    let el = e.target;
+    while (el) {
+        if (el.tagName && (el.tagName.toLowerCase() === 'image' || el.tagName === 'image')) {
+            target = el;
+            break;
+        }
+        if (el.classList && el.classList.contains('image-placeholder-group')) {
+            target = el;
+            break;
+        }
+        el = el.parentElement;
+    }
+    
+    if (!target) {
+        if (e.target.tagName && e.target.tagName.toLowerCase() === 'rect') {
+            const parent = e.target.parentElement;
+            if (parent && parent.classList && parent.classList.contains('image-placeholder-group')) {
+                target = parent;
+            }
+        }
+    }
+    
     if (!target) return;
 
-    const img = target.tagName === 'g' ? target.querySelector('rect') || target : target;
+    const img = (target.tagName && target.tagName.toLowerCase() === 'g') ? target.querySelector('rect') || target : target;
 
     if (e.shiftKey) {
         toggleImageSelection(img);
@@ -1392,7 +1635,27 @@ function onImageMouseDown(e) {
 
 function onSlideWrapperMouseDown(e) {
     if (!isEditMode) return;
-    if (e.target.closest('svg') && !e.target.closest('image') && !e.target.closest('g.image-placeholder-group')) {
+    
+    let isImageOrPlaceholder = false;
+    let el = e.target;
+    while (el) {
+        if (el.tagName && (el.tagName.toLowerCase() === 'image' || el.tagName === 'image')) {
+            isImageOrPlaceholder = true;
+            break;
+        }
+        if (el.classList && el.classList.contains('image-placeholder-group')) {
+            isImageOrPlaceholder = true;
+            break;
+        }
+        if (el.dataset && el.dataset.imgPlaceholder === 'true') {
+            isImageOrPlaceholder = true;
+            break;
+        }
+        if (el.tagName && el.tagName.toLowerCase() === 'svg') break;
+        el = el.parentElement;
+    }
+    
+    if (e.target.closest('svg') && !isImageOrPlaceholder) {
         clearImageSelection();
     }
 }
@@ -1425,21 +1688,22 @@ function updateSelectionUI() {
         return;
     }
 
+    const slideWrapper = document.getElementById('slideWrapper');
+    const wrapperRect = slideWrapper.getBoundingClientRect();
+
     selectedImages.forEach(img => {
         const rect = img.getBoundingClientRect();
-        const svgEl = img.closest('svg');
-        const svgRect = svgEl.getBoundingClientRect();
 
         const box = document.createElement('div');
-        box.className = 'absolute border-2 border-blue-500 z-40';
-        box.style.cssText = `
-            left: ${rect.left - svgRect.left}px;
-            top: ${rect.top - svgRect.top}px;
-            width: ${rect.width}px;
-            height: ${rect.height}px;
-            pointer-events: none;
-        `;
-        const slideWrapper = document.getElementById('slideWrapper');
+        box.className = 'absolute border-2 border-green-500 z-40 paste-ready';
+    box.style.cssText = `
+        left: ${rect.left - wrapperRect.left}px;
+        top: ${rect.top - wrapperRect.top}px;
+        width: ${rect.width}px;
+        height: ${rect.height}px;
+        pointer-events: none;
+        box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
+    `;
         slideWrapper.appendChild(box);
         selectionBoxes.push(box);
     });
@@ -1447,8 +1711,6 @@ function updateSelectionUI() {
     if (selectedImages.length === 1) {
         const img = selectedImages[0];
         const rect = img.getBoundingClientRect();
-        const svgEl = img.closest('svg');
-        const svgRect = svgEl.getBoundingClientRect();
 
         const handles = ['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'];
         const handleSize = 10;
@@ -1465,12 +1727,12 @@ function updateSelectionUI() {
 
         handles.forEach(h => {
             const handle = document.createElement('div');
-            handle.className = 'absolute bg-white border-2 border-blue-500 rounded-full';
+            handle.className = 'absolute bg-white border-2 border-green-500 rounded-full';
             handle.style.cssText = `
                 width: ${handleSize}px;
                 height: ${handleSize}px;
-                left: ${rect.left - svgRect.left + positions[h].left}px;
-                top: ${rect.top - svgRect.top + positions[h].top}px;
+                left: ${rect.left - wrapperRect.left + positions[h].left}px;
+                top: ${rect.top - wrapperRect.top + positions[h].top}px;
                 cursor: ${positions[h].cursor};
                 z-index: 1000;
             `;
@@ -1490,6 +1752,7 @@ function selectImage(img) {
     removeOutOfBoundsIndicator();
     selectedImage = img;
     selectedImages = [img];
+    pasteImageMode = true;
 
     if (img.dataset.outOfBounds === 'complete') {
         img.removeAttribute('clip-path');
@@ -1503,22 +1766,21 @@ function selectImage(img) {
     }
 
     const rect = img.getBoundingClientRect();
-    const svgEl = img.closest('svg');
-    const svgRect = svgEl.getBoundingClientRect();
-
     const slideWrapper = document.getElementById('slideWrapper');
+    const wrapperRect = slideWrapper.getBoundingClientRect();
     slideWrapper.style.position = 'relative';
 
     selectionBoxes = [];
     const box = document.createElement('div');
     box.id = 'imageSelectionBox';
-    box.className = 'absolute border-2 border-blue-500 z-40';
+    box.className = 'absolute border-2 border-green-500 z-40 paste-ready';
     box.style.cssText = `
-        left: ${rect.left - svgRect.left}px;
-        top: ${rect.top - svgRect.top}px;
+        left: ${rect.left - wrapperRect.left}px;
+        top: ${rect.top - wrapperRect.top}px;
         width: ${rect.width}px;
         height: ${rect.height}px;
         pointer-events: none;
+        box-shadow: 0 0 12px rgba(34, 197, 94, 0.5);
     `;
     slideWrapper.appendChild(box);
     selectionBoxes.push(box);
@@ -1538,12 +1800,12 @@ function selectImage(img) {
 
     handles.forEach(h => {
         const handle = document.createElement('div');
-        handle.className = 'absolute bg-white border-2 border-blue-500 rounded-full';
+        handle.className = 'absolute bg-white border-2 border-green-500 rounded-full';
         handle.style.cssText = `
             width: ${handleSize}px;
             height: ${handleSize}px;
-            left: ${rect.left - svgRect.left + positions[h].left}px;
-            top: ${rect.top - svgRect.top + positions[h].top}px;
+            left: ${rect.left - wrapperRect.left + positions[h].left}px;
+            top: ${rect.top - wrapperRect.top + positions[h].top}px;
             cursor: ${positions[h].cursor};
             z-index: 1000;
         `;
@@ -1555,6 +1817,7 @@ function selectImage(img) {
     });
 
     updatePropertiesPanel();
+    showPasteHint();
 }
 
 function clearImageSelection() {
@@ -1562,6 +1825,13 @@ function clearImageSelection() {
     selectionBoxes = [];
     resizeHandles.forEach(h => h.remove());
     resizeHandles = [];
+
+    if (selectedPlaceholderRect) {
+        selectedPlaceholderRect.style.fill = '';
+        selectedPlaceholderRect.style.stroke = '';
+        selectedPlaceholderRect.style.strokeWidth = '';
+        selectedPlaceholderRect = null;
+    }
 
     if (selectedImage) {
         if (selectedImage.dataset.outOfBounds === 'complete') {
@@ -1575,13 +1845,31 @@ function clearImageSelection() {
 
     selectedImage = null;
     selectedImages = [];
+    pasteImageMode = false;
     isDragging = false;
     isResizing = false;
     resizeHandle = null;
     clearAlignmentGuides();
     document.removeEventListener('mousemove', onImageMouseMove);
     document.removeEventListener('mouseup', onImageMouseUp);
+    const pasteHint = document.getElementById('pasteHint');
+    if (pasteHint) pasteHint.remove();
     if (propertiesPanel) propertiesPanel.style.display = 'none';
+}
+
+function showPasteHint() {
+    const existing = document.getElementById('pasteHint');
+    if (existing) existing.remove();
+    
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (!slideWrapper || !pasteImageMode) return;
+    
+    const hint = document.createElement('div');
+    hint.id = 'pasteHint';
+    hint.className = 'absolute z-50 bg-green-600 text-white text-sm px-4 py-2 rounded-lg shadow-lg';
+    hint.style.cssText = 'bottom: 20px; left: 50%; transform: translateX(-50%); font-weight: 500; animation: fadeInUp 0.3s ease-out;';
+    hint.innerHTML = '⌘ Ctrl+V 粘贴图片替换 · Delete 删除 · Esc 取消选择';
+    slideWrapper.appendChild(hint);
 }
 
 function onImageMouseMove(e) {
@@ -1967,7 +2255,166 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
         clearImageSelection();
     }
+    if ((e.key === 'v' || e.key === 'V') && (e.ctrlKey || e.metaKey) && isEditMode && pasteImageMode && (selectedImage || selectedPlaceholderRect)) {
+    }
 });
+
+async function handleClipboardPaste(e) {
+    if (!isEditMode) return;
+    if (!pasteImageMode) return;
+    if (!selectedImage && !selectedPlaceholderRect) return;
+    
+    const items = e.clipboardData?.items;
+    if (!items) return;
+    
+    let imageFile = null;
+    for (const item of items) {
+        if (item.type.startsWith('image/')) {
+            imageFile = item.getAsFile();
+            break;
+        }
+    }
+    
+    if (!imageFile) return;
+    
+    e.preventDefault();
+    
+    try {
+        const base64Data = await readFileAsBase64(imageFile);
+        
+        if (selectedPlaceholderRect) {
+            await insertImageToPlaceholder(selectedPlaceholderRect, base64Data);
+        } else if (selectedImage) {
+            await replaceSelectedImage(base64Data);
+        }
+    } catch (error) {
+        console.error('Paste image error:', error);
+        showToast('粘贴图片失败: ' + error.message, 'error');
+    }
+}
+
+async function insertImageToPlaceholder(rect, base64Data) {
+    const svgEl = rect.closest('svg');
+    if (!svgEl) return;
+
+    let x = parseFloat(rect.getAttribute('x') || 0);
+    let y = parseFloat(rect.getAttribute('y') || 0);
+    let w = parseFloat(rect.getAttribute('width') || 400);
+    let h = parseFloat(rect.getAttribute('height') || 300);
+
+    let el = rect.parentElement;
+    while (el && el !== svgEl) {
+        if (el.tagName && el.tagName.toLowerCase() === 'g' && el.getAttribute('transform')) {
+            const transform = el.getAttribute('transform');
+            const match = transform.match(/translate\(\s*([\d.-]+)\s*,\s*([\d.-]+)\s*\)/);
+            if (match) {
+                x += parseFloat(match[1]);
+                y += parseFloat(match[2]);
+            }
+        }
+        el = el.parentElement;
+    }
+
+    const ns = 'http://www.w3.org/2000/svg';
+    const clipId = `clip_paste_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+
+    let defs = svgEl.querySelector('defs');
+    if (!defs) {
+        defs = document.createElementNS(ns, 'defs');
+        svgEl.insertBefore(defs, svgEl.firstChild);
+    }
+
+    const clipPath = document.createElementNS(ns, 'clipPath');
+    clipPath.setAttribute('id', clipId);
+    const clipRect = document.createElementNS(ns, 'rect');
+    clipRect.setAttribute('x', x);
+    clipRect.setAttribute('y', y);
+    clipRect.setAttribute('width', w);
+    clipRect.setAttribute('height', h);
+    clipRect.setAttribute('rx', rect.getAttribute('rx') || '0');
+    clipPath.appendChild(clipRect);
+    defs.appendChild(clipPath);
+
+    const img = document.createElementNS(ns, 'image');
+    img.setAttribute('x', x);
+    img.setAttribute('y', y);
+    img.setAttribute('width', w);
+    img.setAttribute('height', h);
+    img.setAttribute('href', base64Data);
+    img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+    img.setAttribute('clip-path', `url(#${clipId})`);
+    img.setAttribute('pointer-events', 'all');
+    img.style.cursor = 'move';
+
+    img.dataset.containerX = x;
+    img.dataset.containerY = y;
+    img.dataset.containerWidth = w;
+    img.dataset.containerHeight = h;
+    img.dataset.containerClipId = clipId;
+
+    svgEl.appendChild(img);
+
+    rect.style.display = 'none';
+
+    const nextText = rect.nextElementSibling;
+    if (nextText && nextText.tagName && nextText.tagName.toLowerCase() === 'text') {
+        nextText.style.display = 'none';
+    }
+
+    if (isEditMode) {
+        img.dataset.imageEditListener = 'true';
+        img.addEventListener('mousedown', onImageMouseDown);
+    }
+
+    if (rect._overlayEl) {
+        rect._overlayEl.remove();
+        rect._overlayEl = null;
+    }
+
+    clearImageSelection();
+    saveCurrentSvg(true);
+    showToast('图片已粘贴！', 'success');
+}
+
+function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target.result);
+        reader.onerror = (e) => reject(new Error('Failed to read file'));
+        reader.readAsDataURL(file);
+    });
+}
+
+async function replaceSelectedImage(base64Data) {
+    if (!selectedImage) {
+        showToast('请先选中一个图片', 'info');
+        return;
+    }
+    
+    const svgEl = selectedImage.closest('svg');
+    const x = parseFloat(selectedImage.getAttribute('x') || 0);
+    const y = parseFloat(selectedImage.getAttribute('y') || 0);
+    const width = parseFloat(selectedImage.getAttribute('width') || 400);
+    const height = parseFloat(selectedImage.getAttribute('height') || 300);
+    const containerX = selectedImage.dataset.containerX ? parseFloat(selectedImage.dataset.containerX) : x;
+    const containerY = selectedImage.dataset.containerY ? parseFloat(selectedImage.dataset.containerY) : y;
+    const containerWidth = selectedImage.dataset.containerWidth ? parseFloat(selectedImage.dataset.containerWidth) : width;
+    const containerHeight = selectedImage.dataset.containerHeight ? parseFloat(selectedImage.dataset.containerHeight) : height;
+    
+    const oldX = parseFloat(selectedImage.getAttribute('x') || 0);
+    const oldY = parseFloat(selectedImage.getAttribute('y') || 0);
+    const oldWidth = parseFloat(selectedImage.getAttribute('width') || 0);
+    const oldHeight = parseFloat(selectedImage.getAttribute('height') || 0);
+    pushUndoState('replace', selectedImage, {
+        oldX, oldY, oldWidth, oldHeight,
+        oldHref: selectedImage.getAttribute('href') || selectedImage.getAttribute('xlink:href')
+    });
+    
+    selectedImage.setAttribute('href', base64Data);
+    
+    showToast('图片已替换！', 'success');
+    saveCurrentSvg(true);
+}
 
 function calculateSnapPosition(x, y, w, h) {
     const guides = [];
@@ -2450,6 +2897,258 @@ function nextSlide() {
     }
 }
 
+async function deleteCurrentPage() {
+    if (!currentCollection) {
+        showToast('No project loaded', 'info');
+        return;
+    }
+    
+    const slideIndex = currentSlide;
+    const slide = currentCollection.slides[slideIndex];
+    
+    if (!slide) {
+        showToast('Slide not found', 'error');
+        return;
+    }
+    
+    const slideName = slide.title || slide.file;
+    const confirmed = await showToastConfirmDelete(slideName);
+    if (!confirmed) return;
+    
+    try {
+        const deleteBtn = document.getElementById('deletePageBtn');
+        deleteBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 删 除 中...';
+        deleteBtn.disabled = true;
+        
+        const basePath = '/' + encodePath(currentCollection.folder) + '/';
+        const svgPath = basePath + encodeURIComponent(slide.file);
+        
+        let svgContent = null;
+        const svgResponse = await fetch(svgPath);
+        if (svgResponse.ok) {
+            svgContent = await svgResponse.text();
+        }
+        
+        if (svgResponse.ok) {
+            const deleteRes = await fetch('/api/delete-svg', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({path: svgPath})
+            });
+            const deleteData = await deleteRes.json();
+            if (!deleteData.success) {
+                console.error('Delete SVG failed:', deleteData.error);
+                showToast('删除SVG文件失败: ' + deleteData.error, 'error');
+                return;
+            }
+        }
+        
+        const thumbnailPath = svgPath.replace('/svg_final/', '/svg_thumbnail/');
+        try {
+            const thumbResponse = await fetch(thumbnailPath);
+            if (thumbResponse.ok) {
+                await fetch('/api/delete-svg', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({path: thumbnailPath})
+                });
+            }
+        } catch (thumbErr) {
+            console.warn('Thumbnail delete skipped:', thumbErr);
+        }
+        
+        const projectPath = '/' + encodePath(currentCollection.folder) + '/project.json';
+        const projectResponse = await fetch(projectPath);
+        if (projectResponse.ok) {
+            const projectData = await projectResponse.json();
+            projectData.slides.splice(slideIndex, 1);
+            
+            const folder = currentCollection.folder.replace(/^examples\//, '').replace(/\/svg_final$/, '');
+            const saveRes = await fetch('/api/save-svg', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    file: 'project.json',
+                    folder: folder,
+                    content: JSON.stringify(projectData, null, 2),
+                    isJson: true
+                })
+            });
+            const saveData = await saveRes.json();
+            if (!saveData.success) {
+                console.error('Save project.json failed:', saveData.error);
+            }
+        }
+        
+        // 5. 保存删除记录用于回退
+        deleteHistory.push({
+            slide: slide,
+            slideIndex: slideIndex,
+            svgContent: svgContent,
+            thumbnailPath: thumbnailPath,
+            timestamp: Date.now()
+        });
+        
+        // 6. 更新本地数据
+        currentCollection.slides.splice(slideIndex, 1);
+        
+        let targetSlide = currentSlide;
+        if (targetSlide >= currentCollection.slides.length) {
+            targetSlide = Math.max(0, currentCollection.slides.length - 1);
+        }
+        
+        // 7. 重新渲染缩略图和更新UI
+        currentSlide = targetSlide;
+        document.getElementById('totalPages').textContent = currentCollection.slides.length;
+        document.getElementById('fullscreenTotal').textContent = currentCollection.slides.length;
+        document.getElementById('currentPage').textContent = currentSlide + 1;
+        generateThumbnails();
+        updateSlide();
+        
+        // 8. 显示可撤销的toast
+        showToastWithUndo(slideName);
+        
+    } catch (error) {
+        console.error('Delete page error:', error);
+        showToast('删除失败: ' + error.message, 'error');
+    } finally {
+        const deleteBtn = document.getElementById('deletePageBtn');
+        if (deleteBtn) {
+            deleteBtn.innerHTML = '<i class="fas fa-trash text-sm"></i><span>删除页面</span>';
+            deleteBtn.disabled = false;
+        }
+    }
+}
+
+async function showToastConfirmDelete(slideName) {
+    return new Promise((resolve) => {
+        const toast = document.createElement('div');
+        toast.id = 'deleteConfirmToast';
+        toast.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-dark-800 border border-red-500/50 rounded-xl p-5 shadow-2xl w-80';
+        toast.innerHTML = `
+            <div class="text-center">
+                <i class="fas fa-trash-alt text-red-500 text-3xl mb-3"></i>
+                <p class="text-gray-100 font-semibold text-lg mb-2">确定删除此页面？</p>
+                <p class="text-gray-400 text-sm mb-4">${slideName}</p>
+                <div class="flex justify-center space-x-3">
+                    <button id="confirmDeleteBtn" class="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all font-medium">
+                        确认删除
+                    </button>
+                    <button id="cancelDeleteBtn" class="px-5 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all font-medium">
+                        取消
+                    </button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(toast);
+        
+        document.getElementById('confirmDeleteBtn').onclick = () => {
+            toast.remove();
+            resolve(true);
+        };
+        document.getElementById('cancelDeleteBtn').onclick = () => {
+            toast.remove();
+            resolve(false);
+        };
+    });
+}
+
+function showToastWithUndo(slideName) {
+    if (lastDeletedToast) {
+        lastDeletedToast.remove();
+    }
+    
+    const toast = document.createElement('div');
+    toast.className = 'fixed bottom-6 right-6 z-50 bg-dark-800 border border-green-500/50 rounded-lg p-4 shadow-xl flex items-center space-x-3';
+    toast.innerHTML = `
+        <i class="fas fa-check-circle text-green-500 text-lg"></i>
+        <span class="text-gray-100">页面 "${slideName}" 已删除</span>
+        <button id="undoDeleteBtn" class="ml-3 px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700 transition-colors">
+            撤销
+        </button>
+    `;
+    document.body.appendChild(toast);
+    lastDeletedToast = toast;
+    
+    document.getElementById('undoDeleteBtn').onclick = () => {
+        undoDelete();
+        toast.remove();
+        lastDeletedToast = null;
+    };
+    
+    setTimeout(() => {
+        if (lastDeletedToast === toast) {
+            toast.remove();
+            lastDeletedToast = null;
+        }
+    }, 10000);
+}
+
+async function undoDelete() {
+    if (deleteHistory.length === 0) {
+        showToast('没有可撤销的操作', 'info');
+        return;
+    }
+    
+    const lastDelete = deleteHistory.pop();
+    
+    try {
+        const basePath = '/' + encodePath(currentCollection.folder) + '/';
+        const svgPath = basePath + encodeURIComponent(lastDelete.slide.file);
+        // folder 应该是项目根目录（去掉 examples/ 前缀，且去掉 /svg_final）
+        const folder = currentCollection.folder.replace(/^examples\//, '').replace(/\/svg_final$/, '');
+        
+        // 1. 恢复SVG文件
+        if (lastDelete.svgContent) {
+            await fetch('/api/save-svg', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    file: lastDelete.slide.file,
+                    folder: folder + '/svg_final',
+                    content: lastDelete.svgContent,
+                    isJson: false
+                })
+            });
+        }
+        
+        // 2. 恢复project.json
+        const projectPath = '/' + encodePath(currentCollection.folder) + '/project.json';
+        const projectResponse = await fetch(projectPath);
+        if (projectResponse.ok) {
+            const projectData = await projectResponse.json();
+            projectData.slides.splice(lastDelete.slideIndex, 0, lastDelete.slide);
+            
+            await fetch('/api/save-svg', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    file: 'project.json',
+                    folder: folder,
+                    content: JSON.stringify(projectData, null, 2),
+                    isJson: true
+                })
+            });
+        }
+        
+        // 3. 恢复本地数据
+        currentCollection.slides.splice(lastDelete.slideIndex, 0, lastDelete.slide);
+        
+        currentSlide = lastDelete.slideIndex;
+        document.getElementById('totalPages').textContent = currentCollection.slides.length;
+        document.getElementById('fullscreenTotal').textContent = currentCollection.slides.length;
+        document.getElementById('currentPage').textContent = currentSlide + 1;
+        generateThumbnails();
+        updateSlide();
+        
+        showToast(`已恢复页面 "${lastDelete.slide.title || lastDelete.slide.file}"`, 'success');
+        
+    } catch (error) {
+        console.error('Undo delete error:', error);
+        showToast('恢复失败: ' + error.message, 'error');
+    }
+}
+
 function prevSlide() {
     if (currentSlide > 0) {
         const newIndex = currentSlide - 1;
@@ -2690,5 +3389,85 @@ async function exportPPT() {
     } finally {
         exportBtn.innerHTML = originalHTML;
         exportBtn.disabled = false;
+    }
+}
+
+async function copyOutlineToClipboard() {
+    if (!currentCollection) {
+        showToast('No project loaded', 'info');
+        return;
+    }
+
+    const copyBtn = document.getElementById('copyOutlineBtn');
+    const originalHTML = copyBtn.innerHTML;
+    copyBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+
+    try {
+        const lines = [];
+        lines.push(`📑 ${currentCollection.title}`);
+        lines.push('═'.repeat(50));
+        lines.push('');
+
+        for (let index = 0; index < currentCollection.slides.length; index++) {
+            const slide = currentCollection.slides[index];
+            const pageNum = String(index + 1).padStart(2, '0');
+            const title = slide.title || slide.file.replace('.svg', '');
+            
+            lines.push(`━━━ 第${pageNum}页：${title} ━━━`);
+
+            const basePath = '/' + encodePath(currentCollection.folder) + '/';
+            const slidePath = basePath + encodeURIComponent(slide.file);
+            
+            try {
+                const response = await fetch(slidePath);
+                if (response.ok) {
+                    const svgText = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(svgText, 'image/svg+xml');
+                    
+                    const textElements = doc.querySelectorAll('text');
+                    let pageTexts = [];
+                    
+                    textElements.forEach(textEl => {
+                        let content = textEl.textContent.trim();
+                        if (content && content.length > 0 && !content.match(/^[\s\xA0]+$/)) {
+                            const x = parseFloat(textEl.getAttribute('x') || 0);
+                            const y = parseFloat(textEl.getAttribute('y') || 0);
+                            pageTexts.push({ x, y, content });
+                        }
+                    });
+
+                    pageTexts.sort((a, b) => a.y - b.y || a.x - b.x);
+
+                    const seen = new Set();
+                    pageTexts.forEach(item => {
+                        const normalized = item.content.replace(/\s+/g, ' ').trim();
+                        if (normalized && normalized.length > 1 && !seen.has(normalized)) {
+                            seen.add(normalized);
+                            lines.push(`  ${normalized}`);
+                        }
+                    });
+                }
+            } catch (svgError) {
+                console.warn(`Failed to load slide ${pageNum}:`, svgError);
+                if (slide.desc) {
+                    lines.push(`  ${slide.desc}`);
+                }
+            }
+
+            lines.push('');
+        }
+
+        const text = lines.join('\n');
+        await navigator.clipboard.writeText(text);
+
+        copyBtn.innerHTML = '<i class="fas fa-check text-sm"></i><span>已复制!</span>';
+        setTimeout(() => {
+            copyBtn.innerHTML = originalHTML;
+        }, 2000);
+    } catch (error) {
+        console.error('Copy outline error:', error);
+        showToast('复制失败，请重试', 'error');
+        copyBtn.innerHTML = originalHTML;
     }
 }

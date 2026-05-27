@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+    <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 01 · 1.4</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">市场规模、增速与增长驱动</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">全球及美国市场数据与增长动力解析 | 数据来源：Global Growth Insights / Technavio / Statista</text>
+
+  <g transform="translate(60, 120)">
+    <rect x="0" y="0" width="1160" height="130" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+
+    <g transform="translate(30, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">6.7<tspan font-size="14">%</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">年复合增长率 (CAGR)</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2018-2023 全球工装市场 | 美元</text>
+    </g>
+
+    <line x1="290" y1="15" x2="290" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(320, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">$1560<tspan font-size="14">亿</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">全球市场总规模 (2023)</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">含工作服/特殊工装/休闲工装 | 美元</text>
+    </g>
+
+    <line x1="610" y1="15" x2="610" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(640, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">$2459<tspan font-size="14">万</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">亚马逊美国站月销售额</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Men's Work Utility &amp; Safety | 2025年Q1 | 美元</text>
+    </g>
+
+    <line x1="900" y1="15" x2="900" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(930, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">12.4<tspan font-size="14">%</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">休闲工装细分年增长率</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">远超传统工装3.8% | 2023-2024 | 美国</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 270)">
+    <rect x="0" y="0" width="560" height="420" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">GROWTH DRIVERS</text>
+    <text x="20" y="58" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">五大增长驱动因素</text>
+
+    <g transform="translate(20, 80)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="520" height="55" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">01</text>
+        <text x="45" y="22" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">巴恩风（Barn Fit）潮流带动</text>
+        <text x="45" y="40" fill="#86868b" font-family="Inter, sans-serif" font-size="10">社交媒体推动工装从功能场景进入日常穿搭</text>
+      </g>
+      <g transform="translate(0, 65)">
+        <rect x="0" y="0" width="520" height="55" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">02</text>
+        <text x="45" y="22" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">功能性与时尚性融合</text>
+        <text x="45" y="40" fill="#86868b" font-family="Inter, sans-serif" font-size="10">消费者追求"好看又好穿"，工装天然满足双需求</text>
+      </g>
+      <g transform="translate(0, 130)">
+        <rect x="0" y="0" width="520" height="55" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">03</text>
+        <text x="45" y="22" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">户外生活方式渗透</text>
+        <text x="45" y="40" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Gorpcore山系风与工装在户外场景深度交叉</text>
+      </g>
+      <g transform="translate(0, 195)">
+        <rect x="0" y="0" width="520" height="55" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">04</text>
+        <text x="45" y="22" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">电商渠道增长</text>
+        <text x="45" y="40" fill="#86868b" font-family="Inter, sans-serif" font-size="10">亚马逊工装类目年增速超12%，线上渗透率持续提升</text>
+      </g>
+      <g transform="translate(0, 260)">
+        <rect x="0" y="0" width="520" height="55" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">05</text>
+        <text x="45" y="22" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">可持续消费趋势</text>
+        <text x="45" y="40" fill="#86868b" font-family="Inter, sans-serif" font-size="10">工装"耐穿"属性天然契合可持续理念，降低替换频率</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(640, 270)">
+    <rect x="0" y="0" width="580" height="420" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="580" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">MARKET SEGMENT</text>
+    <text x="20" y="58" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">细分市场增速对比</text>
+
+    <g transform="translate(20, 80)">
+      <g transform="translate(0, 0)">
+        <text x="0" y="14" fill="#86868b" font-family="Inter, sans-serif" font-size="11">传统劳保工装</text>
+        <rect x="160" y="2" width="350" height="18" rx="3" fill="#252530"/>
+        <rect x="160" y="2" width="95" height="18" rx="3" fill="url(#barGradient)" opacity="0.4"/>
+        <text x="265" y="16" fill="#86868b" font-family="Space Grotesk, sans-serif" font-size="12">3.8%</text>
+        <text x="520" y="16" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">成熟期</text>
+      </g>
+      <g transform="translate(0, 35)">
+        <text x="0" y="14" fill="#86868b" font-family="Inter, sans-serif" font-size="11">军事风格工装</text>
+        <rect x="160" y="2" width="350" height="18" rx="3" fill="#252530"/>
+        <rect x="160" y="2" width="175" height="18" rx="3" fill="url(#barGradient)" opacity="0.6"/>
+        <text x="345" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12">7.2%</text>
+        <text x="520" y="16" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">成长期</text>
+      </g>
+      <g transform="translate(0, 70)">
+        <text x="0" y="14" fill="#86868b" font-family="Inter, sans-serif" font-size="11">机能工装风</text>
+        <rect x="160" y="2" width="350" height="18" rx="3" fill="#252530"/>
+        <rect x="160" y="2" width="245" height="18" rx="3" fill="url(#barGradient)" opacity="0.75"/>
+        <text x="415" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12">10.1%</text>
+        <text x="520" y="16" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">成长期</text>
+      </g>
+      <g transform="translate(0, 105)">
+        <text x="0" y="14" fill="#86868b" font-family="Inter, sans-serif" font-size="11">轻工装/休闲工装</text>
+        <rect x="160" y="2" width="350" height="18" rx="3" fill="#252530"/>
+        <rect x="160" y="2" width="300" height="18" rx="3" fill="url(#barGradient)" opacity="0.9"/>
+        <text x="470" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12">12.4%</text>
+        <text x="520" y="16" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">高增长</text>
+      </g>
+      <g transform="translate(0, 140)">
+        <text x="0" y="14" fill="#86868b" font-family="Inter, sans-serif" font-size="11">复古工装风</text>
+        <rect x="160" y="2" width="350" height="18" rx="3" fill="#252530"/>
+        <rect x="160" y="2" width="210" height="18" rx="3" fill="url(#barGradient)" opacity="0.65"/>
+        <text x="380" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12">8.6%</text>
+        <text x="520" y="16" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">成长期</text>
+      </g>
+    </g>
+
+    <g transform="translate(20, 280)">
+      <rect x="0" y="0" width="540" height="120" rx="6" fill="#252530" stroke="#3a3a45"/>
+      <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">KEY INSIGHT</text>
+      <text x="15" y="50" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">轻工装/休闲工装是增速最快的细分赛道</text>
+      <text x="15" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="11">年复合增长率12.4%，是传统劳保工装的3.3倍</text>
+      <text x="15" y="92" fill="#86868b" font-family="Inter, sans-serif" font-size="11">亚马逊美国站Men's Work Utility类目月销$2459万</text>
+      <text x="15" y="108" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">数据周期：2023-2024 | 区域：美国 | 币种：美元</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

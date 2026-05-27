@@ -1,0 +1,156 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 03 · 3.2</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">亚马逊主图/A+页面视觉规范</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">Listing优化要点与A+内容创作方向 | 提升点击率与转化率的核心视觉策略</text>
+
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">主图规范（7张标准）</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图1 主图</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">白底正面全身照，无模特/无道具</text>
+      </g>
+      <g transform="translate(270, 0)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图2 背面</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">展示背部设计、口袋布局</text>
+      </g>
+      <g transform="translate(0, 55)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图3 细节</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">面料纹理/缝线/五金特写</text>
+      </g>
+      <g transform="translate(270, 55)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图4 口袋</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">多口袋功能展示/容量演示</text>
+      </g>
+      <g transform="translate(0, 110)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图5 场景</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">户外/工地/都市穿搭场景</text>
+      </g>
+      <g transform="translate(270, 110)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图6 尺码</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">尺码对照表/模特身高体重</text>
+      </g>
+      <g transform="translate(0, 165)">
+        <rect x="0" y="0" width="250" height="45" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">图7 多色</text>
+        <text x="10" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="9">所有可选颜色平铺展示</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect x="0" y="0" width="580" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="580" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">关键词布局策略</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="540" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">标题公式</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Brand + Style + Feature + Material + Occasion + Color</text>
+      </g>
+      <g transform="translate(0, 60)">
+        <rect x="0" y="0" width="260" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心关键词</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">work pants / cargo pants</text>
+        <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">work jacket / barn jacket</text>
+        <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">utility shirt / coveralls</text>
+      </g>
+      <g transform="translate(280, 60)">
+        <rect x="0" y="0" width="260" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">长尾关键词</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">men's work pants reinforced knee</text>
+        <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">barn jacket men olive</text>
+        <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">heavy duty work pants for men</text>
+      </g>
+      <g transform="translate(0, 140)">
+        <rect x="0" y="0" width="540" height="65" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">Listing差异化卖点</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">1. 面料科技：Cordura加固 / Ripstop防撕裂 / 弹力混纺</text>
+        <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">2. 功能细节：多口袋 / 加固膝盖 / 防水拉链 / 可调袖口</text>
+        <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">3. 场景适配：work / outdoor / casual 三场景覆盖</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="1160" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">A+页面内容创作方向</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">品牌故事模块</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌工装基因与传承</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料来源与工艺标准</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">设计理念与用户承诺</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">视觉建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">工厂/面料/缝制过程实拍</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">配合文字说明品牌专业度</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">建议尺寸：970×600</text>
+      </g>
+      <g transform="translate(290, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">功能对比模块</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料科技对比表</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能细节标注图</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">竞品差异化对比</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">视觉建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">产品拆解图+功能标注</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">表格对比面料/功能/价格</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">建议尺寸：970×300</text>
+      </g>
+      <g transform="translate(580, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">场景穿搭模块</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Work场景：工地/车间</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Outdoor场景：露营/徒步</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Casual场景：都市/通勤</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">视觉建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">三场景模特穿搭图</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">搭配推荐+购买链接</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">建议尺寸：970×600</text>
+      </g>
+      <g transform="translate(870, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">广告投放要点</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">SP广告：核心词+长尾词</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">SB广告：品牌词+场景词</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">SD广告：竞品ASIN定向</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">预算分配</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">SP 60% / SB 25% / SD 15%</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">ACoS目标：25-35%</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">新品期可放宽至40%</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

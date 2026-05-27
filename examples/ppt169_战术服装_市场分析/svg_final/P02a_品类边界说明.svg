@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 40)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">SCOPE DEFINITION</text>
+  </g>
+  <text x="60" y="85" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">品类边界说明</text>
+  <rect x="60" y="100" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">明确本报告研究范围，区分四大相关但不同的品类概念</text>
+
+  <g transform="translate(60, 155)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
+      <text x="20" y="40" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">Work Utility 劳保工装</text>
+      <rect x="20" y="55" width="60" height="22" rx="4" fill="rgba(201,169,98,0.15)" stroke="rgba(201,169,98,0.3)"/>
+      <text x="50" y="70" text-anchor="middle" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">本报告核心</text>
+      <text x="20" y="100" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">定义：面向真实劳动场景的功能性工作服装</text>
+      <text x="20" y="120" fill="#86868b" font-family="Inter, sans-serif" font-size="11">核心特征：耐磨面料、多口袋设计、加固缝线、实用至上</text>
+      <text x="20" y="140" fill="#86868b" font-family="Inter, sans-serif" font-size="11">代表品牌：Carhartt、Dickies、Wrangler Riggs</text>
+      <text x="20" y="160" fill="#86868b" font-family="Inter, sans-serif" font-size="11">亚马逊类目：Men's Work Utility &amp; Safety</text>
+      <text x="20" y="185" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">本报告聚焦范围</text>
+      <text x="20" y="205" fill="#86868b" font-family="Inter, sans-serif" font-size="11">亚马逊美国站 Men's Work Utility &amp; Safety 类目下的</text>
+      <text x="20" y="225" fill="#86868b" font-family="Inter, sans-serif" font-size="11">休闲化、潮流化工装单品，兼顾功能性与日常穿搭属性</text>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#6b7c5e"/>
+      <text x="20" y="40" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">Tactical 战术服装</text>
+      <rect x="20" y="55" width="60" height="22" rx="4" fill="rgba(107,124,94,0.15)" stroke="rgba(107,124,94,0.3)"/>
+      <text x="50" y="70" text-anchor="middle" fill="#6b7c5e" font-family="Inter, sans-serif" font-size="10" font-weight="600">相关参考</text>
+      <text x="20" y="100" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">定义：面向执法/安保/户外场景的高功能性服装</text>
+      <text x="20" y="120" fill="#86868b" font-family="Inter, sans-serif" font-size="11">核心特征：隐蔽口袋、速干面料、模块化设计、低调外观</text>
+      <text x="20" y="140" fill="#86868b" font-family="Inter, sans-serif" font-size="11">代表品牌：5.11 Tactical、Vertx、Propper</text>
+      <text x="20" y="160" fill="#86868b" font-family="Inter, sans-serif" font-size="11">与工装关系：部分设计元素（口袋/加固）被工装借鉴</text>
+      <text x="20" y="185" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">边界说明</text>
+      <text x="20" y="205" fill="#86868b" font-family="Inter, sans-serif" font-size="11">战术服装侧重隐蔽与模块化，工装侧重耐穿与实用性</text>
+      <text x="20" y="225" fill="#86868b" font-family="Inter, sans-serif" font-size="11">本报告仅在工装借鉴战术元素时涉及，不做深入展开</text>
+    </g>
+
+    <g transform="translate(0, 280)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#3498db"/>
+      <text x="20" y="40" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">Techwear 机能风</text>
+      <rect x="20" y="55" width="60" height="22" rx="4" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.3)"/>
+      <text x="50" y="70" text-anchor="middle" fill="#3498db" font-family="Inter, sans-serif" font-size="10" font-weight="600">风格分支</text>
+      <text x="20" y="100" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">定义：科技面料与先锋设计融合的潮流风格</text>
+      <text x="20" y="120" fill="#86868b" font-family="Inter, sans-serif" font-size="11">核心特征：GORE-TEX、反光材质、未来感廓形、防水挡风</text>
+      <text x="20" y="140" fill="#86868b" font-family="Inter, sans-serif" font-size="11">代表品牌：ACRONYM、Arc'teryx Veilance、Stone Island</text>
+      <text x="20" y="160" fill="#86868b" font-family="Inter, sans-serif" font-size="11">与工装关系：机能风是工装四大风格之一（Techwear分支）</text>
+      <text x="20" y="185" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">边界说明</text>
+      <text x="20" y="205" fill="#86868b" font-family="Inter, sans-serif" font-size="11">机能风作为工装四大风格之一在CH02中详细分析</text>
+      <text x="20" y="225" fill="#86868b" font-family="Inter, sans-serif" font-size="11">但纯机能风（如ACRONYM）不属于Work Utility类目</text>
+    </g>
+
+    <g transform="translate(600, 280)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#c47040"/>
+      <text x="20" y="40" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">Gorpcore 山系风</text>
+      <rect x="20" y="55" width="60" height="22" rx="4" fill="rgba(196,112,64,0.15)" stroke="rgba(196,112,64,0.3)"/>
+      <text x="50" y="70" text-anchor="middle" fill="#c47040" font-family="Inter, sans-serif" font-size="10" font-weight="600">潮流关联</text>
+      <text x="20" y="100" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">定义：户外机能服装融入都市日常穿搭的潮流风格</text>
+      <text x="20" y="120" fill="#86868b" font-family="Inter, sans-serif" font-size="11">核心特征：抓绒、冲锋衣、登山鞋、叠穿搭配</text>
+      <text x="20" y="140" fill="#86868b" font-family="Inter, sans-serif" font-size="11">代表品牌：Patagonia、The North Face、Salomon</text>
+      <text x="20" y="160" fill="#86868b" font-family="Inter, sans-serif" font-size="11">与工装关系：山系风与工装在户外场景有交叉</text>
+      <text x="20" y="185" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">边界说明</text>
+      <text x="20" y="205" fill="#86868b" font-family="Inter, sans-serif" font-size="11">山系风属于独立潮流，与工装在面料和功能上有交叉</text>
+      <text x="20" y="225" fill="#86868b" font-family="Inter, sans-serif" font-size="11">本报告在巴恩风（Barn Fit）部分涉及山系与工装融合趋势</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

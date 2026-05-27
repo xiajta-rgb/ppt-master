@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 05 · 5.1</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">四档价格带品牌矩阵与定位</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">从高端到入门——清晰定位竞争格局，找到差异化切入点</text>
+
+  <g transform="translate(60, 125)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="270" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="270" height="6" fill="#e74c3c"/>
+      <text x="135" y="35" text-anchor="middle" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">高端 Heritage</text>
+      <text x="135" y="55" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">$120-300+</text>
+
+      <g transform="translate(15, 70)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Carhartt WIP</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">潮流线</text>
+      </g>
+      <g transform="translate(15, 115)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Filson</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">户外工装</text>
+      </g>
+      <g transform="translate(15, 160)">
+        <text x="0" y="14" fill="#e74c3c" font-family="Inter, sans-serif" font-size="10" font-weight="600">定位特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">百年品牌传承</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料工艺极致</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">文化符号属性</text>
+      </g>
+    </g>
+
+    <g transform="translate(300, 0)">
+      <rect x="0" y="0" width="270" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="270" height="6" fill="#c9a962"/>
+      <text x="135" y="35" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">中高端 Professional</text>
+      <text x="135" y="55" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">$60-120</text>
+
+      <g transform="translate(15, 70)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Carhartt</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">专业工装</text>
+      </g>
+      <g transform="translate(15, 115)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Dickies</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">经典工装</text>
+      </g>
+      <g transform="translate(15, 160)">
+        <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">定位特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">专业工装标杆</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能与品牌平衡</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">高复购率</text>
+      </g>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="270" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="270" height="6" fill="#6b7c5e"/>
+      <text x="135" y="35" text-anchor="middle" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">中端 Value</text>
+      <text x="135" y="55" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">$30-60</text>
+
+      <g transform="translate(15, 70)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Wrangler</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">西部工装</text>
+      </g>
+      <g transform="translate(15, 115)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Pro Club</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">基础工装</text>
+      </g>
+      <g transform="translate(15, 160)">
+        <text x="0" y="14" fill="#6b7c5e" font-family="Inter, sans-serif" font-size="10" font-weight="600">定位特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">性价比优先</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能满足基本需求</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">量大面广</text>
+      </g>
+    </g>
+
+    <g transform="translate(900, 0)">
+      <rect x="0" y="0" width="270" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="270" height="6" fill="#3498db"/>
+      <text x="135" y="35" text-anchor="middle" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">入门 Budget</text>
+      <text x="135" y="55" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">$15-30</text>
+
+      <g transform="translate(15, 70)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">中国白牌卖家</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">白牌</text>
+      </g>
+      <g transform="translate(15, 115)">
+        <rect x="0" y="0" width="240" height="35" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Amazon Basics</text>
+        <text x="200" y="22" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">平台自营</text>
+      </g>
+      <g transform="translate(15, 160)">
+        <text x="0" y="14" fill="#3498db" font-family="Inter, sans-serif" font-size="10" font-weight="600">定位特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">极致低价</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能基础</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌力弱</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="1160" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">5.3 行业生命周期阶段研判</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="1120" height="60" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="15" y="20" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">当前阶段判断：成长期后期 → 成熟期前期</text>
+      <text x="15" y="42" fill="#86868b" font-family="Inter, sans-serif" font-size="10">男休闲工装品类在亚马逊美国站已过爆发期，但巴恩风潮流带来结构性增长机会，整体市场仍在扩容，尚未进入存量竞争阶段</text>
+    </g>
+
+    <g transform="translate(20, 130)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="260" height="115" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">成长期特征（已验证）</text>
+        <text x="15" y="44" fill="#86868b" font-family="Inter, sans-serif" font-size="10">市场规模持续扩大</text>
+        <text x="15" y="62" fill="#86868b" font-family="Inter, sans-serif" font-size="10">新品牌持续涌入</text>
+        <text x="15" y="80" fill="#86868b" font-family="Inter, sans-serif" font-size="10">产品差异化空间大</text>
+        <text x="15" y="98" fill="#86868b" font-family="Inter, sans-serif" font-size="10">利润率相对较高</text>
+      </g>
+      <g transform="translate(285, 0)">
+        <rect x="0" y="0" width="260" height="115" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">成熟期信号（初现）</text>
+        <text x="15" y="44" fill="#86868b" font-family="Inter, sans-serif" font-size="10">头部品牌份额集中</text>
+        <text x="15" y="62" fill="#86868b" font-family="Inter, sans-serif" font-size="10">价格竞争加剧</text>
+        <text x="15" y="80" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Listing同质化严重</text>
+        <text x="15" y="98" fill="#86868b" font-family="Inter, sans-serif" font-size="10">获客成本上升</text>
+      </g>
+      <g transform="translate(570, 0)">
+        <rect x="0" y="0" width="260" height="115" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">结构性机会</text>
+        <text x="15" y="44" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩风细分赛道仍在增长</text>
+        <text x="15" y="62" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料科技升级带来溢价空间</text>
+        <text x="15" y="80" fill="#86868b" font-family="Inter, sans-serif" font-size="10">A+内容差异化机会</text>
+        <text x="15" y="98" fill="#86868b" font-family="Inter, sans-serif" font-size="10">环保可持续成为新赛道</text>
+      </g>
+      <g transform="translate(855, 0)">
+        <rect x="0" y="0" width="260" height="115" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="22" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">入局窗口判断</text>
+        <text x="15" y="44" fill="#86868b" font-family="Inter, sans-serif" font-size="10">窗口期：2025-2026</text>
+        <text x="15" y="62" fill="#86868b" font-family="Inter, sans-serif" font-size="10">最佳切入：中端$35-65</text>
+        <text x="15" y="80" fill="#86868b" font-family="Inter, sans-serif" font-size="10">差异化：面料科技+视觉</text>
+        <text x="15" y="98" fill="#86868b" font-family="Inter, sans-serif" font-size="10">壁垒：品牌+供应链</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

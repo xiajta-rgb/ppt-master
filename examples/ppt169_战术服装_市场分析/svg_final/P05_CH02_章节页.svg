@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+    <radialGradient id="heroGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="rgba(201,169,98,0.08)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <ellipse cx="640" cy="360" rx="600" ry="350" fill="url(#heroGlow)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <text x="640" y="260" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, Inter, sans-serif" font-size="14" font-weight="600" letter-spacing="6" opacity="0.6">CHAPTER 02</text>
+  <text x="640" y="330" text-anchor="middle" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="48" font-weight="700">核心产品设计DNA</text>
+  <rect x="540" y="350" width="200" height="3" fill="url(#accentGradient)"/>
+  <text x="640" y="400" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="16">四大风格 + 面料科技 + 版型工学 + 辅料五金</text>
+
+  <g transform="translate(640, 470)" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">
+    <text x="-200" y="0">2.1 主流四大风格：复古/军事/机能/轻工装</text>
+    <text x="-200" y="22">2.2 核心面料科技</text>
+    <text x="50" y="0">2.3 版型工学与功能细节</text>
+    <text x="50" y="22">2.4 辅料与五金体系</text>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

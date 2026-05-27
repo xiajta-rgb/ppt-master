@@ -12,47 +12,156 @@
 
   <rect width="1280" height="720" fill="url(#bgGradient)"/>
 
-  <g transform="translate(640, 100)">
+  <g transform="translate(640, 55)">
     <text x="0" y="0" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, Inter, sans-serif" font-size="12" font-weight="600" letter-spacing="4">CONTENTS</text>
-    <text x="0" y="50" text-anchor="middle" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="36" font-weight="700">报告目录</text>
+    <text x="0" y="38" text-anchor="middle" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="30" font-weight="700">报告目录</text>
   </g>
 
-  <g transform="translate(140, 220)">
+  <g transform="translate(60, 110)">
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">01</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">市场现状与趋势</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">规模数据 / 增长驱动 / Gorpcore浪潮</text>
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">01</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">市场现状与行业趋势</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">1.1 工装文化溯源与历史演变</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">1.2 工装核心文化属性</text>
+      <text x="190" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">1.3 亚马逊类目结构与核心数据</text>
+      <text x="190" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">1.4 市场规模、增速与增长驱动</text>
+      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">1.5 海外主流潮流：巴恩风解读</text>
     </g>
-    <g transform="translate(380, 0)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">02</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">核心产品设计DNA</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">面料科技 / 版型工学 / 功能细节</text>
+
+    <g transform="translate(390, 0)">
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">02</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">核心产品设计DNA</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2.1 主流四大风格：复古/军事/机能/轻工装</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2.2 核心面料科技</text>
+      <text x="190" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2.3 版型工学与功能细节</text>
+      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2.4 辅料与五金体系</text>
     </g>
-    <g transform="translate(760, 0)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">03</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">辅料与五金体系</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">拉链 / 扣具 / 织带 / 工艺标准</text>
+
+    <g transform="translate(780, 0)">
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">03</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">产品视觉与电商呈现</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">3.1 四大风格色彩体系与设计语言</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">3.2 亚马逊主图/A+页面视觉规范</text>
+      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">3.3 摄影美学与视觉差异化</text>
     </g>
-    <g transform="translate(0, 140)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">04</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">产品视觉呈现</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">Listing优化 / 色彩体系 / 摄影美学</text>
+
+    <g transform="translate(0, 110)">
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">04</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">消费者人群与需求演变</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">4.1 四大核心人群画像与消费特征</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">4.2 五大消费需求演变路径</text>
     </g>
-    <g transform="translate(380, 140)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">05</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">品牌竞争格局</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">头部品牌 / 定位矩阵 / 差异化策略</text>
+
+    <g transform="translate(390, 110)">
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">05</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">品牌竞争格局</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">5.1 四档价格带品牌矩阵与定位</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">5.2 头部品牌差异化策略</text>
+      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">5.3 行业生命周期阶段研判</text>
     </g>
-    <g transform="translate(760, 140)">
-      <rect x="0" y="0" width="340" height="100" rx="16" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.08)"/>
-      <text x="30" y="40" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="28" font-weight="700" opacity="0.5">06</text>
-      <text x="30" y="70" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="15" font-weight="600">未来机遇与战略建议</text>
-      <text x="30" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">市场切入 / 产品策略 / 品牌定位</text>
+
+    <g transform="translate(780, 110)">
+      <rect x="0" y="0" width="370" height="90" rx="10" fill="rgba(255,255,255,0.03)" stroke="rgba(201,169,98,0.2)"/>
+      <text x="20" y="30" fill="#c9a962" font-family="'Space Grotesk', Inter, sans-serif" font-size="22" font-weight="700" opacity="0.5">06</text>
+      <text x="60" y="30" fill="#f5f5f7" font-family="'Space Grotesk', Inter, sans-serif" font-size="14" font-weight="600">未来机遇与入局战略</text>
+      <text x="20" y="52" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">6.1 三大核心市场机遇</text>
+      <text x="20" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">6.2 市场切入策略</text>
+      <text x="190" y="66" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">6.3 产品、营销、供应链落地建议</text>
+      <text x="20" y="80" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">6.4 市场风险与合规提示</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 340)">
+    <rect x="0" y="0" width="1160" height="360" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="url(#accentGradient)"/>
+
+    <g transform="translate(40, 30)">
+      <text fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600" letter-spacing="2">REPORT STRUCTURE</text>
+      <text x="0" y="25" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">逻辑主线：市场 → 用户 → 产品 → 视觉 → 竞品 → 趋势策略</text>
+    </g>
+
+    <g transform="translate(40, 85)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH01 市场</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">现状与趋势</text>
+      </g>
+      <text x="170" y="30" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">→</text>
+      <g transform="translate(190, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH02 产品</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">设计DNA</text>
+      </g>
+      <text x="360" y="30" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">→</text>
+      <g transform="translate(380, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH03 视觉</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">电商呈现</text>
+      </g>
+      <text x="550" y="30" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">→</text>
+      <g transform="translate(570, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH04 用户</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">人群与需求</text>
+      </g>
+      <text x="740" y="30" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">→</text>
+      <g transform="translate(760, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH05 竞品</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">品牌格局</text>
+      </g>
+      <text x="930" y="30" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">→</text>
+      <g transform="translate(950, 0)">
+        <rect x="0" y="0" width="160" height="50" rx="6" fill="rgba(201,169,98,0.1)" stroke="rgba(201,169,98,0.3)"/>
+        <text x="80" y="22" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">CH06 战略</text>
+        <text x="80" y="38" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="9">机遇与入局</text>
+      </g>
+    </g>
+
+    <g transform="translate(40, 165)">
+      <text fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600" letter-spacing="2">KEY HIGHLIGHTS</text>
+      <text x="0" y="22" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">本次报告核心看点</text>
+    </g>
+
+    <g transform="translate(40, 200)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="260" height="140" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">新增板块</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">品类边界说明</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">区分Work Utility / Tactical /</text>
+        <text x="15" y="82" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Techwear / Gorpcore</text>
+        <text x="15" y="105" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">核心面料科技</text>
+        <text x="15" y="123" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Cordura/Ripstop/防水透气</text>
+      </g>
+      <g transform="translate(280, 0)">
+        <rect x="0" y="0" width="260" height="140" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">新增板块</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">版型工学与功能细节</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">立体剪裁/活动余量/加固结构</text>
+        <text x="15" y="90" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">市场风险与合规提示</text>
+        <text x="15" y="108" fill="#86868b" font-family="Inter, sans-serif" font-size="10">政策法规/知识产权/运营风险</text>
+      </g>
+      <g transform="translate(560, 0)">
+        <rect x="0" y="0" width="260" height="140" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">内容修正</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">数据来源标注完善</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">补充周期/币种/区域标注</text>
+        <text x="15" y="90" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">色彩名称标准化</text>
+        <text x="15" y="108" fill="#86868b" font-family="Inter, sans-serif" font-size="10">统一欧美通用色名/军规色名</text>
+      </g>
+      <g transform="translate(840, 0)">
+        <rect x="0" y="0" width="260" height="140" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">架构优化</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">逻辑主线重排</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">市场→产品→视觉→用户→竞品→战略</text>
+        <text x="15" y="90" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">错位内容归位</text>
+        <text x="15" y="108" fill="#86868b" font-family="Inter, sans-serif" font-size="10">风格页→CH02 / 生命周期→CH05</text>
+      </g>
     </g>
   </g>
 </svg>

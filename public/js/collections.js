@@ -300,7 +300,6 @@ const collectionsData = [
             { file: 'P01_封面.svg', title: '封面', desc: '市场分析' },
             { file: 'P02_目录.svg', title: '目录', desc: '内容概览' },
             { file: 'P03_市场分析_章节页.svg', title: '工装文化核心定义', desc: 'Chapter 01' },
-            { file: 'P03a_市场现状_增长趋势.svg', title: '市场核心现状', desc: 'Chapter 01' },
             { file: 'P04_历史演变_时间轴.svg', title: '分阶段历史演变', desc: 'Chapter 02' },
             { file: 'P04a_核心文化属性.svg', title: '核心文化属性', desc: 'Chapter 02' },
             { file: 'P04b_市场核心数据.svg', title: '市场核心数据', desc: 'Chapter 02' },

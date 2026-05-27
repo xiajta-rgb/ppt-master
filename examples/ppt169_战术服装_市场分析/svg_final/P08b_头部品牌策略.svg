@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 05 · 5.2</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">头部品牌差异化策略</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">拆解头部品牌竞争壁垒，找到可复制的差异化路径</text>
+
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">Carhartt — 工装品类绝对王者</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心壁垒</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">130年品牌历史 · 美国制造标签</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Duck Canvas/Storm Defender面料专利</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">蓝领文化符号 · 跨代际品牌认知</text>
+      </g>
+      <g transform="translate(0, 90)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">亚马逊表现</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Work Pants类目BSR Top 5常驻</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">平均评分4.5+ · 评论数10K+</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">客单价$50-90 · 品牌搜索量第一</text>
+      </g>
+      <g transform="translate(0, 175)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">可借鉴点</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料科技命名与专利化 · 品牌故事深度挖掘</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect x="0" y="0" width="580" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="580" height="6" fill="#6b7c5e"/>
+    <text x="20" y="35" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">Dickies — 性价比工装标杆</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">核心壁垒</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">100年品牌历史 · Williamson-Dickie制造</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">874工装裤经典款 · 全品类覆盖</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">性价比心智占位 · 渠道渗透力强</text>
+      </g>
+      <g transform="translate(0, 90)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">亚马逊表现</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Work Pants类目BSR Top 10常驻</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">平均评分4.3+ · 评论数5K+</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">客单价$30-60 · 性价比搜索量第一</text>
+      </g>
+      <g transform="translate(0, 175)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">可借鉴点</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">经典款打造 · 全色系覆盖策略 · 价格带精准定位</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="560" height="6" fill="#3498db"/>
+    <text x="20" y="35" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">中国出海品牌 — 新势力崛起</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">代表品牌</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Liberty Imports · Hihone · Fodry</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">优势：供应链成本+快速迭代</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">劣势：品牌力弱/同质化/售后差</text>
+      </g>
+      <g transform="translate(0, 90)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">亚马逊表现</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Work Pants类目BSR 20-100波动</text>
+        <text x="0" y="54" fill="#86868b" font-family="Inter, sans-serif" font-size="10">平均评分4.0-4.3 · 评论数500-2K</text>
+        <text x="0" y="72" fill="#86868b" font-family="Inter, sans-serif" font-size="10">客单价$20-40 · 依赖广告驱动</text>
+      </g>
+      <g transform="translate(0, 175)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">差异化机会</text>
+        <text x="0" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌化运营 · 面料科技升级 · 视觉差异化</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(640, 415)">
+    <rect x="0" y="0" width="580" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="580" height="6" fill="#c47040"/>
+    <text x="20" y="35" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">新入局者差异化路径建议</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="540" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">路径1：面料科技差异化</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Cordura加固 + Ripstop防撕裂 + 弹力混纺 → 功能溢价$10-20</text>
+      </g>
+      <g transform="translate(0, 60)">
+        <rect x="0" y="0" width="540" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">路径2：风格潮流差异化</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩风/复古工装 → 潮流溢价$15-30 · 覆盖时尚消费人群</text>
+      </g>
+      <g transform="translate(0, 120)">
+        <rect x="0" y="0" width="540" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">路径3：视觉呈现差异化</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化主图 + A+内容 + 标准色名 → 提升CTR 30%+</text>
+      </g>
+      <g transform="translate(0, 180)">
+        <rect x="0" y="0" width="540" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+        <text x="10" y="18" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">路径4：细分场景差异化</text>
+        <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="10">轻工装/通勤工装/户外工装 → 避开与Carhartt正面竞争</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

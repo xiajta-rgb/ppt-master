@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 04 · 4.1</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">四大核心人群画像与消费特征</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">从职业蓝领到潮流玩家——精准定位目标客群，驱动产品与营销策略</text>
+
+  <g transform="translate(60, 125)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#b5a882"/>
+      <text x="20" y="35" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">职业蓝领 Blue-Collar Worker</text>
+      <rect x="430" y="15" width="110" height="24" rx="12" fill="rgba(181,168,130,0.15)" stroke="rgba(181,168,130,0.3)"/>
+      <text x="485" y="31" text-anchor="middle" fill="#b5a882" font-family="Inter, sans-serif" font-size="10" font-weight="600">核心人群</text>
+
+      <g transform="translate(20, 55)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">人群特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">25-55岁 · 男性为主 · 建筑/制造/物流/维修</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">日均穿着8-12小时 · 重复购买率高</text>
+      </g>
+      <g transform="translate(20, 120)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">消费偏好</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">耐用性第一 · 功能性优先 · 价格敏感度中等</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">偏好：加固膝盖/多口袋/防撕裂面料</text>
+      </g>
+      <g transform="translate(20, 190)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">客单价</text>
+        <text x="80" y="14" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$35-65</text>
+        <text x="160" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">复购周期：3-6个月</text>
+      </g>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#6b7c5e"/>
+      <text x="20" y="35" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">户外爱好者 Outdoor Enthusiast</text>
+      <rect x="430" y="15" width="110" height="24" rx="12" fill="rgba(107,124,94,0.15)" stroke="rgba(107,124,94,0.3)"/>
+      <text x="485" y="31" text-anchor="middle" fill="#6b7c5e" font-family="Inter, sans-serif" font-size="10" font-weight="600">增长人群</text>
+
+      <g transform="translate(20, 55)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">人群特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">22-45岁 · 男女兼顾 · 露营/钓鱼/徒步/狩猎</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">周末/假期穿着 · 季节性购买</text>
+      </g>
+      <g transform="translate(20, 120)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">消费偏好</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能性+舒适性 · 防水透气 · 轻量化</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">偏好：防泼水/透气面料/可收纳口袋</text>
+      </g>
+      <g transform="translate(20, 190)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">客单价</text>
+        <text x="80" y="14" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$45-85</text>
+        <text x="160" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">复购周期：6-12个月</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 410)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#3498db"/>
+      <text x="20" y="35" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">潮流玩家 Fashion-Forward Consumer</text>
+      <rect x="430" y="15" width="110" height="24" rx="12" fill="rgba(52,152,219,0.15)" stroke="rgba(52,152,219,0.3)"/>
+      <text x="485" y="31" text-anchor="middle" fill="#3498db" font-family="Inter, sans-serif" font-size="10" font-weight="600">高价值人群</text>
+
+      <g transform="translate(20, 55)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">人群特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">18-35岁 · 都市男性 · 关注时尚/街头/工装潮流</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">社交媒体驱动 · 品牌意识强 · 冲动消费</text>
+      </g>
+      <g transform="translate(20, 120)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">消费偏好</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">设计感第一 · 品牌溢价接受度高 · 社交属性</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">偏好：巴恩风/复古工装/限定配色</text>
+      </g>
+      <g transform="translate(20, 190)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">客单价</text>
+        <text x="80" y="14" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$60-150</text>
+        <text x="170" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">复购周期：1-3个月</text>
+      </g>
+      <g transform="translate(20, 220)">
+        <text x="0" y="14" fill="#3498db" font-family="Inter, sans-serif" font-size="10" font-weight="600">关键渠道：Instagram / TikTok / Reddit 工装社区</text>
+      </g>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#c47040"/>
+      <text x="20" y="35" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">日常通勤者 Everyday Casual</text>
+      <rect x="430" y="15" width="110" height="24" rx="12" fill="rgba(196,112,64,0.15)" stroke="rgba(196,112,64,0.3)"/>
+      <text x="485" y="31" text-anchor="middle" fill="#c47040" font-family="Inter, sans-serif" font-size="10" font-weight="600">潜力人群</text>
+
+      <g transform="translate(20, 55)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">人群特征</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">25-50岁 · 都市男性 · 追求舒适与实用</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">日常穿着 · 百搭需求 · 价格敏感度较高</text>
+      </g>
+      <g transform="translate(20, 120)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">消费偏好</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">舒适性第一 · 简约设计 · 百搭易搭配</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">偏好：轻工装/弹力面料/基础色系</text>
+      </g>
+      <g transform="translate(20, 190)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">客单价</text>
+        <text x="80" y="14" fill="#c47040" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">$25-50</text>
+        <text x="160" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">复购周期：6-12个月</text>
+      </g>
+      <g transform="translate(20, 220)">
+        <text x="0" y="14" fill="#c47040" font-family="Inter, sans-serif" font-size="10" font-weight="600">关键渠道：Amazon搜索 / 品牌官网 / 折扣平台</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

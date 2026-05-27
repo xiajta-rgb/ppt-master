@@ -8,57 +8,124 @@
       <stop offset="0%" stop-color="#c9a962"/>
       <stop offset="100%" stop-color="#e0c882"/>
     </linearGradient>
+    <linearGradient id="barGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
   </defs>
 
   <rect width="1280" height="720" fill="url(#bgGradient)"/>
   <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
 
-  <g transform="translate(60, 40)">
+  <g transform="translate(60, 35)">
     <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 02</text>
   </g>
-  <text x="60" y="85" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="32" font-weight="700">市场核心数据</text>
-  <rect x="60" y="100" width="80" height="3" fill="url(#accentGradient)"/>
-  <text x="60" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="13">解析市场发展趋势与品牌格局</text>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">市场核心数据</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">解析市场发展趋势与品牌格局</text>
 
-  <g transform="translate(60, 155)">
-    <rect x="0" y="0" width="1160" height="540" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+  <g transform="translate(60, 120)">
+    <rect x="0" y="0" width="1160" height="130" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
 
-    <g transform="translate(60, 40)">
-      <rect x="0" y="0" width="480" height="220" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <text x="30" y="50" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700">6.7<tspan font-size="18">%</tspan></text>
-      <text x="30" y="90" fill="#86868b" font-family="Inter, sans-serif" font-size="14">年复合增长率</text>
-      <text x="30" y="115" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">2018-2023中国市场</text>
-      <rect x="30" y="130" width="420" height="70" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="240" y="172" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 增长图 3:4 ]</text>
+    <g transform="translate(30, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">6.7<tspan font-size="14">%</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">年复合增长率</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">2018-2023中国市场</text>
     </g>
 
-    <g transform="translate(580, 40)">
-      <rect x="0" y="0" width="480" height="220" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <text x="30" y="50" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700">1560<tspan font-size="18">亿</tspan></text>
-      <text x="30" y="90" fill="#86868b" font-family="Inter, sans-serif" font-size="14">市场总规模(2023)</text>
-      <text x="30" y="115" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">工作服/特殊工装/休闲工装</text>
-      <rect x="30" y="130" width="420" height="70" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="240" y="172" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 规模图 3:4 ]</text>
+    <line x1="290" y1="15" x2="290" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(320, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">1560<tspan font-size="14">亿</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">市场总规模(2023)</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">工作服/特殊工装/休闲工装</text>
     </g>
 
-    <g transform="translate(60, 290)">
-      <rect x="0" y="0" width="480" height="220" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <text x="30" y="50" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700">3.8<tspan font-size="18">%</tspan></text>
-      <text x="30" y="90" fill="#86868b" font-family="Inter, sans-serif" font-size="14">传统品牌年增长率</text>
-      <text x="30" y="115" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">深耕工作/防护服领域</text>
-      <rect x="30" y="130" width="420" height="70" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="240" y="172" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 传统品牌 3:4 ]</text>
+    <line x1="610" y1="15" x2="610" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(640, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">3.8<tspan font-size="14">%</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">传统品牌年增长率</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">深耕工作/防护服领域</text>
     </g>
 
-    <g transform="translate(580, 290)">
-      <rect x="0" y="0" width="480" height="220" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
-      <text x="30" y="50" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700">12.4<tspan font-size="18">%</tspan></text>
-      <text x="30" y="90" fill="#86868b" font-family="Inter, sans-serif" font-size="14">新兴品牌年增长率</text>
-      <text x="30" y="115" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">创新设计+社媒营销突围</text>
-      <rect x="30" y="130" width="420" height="70" rx="4" fill="#252530" stroke="#3a3a45" stroke-dasharray="4,2"/>
-      <text x="240" y="172" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="12">[ 新兴品牌 3:4 ]</text>
+    <line x1="900" y1="15" x2="900" y2="115" stroke="#2a2a35" stroke-width="1"/>
+
+    <g transform="translate(930, 15)">
+      <text x="0" y="28" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="28" font-weight="700">12.4<tspan font-size="14">%</tspan></text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="11">新兴品牌年增长率</text>
+      <text x="0" y="70" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">创新设计+社媒营销突围</text>
     </g>
   </g>
+
+  <g transform="translate(60, 268)">
+    <rect x="0" y="0" width="1160" height="430" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+
+    <g transform="translate(30, 25)">
+      <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">AMAZON CATEGORY</text>
+      <text x="0" y="22" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="20" font-weight="700">亚马逊站内类目市场容量</text>
+      <text x="0" y="42" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">Best Sellers — Men's Work Utility &amp; Safety 各子类目销售额</text>
+    </g>
+
+    <g transform="translate(30, 90)">
+      <rect x="0" y="0" width="1100" height="310" rx="6" fill="#141419" stroke="#2a2a35"/>
+
+      <g transform="translate(30, 20)">
+        <text x="0" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10" font-weight="500">中文类目</text>
+        <text x="130" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10" font-weight="500">亚马逊类目名称</text>
+        <text x="560" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10" font-weight="500">销售额（万美金）</text>
+        <text x="1040" y="14" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10" font-weight="500">占比</text>
+        <line x1="0" y1="24" x2="1100" y2="24" stroke="#2a2a35" stroke-width="1"/>
+
+        <g transform="translate(0, 40)">
+          <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600">工装长裤</text>
+          <text x="130" y="14" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">Men's Work Utility &amp; Safety Pants</text>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="#252530"/>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="url(#barGradient)" opacity="0.9"/>
+          <text x="910" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">952</text>
+          <text x="1040" y="16" fill="#86868b" font-family="Inter, sans-serif" font-size="12">38.7%</text>
+        </g>
+
+        <g transform="translate(0, 92)">
+          <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600">工装上衣</text>
+          <text x="130" y="14" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">Men's Work Utility &amp; Safety Tops</text>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="#252530"/>
+          <rect x="400" y="2" width="300" height="18" rx="3" fill="url(#barGradient)" opacity="0.75"/>
+          <text x="710" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">570</text>
+          <text x="1040" y="16" fill="#86868b" font-family="Inter, sans-serif" font-size="12">23.2%</text>
+        </g>
+
+        <g transform="translate(0, 144)">
+          <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600">连体工装</text>
+          <text x="130" y="14" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">Men's Work Utility &amp; Safety Overalls</text>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="#252530"/>
+          <rect x="400" y="2" width="218" height="18" rx="3" fill="url(#barGradient)" opacity="0.6"/>
+          <text x="628" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">415</text>
+          <text x="1040" y="16" fill="#86868b" font-family="Inter, sans-serif" font-size="12">16.9%</text>
+        </g>
+
+        <g transform="translate(0, 196)">
+          <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600">工装短裤</text>
+          <text x="130" y="14" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">Men's Work Utility &amp; Safety Shorts</text>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="#252530"/>
+          <rect x="400" y="2" width="179" height="18" rx="3" fill="url(#barGradient)" opacity="0.5"/>
+          <text x="589" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">340</text>
+          <text x="1040" y="16" fill="#86868b" font-family="Inter, sans-serif" font-size="12">13.8%</text>
+        </g>
+
+        <g transform="translate(0, 248)">
+          <text x="0" y="14" fill="#c9a962" font-family="Inter, sans-serif" font-size="12" font-weight="600">工装外套</text>
+          <text x="130" y="14" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="11">Men's Work Utility &amp; Safety Outerwear</text>
+          <rect x="400" y="2" width="500" height="18" rx="3" fill="#252530"/>
+          <rect x="400" y="2" width="96" height="18" rx="3" fill="url(#barGradient)" opacity="0.4"/>
+          <text x="506" y="16" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">182</text>
+          <text x="1040" y="16" fill="#86868b" font-family="Inter, sans-serif" font-size="12">7.4%</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <text x="60" y="700" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">数据来源：Amazon Best Sellers Rank · 统计周期：2025年Q1 · 币种：USD · 区域：美国站</text>
 
   <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
 </svg>

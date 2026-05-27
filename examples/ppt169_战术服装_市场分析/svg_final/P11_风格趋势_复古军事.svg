@@ -38,7 +38,7 @@
       <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
       <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">工程师靴</text>
       <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
-      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">帆布工装裙</text>
+      <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">工装背带裤</text>
     </g>
 
     <g transform="translate(560, 0)">
@@ -48,7 +48,7 @@
       <text x="20" y="60" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">军事工装风 Military Workwear</text>
       <text x="20" y="85" fill="#86868b" font-family="Inter, sans-serif" font-size="11">从军服演变而来，从"战斗装备"转化为潮流符号，注重细节与功能性</text>
       <text x="20" y="110" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">设计元素</text>
-      <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩印花 · 战术口袋 · 硬朗剪裁</text>
+      <text x="20" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩印花 · 多口袋 · 硬朗剪裁</text>
       <text x="20" y="150" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">标志单品</text>
       <text x="20" y="168" fill="#86868b" font-family="Inter, sans-serif" font-size="10">迷彩工装衬衫、M65野战夹克、MA1飞行夹克</text>
       <rect x="20" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
@@ -56,7 +56,7 @@
       <rect x="275" y="185" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
       <text x="397" y="285" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">MA1飞行夹克</text>
       <rect x="20" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
-      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">战术工装裤</text>
+      <text x="142" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">军事工装裤</text>
       <rect x="275" y="375" width="245" height="180" rx="4" fill="#252530" stroke="#3a3a45"/>
       <text x="397" y="475" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">迷彩背包</text>
     </g>

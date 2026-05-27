@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 01 · 1.5</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">海外主流潮流：巴恩风解读</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">Barn Fit / 潮巴恩风——2024-2025年海外最具影响力的工装潮流趋势</text>
+
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="560" height="280" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="560" height="6" fill="#b5a882"/>
+    <text x="20" y="35" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">什么是巴恩风 Barn Fit？</text>
+    <text x="20" y="65" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">巴恩风（Barn Fit）源自美国中西部农场文化，以谷仓夹克</text>
+    <text x="20" y="85" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12">（Barn Jacket）为核心单品，融合工装实用性与复古美学</text>
+    <text x="20" y="115" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">核心特征</text>
+    <text x="20" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="11">大地色系（Olive/Khaki/Rust）· 廓形宽松 · 多口袋设计</text>
+    <text x="20" y="155" fill="#86868b" font-family="Inter, sans-serif" font-size="11">帆布/灯芯绒面料 · 做旧质感 · 叠穿搭配</text>
+    <text x="20" y="185" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">代表单品</text>
+    <text x="20" y="205" fill="#86868b" font-family="Inter, sans-serif" font-size="11">谷仓夹克（Barn Jacket）· 伐木衬衫 · 工装裤 · 工装靴</text>
+    <text x="20" y="235" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">代表品牌</text>
+    <text x="20" y="255" fill="#86868b" font-family="Inter, sans-serif" font-size="11">Carhartt WIP · Dickies · Flint and Tinder · Taylor Stitch</text>
+  </g>
+
+  <g transform="translate(640, 125)">
+    <rect x="0" y="0" width="580" height="280" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="580" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">巴恩风市场影响</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="260" height="95" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700">+340%</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">TikTok #BarnFit 播放量增长</text>
+        <text x="15" y="65" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">2023-2024 YoY</text>
+        <text x="15" y="82" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">数据来源：TikTok Analytics</text>
+      </g>
+      <g transform="translate(280, 0)">
+        <rect x="0" y="0" width="260" height="95" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700">+67%</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">亚马逊谷仓夹克搜索量增长</text>
+        <text x="15" y="65" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">2024 Q1-Q4 | 美国站</text>
+        <text x="15" y="82" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">数据来源：Jungle Scout</text>
+      </g>
+      <g transform="translate(0, 110)">
+        <rect x="0" y="0" width="260" height="95" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700">$85-150</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">谷仓夹克主流价格带</text>
+        <text x="15" y="65" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">亚马逊美国站 | 美元</text>
+        <text x="15" y="82" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">数据来源：Amazon Best Sellers</text>
+      </g>
+      <g transform="translate(280, 110)">
+        <rect x="0" y="0" width="260" height="95" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="22" font-weight="700">18-35</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">核心消费年龄段</text>
+        <text x="15" y="65" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">都市男性 | 社媒活跃用户</text>
+        <text x="15" y="82" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">数据来源：Instagram Insights</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 425)">
+    <rect x="0" y="0" width="1160" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">BARN FIT × WORKWEAR</text>
+    <text x="20" y="58" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700">巴恩风与工装的融合趋势</text>
+
+    <g transform="translate(20, 80)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="270" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">趋势 01</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">谷仓夹克成为爆款入口</text>
+        <text x="15" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Barn Jacket是巴恩风最具代表性</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">单品，亚马逊搜索量激增67%</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">优先开发谷仓夹克，搭配工装裤</text>
+        <text x="15" y="144" fill="#86868b" font-family="Inter, sans-serif" font-size="10">形成套装销售，提升客单价</text>
+      </g>
+      <g transform="translate(290, 0)">
+        <rect x="0" y="0" width="270" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">趋势 02</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">大地色系成为主流</text>
+        <text x="15" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Olive Drab/Khaki/Rust等大地色</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">取代传统黑色，成为工装新标配</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">主图优先展示大地色系SKU</text>
+        <text x="15" y="144" fill="#86868b" font-family="Inter, sans-serif" font-size="10">关键词加入Barn/Olive/Khaki</text>
+      </g>
+      <g transform="translate(580, 0)">
+        <rect x="0" y="0" width="270" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">趋势 03</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">叠穿搭配驱动多品类</text>
+        <text x="15" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩风强调叠穿，夹克+衬衫</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">+工装裤的搭配组合带动全品类</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">开发完整产品线，覆盖上装+下装</text>
+        <text x="15" y="144" fill="#86868b" font-family="Inter, sans-serif" font-size="10">A+页面展示搭配方案，提升转化</text>
+      </g>
+      <g transform="translate(870, 0)">
+        <rect x="0" y="0" width="270" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="600">趋势 04</text>
+        <text x="15" y="48" fill="#f5f5f7" font-family="Inter, sans-serif" font-size="12" font-weight="600">社媒营销成为关键渠道</text>
+        <text x="15" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">TikTok/Instagram是巴恩风传播</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">主阵地，KOL穿搭视频驱动购买</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">营销建议</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">与穿搭博主合作，拍摄叠穿教程</text>
+        <text x="15" y="144" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Amazon Posts同步社媒内容</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 06 · 6.3</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">产品、营销、供应链落地建议</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">从战略到执行——三大维度的具体落地路径</text>
+
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="370" height="540" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
+    <text x="185" y="35" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">产品落地</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">面料策略</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">主力：Cotton/Poly混纺 + Cordura加固点</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">升级：Ripstop尼龙 + DWR防泼水处理</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">克重：8-12oz工装裤 / 6-8oz工装衬衫</text>
+    </g>
+    <g transform="translate(20, 135)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">版型策略</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Relaxed Fit为主力 · Regular Fit为补充</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">立体剪裁+活动余量 · 肘部/裆部加固</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">多口袋布局：6-8个功能口袋</text>
+    </g>
+    <g transform="translate(20, 215)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">色彩策略</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">核心色：Khaki/Olive/Black/Carhartt Brown</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">潮流色：Barn Jacket Olive/Tan</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">色名标准化：使用欧美通用色名</text>
+    </g>
+    <g transform="translate(20, 295)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">SKU规划</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">首发3-5个SPU · 每SPU 3-4色</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">尺码：S-3XL（核心M-XL）</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">季度上新2-3个SPU</text>
+    </g>
+    <g transform="translate(20, 375)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">辅料策略</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">拉链：YKK #5黄铜/尼龙</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">扣具：Duraflex/ITW Nexus</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">织带/魔术贴：军规标准</text>
+    </g>
+    <g transform="translate(20, 455)">
+      <rect x="0" y="0" width="330" height="70" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">质量标准</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">缝线：3针加固/双线包边</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">色牢度：4级以上（AATCC）</text>
+      <text x="10" y="64" fill="#86868b" font-family="Inter, sans-serif" font-size="9">缩水率：≤3%（AATCC 135）</text>
+    </g>
+  </g>
+
+  <g transform="translate(450, 125)">
+    <rect x="0" y="0" width="370" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="370" height="6" fill="#6b7c5e"/>
+    <text x="185" y="35" text-anchor="middle" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">营销落地</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">Listing优化</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">标题：Brand+Style+Feature+Material+Color</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">五点：面料科技/功能细节/场景适配/尺码/护理</text>
+    </g>
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">广告策略</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">SP 60%：核心词+长尾词 · SB 25%：品牌词</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">SD 15%：竞品ASIN定向 · ACoS目标25-35%</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">站外引流</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Instagram/TikTok工装穿搭内容</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Reddit工装社区互动 · YouTube测评合作</text>
+    </g>
+  </g>
+
+  <g transform="translate(450, 405)">
+    <rect x="0" y="0" width="370" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="370" height="6" fill="#3498db"/>
+    <text x="185" y="35" text-anchor="middle" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">供应链落地</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">面料采购</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Cordura：Invista授权工厂采购</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Ripstop：盛泽/长兴面料市场 · MOQ 1000m</text>
+    </g>
+    <g transform="translate(20, 120)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">生产管理</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">首单MOQ：500-1000件/色</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">交期：45-60天 · QC标准：AQL 2.5</text>
+    </g>
+    <g transform="translate(20, 185)">
+      <rect x="0" y="0" width="330" height="55" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">物流仓储</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">FBA为主 · 海运备货周期45天</text>
+      <text x="10" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="9">安全库存：45天 · 空运补货应急</text>
+    </g>
+  </g>
+
+  <g transform="translate(840, 125)">
+    <rect x="0" y="0" width="380" height="540" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="380" height="6" fill="#e74c3c"/>
+    <text x="190" y="35" text-anchor="middle" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">6.4 市场风险与合规提示</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="340" height="75" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">⚠ 关税风险</text>
+      <text x="10" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="9">中美关税不确定性：服装类目301关税25%+</text>
+      <text x="10" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="9">建议：关注关税豁免清单 · 评估东南亚产能转移</text>
+      <text x="10" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="9">成本模型预留10-15%关税波动空间</text>
+    </g>
+    <g transform="translate(20, 140)">
+      <rect x="0" y="0" width="340" height="75" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">⚠ 知识产权风险</text>
+      <text x="10" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="9">Carhartt/Dickies设计专利保护严格</text>
+      <text x="10" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="9">建议：避免1:1仿款 · 自主设计差异化</text>
+      <text x="10" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="9">面料专利：Cordura需Invista授权</text>
+    </g>
+    <g transform="translate(20, 225)">
+      <rect x="0" y="0" width="340" height="75" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">⚠ 产品合规风险</text>
+      <text x="10" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="9">CPSIA：儿童服装铅含量限制（如涉及）</text>
+      <text x="10" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="9">16 CFR Part 1610：纺织品阻燃标准</text>
+      <text x="10" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="9">OEKO-TEX 100：有害物质检测（推荐）</text>
+    </g>
+    <g transform="translate(20, 310)">
+      <rect x="0" y="0" width="340" height="75" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">⚠ 标签合规风险</text>
+      <text x="10" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="9">FTC纺织品标签法：纤维成分/产地/护理</text>
+      <text x="10" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="9">CA Prop 65：加州有害物质警告标签</text>
+      <text x="10" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="9">建议：标签信息100%准确 · 避免虚假宣传</text>
+    </g>
+    <g transform="translate(20, 395)">
+      <rect x="0" y="0" width="340" height="75" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">⚠ 竞争风险</text>
+      <text x="10" y="38" fill="#86868b" font-family="Inter, sans-serif" font-size="9">白牌卖家价格战 · 头部品牌下沉</text>
+      <text x="10" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="9">巴恩风潮流衰退风险 · 库存积压</text>
+      <text x="10" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="9">建议：控制首单量 · 灵活调整SKU结构</text>
+    </g>
+    <g transform="translate(20, 480)">
+      <rect x="0" y="0" width="340" height="45" rx="4" fill="rgba(231,76,60,0.1)" stroke="rgba(231,76,60,0.3)"/>
+      <text x="170" y="28" text-anchor="middle" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">建议：入局前完成合规审计 · 预留6个月现金流</text>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

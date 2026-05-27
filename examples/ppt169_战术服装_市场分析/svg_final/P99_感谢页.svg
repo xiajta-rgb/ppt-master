@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <text x="640" y="280" text-anchor="middle" fill="url(#accentGradient)" font-family="Space Grotesk, Inter, sans-serif" font-size="56" font-weight="700">THANK YOU</text>
+  <text x="640" y="330" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="16">亚马逊美国站 · 男休闲工装服装市场深度分析</text>
+
+  <line x1="540" y1="360" x2="740" y2="360" stroke="#2a2a35"/>
+
+  <text x="640" y="400" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="13">市场现状 → 产品设计DNA → 视觉呈现 → 消费者洞察 → 竞争格局 → 入局战略</text>
+
+  <g transform="translate(640, 470)">
+    <text x="0" y="0" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">核心结论</text>
+    <text x="0" y="30" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="12">男休闲工装市场处于成长期后期，巴恩风潮流带来结构性增长机会</text>
+    <text x="0" y="52" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="12">中端价格带$35-65 + 面料科技差异化 + 视觉升级 = 最佳入局策略</text>
+    <text x="0" y="74" text-anchor="middle" fill="#86868b" font-family="Inter, sans-serif" font-size="12">窗口期2025-2026 · 品牌化运营 · 供应链壁垒构建</text>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 03 · 3.3</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">摄影美学与视觉差异化</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">场景搭建/光影运用/竞品视觉对比——打造高转化率的视觉体系</text>
+
+  <g transform="translate(60, 125)">
+    <rect x="0" y="0" width="370" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">场景搭建</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">Work 场景</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">工地/车间/仓库 · 自然光+补光 · 粗犷质感</text>
+      <rect x="260" y="8" width="60" height="34" rx="4" fill="#3a3a45"/>
+      <text x="290" y="30" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="8">示例图</text>
+    </g>
+    <g transform="translate(20, 115)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">Outdoor 场景</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">森林/山地/营地 · 柔和自然光 · 户外氛围</text>
+      <rect x="260" y="8" width="60" height="34" rx="4" fill="#3a3a45"/>
+      <text x="290" y="30" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="8">示例图</text>
+    </g>
+    <g transform="translate(20, 175)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">Casual 场景</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">咖啡店/街道/办公室 · 暖色调 · 都市感</text>
+      <rect x="260" y="8" width="60" height="34" rx="4" fill="#3a3a45"/>
+      <text x="290" y="30" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="8">示例图</text>
+    </g>
+  </g>
+
+  <g transform="translate(450, 125)">
+    <rect x="0" y="0" width="370" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">光影运用</text>
+
+    <g transform="translate(20, 55)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">主图光影</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">均匀柔光 · 无阴影 · 白底高亮 · 细节清晰</text>
+    </g>
+    <g transform="translate(20, 115)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">场景光影</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">侧逆光突出质感 · 暖光营造氛围 · 明暗对比</text>
+    </g>
+    <g transform="translate(20, 175)">
+      <rect x="0" y="0" width="330" height="50" rx="4" fill="#252530" stroke="#3a3a45"/>
+      <text x="10" y="18" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">细节光影</text>
+      <text x="10" y="36" fill="#86868b" font-family="Inter, sans-serif" font-size="9">微距补光 · 纹理突出 · 五金反光控制</text>
+    </g>
+  </g>
+
+  <g transform="translate(840, 125)">
+    <rect x="0" y="0" width="340" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="340" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">视觉差异化</text>
+
+    <g transform="translate(20, 55)">
+      <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">竞品视觉痛点</text>
+      <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">主图同质化严重</text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图缺失或质量低</text>
+      <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">细节展示不充分</text>
+      <text x="0" y="88" fill="#86868b" font-family="Inter, sans-serif" font-size="10">色名与实物不符</text>
+    </g>
+    <g transform="translate(20, 115)">
+      <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">差异化策略</text>
+      <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化主图（非白底平铺）</text>
+      <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能标注+对比图</text>
+      <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料微距特写</text>
+      <text x="0" y="88" fill="#86868b" font-family="Inter, sans-serif" font-size="10">标准色名+色卡对照</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="1160" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="600">竞品视觉对比分析</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Carhartt</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">专业工装视觉风格</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图：工地/户外实拍</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">色调：大地色系为主</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">可借鉴</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化拍摄思路</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌故事化呈现</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">主图评分：4.2/5.0</text>
+      </g>
+      <g transform="translate(290, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Dickies</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">经典工装视觉风格</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图：简约白底+模特</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">色调：多色系覆盖</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">可借鉴</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">多色系展示方式</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">尺码信息可视化</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">主图评分：4.0/5.0</text>
+      </g>
+      <g transform="translate(580, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">Pro Club</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">性价比工装视觉</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图：基础白底平铺</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">色调：黑色/灰色为主</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">差异化机会</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图质量提升空间大</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">A+内容几乎空白</text>
+        <text x="15" y="170" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">主图评分：3.5/5.0</text>
+      </g>
+      <g transform="translate(870, 0)">
+        <rect x="0" y="0" width="270" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">我们的策略</text>
+        <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">高品质视觉差异化</text>
+        <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景图：三场景全覆盖</text>
+        <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">色调：巴恩风大地色系</text>
+        <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">核心优势</text>
+        <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">场景化主图+功能标注</text>
+        <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">完整A+内容+搭配推荐</text>
+        <text x="15" y="170" fill="#c9a962" font-family="Inter, sans-serif" font-size="9">目标评分：4.5+/5.0</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

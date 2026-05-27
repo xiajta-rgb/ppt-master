@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 04 · 4.2</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">五大消费需求演变路径</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">从纯功能到功能+时尚——洞察消费升级方向，把握产品创新机遇</text>
+
+  <g transform="translate(60, 130)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="220" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="220" height="6" fill="#b5a882"/>
+      <text x="110" y="40" text-anchor="middle" fill="#b5a882" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" opacity="0.3">01</text>
+      <text x="110" y="70" text-anchor="middle" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">纯功能导向</text>
+      <text x="110" y="90" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Pure Function</text>
+      <line x1="30" y1="105" x2="190" y2="105" stroke="#2a2a35"/>
+      <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="10">耐用/耐磨/多口袋</text>
+      <text x="20" y="145" fill="#86868b" font-family="Inter, sans-serif" font-size="10">价格驱动购买决策</text>
+      <text x="20" y="165" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌忠诚度低</text>
+      <text x="20" y="195" fill="#b5a882" font-family="Inter, sans-serif" font-size="10" font-weight="600">代表品类</text>
+      <text x="20" y="215" fill="#86868b" font-family="Inter, sans-serif" font-size="10">基础工装裤/工装衬衫</text>
+      <text x="20" y="235" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">价格带：$15-35</text>
+    </g>
+
+    <g transform="translate(240, 0)">
+      <rect x="0" y="0" width="220" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="220" height="6" fill="#6b7c5e"/>
+      <text x="110" y="40" text-anchor="middle" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" opacity="0.3">02</text>
+      <text x="110" y="70" text-anchor="middle" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">功能+舒适</text>
+      <text x="110" y="90" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Function + Comfort</text>
+      <line x1="30" y1="105" x2="190" y2="105" stroke="#2a2a35"/>
+      <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="10">弹力面料/透气设计</text>
+      <text x="20" y="145" fill="#86868b" font-family="Inter, sans-serif" font-size="10">全天穿着舒适度</text>
+      <text x="20" y="165" fill="#86868b" font-family="Inter, sans-serif" font-size="10">开始关注品牌</text>
+      <text x="20" y="195" fill="#6b7c5e" font-family="Inter, sans-serif" font-size="10" font-weight="600">代表品类</text>
+      <text x="20" y="215" fill="#86868b" font-family="Inter, sans-serif" font-size="10">弹力工装裤/软壳外套</text>
+      <text x="20" y="235" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">价格带：$30-55</text>
+    </g>
+
+    <g transform="translate(480, 0)">
+      <rect x="0" y="0" width="220" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="220" height="6" fill="#c9a962"/>
+      <text x="110" y="40" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" opacity="0.3">03</text>
+      <text x="110" y="70" text-anchor="middle" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">功能+时尚</text>
+      <text x="110" y="90" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Function + Fashion</text>
+      <line x1="30" y1="105" x2="190" y2="105" stroke="#2a2a35"/>
+      <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩风/复古工装兴起</text>
+      <text x="20" y="145" fill="#86868b" font-family="Inter, sans-serif" font-size="10">工装元素日常化</text>
+      <text x="20" y="165" fill="#86868b" font-family="Inter, sans-serif" font-size="10">品牌意识增强</text>
+      <text x="20" y="195" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">代表品类</text>
+      <text x="20" y="215" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩夹克/工装短裤</text>
+      <text x="20" y="235" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">价格带：$45-85</text>
+    </g>
+
+    <g transform="translate(720, 0)">
+      <rect x="0" y="0" width="220" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="220" height="6" fill="#3498db"/>
+      <text x="110" y="40" text-anchor="middle" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" opacity="0.3">04</text>
+      <text x="110" y="70" text-anchor="middle" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">功能+科技</text>
+      <text x="110" y="90" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Function + Tech</text>
+      <line x1="30" y1="105" x2="190" y2="105" stroke="#2a2a35"/>
+      <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Cordura/Ripstop面料</text>
+      <text x="20" y="145" fill="#86868b" font-family="Inter, sans-serif" font-size="10">防水/防撕裂/抗菌</text>
+      <text x="20" y="165" fill="#86868b" font-family="Inter, sans-serif" font-size="10">科技感成为卖点</text>
+      <text x="20" y="195" fill="#3498db" font-family="Inter, sans-serif" font-size="10" font-weight="600">代表品类</text>
+      <text x="20" y="215" fill="#86868b" font-family="Inter, sans-serif" font-size="10">机能工装裤/防水外套</text>
+      <text x="20" y="235" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">价格带：$55-120</text>
+    </g>
+
+    <g transform="translate(960, 0)">
+      <rect x="0" y="0" width="220" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="220" height="6" fill="#e74c3c"/>
+      <text x="110" y="40" text-anchor="middle" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="40" font-weight="700" opacity="0.3">05</text>
+      <text x="110" y="70" text-anchor="middle" fill="#f5f5f7" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700">功能+可持续</text>
+      <text x="110" y="90" text-anchor="middle" fill="#6e6e73" font-family="Inter, sans-serif" font-size="10">Function + Sustainable</text>
+      <line x1="30" y1="105" x2="190" y2="105" stroke="#2a2a35"/>
+      <text x="20" y="125" fill="#86868b" font-family="Inter, sans-serif" font-size="10">再生面料/有机棉</text>
+      <text x="20" y="145" fill="#86868b" font-family="Inter, sans-serif" font-size="10">环保工艺/可追溯</text>
+      <text x="20" y="165" fill="#86868b" font-family="Inter, sans-serif" font-size="10">ESG成为品牌加分项</text>
+      <text x="20" y="195" fill="#e74c3c" font-family="Inter, sans-serif" font-size="10" font-weight="600">代表品类</text>
+      <text x="20" y="215" fill="#86868b" font-family="Inter, sans-serif" font-size="10">环保工装系列</text>
+      <text x="20" y="235" fill="#6e6e73" font-family="Inter, sans-serif" font-size="9">价格带：$65-150</text>
+    </g>
+  </g>
+
+  <g transform="translate(60, 420)">
+    <rect x="0" y="0" width="1160" height="260" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">需求演变关键洞察</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="360" height="180" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">趋势1：工装时尚化加速</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">巴恩风（Barn Jacket）2024-2025持续爆发</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">工装元素从工作场景渗透至日常穿搭</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Z世代成为工装潮流核心驱动力</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品启示</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">开发"工装+潮流"双定位产品线</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">同一SKU覆盖工作/休闲双场景</text>
+      </g>
+      <g transform="translate(390, 0)">
+        <rect x="0" y="0" width="360" height="180" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">趋势2：面料科技成为核心卖点</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">消费者对面料名称认知度提升</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Cordura/Ripstop成为搜索热词</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能面料溢价能力持续增强</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品启示</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Listing突出面料科技名称与功能</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">A+页面增加面料对比与科普内容</text>
+      </g>
+      <g transform="translate(780, 0)">
+        <rect x="0" y="0" width="360" height="180" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">趋势3：可持续消费意识觉醒</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">欧美消费者ESG关注度持续提升</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">再生面料/有机棉需求增长</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">环保标签成为差异化加分项</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">产品启示</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">逐步引入再生面料产品线</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">获取OEKO-TEX/GRS等国际认证</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 06 · 6.1</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">三大核心市场机遇</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">巴恩风爆发 / 面料科技升级 / 轻工装日常化——三大结构性增长机会</text>
+
+  <g transform="translate(60, 125)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="370" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="370" height="6" fill="#c9a962"/>
+      <text x="185" y="40" text-anchor="middle" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700" opacity="0.2">01</text>
+      <text x="20" y="70" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">巴恩风潮流爆发</text>
+      <text x="20" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">Barn Jacket Trend</text>
+
+      <g transform="translate(20, 110)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">市场信号</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Google Trends搜索量YoY+280%</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">TikTok #barnjacket 2.8亿播放</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">亚马逊BSR新品占比提升30%</text>
+      </g>
+      <g transform="translate(20, 200)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">机会窗口</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">2024-2026 潮流红利期</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">预估品类增量$5000万+/年</text>
+      </g>
+    </g>
+
+    <g transform="translate(400, 0)">
+      <rect x="0" y="0" width="370" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="370" height="6" fill="#6b7c5e"/>
+      <text x="185" y="40" text-anchor="middle" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700" opacity="0.2">02</text>
+      <text x="20" y="70" fill="#6b7c5e" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">面料科技升级</text>
+      <text x="20" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">Fabric Tech Upgrade</text>
+
+      <g transform="translate(20, 110)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">市场信号</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Cordura搜索量YoY+45%</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能面料Listing转化率高20%</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">消费者愿为科技面料多付$10-20</text>
+      </g>
+      <g transform="translate(20, 200)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">机会窗口</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能面料溢价空间$10-25/件</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">供应链成本增加仅$3-5/件</text>
+      </g>
+    </g>
+
+    <g transform="translate(800, 0)">
+      <rect x="0" y="0" width="370" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="370" height="6" fill="#3498db"/>
+      <text x="185" y="40" text-anchor="middle" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="36" font-weight="700" opacity="0.2">03</text>
+      <text x="20" y="70" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700">轻工装日常化</text>
+      <text x="20" y="90" fill="#6e6e73" font-family="Inter, sans-serif" font-size="11">Light Workwear Everyday</text>
+
+      <g transform="translate(20, 110)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">市场信号</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">"work pants casual"搜索YoY+60%</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">通勤工装裤BSR持续上升</text>
+        <text x="0" y="70" fill="#86868b" font-family="Inter, sans-serif" font-size="10">轻量化工装新品增长率35%</text>
+      </g>
+      <g transform="translate(20, 200)">
+        <text x="0" y="14" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="10" font-weight="600">机会窗口</text>
+        <text x="0" y="34" fill="#86868b" font-family="Inter, sans-serif" font-size="10">蓝领→白领消费群体扩展</text>
+        <text x="0" y="52" fill="#86868b" font-family="Inter, sans-serif" font-size="10">轻工装品类竞争度低，蓝海赛道</text>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <rect x="0" y="0" width="1160" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+    <rect x="0" y="0" width="1160" height="6" fill="#c9a962"/>
+    <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700">6.2 市场切入策略</text>
+
+    <g transform="translate(20, 55)">
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="360" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">价格带切入</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">推荐切入：$35-65 中端价格带</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">避开$15-30低价红海竞争</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">低于$60-120品牌直接竞争</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">利润模型</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">毛利率目标：45-55%</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">FBA费用占比：20-25%</text>
+        <text x="15" y="171" fill="#86868b" font-family="Inter, sans-serif" font-size="10">广告费占比：10-15%</text>
+      </g>
+      <g transform="translate(390, 0)">
+        <rect x="0" y="0" width="360" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">赛道选择</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">优先赛道1：工装裤（市场最大）</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">优先赛道2：巴恩夹克（增速最快）</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">优先赛道3：工装短裤（季节性）</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">扩展路径</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">裤装 → 外套 → 衬衫 → 配件</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">单品突破 → 系列扩展 → 品牌建设</text>
+        <text x="15" y="171" fill="#86868b" font-family="Inter, sans-serif" font-size="10">12个月内SKU目标：15-25个</text>
+      </g>
+      <g transform="translate(780, 0)">
+        <rect x="0" y="0" width="360" height="195" rx="6" fill="#252530" stroke="#3a3a45"/>
+        <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">差异化定位</text>
+        <text x="15" y="50" fill="#86868b" font-family="Inter, sans-serif" font-size="10">"专业工装品质 × 潮流设计语言"</text>
+        <text x="15" y="68" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能面料 + 巴恩风设计 = 差异化</text>
+        <text x="15" y="86" fill="#86868b" font-family="Inter, sans-serif" font-size="10">Work × Outdoor × Casual 三场景</text>
+        <text x="15" y="115" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">品牌心智</text>
+        <text x="15" y="135" fill="#86868b" font-family="Inter, sans-serif" font-size="10">不是最便宜，但最值得</text>
+        <text x="15" y="153" fill="#86868b" font-family="Inter, sans-serif" font-size="10">专业工装品质，日常穿搭风格</text>
+        <text x="15" y="171" fill="#86868b" font-family="Inter, sans-serif" font-size="10">面料科技可感知，功能细节可体验</text>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>

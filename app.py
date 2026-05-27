@@ -357,17 +357,28 @@ def save_svg():
         file_name = data.get('file')
         folder = data.get('folder')
         content = data.get('content')
+        is_json = data.get('isJson', False)
+
+        logger.info(f"Save SVG request: folder={folder}, file={file_name}, is_json={is_json}")
 
         if not all([file_name, folder, content]):
             return jsonify({'success': False, 'error': 'Missing required parameters'}), 400
 
         svg_path = PROJECT_DIR / folder / file_name
-        if not svg_path.exists():
-            return jsonify({'success': False, 'error': f'File not found: {svg_path}'}), 404
+        logger.info(f"Saving to path: {svg_path}")
 
-        backup_path = svg_path.with_suffix('.svg.bak')
-        if not backup_path.exists():
-            svg_path.rename(backup_path)
+        if is_json:
+            svg_path.parent.mkdir(parents=True, exist_ok=True)
+            svg_path.write_text(content, encoding='utf-8')
+            invalidate_scan_cache()
+            return jsonify({'success': True, 'message': 'JSON saved successfully'})
+
+        if svg_path.exists():
+            backup_path = svg_path.with_suffix('.svg.bak')
+            if not backup_path.exists():
+                svg_path.rename(backup_path)
+        else:
+            svg_path.parent.mkdir(parents=True, exist_ok=True)
 
         svg_path.write_text(content, encoding='utf-8')
         invalidate_scan_cache()
@@ -378,6 +389,41 @@ def save_svg():
         return jsonify({'success': False, 'error': f'Invalid JSON: {str(e)}'}), 400
     except Exception as e:
         logger.error(f"Save SVG error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+@app.route('/api/delete-svg', methods=['POST'])
+def delete_svg():
+    try:
+        data = request.get_json()
+        file_path = data.get('path')
+        
+        if not file_path:
+            return jsonify({'success': False, 'error': 'Missing file path'}), 400
+        
+        if file_path.startswith('/'):
+            file_path = file_path[1:]
+        
+        from urllib.parse import unquote
+        file_path = unquote(file_path)
+        
+        full_path = Path(file_path)
+        
+        if not full_path.exists():
+            abs_path = PROJECT_DIR / file_path
+            if abs_path.exists():
+                full_path = abs_path
+            else:
+                logger.warning(f"Delete SVG: file not found at {full_path} or {abs_path}")
+                return jsonify({'success': False, 'error': f'File not found: {full_path}'}), 404
+        
+        full_path.unlink()
+        invalidate_scan_cache()
+        
+        logger.info(f"Deleted file: {full_path}")
+        return jsonify({'success': True, 'message': 'File deleted successfully'})
+    
+    except Exception as e:
+        logger.error(f"Delete SVG error: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
 @app.route('/api/save-project', methods=['POST'])

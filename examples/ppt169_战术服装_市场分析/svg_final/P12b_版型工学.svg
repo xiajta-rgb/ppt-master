@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0a0a0f"/>
+      <stop offset="100%" stop-color="#141419"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c9a962"/>
+      <stop offset="100%" stop-color="#e0c882"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bgGradient)"/>
+  <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>
+
+  <g transform="translate(60, 35)">
+    <text fill="#c9a962" font-family="Inter, sans-serif" font-size="11" font-weight="600" letter-spacing="2">CHAPTER 02 · 2.3</text>
+  </g>
+  <text x="60" y="72" fill="#f5f5f7" font-family="Space Grotesk, Inter, sans-serif" font-size="28" font-weight="700">版型工学与功能细节</text>
+  <rect x="60" y="84" width="80" height="3" fill="url(#accentGradient)"/>
+  <text x="60" y="105" fill="#86868b" font-family="Inter, sans-serif" font-size="12">工装专属设计——立体剪裁、活动余量、加固结构与收纳系统</text>
+
+  <g transform="translate(60, 125)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#c9a962"/>
+      <text x="20" y="35" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">立体剪裁与活动余量</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">工装版型的核心在于"动得开、穿得住"，区别于时装的修身剪裁</text>
+
+      <g transform="translate(20, 80)">
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">立体剪裁</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">肩部预弯曲设计，肘部弯曲余量</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">膝部3D立体剪裁，蹲姿不紧绷</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">裆部菱形补片，大幅活动无束缚</text>
+          <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">关键参数</text>
+          <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">肩部余量+3-5cm 肘部弯曲角120°</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">膝部弯曲余量+4cm 裆深+2-3cm</text>
+        </g>
+        <g transform="translate(270, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#c9a962" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">活动余量设计</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">背部褶裥：举手时后摆不上缩</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">侧缝弧度：坐姿腰部不外露</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">下摆弧形：弯腰时背部覆盖</text>
+          <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">版型对比</text>
+          <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">修身版：胸围+4cm 适合通勤</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">宽松版：胸围+8cm 适合作业</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#e74c3c"/>
+      <text x="20" y="35" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">加固结构体系</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">工装"耐穿"的核心保障——关键部位多重加固工艺</text>
+
+      <g transform="translate(20, 80)">
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">缝线加固</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">双针明线：肩缝/侧缝/袖缝</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">三针绷缝：裤裆/下摆/袖口</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">打结加固：口袋角/扣眼/应力点</text>
+          <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">线材标准</text>
+          <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">涤纶线40s/2 或 尼龙线70D/3</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">针距：8-10针/3cm（工装标准）</text>
+        </g>
+        <g transform="translate(270, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#e74c3c" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">部位加固</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">肘部补片：额外面料层+缝线</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">膝盖补片：Cordura/帆布双层</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">裤口加固：防磨条/包边处理</text>
+          <text x="15" y="110" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">工艺标准</text>
+          <text x="15" y="128" fill="#86868b" font-family="Inter, sans-serif" font-size="10">补片面积≥受力区域120%</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">缝线距边≤3mm 双道缝制</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(60, 415)">
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#f39c12"/>
+      <text x="20" y="35" fill="#f39c12" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">多口袋布局系统</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">工装标志性设计——功能与美学的平衡</text>
+
+      <g transform="translate(20, 80)">
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#f39c12" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">口袋类型</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">贴袋：最经典，外露式大容量</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">插袋：侧缝内置，手插舒适</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">暗袋：隐蔽收纳，安全存放</text>
+          <text x="15" y="102" fill="#86868b" font-family="Inter, sans-serif" font-size="10">工具袋：专用笔插/尺袋/刀袋</text>
+          <text x="15" y="128" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">布局原则</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">上轻下重 / 左右对称 / 视觉平衡</text>
+        </g>
+        <g transform="translate(270, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#f39c12" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">口袋尺寸标准</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">胸袋：12×14cm（手机/笔）</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">侧袋：16×18cm（工具/手套）</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">后袋：14×16cm（钱包/证件）</text>
+          <text x="15" y="102" fill="#86868b" font-family="Inter, sans-serif" font-size="10">腿袋：18×22cm（大件工具）</text>
+          <text x="15" y="128" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">口袋封口</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">魔术贴/纽扣/拉链 按场景选择</text>
+        </g>
+      </g>
+    </g>
+
+    <g transform="translate(600, 0)">
+      <rect x="0" y="0" width="560" height="270" rx="8" fill="#1a1a20" stroke="#2a2a35"/>
+      <rect x="0" y="0" width="560" height="6" fill="#3498db"/>
+      <text x="20" y="35" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="16" font-weight="700">防风与闭合结构</text>
+      <text x="20" y="60" fill="#86868b" font-family="Inter, sans-serif" font-size="11">户外与通勤场景下的功能性设计细节</text>
+
+      <g transform="translate(20, 80)">
+        <g transform="translate(0, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">防风结构</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">门襟挡风条：双层门襟+挡风片</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">袖口收紧：魔术贴/松紧/纽扣</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">下摆抽绳：弹力绳+止滑扣</text>
+          <text x="15" y="102" fill="#86868b" font-family="Inter, sans-serif" font-size="10">领口立领：高领设计挡风保暖</text>
+          <text x="15" y="128" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">防风等级</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">基础防风 / 中度防风 / 全防风</text>
+        </g>
+        <g transform="translate(270, 0)">
+          <rect x="0" y="0" width="250" height="170" rx="6" fill="#252530" stroke="#3a3a45"/>
+          <text x="15" y="25" fill="#3498db" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="600">闭合系统</text>
+          <text x="15" y="48" fill="#86868b" font-family="Inter, sans-serif" font-size="10">拉链闭合：YKK #5/#8 金属拉链</text>
+          <text x="15" y="66" fill="#86868b" font-family="Inter, sans-serif" font-size="10">纽扣闭合：工字扣/四合扣/暗扣</text>
+          <text x="15" y="84" fill="#86868b" font-family="Inter, sans-serif" font-size="10">魔术贴：Velcro 25mm/50mm宽</text>
+          <text x="15" y="102" fill="#86868b" font-family="Inter, sans-serif" font-size="10">松紧带：腰部/袖口/下摆调节</text>
+          <text x="15" y="128" fill="#c9a962" font-family="Inter, sans-serif" font-size="10" font-weight="600">选择原则</text>
+          <text x="15" y="146" fill="#86868b" font-family="Inter, sans-serif" font-size="10">功能优先 / 操作便捷 / 视觉统一</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <rect x="0" y="716" width="1280" height="4" fill="url(#accentGradient)"/>
+</svg>
