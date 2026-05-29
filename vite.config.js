@@ -13,7 +13,7 @@ export default defineConfig({
     strictPort: false,
     proxy: {
       '/api': {
-        target: 'http://localhost:5001',
+        target: 'http://127.0.0.1:5001',
         changeOrigin: true,
         timeout: 30000,
         configure: (proxy) => {
@@ -23,7 +23,7 @@ export default defineConfig({
         }
       },
       '/examples': {
-        target: 'http://localhost:5001',
+        target: 'http://127.0.0.1:5001',
         changeOrigin: true,
         timeout: 30000,
         configure: (proxy) => {

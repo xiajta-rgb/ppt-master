@@ -8,7 +8,7 @@
       <stop offset="0%" stop-color="#c9a962"/>
       <stop offset="100%" stop-color="#e0c882"/>
     </linearGradient>
-  <clipPath id="clip_existing_1777651649454_72annedbc"><rect x="60" y="220" width="1040" height="300"/></clipPath><clipPath id="clip_existing_1777651764295_q8587b0je"><rect x="60" y="220" width="1040" height="300"/></clipPath><clipPath id="clip_existing_1777652051964_gbsyqvkc5"><rect x="60" y="220" width="1040" height="300"/></clipPath><clipPath id="clip_1777652062552_26v1z9l11"><rect x="60" y="220" width="1040" height="300"/></clipPath><clipPath id="clip_existing_1777655219757_0rjxfaeck"><rect x="60" y="220" width="1040" height="300"/></clipPath><clipPath id="clip_existing_1777655219757_9k4qtwlw3"><rect x="60" y="220" width="1040" height="300"/></clipPath></defs>
+  </defs>
 
   <rect width="1280" height="720" fill="url(#bgGradient)"/>
   <rect x="0" y="0" width="1280" height="4" fill="url(#accentGradient)"/>

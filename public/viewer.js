@@ -19,7 +19,16 @@ let currentEditingSlidePath = null;
 let undoStack = [];
 let redoStack = [];
 const MAX_UNDO = 50;
+const SVG_CACHE_MAX = 30;
 const svgCache = new Map();
+
+function svgCacheSet(key, value) {
+    if (svgCache.size >= SVG_CACHE_MAX) {
+        const firstKey = svgCache.keys().next().value;
+        svgCache.delete(firstKey);
+    }
+    svgCache.set(key, value);
+}
 
 let selectedImage = null;
 let selectedImages = [];
@@ -42,10 +51,18 @@ let alignmentGuides = [];
 let snapThreshold = 5;
 let propertiesPanel = null;
 let pasteImageMode = false;
+const _overlayMap = new WeakMap();
+const _overlaySlideWrapperMap = new WeakMap();
+const _overlaySvgMap = new WeakMap();
+let _overlayResizeHandler = null;
 
 // Hot reload check
 let hotReloadInFlight = false;
 let hotReloadSeq = 0;
+let hotReloadFailCount = 0;
+const HOT_RELOAD_MAX_FAILS = 3;
+const HOT_RELOAD_RETRY_INTERVAL = 30000;
+
 async function checkForChanges() {
     if (!hotReloadEnabled || hotReloadInFlight) return;
     hotReloadInFlight = true;
@@ -54,10 +71,18 @@ async function checkForChanges() {
         const response = await fetch('/api/check-changes', { cache: 'no-store' });
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
         if (!response.ok) {
-            hotReloadEnabled = false;
+            hotReloadFailCount++;
+            if (hotReloadFailCount >= HOT_RELOAD_MAX_FAILS) {
+                hotReloadEnabled = false;
+                setTimeout(() => {
+                    hotReloadEnabled = true;
+                    hotReloadFailCount = 0;
+                }, HOT_RELOAD_RETRY_INTERVAL);
+            }
             hotReloadInFlight = false;
             return;
         }
+        hotReloadFailCount = 0;
         const data = await response.json();
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
         if (data.changed && data.timestamp > lastCheckTime) {
@@ -66,7 +91,14 @@ async function checkForChanges() {
         }
     } catch (e) {
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
-        hotReloadEnabled = false;
+        hotReloadFailCount++;
+        if (hotReloadFailCount >= HOT_RELOAD_MAX_FAILS) {
+            hotReloadEnabled = false;
+            setTimeout(() => {
+                hotReloadEnabled = true;
+                hotReloadFailCount = 0;
+            }, HOT_RELOAD_RETRY_INTERVAL);
+        }
     } finally {
         if (seq === hotReloadSeq) hotReloadInFlight = false;
     }
@@ -89,30 +121,78 @@ function showHotReloadNotification(changedFiles) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
-    await loadDynamicCollections();
-    renderCollections();
+    const t0 = performance.now();
+    const urlParams = new URLSearchParams(window.location.search);
+    const collectionId = urlParams.get('project');
+
+    if (collectionId) {
+        const t1 = performance.now();
+        const quickCollection = await loadSingleProject(collectionId);
+        console.log(`[perf] loadSingleProject: ${(performance.now() - t1).toFixed(0)}ms`);
+        if (quickCollection) {
+            collections.push(quickCollection);
+            openCollection(quickCollection);
+            console.log(`[perf] openCollection: ${(performance.now() - t1).toFixed(0)}ms`);
+            loadDynamicCollections().then(() => {
+                mergeDynamicIntoCollections();
+                renderCollections();
+                renderDropdown();
+                console.log(`[perf] background loadDynamicCollections: ${(performance.now() - t0).toFixed(0)}ms`);
+            });
+        } else {
+            const t2 = performance.now();
+            await loadDynamicCollections();
+            console.log(`[perf] loadDynamicCollections (fallback): ${(performance.now() - t2).toFixed(0)}ms`);
+            renderCollections();
+            let collection = collections.find(c => c.id === collectionId);
+            if (!collection) collection = collections.find(c => c.alias === collectionId);
+            if (!collection) collection = collections.find(c => c.id.includes(collectionId) || (c.alias && c.alias.includes(collectionId)));
+            if (collection) openCollection(collection);
+        }
+    } else {
+        await loadDynamicCollections();
+        renderCollections();
+    }
+    console.log(`[perf] DOMContentLoaded total: ${(performance.now() - t0).toFixed(0)}ms`);
 
     hotReloadEnabled = true;
     setInterval(checkForChanges, 3000);
 
-    // Setup image upload handler
     const fileInput = document.getElementById('imageUploadInput');
     if (fileInput) {
         fileInput.addEventListener('change', onImageFileSelected);
     }
 
-    // Setup clipboard paste handler for images
     document.addEventListener('paste', handleClipboardPaste);
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const collectionId = urlParams.get('project');
-    if (collectionId) {
-        let collection = collections.find(c => c.id === collectionId);
-        if (!collection) collection = collections.find(c => c.alias === collectionId);
-        if (!collection) collection = collections.find(c => c.id.includes(collectionId) || (c.alias && c.alias.includes(collectionId)));
-        if (collection) openCollection(collection);
-    }
 });
+
+async function loadSingleProject(projectId) {
+    try {
+        const res = await fetch(`/api/project/${encodeURIComponent(projectId)}`);
+        if (!res.ok) return null;
+        const p = await res.json();
+        if (p.error) return null;
+
+        const staticData = collections.find(c => c.id === p.id || c.alias === p.alias?.[0]);
+
+        return {
+            id: p.id,
+            seqId: staticData?.seqId || '',
+            alias: p.alias?.[0] || '',
+            title: staticData?.title || parseProjectTitle(p.id),
+            description: staticData?.description || `Project: ${p.id}`,
+            icon: staticData?.icon || '📊',
+            color: staticData?.color || '#6366f1',
+            folder: staticData?.folder || p.folder,
+            slides: p.slides.map(s => {
+                const staticSlide = staticData?.slides?.find(ss => ss.file === s.file);
+                return staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' };
+            })
+        };
+    } catch (e) {
+        return null;
+    }
+}
 
 async function loadDynamicCollections() {
     try {
@@ -159,6 +239,17 @@ async function loadDynamicCollections() {
         }
     } catch (e) {
     }
+}
+
+function mergeDynamicIntoCollections() {
+    if (collections.length <= 1) return;
+    const quick = collections[0];
+    const dynamicIdx = collections.findIndex((c, i) => i > 0 && c.id === quick.id);
+    if (dynamicIdx < 0) return;
+    const dynamic = collections[dynamicIdx];
+    const staticSlideMap = new Map(quick.slides.map(s => [s.file, s]));
+    quick.slides = dynamic.slides.map(s => staticSlideMap.get(s.file) || s);
+    collections.splice(dynamicIdx, 1);
 }
 
 function parseProjectTitle(dirName) {
@@ -387,9 +478,11 @@ function openCollection(collection) {
 
     document.getElementById('progressBar').style.background = '#4a4a5a';
 
-    generateThumbnails();
-    generateOverview();
     updateSlide();
+    _overviewDirty = true;
+    requestAnimationFrame(() => {
+        generateThumbnails();
+    });
     renderDropdown();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -418,6 +511,11 @@ function backToLibrary() {
     document.getElementById('mainContent').classList.remove('viewer-expanded');
     document.getElementById('slideViewerContainer').classList.remove('theater-mode');
 
+    const grid = document.getElementById('collectionsGrid');
+    if (!grid.children.length) {
+        renderCollections();
+    }
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -443,12 +541,6 @@ function toggleViewMode() {
 }
 
 function toggleEditMode() {
-    if (!localStorage.getItem('authToken')) {
-        showToast('请先登录', 'error');
-        const loginModal = document.getElementById('loginModal');
-        if (loginModal) loginModal.style.display = 'flex';
-        return;
-    }
     isEditMode = !isEditMode;
     const toolbar = document.getElementById('editToolbar');
     const editHint = document.getElementById('editHint');
@@ -461,8 +553,9 @@ function toggleEditMode() {
         const svgEl = document.querySelector('#slideWrapper svg');
         if (svgEl) {
             setupTextEditListeners(svgEl);
-            setupImageEditListeners();
         }
+        setupImageOverlays();
+        setupDragDrop();
     } else {
         toolbar.classList.add('hidden');
         editHint.classList.add('hidden');
@@ -470,7 +563,122 @@ function toggleEditMode() {
         removeEditOverlay();
         clearImageSelection();
         saveCurrentSvg(true);
+        setupImageOverlays();
+        teardownDragDrop();
     }
+}
+
+let _dragDropInitialized = false;
+
+function setupDragDrop() {
+    if (_dragDropInitialized) return;
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (!slideWrapper) return;
+
+    _dragDropInitialized = true;
+
+    slideWrapper.addEventListener('dragover', onDragOver);
+    slideWrapper.addEventListener('dragleave', onDragLeave);
+    slideWrapper.addEventListener('drop', onDrop);
+}
+
+function teardownDragDrop() {
+    if (!_dragDropInitialized) return;
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (!slideWrapper) return;
+
+    _dragDropInitialized = false;
+
+    slideWrapper.removeEventListener('dragover', onDragOver);
+    slideWrapper.removeEventListener('dragleave', onDragLeave);
+    slideWrapper.removeEventListener('drop', onDrop);
+}
+
+function onDragOver(e) {
+    if (!isEditMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.dropEffect = 'copy';
+
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (slideWrapper && !slideWrapper.classList.contains('drag-over')) {
+        slideWrapper.classList.add('drag-over');
+    }
+}
+
+function onDragLeave(e) {
+    if (!isEditMode) return;
+    e.preventDefault();
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (slideWrapper) {
+        slideWrapper.classList.remove('drag-over');
+    }
+}
+
+async function onDrop(e) {
+    if (!isEditMode) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const slideWrapper = document.getElementById('slideWrapper');
+    if (slideWrapper) {
+        slideWrapper.classList.remove('drag-over');
+    }
+
+    const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+    if (files.length === 0) return;
+
+    const svgEl = slideWrapper?.querySelector('svg');
+    if (!svgEl) return;
+
+    const svgRect = svgEl.getBoundingClientRect();
+    const viewBox = svgEl.viewBox.baseVal;
+    const scaleX = (viewBox.width || 1920) / svgRect.width;
+    const scaleY = (viewBox.height || 1080) / svgRect.height;
+
+    const dropX = (e.clientX - svgRect.left) * scaleX;
+    const dropY = (e.clientY - svgRect.top) * scaleY;
+
+    showToast(`正在处理 ${files.length} 张图片...`, 'info');
+
+    for (let i = 0; i < files.length; i++) {
+        try {
+            let base64 = await readFileAsBase64(files[i]);
+            base64 = await optimizeImage(base64);
+
+            const defaultW = 400;
+            const defaultH = 300;
+            const offsetX = dropX - defaultW / 2 + i * 30;
+            const offsetY = dropY - defaultH / 2 + i * 30;
+
+            const ns = 'http://www.w3.org/2000/svg';
+            const img = document.createElementNS(ns, 'image');
+            img.setAttribute('x', offsetX);
+            img.setAttribute('y', offsetY);
+            img.setAttribute('width', defaultW);
+            img.setAttribute('height', defaultH);
+            img.setAttribute('href', base64);
+            img.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+            img.setAttribute('pointer-events', 'all');
+            img.style.cursor = 'move';
+
+            svgEl.appendChild(img);
+
+            if (isEditMode) {
+                img.dataset.imageEditListener = 'true';
+                img.addEventListener('mousedown', onImageMouseDown);
+            }
+
+            pushUndoState('insert', img, {
+                element: img.cloneNode(true)
+            });
+        } catch (err) {
+            showToast(`处理 ${files[i].name} 失败: ${err.message}`, 'error');
+        }
+    }
+
+    saveCurrentSvg(true);
+    showToast(`${files.length} 张图片已添加`, 'success');
 }
 
 function setupTextEditListeners(svgEl) {
@@ -664,7 +872,8 @@ function showImageUploadDialog(placeholderEl) {
         for (let i = 0; i < files.length; i++) {
             const file = files[i];
             try {
-                const base64 = await readFileAsBase64(file);
+                let base64 = await readFileAsBase64(file);
+                base64 = await optimizeImage(base64);
                 const offsetX = i * 20;
                 const offsetY = i * 20;
                 replacePlaceholderWithImage(placeholderEl, base64, x + offsetX, y + offsetY, imgWidth, imgHeight);
@@ -685,6 +894,38 @@ function readFileAsBase64(file) {
         reader.onerror = reject;
         reader.readAsDataURL(file);
     });
+}
+
+async function optimizeImage(base64Data) {
+    try {
+        const sizeEstimate = base64Data.length * 0.75;
+        if (sizeEstimate < 100 * 1024) return base64Data;
+
+        const response = await fetch('/api/process-image', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                data: base64Data,
+                maxDimension: 1920,
+                quality: 82,
+                maxSizeKb: 500
+            })
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            if (result.success && result.data) {
+                const saved = result.original_size_kb - result.processed_size_kb;
+                if (saved > 10) {
+                    showToast(`图片优化: ${result.original_size_kb}KB → ${result.processed_size_kb}KB`, 'info');
+                }
+                return result.data;
+            }
+        }
+    } catch (e) {
+        console.warn('Image optimization failed, using original:', e);
+    }
+    return base64Data;
 }
 
 function replacePlaceholderWithImage(placeholderEl, base64Data, x, y, width, height) {
@@ -734,13 +975,27 @@ function replacePlaceholderWithImage(placeholderEl, base64Data, x, y, width, hei
 }
 
 function findImageContainer(element) {
+    const parent = element.parentElement;
+    if (parent) {
+        const containerRect = parent.querySelector('rect[data-image-container]');
+        if (containerRect) return containerRect;
+    }
+
     let sibling = element.previousElementSibling;
     while (sibling) {
-        if (sibling.tagName === 'rect' && sibling.getAttribute('stroke-dasharray')) {
-            return sibling;
+        if (sibling.tagName === 'rect') {
+            if (sibling.dataset.imageContainer === 'true') return sibling;
+            if (sibling.getAttribute('stroke-dasharray')) return sibling;
         }
         sibling = sibling.previousElementSibling;
     }
+
+    const group = element.closest('g.image-placeholder-group');
+    if (group) {
+        const rect = group.querySelector('rect');
+        if (rect) return rect;
+    }
+
     return null;
 }
 
@@ -849,11 +1104,6 @@ function removeOutOfBoundsIndicator() {
 
 async function doSaveCurrentSvg() {
     if (!currentEditingSlidePath) return;
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        showToast('请先登录', 'error');
-        return;
-    }
 
     try {
         const svgEl = document.querySelector('#slideWrapper svg');
@@ -879,11 +1129,6 @@ async function doSaveCurrentSvg() {
             el.removeAttribute('data-image-edit-listener');
             el.removeAttribute('data-overlay-listener');
             el.removeAttribute('pointer-events');
-            el.removeAttribute('data-container-x');
-            el.removeAttribute('data-container-y');
-            el.removeAttribute('data-container-width');
-            el.removeAttribute('data-container-height');
-            el.removeAttribute('data-container-clip-id');
             el.removeAttribute('data-out-of-bounds');
             el.removeAttribute('data-img-placeholder');
             el.removeAttribute('data-img-placeholder-checked');
@@ -977,10 +1222,6 @@ function showToast(message, type = 'success') {
 
 async function saveTextEdit(textElement, newText, elementIndex) {
     if (!editingElement) return;
-    if (!localStorage.getItem('authToken')) {
-        showToast('请先登录', 'error');
-        return;
-    }
 
     const slidePath = currentEditingSlidePath;
     const originalText = textElement.getAttribute('data-original-text') || textElement.textContent;
@@ -1041,7 +1282,7 @@ async function saveTextEdit(textElement, newText, elementIndex) {
     }
 }
 
-function setupImageEditListeners() {
+function setupImageOverlays() {
     const slideWrapper = document.getElementById('slideWrapper');
     if (!slideWrapper) return;
 
@@ -1050,78 +1291,60 @@ function setupImageEditListeners() {
 
     document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
 
-    const viewBox = svgEl.viewBox.baseVal;
-    const svgW = viewBox.width || 1280;
-    const svgH = viewBox.height || 720;
-
-    const allRects = svgEl.querySelectorAll('rect');
-    const imagePlaceholders = [];
-
-    allRects.forEach(rect => {
-        if (rect.dataset.imgPlaceholder === 'true') return;
-        if (rect.style.display === 'none') return;
-
-        const w = parseFloat(rect.getAttribute('width') || 0);
-        const h = parseFloat(rect.getAttribute('height') || 0);
-        const fill = rect.getAttribute('fill') || '';
-        const stroke = rect.getAttribute('stroke') || '';
-        const rx = rect.getAttribute('rx') || rect.getAttribute('ry') || '';
-
-        if (w < 80 || h < 80) return;
-        if (w >= svgW * 0.95 && h >= svgH * 0.95) return;
-        if (!stroke) return;
-
-        const isDarkFill = /^#[0-3]/i.test(fill) || fill === 'none';
-        if (!isDarkFill && !rx) return;
-
-        const parent = rect.parentElement;
-        const hasImageSibling = parent && parent.querySelector('image');
-        if (hasImageSibling) return;
-
-        const nextEl = rect.nextElementSibling;
-        if (nextEl && nextEl.tagName && nextEl.tagName.toLowerCase() === 'image') return;
-
-        imagePlaceholders.push(rect);
+    svgEl.querySelectorAll('rect[data-img-placeholder]').forEach(rect => {
+        delete rect.dataset.imgPlaceholder;
+        _overlayMap.delete(rect);
+        _overlaySlideWrapperMap.delete(rect);
+        _overlaySvgMap.delete(rect);
     });
 
-    console.log(`[Edit] Found ${imagePlaceholders.length} image placeholder rects`);
+    svgEl.querySelectorAll('g[data-image-edit-listener]').forEach(group => {
+        group.style.cursor = '';
+    });
 
-    imagePlaceholders.forEach((rect, idx) => {
+    const overlayText = isEditMode ? '📷 点击上传 / Ctrl+V 粘贴' : '📷 上传图片';
+    const overlayBg = isEditMode ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.05)';
+    const overlayBorder = isEditMode ? '1px dashed rgba(140,140,140,0.4)' : 'none';
+    const overlayFontSize = isEditMode ? '13px' : '18px';
+
+    function createOverlayForRect(rect, group) {
         rect.setAttribute('pointer-events', 'all');
-        rect.style.cursor = 'pointer';
-        rect.dataset.imgPlaceholder = 'true';
-
-        let el = rect.parentElement;
-        while (el && el !== svgEl) {
-            if (el.setAttribute) {
-                el.setAttribute('pointer-events', 'all');
-            }
-            el = el.parentElement;
+        if (isEditMode) {
+            rect.style.cursor = 'pointer';
         }
 
-        rect.addEventListener('click', function(e) {
-            if (!isEditMode) return;
-            e.stopPropagation();
-            e.preventDefault();
-            console.log('[Edit] Placeholder rect clicked:', rect);
-            selectPlaceholderRect(rect);
-        });
+        if (isEditMode) {
+            let el = rect.parentElement;
+            while (el && el !== svgEl) {
+                if (el.setAttribute && el.tagName && el.tagName.toLowerCase() === 'g') {
+                    const currentPE = el.getAttribute('pointer-events');
+                    if (!currentPE || currentPE === 'none') {
+                        el.setAttribute('pointer-events', 'all');
+                    }
+                }
+                el = el.parentElement;
+            }
+        }
 
-        rect.addEventListener('mousedown', function(e) {
-            if (!isEditMode) return;
-            e.stopPropagation();
-            e.preventDefault();
-            console.log('[Edit] Placeholder rect mousedown:', rect);
-            selectPlaceholderRect(rect);
-        });
+        rect.dataset.imgPlaceholder = 'true';
+
+        if (!rect._mousedownListenerAdded) {
+            rect._mousedownListenerAdded = true;
+            rect.addEventListener('mousedown', function(e) {
+                if (!isEditMode) return;
+                e.stopPropagation();
+                e.preventDefault();
+                selectPlaceholderRect(rect);
+            });
+        }
 
         const overlay = document.createElement('div');
-        overlay.className = 'image-placeholder-overlay';
-        overlay.innerHTML = '<span class="upload-text">📷 点击上传 / Ctrl+V 粘贴</span>';
-        overlay.style.cssText = `
+        overlay.innerHTML = `<span class="upload-text">${overlayText}</span>`;
+
+        const baseCssText = `
             position: absolute;
             pointer-events: none;
-            font-size: 14px;
+            font-size: ${overlayFontSize};
             color: #8C8C8C;
             text-align: center;
             white-space: nowrap;
@@ -1130,124 +1353,132 @@ function setupImageEditListeners() {
             align-items: center;
             justify-content: center;
             z-index: 100;
-            background: rgba(0,0,0,0.3);
+            background: ${overlayBg};
             border-radius: 4px;
-            border: 1px dashed rgba(140,140,140,0.4);
+            border: ${overlayBorder};
         `;
+
+        if (isEditMode) {
+            overlay.className = 'image-placeholder-overlay paste-ready';
+            overlay.style.cssText = baseCssText + `
+                pointer-events: auto;
+                cursor: pointer;
+                border: 2px dashed #22c55e;
+                box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
+            `;
+        } else {
+            overlay.style.cssText = baseCssText;
+        }
         slideWrapper.appendChild(overlay);
 
         const textSpan = overlay.querySelector('.upload-text');
         textSpan.style.pointerEvents = 'auto';
         textSpan.style.cursor = 'pointer';
-        textSpan.style.padding = '6px 12px';
+        textSpan.style.padding = isEditMode ? '6px 12px' : '8px 16px';
         textSpan.style.borderRadius = '4px';
-        textSpan.style.fontSize = '13px';
+        textSpan.style.fontSize = overlayFontSize;
         textSpan.addEventListener('click', (e) => {
             e.stopPropagation();
             e.preventDefault();
-            if (!isEditMode) return;
-            selectPlaceholderRect(rect);
+            if (isEditMode) {
+                selectPlaceholderRect(rect);
+            }
             window._uploadTargetRect = rect;
+            if (group) window._uploadTargetGroup = group;
             document.getElementById('imageUploadInput').click();
         });
 
         rect._overlayEl = overlay;
         rect._slideWrapper = slideWrapper;
         rect._svgEl = svgEl;
+        _overlayMap.set(rect, overlay);
+        _overlaySlideWrapperMap.set(rect, slideWrapper);
+        _overlaySvgMap.set(rect, svgEl);
         updateOverlayPosition(rect);
-    });
+    }
 
-    const images = svgEl.querySelectorAll('image');
-    console.log(`[Edit] Found ${images.length} image elements`);
-    
-    images.forEach((img, idx) => {
-        if (img.dataset.imageEditListener) return;
-        img.dataset.imageEditListener = 'true';
-        img.style.cursor = 'move';
-        img.setAttribute('pointer-events', 'all');
-        img.addEventListener('mousedown', onImageMouseDown);
-
-        if (!img.dataset.containerX) {
-            detectImageContainerBounds(img);
-        }
-        checkImageOutOfBounds(img);
-    });
+    let totalPlaceholders = 0;
 
     const placeholderGroups = svgEl.querySelectorAll('g.image-placeholder-group');
-    placeholderGroups.forEach((group, idx) => {
-        group.removeAttribute('data-overlay-listener');
-        group.removeAttribute('data-image-edit-listener');
-        group.dataset.imageEditListener = 'true';
-        group.style.cursor = 'move';
+    placeholderGroups.forEach((group) => {
+        if (isEditMode) {
+            group.removeAttribute('data-overlay-listener');
+            group.removeAttribute('data-image-edit-listener');
+            group.dataset.imageEditListener = 'true';
+            group.style.cursor = 'move';
+        }
         group.setAttribute('pointer-events', 'all');
-        
+
         const rect = group.querySelector('rect');
         if (rect) {
-            rect.setAttribute('pointer-events', 'all');
-            rect.addEventListener('mousedown', onImageMouseDown);
-
-            const overlay = document.createElement('div');
-            overlay.className = 'image-placeholder-overlay';
-            overlay.innerHTML = '<span class="upload-text">📷 点击上传 / Ctrl+V 粘贴</span>';
-            overlay.style.cssText = `
-                position: absolute;
-                pointer-events: none;
-                font-size: 14px;
-                color: #8C8C8C;
-                text-align: center;
-                white-space: nowrap;
-                user-select: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 100;
-                background: rgba(0,0,0,0.3);
-                border-radius: 4px;
-                border: 1px dashed rgba(140,140,140,0.4);
-            `;
-            slideWrapper.appendChild(overlay);
-
-            const textSpan = overlay.querySelector('.upload-text');
-            textSpan.style.pointerEvents = 'auto';
-            textSpan.style.cursor = 'pointer';
-            textSpan.style.padding = '6px 12px';
-            textSpan.style.borderRadius = '4px';
-            textSpan.style.fontSize = '13px';
-            textSpan.addEventListener('click', (e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                if (!isEditMode) return;
-                selectPlaceholderRect(rect);
-                window._uploadTargetRect = rect;
-                window._uploadTargetGroup = group;
-                document.getElementById('imageUploadInput').click();
-            });
-
-            rect._overlayEl = overlay;
-            rect._slideWrapper = slideWrapper;
-            rect._svgEl = svgEl;
-            updateOverlayPosition(rect);
+            rect.dataset.imageContainer = 'true';
+            createOverlayForRect(rect, group);
+            totalPlaceholders++;
         }
     });
 
-    if (!slideWrapper.dataset.slideWrapperEditListener) {
+    const dashedRects = svgEl.querySelectorAll('rect[stroke-dasharray]');
+    dashedRects.forEach(rect => {
+        if (rect.dataset.imgPlaceholder === 'true') return;
+        if (rect.style.display === 'none') return;
+        if (rect.closest && rect.closest('g.image-placeholder-group')) return;
+
+        const w = parseFloat(rect.getAttribute('width') || 0);
+        const h = parseFloat(rect.getAttribute('height') || 0);
+        if (w < 80 || h < 80) return;
+
+        const fill = rect.getAttribute('fill') || '';
+        const isLightFill = /^(none|#f|#F|#e|#E|#d|#D|#c|#C|#b|#B|#a|#A)/i.test(fill) || fill === '';
+        if (!isLightFill) return;
+
+        const stroke = rect.getAttribute('stroke') || '';
+        const isLightStroke = /^(none|#f|#F|#e|#E|#d|#D|#c|#C|#b|#B|#a|#A|#9|#8)/i.test(stroke) || stroke === '';
+        if (!isLightStroke) return;
+
+        rect.dataset.imageContainer = 'true';
+        const parentGroup = rect.closest('g');
+        createOverlayForRect(rect, parentGroup);
+        totalPlaceholders++;
+    });
+
+    console.log(`[ImageOverlay] Found ${totalPlaceholders} image placeholders (${placeholderGroups.length} groups + ${totalPlaceholders - placeholderGroups.length} dashed rects), isEditMode=${isEditMode}`);
+
+    if (isEditMode) {
+        const images = svgEl.querySelectorAll('image');
+        console.log(`[ImageOverlay] Found ${images.length} image elements`);
+
+        images.forEach((img) => {
+            if (img.dataset.imageEditListener) return;
+            img.dataset.imageEditListener = 'true';
+            img.style.cursor = 'move';
+            img.setAttribute('pointer-events', 'all');
+            img.addEventListener('mousedown', onImageMouseDown);
+
+            if (!img.dataset.containerX) {
+                detectImageContainerBounds(img);
+            }
+            checkImageOutOfBounds(img);
+        });
+    }
+
+    if (isEditMode && !slideWrapper.dataset.slideWrapperEditListener) {
         slideWrapper.dataset.slideWrapperEditListener = 'true';
         slideWrapper.addEventListener('mousedown', onSlideWrapperMouseDown);
     }
 
-    if (!window._overlayResizeListener) {
-        window._overlayResizeListener = true;
-        window.addEventListener('resize', () => {
+    if (!_overlayResizeHandler) {
+        _overlayResizeHandler = () => {
             const svg = document.querySelector('#slideWrapper svg');
             if (svg) {
                 svg.querySelectorAll('rect[data-img-placeholder]').forEach(r => {
-                    if (r._overlayEl) updateOverlayPosition(r);
+                    if (_overlayMap.has(r) || r._overlayEl) updateOverlayPosition(r);
                 });
                 svg.querySelectorAll('g.image-placeholder-group rect').forEach(r => {
-                    if (r._overlayEl) updateOverlayPosition(r);
+                    if (_overlayMap.has(r) || r._overlayEl) updateOverlayPosition(r);
                 });
             }
-        });
+        };
+        window.addEventListener('resize', _overlayResizeHandler);
     }
 }
 
@@ -1257,6 +1488,10 @@ function selectPlaceholderRect(rect) {
     
     selectedPlaceholderRect = rect;
     pasteImageMode = true;
+
+    rect._originalFill = rect.getAttribute('fill');
+    rect._originalStroke = rect.getAttribute('stroke');
+    rect._originalStrokeWidth = rect.getAttribute('stroke-width');
 
     const boundingRect = rect.getBoundingClientRect();
     const slideWrapper = document.getElementById('slideWrapper');
@@ -1277,181 +1512,32 @@ function selectPlaceholderRect(rect) {
     slideWrapper.appendChild(box);
     selectionBoxes.push(box);
 
-    rect.style.fill = '#1a3a1a';
-    rect.style.stroke = '#22c55e';
-    rect.style.strokeWidth = '2';
+    rect.setAttribute('fill', '#1a3a1a');
+    rect.setAttribute('stroke', '#22c55e');
+    rect.setAttribute('stroke-width', '2');
 
     showPasteHint();
     updatePropertiesPanel();
 }
 
 function updateOverlayPosition(rect) {
-    if (!rect._overlayEl || !rect._slideWrapper || !rect._svgEl) return;
+    const overlay = _overlayMap.get(rect) || rect._overlayEl;
+    const slideWrapperRef = _overlaySlideWrapperMap.get(rect) || rect._slideWrapper;
+    const svgElRef = _overlaySvgMap.get(rect) || rect._svgEl;
+    if (!overlay || !slideWrapperRef || !svgElRef) return;
 
     const boundingRect = rect.getBoundingClientRect();
-    const slideRect = rect._slideWrapper.getBoundingClientRect();
+    const slideRect = slideWrapperRef.getBoundingClientRect();
 
     const overlayLeft = boundingRect.left - slideRect.left;
     const overlayTop = boundingRect.top - slideRect.top;
     const overlayWidth = boundingRect.width;
     const overlayHeight = boundingRect.height;
 
-    rect._overlayEl.style.left = overlayLeft + 'px';
-    rect._overlayEl.style.top = overlayTop + 'px';
-    rect._overlayEl.style.width = overlayWidth + 'px';
-    rect._overlayEl.style.height = overlayHeight + 'px';
-}
-
-function setupImagePlaceholderOverlays() {
-    const slideWrapper = document.getElementById('slideWrapper');
-    if (!slideWrapper) return;
-
-    const svgEl = slideWrapper.querySelector('svg');
-    if (!svgEl) return;
-
-    document.querySelectorAll('.image-placeholder-overlay').forEach(el => el.remove());
-
-    const viewBox = svgEl.viewBox.baseVal;
-    const svgW = viewBox.width || 1280;
-    const svgH = viewBox.height || 720;
-
-    const allRects = svgEl.querySelectorAll('rect');
-    const imagePlaceholders = [];
-
-    allRects.forEach(rect => {
-        if (rect.dataset.imgPlaceholder === 'true') return;
-        if (rect.style.display === 'none') return;
-
-        const w = parseFloat(rect.getAttribute('width') || 0);
-        const h = parseFloat(rect.getAttribute('height') || 0);
-        const fill = rect.getAttribute('fill') || '';
-        const stroke = rect.getAttribute('stroke') || '';
-        const rx = rect.getAttribute('rx') || rect.getAttribute('ry') || '';
-
-        if (w < 80 || h < 80) return;
-        if (w >= svgW * 0.95 && h >= svgH * 0.95) return;
-        if (!stroke) return;
-
-        const isDarkFill = /^#[0-3]/i.test(fill) || fill === 'none';
-        if (!isDarkFill && !rx) return;
-
-        const parent = rect.parentElement;
-        const hasImageSibling = parent && parent.querySelector('image');
-        if (hasImageSibling) return;
-
-        const nextEl = rect.nextElementSibling;
-        if (nextEl && nextEl.tagName && nextEl.tagName.toLowerCase() === 'image') return;
-
-        imagePlaceholders.push(rect);
-    });
-
-    imagePlaceholders.forEach((rect, idx) => {
-        rect.dataset.imgPlaceholder = 'true';
-        rect.setAttribute('pointer-events', 'all');
-
-        const overlay = document.createElement('div');
-        overlay.className = 'image-placeholder-overlay';
-        overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
-        overlay.style.cssText = `
-            position: absolute;
-            pointer-events: none;
-            font-size: 18px;
-            color: #8C8C8C;
-            text-align: center;
-            white-space: nowrap;
-            user-select: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            background: rgba(255,255,255,0.05);
-            border-radius: 4px;
-        `;
-        slideWrapper.appendChild(overlay);
-
-        const textSpan = overlay.querySelector('.upload-text');
-        textSpan.style.pointerEvents = 'auto';
-        textSpan.style.cursor = 'pointer';
-        textSpan.style.padding = '8px 16px';
-        textSpan.style.borderRadius = '4px';
-        textSpan.addEventListener('click', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            window._uploadTargetRect = rect;
-            document.getElementById('imageUploadInput').click();
-        });
-
-        rect._overlayEl = overlay;
-        rect._slideWrapper = slideWrapper;
-        rect._svgEl = svgEl;
-        updateOverlayPosition(rect);
-    });
-
-    const placeholderGroups = svgEl.querySelectorAll('g.image-placeholder-group');
-    console.log(`[Overlay] Found ${placeholderGroups.length} placeholder groups, ${imagePlaceholders.length} auto-detected placeholders`);
-    
-    placeholderGroups.forEach((group, idx) => {
-        group.removeAttribute('data-overlay-listener');
-        group.dataset.overlayListener = 'true';
-        
-        const rect = group.querySelector('rect');
-        if (rect) {
-            rect.setAttribute('pointer-events', 'all');
-
-            const overlay = document.createElement('div');
-            overlay.className = 'image-placeholder-overlay';
-            overlay.innerHTML = '<span class="upload-text">📷 上传图片</span>';
-            overlay.style.cssText = `
-                position: absolute;
-                pointer-events: none;
-                font-size: 18px;
-                color: #8C8C8C;
-                text-align: center;
-                white-space: nowrap;
-                user-select: none;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 100;
-                background: rgba(255,255,255,0.05);
-                border-radius: 4px;
-            `;
-            slideWrapper.appendChild(overlay);
-
-            const textSpan = overlay.querySelector('.upload-text');
-            textSpan.style.pointerEvents = 'auto';
-            textSpan.style.cursor = 'pointer';
-            textSpan.style.padding = '8px 16px';
-            textSpan.style.borderRadius = '4px';
-            textSpan.addEventListener('click', (e) => {
-                e.stopPropagation();
-                e.preventDefault();
-                window._uploadTargetRect = rect;
-                window._uploadTargetGroup = group;
-                document.getElementById('imageUploadInput').click();
-            });
-
-            rect._overlayEl = overlay;
-            rect._slideWrapper = slideWrapper;
-            rect._svgEl = svgEl;
-            updateOverlayPosition(rect);
-        }
-    });
-
-    if (!window._overlayResizeListener) {
-        window._overlayResizeListener = true;
-        window.addEventListener('resize', () => {
-            const svgEl = document.querySelector('#slideWrapper svg');
-            if (svgEl) {
-                svgEl.querySelectorAll('rect[data-img-placeholder]').forEach(rect => {
-                    if (rect._overlayEl) updateOverlayPosition(rect);
-                });
-                svgEl.querySelectorAll('g.image-placeholder-group rect').forEach(rect => {
-                    if (rect._overlayEl) updateOverlayPosition(rect);
-                });
-            }
-        });
-    }
+    overlay.style.left = overlayLeft + 'px';
+    overlay.style.top = overlayTop + 'px';
+    overlay.style.width = overlayWidth + 'px';
+    overlay.style.height = overlayHeight + 'px';
 }
 
 function onUploadTriggerClick(e) {
@@ -1482,9 +1568,12 @@ async function onImageFileSelected(e) {
     
     const rect = window._uploadTargetRect;
     const group = window._uploadTargetGroup;
+    window._uploadTargetRect = null;
+    window._uploadTargetGroup = null;
     
     try {
-        const base64Data = await readFileAsBase64(file);
+        let base64Data = await readFileAsBase64(file);
+        base64Data = await optimizeImage(base64Data);
         
         if (pasteImageMode && selectedPlaceholderRect && !rect) {
             await insertImageToPlaceholder(selectedPlaceholderRect, base64Data);
@@ -1498,8 +1587,6 @@ async function onImageFileSelected(e) {
         
         if (rect && rect.dataset.imgPlaceholder) {
             await insertImageToPlaceholder(rect, base64Data);
-            window._uploadTargetRect = null;
-            window._uploadTargetGroup = null;
             return;
         }
         
@@ -1545,9 +1632,47 @@ async function onImageFileSelected(e) {
 function detectImageContainerBounds(img) {
     if (img.dataset.containerX) return;
 
+    const parent = img.parentElement;
+    if (parent) {
+        const containerRect = parent.querySelector('rect[data-image-container]');
+        if (containerRect) {
+            img.dataset.containerX = containerRect.getAttribute('x') || 0;
+            img.dataset.containerY = containerRect.getAttribute('y') || 0;
+            img.dataset.containerWidth = containerRect.getAttribute('width') || 0;
+            img.dataset.containerHeight = containerRect.getAttribute('height') || 0;
+
+            if (!img.dataset.containerClipId) {
+                let clipId = `clip_existing_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                addClipPathToContainer(img.closest('svg'), containerRect, clipId);
+                img.setAttribute('clip-path', `url(#${clipId})`);
+                img.dataset.containerClipId = clipId;
+            }
+            return;
+        }
+    }
+
+    const group = img.closest('g.image-placeholder-group');
+    if (group) {
+        const rect = group.querySelector('rect');
+        if (rect) {
+            img.dataset.containerX = rect.getAttribute('x') || 0;
+            img.dataset.containerY = rect.getAttribute('y') || 0;
+            img.dataset.containerWidth = rect.getAttribute('width') || 0;
+            img.dataset.containerHeight = rect.getAttribute('height') || 0;
+
+            if (!img.dataset.containerClipId) {
+                let clipId = `clip_existing_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+                addClipPathToContainer(img.closest('svg'), rect, clipId);
+                img.setAttribute('clip-path', `url(#${clipId})`);
+                img.dataset.containerClipId = clipId;
+            }
+            return;
+        }
+    }
+
     let sibling = img.previousElementSibling;
     while (sibling) {
-        if (sibling.tagName === 'rect' && sibling.getAttribute('stroke-dasharray')) {
+        if (sibling.tagName === 'rect' && (sibling.dataset.imageContainer === 'true' || sibling.getAttribute('stroke-dasharray'))) {
             img.dataset.containerX = sibling.getAttribute('x') || 0;
             img.dataset.containerY = sibling.getAttribute('y') || 0;
             img.dataset.containerWidth = sibling.getAttribute('width') || 0;
@@ -1568,9 +1693,8 @@ function detectImageContainerBounds(img) {
 function onImageMouseDown(e) {
     if (!isEditMode) return;
     
-    if (e.target.classList.contains('upload-trigger')) {
-        return;
-    }
+    if (e.target.classList.contains('upload-trigger')) return;
+    if (e.target.dataset && e.target.dataset.imgPlaceholder === 'true') return;
     
     e.stopPropagation();
     e.preventDefault();
@@ -1582,33 +1706,18 @@ function onImageMouseDown(e) {
             target = el;
             break;
         }
-        if (el.classList && el.classList.contains('image-placeholder-group')) {
-            target = el;
-            break;
-        }
         el = el.parentElement;
-    }
-    
-    if (!target) {
-        if (e.target.tagName && e.target.tagName.toLowerCase() === 'rect') {
-            const parent = e.target.parentElement;
-            if (parent && parent.classList && parent.classList.contains('image-placeholder-group')) {
-                target = parent;
-            }
-        }
     }
     
     if (!target) return;
 
-    const img = (target.tagName && target.tagName.toLowerCase() === 'g') ? target.querySelector('rect') || target : target;
-
     if (e.shiftKey) {
-        toggleImageSelection(img);
+        toggleImageSelection(target);
     } else {
-        if (selectedImages.length > 1 && selectedImages.includes(img)) {
+        if (selectedImages.length > 1 && selectedImages.includes(target)) {
             selectImages(selectedImages);
         } else {
-            selectImage(img);
+            selectImage(target);
         }
     }
 
@@ -1827,9 +1936,30 @@ function clearImageSelection() {
     resizeHandles = [];
 
     if (selectedPlaceholderRect) {
-        selectedPlaceholderRect.style.fill = '';
-        selectedPlaceholderRect.style.stroke = '';
-        selectedPlaceholderRect.style.strokeWidth = '';
+        if (selectedPlaceholderRect._originalFill !== undefined) {
+            if (selectedPlaceholderRect._originalFill !== null) {
+                selectedPlaceholderRect.setAttribute('fill', selectedPlaceholderRect._originalFill);
+            } else {
+                selectedPlaceholderRect.removeAttribute('fill');
+            }
+            delete selectedPlaceholderRect._originalFill;
+        }
+        if (selectedPlaceholderRect._originalStroke !== undefined) {
+            if (selectedPlaceholderRect._originalStroke !== null) {
+                selectedPlaceholderRect.setAttribute('stroke', selectedPlaceholderRect._originalStroke);
+            } else {
+                selectedPlaceholderRect.removeAttribute('stroke');
+            }
+            delete selectedPlaceholderRect._originalStroke;
+        }
+        if (selectedPlaceholderRect._originalStrokeWidth !== undefined) {
+            if (selectedPlaceholderRect._originalStrokeWidth !== null) {
+                selectedPlaceholderRect.setAttribute('stroke-width', selectedPlaceholderRect._originalStrokeWidth);
+            } else {
+                selectedPlaceholderRect.removeAttribute('stroke-width');
+            }
+            delete selectedPlaceholderRect._originalStrokeWidth;
+        }
         selectedPlaceholderRect = null;
     }
 
@@ -1920,7 +2050,9 @@ function onImageMouseMove(e) {
         if (h.includes('s')) newHeight = Math.max(20, imageStartHeight + dy);
         if (h.includes('n')) { newHeight = Math.max(20, imageStartHeight - dy); newY = imageStartY + imageStartHeight - newHeight; }
 
-        if (!e.shiftKey) {
+        const lockRatio = propertiesPanel ? propertiesPanel.querySelector('#propLockRatio')?.checked : true;
+        const shouldLockRatio = lockRatio ? !e.shiftKey : e.shiftKey;
+        if (shouldLockRatio) {
             const aspect = imageStartWidth / imageStartHeight;
             if (h.includes('e') || h.includes('w')) {
                 newHeight = newWidth / aspect;
@@ -2097,10 +2229,6 @@ function pushUndoState(type, element, data) {
 }
 
 async function undoLastEdit() {
-    if (!localStorage.getItem('authToken')) {
-        showToast('请先登录', 'error');
-        return;
-    }
     if (undoStack.length === 0) {
         showToast('Nothing to undo', 'info');
         return;
@@ -2126,17 +2254,22 @@ async function undoLastEdit() {
             checkImageOutOfBounds(img);
             selectImage(img);
         }
+    } else if (last.type === 'transform') {
+        const img = findImageByIndex(last.elementIndex);
+        if (img) {
+            if (last.data.oldTransform) {
+                img.setAttribute('transform', last.data.oldTransform);
+            } else {
+                img.removeAttribute('transform');
+            }
+            selectImage(img);
+        }
     } else if (last.type === 'delete') {
         const svgEl = document.getElementById('slideWrapper')?.querySelector('svg');
         if (svgEl && last.data.element) {
             const restored = last.data.element.cloneNode(true);
             restored.removeAttribute('data-image-edit-listener');
             restored.removeAttribute('pointer-events');
-            restored.removeAttribute('data-container-x');
-            restored.removeAttribute('data-container-y');
-            restored.removeAttribute('data-container-width');
-            restored.removeAttribute('data-container-height');
-            restored.removeAttribute('data-container-clip-id');
             restored.removeAttribute('data-out-of-bounds');
             restored.style.cursor = 'move';
             restored.style.opacity = '';
@@ -2147,6 +2280,18 @@ async function undoLastEdit() {
             }
             checkImageOutOfBounds(restored);
             selectImage(restored);
+        }
+    } else if (last.type === 'replace') {
+        const img = findImageByIndex(last.elementIndex);
+        if (img && last.data.oldHref) {
+            img.setAttribute('href', last.data.oldHref);
+            selectImage(img);
+        }
+    } else if (last.type === 'insert') {
+        const img = findImageByIndex(last.elementIndex);
+        if (img) {
+            img.remove();
+            clearImageSelection();
         }
     } else if (last.type === 'text') {
         try {
@@ -2201,8 +2346,58 @@ async function redoLastEdit() {
             checkImageOutOfBounds(img);
             selectImage(img);
         }
+    } else if (last.type === 'delete') {
+        const svgEl = document.getElementById('slideWrapper')?.querySelector('svg');
+        if (svgEl && last.data.element) {
+            const restored = last.data.element.cloneNode(true);
+            restored.removeAttribute('data-image-edit-listener');
+            restored.removeAttribute('pointer-events');
+            restored.removeAttribute('data-out-of-bounds');
+            restored.style.cursor = 'move';
+            restored.style.opacity = '';
+            restored.addEventListener('mousedown', onImageMouseDown);
+            svgEl.appendChild(restored);
+            if (!restored.dataset.containerX) {
+                detectImageContainerBounds(restored);
+            }
+            checkImageOutOfBounds(restored);
+            selectImage(restored);
+        }
+    } else if (last.type === 'replace') {
+        const img = findImageByIndex(last.elementIndex);
+        if (img && last.data.newHref) {
+            img.setAttribute('href', last.data.newHref);
+            selectImage(img);
+        }
+    } else if (last.type === 'transform') {
+        const img = findImageByIndex(last.elementIndex);
+        if (img) {
+            if (last.data.newTransform) {
+                img.setAttribute('transform', last.data.newTransform);
+            } else {
+                img.removeAttribute('transform');
+            }
+            selectImage(img);
+        }
+    } else if (last.type === 'insert') {
+        const svgEl = document.getElementById('slideWrapper')?.querySelector('svg');
+        if (svgEl && last.data.element) {
+            const restored = last.data.element.cloneNode(true);
+            restored.removeAttribute('data-image-edit-listener');
+            restored.removeAttribute('pointer-events');
+            restored.style.cursor = 'move';
+            restored.style.opacity = '';
+            restored.addEventListener('mousedown', onImageMouseDown);
+            svgEl.appendChild(restored);
+            if (!restored.dataset.containerX) {
+                detectImageContainerBounds(restored);
+            }
+            checkImageOutOfBounds(restored);
+            selectImage(restored);
+        }
     }
 
+    saveCurrentSvg();
     showToast('Redo successful', 'success');
 }
 
@@ -2247,15 +2442,20 @@ document.addEventListener('keydown', (e) => {
         e.preventDefault();
         redoLastEdit();
     }
-    if (e.key === 'Delete' && isEditMode && selectedImage) {
+    if (e.key === 'Delete' && isEditMode && (selectedImage || selectedPlaceholderRect)) {
         e.preventDefault();
-        deleteSelectedImage();
+        if (selectedImage) {
+            deleteSelectedImage();
+        } else if (selectedPlaceholderRect) {
+            clearImageSelection();
+        }
     }
-    if (e.key === 'Escape' && isEditMode && selectedImage) {
+    if (e.key === 'Escape' && isEditMode && (selectedImage || selectedPlaceholderRect)) {
         e.preventDefault();
         clearImageSelection();
     }
     if ((e.key === 'v' || e.key === 'V') && (e.ctrlKey || e.metaKey) && isEditMode && pasteImageMode && (selectedImage || selectedPlaceholderRect)) {
+        e.preventDefault();
     }
 });
 
@@ -2280,7 +2480,8 @@ async function handleClipboardPaste(e) {
     e.preventDefault();
     
     try {
-        const base64Data = await readFileAsBase64(imageFile);
+        let base64Data = await readFileAsBase64(imageFile);
+        base64Data = await optimizeImage(base64Data);
         
         if (selectedPlaceholderRect) {
             await insertImageToPlaceholder(selectedPlaceholderRect, base64Data);
@@ -2296,6 +2497,8 @@ async function handleClipboardPaste(e) {
 async function insertImageToPlaceholder(rect, base64Data) {
     const svgEl = rect.closest('svg');
     if (!svgEl) return;
+
+    rect.dataset.imageContainer = 'true';
 
     let x = parseFloat(rect.getAttribute('x') || 0);
     let y = parseFloat(rect.getAttribute('y') || 0);
@@ -2356,9 +2559,18 @@ async function insertImageToPlaceholder(rect, base64Data) {
 
     rect.style.display = 'none';
 
-    const nextText = rect.nextElementSibling;
-    if (nextText && nextText.tagName && nextText.tagName.toLowerCase() === 'text') {
-        nextText.style.display = 'none';
+    const parentG = rect.parentElement;
+    if (parentG) {
+        parentG.querySelectorAll('text').forEach(t => {
+            const textX = parseFloat(t.getAttribute('x') || 0);
+            const textY = parseFloat(t.getAttribute('y') || 0);
+            if (textX >= parseFloat(rect.getAttribute('x') || 0) && 
+                textX <= parseFloat(rect.getAttribute('x') || 0) + w &&
+                textY >= parseFloat(rect.getAttribute('y') || 0) && 
+                textY <= parseFloat(rect.getAttribute('y') || 0) + h) {
+                t.style.display = 'none';
+            }
+        });
     }
 
     if (isEditMode) {
@@ -2370,19 +2582,20 @@ async function insertImageToPlaceholder(rect, base64Data) {
         rect._overlayEl.remove();
         rect._overlayEl = null;
     }
+    const overlayRef = _overlayMap.get(rect);
+    if (overlayRef) {
+        overlayRef.remove();
+        _overlayMap.delete(rect);
+    }
+
+    pushUndoState('insert', img, {
+        element: img.cloneNode(true),
+        placeholderRect: rect
+    });
 
     clearImageSelection();
     saveCurrentSvg(true);
     showToast('图片已粘贴！', 'success');
-}
-
-function readFileAsBase64(file) {
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = (e) => resolve(e.target.result);
-        reader.onerror = (e) => reject(new Error('Failed to read file'));
-        reader.readAsDataURL(file);
-    });
 }
 
 async function replaceSelectedImage(base64Data) {
@@ -2391,23 +2604,10 @@ async function replaceSelectedImage(base64Data) {
         return;
     }
     
-    const svgEl = selectedImage.closest('svg');
-    const x = parseFloat(selectedImage.getAttribute('x') || 0);
-    const y = parseFloat(selectedImage.getAttribute('y') || 0);
-    const width = parseFloat(selectedImage.getAttribute('width') || 400);
-    const height = parseFloat(selectedImage.getAttribute('height') || 300);
-    const containerX = selectedImage.dataset.containerX ? parseFloat(selectedImage.dataset.containerX) : x;
-    const containerY = selectedImage.dataset.containerY ? parseFloat(selectedImage.dataset.containerY) : y;
-    const containerWidth = selectedImage.dataset.containerWidth ? parseFloat(selectedImage.dataset.containerWidth) : width;
-    const containerHeight = selectedImage.dataset.containerHeight ? parseFloat(selectedImage.dataset.containerHeight) : height;
-    
-    const oldX = parseFloat(selectedImage.getAttribute('x') || 0);
-    const oldY = parseFloat(selectedImage.getAttribute('y') || 0);
-    const oldWidth = parseFloat(selectedImage.getAttribute('width') || 0);
-    const oldHeight = parseFloat(selectedImage.getAttribute('height') || 0);
+    const oldHref = selectedImage.getAttribute('href') || selectedImage.getAttribute('xlink:href');
     pushUndoState('replace', selectedImage, {
-        oldX, oldY, oldWidth, oldHeight,
-        oldHref: selectedImage.getAttribute('href') || selectedImage.getAttribute('xlink:href')
+        oldHref: oldHref,
+        newHref: base64Data
     });
     
     selectedImage.setAttribute('href', base64Data);
@@ -2563,23 +2763,58 @@ function createPropertiesPanel() {
     propertiesPanel.id = 'propertiesPanel';
     propertiesPanel.style.cssText = `
         position: absolute; top: 8px; right: 8px; z-index: 50;
-        background: rgba(15, 23, 42, 0.92); border: 1px solid rgba(59, 130, 246, 0.4);
-        border-radius: 8px; padding: 12px; min-width: 180px; font-size: 12px;
+        background: rgba(15, 23, 42, 0.95); border: 1px solid rgba(59, 130, 246, 0.4);
+        border-radius: 8px; padding: 12px; min-width: 200px; font-size: 12px;
         color: #e2e8f0; display: none; backdrop-filter: blur(8px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;
     `;
 
     propertiesPanel.innerHTML = `
-        <div style="font-weight:600; margin-bottom:8px; color:#93c5fd; font-size:13px;">Image Properties</div>
+        <div style="font-weight:600; margin-bottom:8px; color:#93c5fd; font-size:13px;">🖼️ Image Properties</div>
         <div style="display:grid; grid-template-columns:auto 1fr; gap:4px 8px; align-items:center;">
             <span style="color:#94a3b8;">X:</span><input id="propX" type="number" style="background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:4px; padding:2px 6px; width:100%; font-size:12px;" />
             <span style="color:#94a3b8;">Y:</span><input id="propY" type="number" style="background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:4px; padding:2px 6px; width:100%; font-size:12px;" />
             <span style="color:#94a3b8;">W:</span><input id="propW" type="number" style="background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:4px; padding:2px 6px; width:100%; font-size:12px;" />
             <span style="color:#94a3b8;">H:</span><input id="propH" type="number" style="background:#1e293b; border:1px solid #334155; color:#e2e8f0; border-radius:4px; padding:2px 6px; width:100%; font-size:12px;" />
         </div>
+        <div style="margin-top:6px; display:flex; align-items:center; gap:6px;">
+            <input id="propLockRatio" type="checkbox" checked style="accent-color:#3b82f6;" />
+            <label for="propLockRatio" style="color:#94a3b8; font-size:11px; cursor:pointer;">🔒 Lock Aspect Ratio</label>
+        </div>
+        <div style="margin-top:6px;">
+            <span style="color:#94a3b8; font-size:11px;">Fit Mode:</span>
+            <div style="display:flex; gap:3px; margin-top:3px;">
+                <button id="propFitSlice" class="prop-fit-btn active" style="flex:1; background:#1e40af; color:#fff; border:none; border-radius:3px; padding:3px; cursor:pointer; font-size:10px;" title="Fill (crop to fit)">Fill</button>
+                <button id="propFitMeet" class="prop-fit-btn" style="flex:1; background:#334155; color:#94a3b8; border:none; border-radius:3px; padding:3px; cursor:pointer; font-size:10px;" title="Fit (show all)">Fit</button>
+                <button id="propFitStretch" class="prop-fit-btn" style="flex:1; background:#334155; color:#94a3b8; border:none; border-radius:3px; padding:3px; cursor:pointer; font-size:10px;" title="Stretch (distort)">Stretch</button>
+            </div>
+        </div>
+        <div style="margin-top:6px;">
+            <span style="color:#94a3b8; font-size:11px;">Opacity:</span>
+            <div style="display:flex; align-items:center; gap:6px; margin-top:3px;">
+                <input id="propOpacity" type="range" min="0" max="100" value="100" style="flex:1; accent-color:#3b82f6;" />
+                <span id="propOpacityVal" style="color:#e2e8f0; font-size:11px; min-width:30px; text-align:right;">100%</span>
+            </div>
+        </div>
         <div style="margin-top:8px; display:flex; gap:4px;">
             <button id="propCenterH" style="flex:1; background:#1e40af; color:#fff; border:none; border-radius:4px; padding:4px; cursor:pointer; font-size:11px;" title="Center horizontally">H-Center</button>
             <button id="propCenterV" style="flex:1; background:#1e40af; color:#fff; border:none; border-radius:4px; padding:4px; cursor:pointer; font-size:11px;" title="Center vertically">V-Center</button>
+        </div>
+        <div style="margin-top:6px; border-top:1px solid #334155; padding-top:6px;">
+            <span style="color:#94a3b8; font-size:11px;">Transform:</span>
+            <div style="display:flex; gap:3px; margin-top:3px; flex-wrap:wrap;">
+                <button id="propRotateCW" style="background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px 6px; cursor:pointer; font-size:11px;" title="Rotate 90° clockwise">↻90°</button>
+                <button id="propRotateCCW" style="background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px 6px; cursor:pointer; font-size:11px;" title="Rotate 90° counter-clockwise">↺90°</button>
+                <button id="propFlipH" style="background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px 6px; cursor:pointer; font-size:11px;" title="Flip horizontal">↔Flip</button>
+                <button id="propFlipV" style="background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px 6px; cursor:pointer; font-size:11px;" title="Flip vertical">↕Flip</button>
+            </div>
+        </div>
+        <div style="margin-top:6px; border-top:1px solid #334155; padding-top:6px;">
+            <span style="color:#94a3b8; font-size:11px;">Layer:</span>
+            <div style="display:flex; gap:3px; margin-top:3px;">
+                <button id="propBringFront" style="flex:1; background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px; cursor:pointer; font-size:10px;" title="Bring to front">⬆ Front</button>
+                <button id="propSendBack" style="flex:1; background:#334155; color:#e2e8f0; border:none; border-radius:3px; padding:3px; cursor:pointer; font-size:10px;" title="Send to back">⬇ Back</button>
+            </div>
         </div>
     `;
 
@@ -2600,7 +2835,19 @@ function createPropertiesPanel() {
         const oldY = parseFloat(selectedImage.getAttribute('y') || 0);
         const oldWidth = parseFloat(selectedImage.getAttribute('width') || 0);
         const oldHeight = parseFloat(selectedImage.getAttribute('height') || 0);
+
         selectedImage.setAttribute(attr, val);
+
+        const lockRatio = propertiesPanel.querySelector('#propLockRatio')?.checked;
+        if (lockRatio && (attr === 'width' || attr === 'height')) {
+            const aspect = oldWidth / oldHeight;
+            if (attr === 'width') {
+                selectedImage.setAttribute('height', val / aspect);
+            } else {
+                selectedImage.setAttribute('width', val * aspect);
+            }
+        }
+
         pushUndoState('resize', selectedImage, {
             oldX, oldY, oldWidth, oldHeight,
             newX: parseFloat(selectedImage.getAttribute('x') || 0),
@@ -2609,7 +2856,8 @@ function createPropertiesPanel() {
             newHeight: parseFloat(selectedImage.getAttribute('height') || 0)
         });
         checkImageOutOfBounds(selectedImage);
-        updateSelectionBoxPosition();
+        updateSelectionBoxesPosition();
+        updatePropertiesPanel();
         saveCurrentSvg();
     };
 
@@ -2627,13 +2875,11 @@ function createPropertiesPanel() {
         const w = parseFloat(selectedImage.getAttribute('width') || 0);
         const oldX = parseFloat(selectedImage.getAttribute('x') || 0);
         const oldY = parseFloat(selectedImage.getAttribute('y') || 0);
-        const oldWidth = parseFloat(selectedImage.getAttribute('width') || 0);
-        const oldHeight = parseFloat(selectedImage.getAttribute('height') || 0);
         const newX = (svgW - w) / 2;
         selectedImage.setAttribute('x', newX);
         pushUndoState('move', selectedImage, { oldX, oldY, newX, newY: oldY });
         checkImageOutOfBounds(selectedImage);
-        updateSelectionBoxPosition();
+        updateSelectionBoxesPosition();
         updatePropertiesPanel();
         saveCurrentSvg();
     });
@@ -2647,15 +2893,48 @@ function createPropertiesPanel() {
         const h = parseFloat(selectedImage.getAttribute('height') || 0);
         const oldX = parseFloat(selectedImage.getAttribute('x') || 0);
         const oldY = parseFloat(selectedImage.getAttribute('y') || 0);
-        const oldWidth = parseFloat(selectedImage.getAttribute('width') || 0);
-        const oldHeight = parseFloat(selectedImage.getAttribute('height') || 0);
         const newY = (svgH - h) / 2;
         selectedImage.setAttribute('y', newY);
         pushUndoState('move', selectedImage, { oldX, oldY, newX: oldX, newY });
         checkImageOutOfBounds(selectedImage);
-        updateSelectionBoxPosition();
+        updateSelectionBoxesPosition();
         updatePropertiesPanel();
         saveCurrentSvg();
+    });
+
+    propertiesPanel.querySelector('#propRotateCW').addEventListener('click', () => rotateImage(90));
+    propertiesPanel.querySelector('#propRotateCCW').addEventListener('click', () => rotateImage(-90));
+    propertiesPanel.querySelector('#propFlipH').addEventListener('click', () => flipImage('h'));
+    propertiesPanel.querySelector('#propFlipV').addEventListener('click', () => flipImage('v'));
+    propertiesPanel.querySelector('#propBringFront').addEventListener('click', () => changeImageLayer('front'));
+    propertiesPanel.querySelector('#propSendBack').addEventListener('click', () => changeImageLayer('back'));
+
+    propertiesPanel.querySelectorAll('.prop-fit-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mode = btn.id === 'propFitSlice' ? 'slice' : btn.id === 'propFitMeet' ? 'meet' : 'none';
+            setImageFitMode(mode);
+            propertiesPanel.querySelectorAll('.prop-fit-btn').forEach(b => {
+                b.style.background = '#334155';
+                b.style.color = '#94a3b8';
+            });
+            btn.style.background = '#1e40af';
+            btn.style.color = '#fff';
+        });
+    });
+
+    propertiesPanel.querySelector('#propOpacity').addEventListener('input', (e) => {
+        const val = parseInt(e.target.value);
+        propertiesPanel.querySelector('#propOpacityVal').textContent = val + '%';
+        if (selectedImage) {
+            selectedImage.style.opacity = val / 100;
+        }
+    });
+    propertiesPanel.querySelector('#propOpacity').addEventListener('change', (e) => {
+        const val = parseInt(e.target.value);
+        if (selectedImage) {
+            selectedImage.style.opacity = val / 100;
+            saveCurrentSvg();
+        }
     });
 
     return propertiesPanel;
@@ -2678,6 +2957,134 @@ function updatePropertiesPanel() {
     propertiesPanel.querySelector('#propY').value = Math.round(y);
     propertiesPanel.querySelector('#propW').value = Math.round(w);
     propertiesPanel.querySelector('#propH').value = Math.round(h);
+
+    const currentTransform = selectedImage.getAttribute('transform') || '';
+    const currentRotation = getImageRotation(selectedImage);
+    const currentScaleX = getImageScaleX(selectedImage);
+    const currentScaleY = getImageScaleY(selectedImage);
+
+    const currentFit = selectedImage.getAttribute('preserveAspectRatio') || 'xMidYMid slice';
+    propertiesPanel.querySelectorAll('.prop-fit-btn').forEach(btn => {
+        const mode = btn.id === 'propFitSlice' ? 'slice' : btn.id === 'propFitMeet' ? 'meet' : 'none';
+        const isActive = currentFit.includes(mode) || (mode === 'slice' && currentFit === 'xMidYMid slice') ||
+                         (mode === 'meet' && currentFit === 'xMidYMid meet') ||
+                         (mode === 'none' && (currentFit === 'none' || !currentFit.includes('Mid')));
+        btn.style.background = isActive ? '#1e40af' : '#334155';
+        btn.style.color = isActive ? '#fff' : '#94a3b8';
+    });
+
+    const currentOpacity = selectedImage.style.opacity !== '' ? Math.round(parseFloat(selectedImage.style.opacity) * 100) : 100;
+    propertiesPanel.querySelector('#propOpacity').value = currentOpacity;
+    propertiesPanel.querySelector('#propOpacityVal').textContent = currentOpacity + '%';
+}
+
+function getImageRotation(img) {
+    const transform = img.getAttribute('transform') || '';
+    const match = transform.match(/rotate\(\s*([\d.-]+)/);
+    return match ? parseFloat(match[1]) : 0;
+}
+
+function getImageScaleX(img) {
+    const transform = img.getAttribute('transform') || '';
+    const match = transform.match(/scale\(\s*([\d.-]+)(?:\s*,\s*([\d.-]+))?\)/);
+    return match ? parseFloat(match[1]) : 1;
+}
+
+function getImageScaleY(img) {
+    const transform = img.getAttribute('transform') || '';
+    const match = transform.match(/scale\(\s*([\d.-]+)(?:\s*,\s*([\d.-]+))?\)/);
+    return match && match[2] !== undefined ? parseFloat(match[2]) : getImageScaleX(img);
+}
+
+function setImageTransform(img, rotation, scaleX, scaleY) {
+    const parts = [];
+    const x = parseFloat(img.getAttribute('x') || 0);
+    const y = parseFloat(img.getAttribute('y') || 0);
+    const w = parseFloat(img.getAttribute('width') || 0);
+    const h = parseFloat(img.getAttribute('height') || 0);
+    const cx = x + w / 2;
+    const cy = y + h / 2;
+
+    if (rotation !== 0) {
+        parts.push(`rotate(${rotation}, ${cx}, ${cy})`);
+    }
+    if (scaleX !== 1 || scaleY !== 1) {
+        parts.push(`translate(${cx}, ${cy})`);
+        parts.push(`scale(${scaleX}, ${scaleY})`);
+        parts.push(`translate(${-cx}, ${-cy})`);
+    }
+    if (parts.length > 0) {
+        img.setAttribute('transform', parts.join(' '));
+    } else {
+        img.removeAttribute('transform');
+    }
+}
+
+function rotateImage(degrees) {
+    if (!selectedImage) return;
+    const oldTransform = selectedImage.getAttribute('transform') || '';
+    const oldRotation = getImageRotation(selectedImage);
+    const scaleX = getImageScaleX(selectedImage);
+    const scaleY = getImageScaleY(selectedImage);
+    const newRotation = (oldRotation + degrees) % 360;
+    setImageTransform(selectedImage, newRotation, scaleX, scaleY);
+    const newTransform = selectedImage.getAttribute('transform') || '';
+    pushUndoState('transform', selectedImage, {
+        oldTransform,
+        newTransform
+    });
+    updateSelectionBoxesPosition();
+    saveCurrentSvg();
+    showToast(`旋转 ${degrees > 0 ? '顺' : '逆'}时针 90°`, 'success');
+}
+
+function flipImage(direction) {
+    if (!selectedImage) return;
+    const oldTransform = selectedImage.getAttribute('transform') || '';
+    const rotation = getImageRotation(selectedImage);
+    const oldScaleX = getImageScaleX(selectedImage);
+    const oldScaleY = getImageScaleY(selectedImage);
+    const newScaleX = direction === 'h' ? -oldScaleX : oldScaleX;
+    const newScaleY = direction === 'v' ? -oldScaleY : oldScaleY;
+    setImageTransform(selectedImage, rotation, newScaleX, newScaleY);
+    const newTransform = selectedImage.getAttribute('transform') || '';
+    pushUndoState('transform', selectedImage, {
+        oldTransform,
+        newTransform
+    });
+    updateSelectionBoxesPosition();
+    saveCurrentSvg();
+    showToast(direction === 'h' ? '水平翻转' : '垂直翻转', 'success');
+}
+
+function changeImageLayer(direction) {
+    if (!selectedImage) return;
+    const svgEl = selectedImage.closest('svg');
+    if (!svgEl) return;
+
+    if (direction === 'front') {
+        svgEl.appendChild(selectedImage);
+        showToast('已移到最前', 'success');
+    } else {
+        let firstElement = svgEl.firstElementChild;
+        if (firstElement && firstElement !== selectedImage) {
+            svgEl.insertBefore(selectedImage, firstElement);
+        } else if (firstElement === selectedImage && firstElement.nextElementSibling) {
+            svgEl.insertBefore(selectedImage, firstElement.nextElementSibling);
+        }
+        showToast('已移到最后', 'success');
+    }
+    updateSelectionBoxesPosition();
+    saveCurrentSvg();
+}
+
+function setImageFitMode(mode) {
+    if (!selectedImage) return;
+    const preserveAspectRatio = mode === 'slice' ? 'xMidYMid slice' :
+                                mode === 'meet' ? 'xMidYMid meet' : 'none';
+    selectedImage.setAttribute('preserveAspectRatio', preserveAspectRatio);
+    saveCurrentSvg();
+    showToast(`适配模式: ${mode === 'slice' ? '填充' : mode === 'meet' ? '适应' : '拉伸'}`, 'success');
 }
 
 function generateThumbnails() {
@@ -2687,13 +3094,12 @@ function generateThumbnails() {
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
-        const slidePath = basePath + encodeURIComponent(slide.file);
         return `
         <div class="thumbnail rounded-lg overflow-hidden border-2 ${index === 0 ? 'border-brand-500' : 'border-transparent'}"
              onclick="goToSlide(${index})"
              id="thumb-${index}">
             <div class="relative bg-dark-800 animate-pulse">
-                <img src="${slidePath}" class="w-full" loading="lazy" alt="${slide.title}"
+                <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full lazy-thumb" alt="${slide.title}"
                      onload="this.parentElement.classList.remove('animate-pulse', 'bg-dark-800')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-full h-16 flex items-center justify-center bg-dark-900 text-gray-600">
@@ -2705,7 +3111,43 @@ function generateThumbnails() {
             </div>
         </div>
     `}).join('');
+
+    initLazyThumbnails(container);
 }
+
+let _thumbObserver = null;
+
+function initLazyThumbnails(container) {
+    if (_thumbObserver) _thumbObserver.disconnect();
+
+    if ('IntersectionObserver' in window) {
+        _thumbObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        delete img.dataset.src;
+                    }
+                    _thumbObserver.unobserve(img);
+                }
+            });
+        }, { root: container, rootMargin: '200px 0px', threshold: 0 });
+
+        container.querySelectorAll('.lazy-thumb').forEach(img => {
+            _thumbObserver.observe(img);
+        });
+    } else {
+        container.querySelectorAll('.lazy-thumb').forEach(img => {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                delete img.dataset.src;
+            }
+        });
+    }
+}
+
+let _overviewDirty = false;
 
 function generateOverview() {
     if (!currentCollection) return;
@@ -2714,12 +3156,11 @@ function generateOverview() {
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
-        const slidePath = basePath + encodeURIComponent(slide.file);
         return `
         <div class="rounded-xl p-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
              onclick="goToSlide(${index}); window.scrollTo({top: 0, behavior: 'smooth'})">
             <div class="relative bg-dark-800 rounded-lg animate-pulse">
-                <img src="${slidePath}" class="w-full rounded-lg" loading="lazy" alt="${slide.title}"
+                <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full rounded-lg lazy-overview" alt="${slide.title}"
                      onload="this.parentElement.classList.remove('animate-pulse', 'bg-dark-800')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-full h-24 flex items-center justify-center bg-dark-900 rounded-lg text-gray-600">
@@ -2732,6 +3173,52 @@ function generateOverview() {
             </div>
         </div>
     `}).join('');
+
+    initLazyOverview(container);
+}
+
+let _overviewObserver = null;
+
+function initLazyOverview(container) {
+    if (_overviewObserver) _overviewObserver.disconnect();
+
+    if ('IntersectionObserver' in window) {
+        _overviewObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        delete img.dataset.src;
+                    }
+                    _overviewObserver.unobserve(img);
+                }
+            });
+        }, { rootMargin: '300px 0px', threshold: 0 });
+
+        container.querySelectorAll('.lazy-overview').forEach(img => {
+            _overviewObserver.observe(img);
+        });
+    } else {
+        container.querySelectorAll('.lazy-overview').forEach(img => {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+                delete img.dataset.src;
+            }
+        });
+    }
+}
+
+function showOverview() {
+    if (_overviewDirty) {
+        generateOverview();
+        _overviewDirty = false;
+    }
+    document.getElementById('overviewModal').classList.remove('hidden');
+}
+
+function closeOverview() {
+    document.getElementById('overviewModal').classList.add('hidden');
 }
 
 function updateSlide() {
@@ -2756,6 +3243,11 @@ function performSlideUpdate() {
     clearImageSelection();
     removeEditOverlay();
     removeOutOfBoundsIndicator();
+
+    {
+        const sw = document.getElementById('slideWrapper');
+        if (sw) delete sw.dataset.slideWrapperEditListener;
+    }
 
     const slide = currentCollection.slides[currentSlide];
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
@@ -2786,7 +3278,7 @@ function performSlideUpdate() {
                 return res.text();
             })
             .then(content => {
-                svgCache.set(path, content);
+                svgCacheSet(path, content);
                 return content;
             });
     };
@@ -2821,25 +3313,15 @@ function performSlideUpdate() {
             const spinner = document.getElementById('slideLoadingSpinner');
             if (spinner) spinner.remove();
 
-            svgEl.addEventListener('load', () => {
+            requestAnimationFrame(() => {
                 setupTextEditListeners(svgEl);
-                if (isEditMode) {
-                    setupImageEditListeners();
-                } else {
-                    setupImagePlaceholderOverlays();
-                }
+                setupImageOverlays();
             });
-            setTimeout(() => {
-                setupTextEditListeners(svgEl);
-                if (isEditMode) {
-                    setupImageEditListeners();
-                } else {
-                    setupImagePlaceholderOverlays();
-                }
-            }, 50);
 
             currentEditingSlidePath = slidePath;
             isSlideUpdating = false;
+
+            preloadAdjacentSlides();
 
             if (pendingSlideIndex !== null) {
                 const nextIndex = pendingSlideIndex;
@@ -2883,6 +3365,28 @@ function performSlideUpdate() {
             }
         }
     });
+}
+
+function preloadAdjacentSlides() {
+    if (!currentCollection) return;
+    const basePath = '/' + encodePath(currentCollection.folder) + '/';
+    const preloadRange = 2;
+
+    for (let offset = -preloadRange; offset <= preloadRange; offset++) {
+        if (offset === 0) continue;
+        const idx = currentSlide + offset;
+        if (idx < 0 || idx >= currentCollection.slides.length) continue;
+
+        const slidePath = basePath + encodeURIComponent(currentCollection.slides[idx].file);
+        if (!svgCache.has(slidePath)) {
+            fetch(slidePath)
+                .then(res => res.ok ? res.text() : null)
+                .then(content => {
+                    if (content) svgCacheSet(slidePath, content);
+                })
+                .catch(() => {});
+        }
+    }
 }
 
 function nextSlide() {
@@ -3231,15 +3735,11 @@ document.addEventListener('keydown', (e) => {
             break;
         case 'e':
         case 'E':
-            if (currentCollection && !isFullscreen) {
-                if (!localStorage.getItem('authToken')) {
-                    showToast('请先登录', 'error');
-                    const loginModal = document.getElementById('loginModal');
-                    if (loginModal) loginModal.style.display = 'flex';
-                } else {
-                    toggleEditMode();
-                }
-            }
+            if (currentCollection && !isFullscreen) toggleEditMode();
+            break;
+        case 'o':
+        case 'O':
+            if (currentCollection && !isFullscreen) showOverview();
             break;
     }
 });
@@ -3283,10 +3783,6 @@ document.addEventListener('touchend', (e) => {
 });
 
 async function saveImageChanges() {
-    if (!localStorage.getItem('authToken')) {
-        showToast('请先登录', 'error');
-        return;
-    }
     if (!selectedImage || !currentEditingSlidePath) {
         showToast('No image selected', 'info');
         return;
@@ -3312,11 +3808,6 @@ async function saveImageChanges() {
         clone.querySelectorAll('[data-image-edit-listener]').forEach(el => {
             el.removeAttribute('data-image-edit-listener');
             el.removeAttribute('pointer-events');
-            el.removeAttribute('data-container-x');
-            el.removeAttribute('data-container-y');
-            el.removeAttribute('data-container-width');
-            el.removeAttribute('data-container-height');
-            el.removeAttribute('data-container-clip-id');
             el.removeAttribute('data-out-of-bounds');
             el.style.opacity = '';
             el.style.cursor = '';
@@ -3350,10 +3841,6 @@ async function saveImageChanges() {
 }
 
 async function exportPPT() {
-    if (!localStorage.getItem('authToken')) {
-        showToast('请先登录', 'error');
-        return;
-    }
     if (!currentCollection) return;
 
     const exportBtn = document.getElementById('exportBtn');

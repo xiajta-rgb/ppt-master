@@ -3,6 +3,9 @@ import sys
 import logging
 import time
 import threading
+import json
+import base64
+import io
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -13,6 +16,74 @@ from config import PROJECT_DIR, STATIC_DIR, SCRIPTS_DIR, PROJECT_ALIASES, PORT
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path='')
 
+import gzip
+GZIP_MIN_SIZE = 500
+GZIP_LEVEL = 6
+GZIP_MIMETYPES = {
+    'text/html', 'text/css', 'text/xml', 'text/plain',
+    'application/json', 'application/javascript', 'application/xml',
+    'image/svg+xml',
+}
+
+@app.after_request
+def gzip_response(response):
+    if request.method == 'HEAD':
+        return response
+    accept_encoding = request.headers.get('Accept-Encoding', '')
+    if 'gzip' not in accept_encoding:
+        return response
+
+    content_type = response.content_type
+    if not content_type:
+        return response
+    base_ct = content_type.split(';')[0].strip().lower()
+    if base_ct not in GZIP_MIMETYPES:
+        return response
+
+    if response.content_length is not None and response.content_length < GZIP_MIN_SIZE:
+        return response
+
+    if 'Content-Encoding' in response.headers:
+        return response
+
+    response.direct_passthrough = False
+    data = response.get_data()
+    if len(data) < GZIP_MIN_SIZE:
+        return response
+
+    compressed = gzip.compress(data, compresslevel=GZIP_LEVEL)
+    if len(compressed) >= len(data):
+        return response
+
+    response.set_data(compressed)
+    response.headers['Content-Encoding'] = 'gzip'
+    response.headers['Vary'] = 'Accept-Encoding'
+    response.headers['Content-Length'] = len(compressed)
+    return response
+
+@app.after_request
+def add_cache_headers(response):
+    if request.path.startswith('/api/'):
+        response.headers['Cache-Control'] = 'no-cache'
+        return response
+
+    if 'Content-Encoding' in response.headers:
+        response.headers['Vary'] = 'Accept-Encoding'
+
+    content_type = response.content_type or ''
+    base_ct = content_type.split(';')[0].strip().lower()
+
+    if base_ct in ('image/svg+xml', 'image/png', 'image/jpeg', 'image/webp', 'image/gif'):
+        response.headers['Cache-Control'] = 'public, max-age=86400'
+    elif base_ct in ('text/css', 'application/javascript'):
+        response.headers['Cache-Control'] = 'public, max-age=3600'
+    elif base_ct == 'text/html':
+        response.headers['Cache-Control'] = 'no-cache'
+    else:
+        response.headers['Cache-Control'] = 'public, max-age=600'
+
+    return response
+
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s [%(levelname)s] %(name)s: %(message)s',
@@ -21,31 +92,14 @@ logging.basicConfig(
 logger = logging.getLogger('ppt-master')
 
 _file_watch_cache = {}
+_file_watch_last_scan = 0
+FILE_WATCH_SCAN_INTERVAL = 10
 _last_reload_time = time.time()
 
 USERS = {
     'admin': 'admin',
     'lasen': '123456'
 }
-
-_session_tokens = {}
-
-def check_user_auth():
-    """Check if user is logged in via cookie or header."""
-    import secrets
-    auth_header = request.headers.get('Authorization', '')
-    if auth_header.startswith('Bearer '):
-        token = auth_header[7:]
-        if token in _session_tokens.values():
-            for user, t in _session_tokens.items():
-                if t == token:
-                    return user
-    cookie_token = request.cookies.get('auth_token')
-    if cookie_token and cookie_token in _session_tokens.values():
-        for user, t in _session_tokens.items():
-            if t == cookie_token:
-                return user
-    return None
 
 TAG_COLORS = {
     'consulting': {'bg': 'rgba(99, 102, 241, 0.2)', 'border': 'rgba(99, 102, 241, 0.5)'},
@@ -122,27 +176,45 @@ def get_file_mtime(file_path):
     except:
         return 0
 
+_file_watch_lock = threading.Lock()
+
 def scan_project_files():
-    global _file_watch_cache
-    examples_dir = PROJECT_DIR / 'examples'
-    current_files = {}
+    global _file_watch_cache, _file_watch_last_scan
 
-    if examples_dir.exists():
-        for project_dir in examples_dir.iterdir():
-            if project_dir.is_dir():
-                svg_final = project_dir / 'svg_final'
-                if svg_final.exists():
-                    for svg_file in svg_final.glob('*.svg'):
-                        key = str(svg_file.relative_to(PROJECT_DIR))
-                        current_files[key] = get_file_mtime(svg_file)
+    now = time.time()
+    if now - _file_watch_last_scan < FILE_WATCH_SCAN_INTERVAL:
+        return []
 
-    changed_files = []
-    for file_path, mtime in current_files.items():
-        if file_path not in _file_watch_cache or _file_watch_cache[file_path] != mtime:
-            changed_files.append(file_path)
+    if not _file_watch_lock.acquire(blocking=False):
+        return []
 
-    _file_watch_cache = current_files
-    return changed_files
+    try:
+        now = time.time()
+        if now - _file_watch_last_scan < FILE_WATCH_SCAN_INTERVAL:
+            return []
+
+        _file_watch_last_scan = now
+        examples_dir = PROJECT_DIR / 'examples'
+        current_files = {}
+
+        if examples_dir.exists():
+            for project_dir in examples_dir.iterdir():
+                if project_dir.is_dir():
+                    svg_final = project_dir / 'svg_final'
+                    if svg_final.exists():
+                        for svg_file in svg_final.glob('*.svg'):
+                            key = str(svg_file.relative_to(PROJECT_DIR))
+                            current_files[key] = get_file_mtime(svg_file)
+
+        changed_files = []
+        for file_path, mtime in current_files.items():
+            if file_path not in _file_watch_cache or _file_watch_cache[file_path] != mtime:
+                changed_files.append(file_path)
+
+        _file_watch_cache = current_files
+        return changed_files
+    finally:
+        _file_watch_lock.release()
 
 def broadcast_reload(project_id=None, file_path=None):
     global _last_reload_time
@@ -203,6 +275,46 @@ def scan_projects():
     _set_cache(content.encode('utf-8') if isinstance(content, str) else content)
     return Response(content, mimetype='application/json', headers={'Cache-Control': 'no-cache'})
 
+@app.route('/api/project/<project_id>')
+def get_single_project(project_id):
+    resolved = resolve_project_alias(project_id)
+    examples_dir = PROJECT_DIR / 'examples'
+
+    for search_name in [resolved, project_id]:
+        project_dir = examples_dir / search_name
+        if project_dir.exists() and project_dir.is_dir():
+            svg_final = project_dir / 'svg_final'
+            slides = []
+            if svg_final.exists():
+                for svg_file in sorted(svg_final.glob('*.svg')):
+                    slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+            return jsonify({
+                'id': project_dir.name,
+                'folder': f'examples/{project_dir.name}/svg_final',
+                'slides': slides,
+                'alias': [k for k, v in PROJECT_ALIASES.items() if v == project_dir.name]
+            })
+
+    for item in examples_dir.iterdir():
+        if not item.is_dir():
+            continue
+        svg_final = item / 'svg_final'
+        if not svg_final.exists():
+            continue
+        aliases = [k for k, v in PROJECT_ALIASES.items() if v == item.name]
+        if project_id in aliases or project_id.lower() in item.name.lower():
+            slides = []
+            for svg_file in sorted(svg_final.glob('*.svg')):
+                slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+            return jsonify({
+                'id': item.name,
+                'folder': f'examples/{item.name}/svg_final',
+                'slides': slides,
+                'alias': aliases
+            })
+
+    return jsonify({'error': f'Project not found: {project_id}'}), 404
+
 @app.route('/api/projects-data')
 def get_projects_data():
     try:
@@ -219,7 +331,6 @@ def get_projects_data():
 @app.route('/api/login', methods=['POST'])
 def login():
     try:
-        import secrets
         data = request.get_json()
         username = data.get('username', '')
         password = data.get('password', '')
@@ -227,11 +338,7 @@ def login():
         logger.info(f"Login attempt: username={username}")
 
         if username in USERS and USERS[username] == password:
-            token = secrets.token_hex(32)
-            _session_tokens[username] = token
-            resp = jsonify({'success': True, 'username': username, 'token': token})
-            resp.set_cookie('auth_token', token, httponly=True, path='/')
-            return resp
+            return jsonify({'success': True, 'username': username})
         else:
             return jsonify({'success': False, 'error': 'Invalid credentials'}), 401
     except Exception as e:
@@ -240,12 +347,7 @@ def login():
 
 @app.route('/api/logout', methods=['POST'])
 def logout():
-    user = check_user_auth()
-    if user and user in _session_tokens:
-        del _session_tokens[user]
-    resp = jsonify({'success': True})
-    resp.set_cookie('auth_token', '', expires=0, path='/')
-    return resp
+    return jsonify({'success': True})
 
 @app.route('/api/tags', methods=['GET', 'POST'])
 def tags():
@@ -258,8 +360,6 @@ def tags():
             tags_data = {'tags': ['consulting', 'general', 'creative']}
 
         if request.method == 'POST':
-            if not check_user_auth():
-                return jsonify({'success': False, 'error': '请先登录'}), 401
             data = request.get_json()
             action = data.get('action')
             if action == 'add':
@@ -290,10 +390,17 @@ def tags():
         logger.error(f"Tags error: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
 
+def validate_path_safety(file_path):
+    resolved = Path(file_path).resolve()
+    project_resolved = PROJECT_DIR.resolve()
+    try:
+        resolved.relative_to(project_resolved)
+        return True
+    except ValueError:
+        return False
+
 @app.route('/api/edit-svg', methods=['POST'])
 def edit_svg():
-    if not check_user_auth():
-        return jsonify({'success': False, 'error': '请先登录'}), 401
     try:
         data = request.get_json()
         file_name = data.get('file')
@@ -305,7 +412,13 @@ def edit_svg():
         if not all([file_name, folder, old_text is not None, new_text is not None]):
             return jsonify({'success': False, 'error': 'Missing required parameters'}), 400
 
+        if '..' in file_name or '..' in folder:
+            return jsonify({'success': False, 'error': 'Invalid path'}), 400
+
         svg_path = PROJECT_DIR / folder / file_name
+        if not validate_path_safety(svg_path):
+            return jsonify({'success': False, 'error': 'Path not allowed'}), 403
+
         if not svg_path.exists():
             return jsonify({'success': False, 'error': f'File not found: {svg_path}'}), 404
 
@@ -314,35 +427,42 @@ def edit_svg():
             backup_path.unlink()
         svg_path.rename(backup_path)
 
-        content_svg = backup_path.read_text(encoding='utf-8')
+        try:
+            content_svg = backup_path.read_text(encoding='utf-8')
 
-        if element_index is not None:
-            import xml.etree.ElementTree as ET
-            ns = {'svg': 'http://www.w3.org/2000/svg'}
-            root = ET.fromstring(content_svg)
-            text_elements = root.findall('.//svg:text', ns) or root.findall('.//text')
-            idx = int(element_index)
-            if 0 <= idx < len(text_elements):
-                text_elem = text_elements[idx]
-                if text_elem.text == old_text:
-                    text_elem.text = new_text
-                    content_svg = ET.tostring(root, encoding='unicode')
-                    if content_svg.startswith('<?xml'):
-                        content_svg = content_svg[content_svg.index('?>') + 2:].strip()
-                    content_svg = '<?xml version="1.0" encoding="utf-8"?>\n' + content_svg
+            if element_index is not None:
+                import xml.etree.ElementTree as ET
+                ns = {'svg': 'http://www.w3.org/2000/svg'}
+                root = ET.fromstring(content_svg)
+                text_elements = root.findall('.//svg:text', ns) or root.findall('.//text')
+                idx = int(element_index)
+                if 0 <= idx < len(text_elements):
+                    text_elem = text_elements[idx]
+                    if text_elem.text == old_text:
+                        text_elem.text = new_text
+                        content_svg = ET.tostring(root, encoding='unicode')
+                        if content_svg.startswith('<?xml'):
+                            content_svg = content_svg[content_svg.index('?>') + 2:].strip()
+                        content_svg = '<?xml version="1.0" encoding="utf-8"?>\n' + content_svg
+                    else:
+                        backup_path.rename(svg_path)
+                        return jsonify({'success': False, 'error': 'Text content mismatch'}), 400
                 else:
                     backup_path.rename(svg_path)
-                    return jsonify({'success': False, 'error': 'Text content mismatch'}), 400
+                    return jsonify({'success': False, 'error': f'Invalid element index: {idx}'}), 400
             else:
+                content_svg = content_svg.replace(old_text, new_text)
+
+            svg_path.write_text(content_svg, encoding='utf-8')
+            invalidate_scan_cache()
+
+            return jsonify({'success': True, 'message': 'Text updated successfully'})
+
+        except Exception as write_err:
+            logger.error(f"Write error, restoring backup: {write_err}")
+            if backup_path.exists() and not svg_path.exists():
                 backup_path.rename(svg_path)
-                return jsonify({'success': False, 'error': f'Invalid element index: {idx}'}), 400
-        else:
-            content_svg = content_svg.replace(old_text, new_text)
-
-        svg_path.write_text(content_svg, encoding='utf-8')
-        invalidate_scan_cache()
-
-        return jsonify({'success': True, 'message': 'Text updated successfully'})
+            raise
 
     except json.JSONDecodeError as e:
         return jsonify({'success': False, 'error': f'Invalid JSON: {str(e)}'}), 400
@@ -364,7 +484,14 @@ def save_svg():
         if not all([file_name, folder, content]):
             return jsonify({'success': False, 'error': 'Missing required parameters'}), 400
 
+        if '..' in file_name or '..' in folder:
+            return jsonify({'success': False, 'error': 'Invalid path'}), 400
+
         svg_path = PROJECT_DIR / folder / file_name
+
+        if not validate_path_safety(svg_path):
+            return jsonify({'success': False, 'error': 'Path not allowed'}), 403
+
         logger.info(f"Saving to path: {svg_path}")
 
         if is_json:
@@ -400,21 +527,22 @@ def delete_svg():
         if not file_path:
             return jsonify({'success': False, 'error': 'Missing file path'}), 400
         
+        if '..' in file_path:
+            return jsonify({'success': False, 'error': 'Invalid path'}), 400
+        
         if file_path.startswith('/'):
             file_path = file_path[1:]
         
-        from urllib.parse import unquote
         file_path = unquote(file_path)
         
-        full_path = Path(file_path)
+        full_path = PROJECT_DIR / file_path
+        
+        if not validate_path_safety(full_path):
+            return jsonify({'success': False, 'error': 'Path not allowed'}), 403
         
         if not full_path.exists():
-            abs_path = PROJECT_DIR / file_path
-            if abs_path.exists():
-                full_path = abs_path
-            else:
-                logger.warning(f"Delete SVG: file not found at {full_path} or {abs_path}")
-                return jsonify({'success': False, 'error': f'File not found: {full_path}'}), 404
+            logger.warning(f"Delete SVG: file not found at {full_path}")
+            return jsonify({'success': False, 'error': f'File not found'}), 404
         
         full_path.unlink()
         invalidate_scan_cache()
@@ -428,8 +556,6 @@ def delete_svg():
 
 @app.route('/api/save-project', methods=['POST'])
 def save_project():
-    if not check_user_auth():
-        return jsonify({'success': False, 'error': '请先登录'}), 401
     try:
         import json
         data = request.get_json()
@@ -459,8 +585,6 @@ def save_project():
 
 @app.route('/api/export')
 def export():
-    if not check_user_auth():
-        return jsonify({'success': False, 'error': '请先登录'}), 401
     project_id = request.args.get('project')
     if not project_id:
         return Response('project parameter required', mimetype='text/plain', status=400)
@@ -517,7 +641,113 @@ def viewer():
         return send_from_directory(STATIC_DIR, 'viewer.html')
     return '<html><body><h1>viewer.html not found</h1></body></html>', 404
 
+IMAGE_MAX_DIMENSION = 1920
+IMAGE_QUALITY = 82
+IMAGE_MAX_SIZE_KB = 500
+
+def process_image_data(base64_data, max_dimension=IMAGE_MAX_DIMENSION, quality=IMAGE_QUALITY, max_size_kb=IMAGE_MAX_SIZE_KB):
+    try:
+        if ',' in base64_data:
+            header, data = base64_data.split(',', 1)
+            mime_match = __import__('re').search(r'data:(image/\w+);', header)
+            original_mime = mime_match.group(1) if mime_match else 'image/png'
+        else:
+            data = base64_data
+            original_mime = 'image/png'
+
+        img_bytes = base64.b64decode(data)
+        original_size_kb = len(img_bytes) / 1024
+
+        try:
+            from PIL import Image
+            img = Image.open(io.BytesIO(img_bytes))
+
+            if img.mode in ('RGBA', 'P', 'LA'):
+                if img.mode == 'P':
+                    img = img.convert('RGBA')
+                elif img.mode == 'LA':
+                    img = img.convert('RGBA')
+            elif img.mode != 'RGB':
+                img = img.convert('RGB')
+
+            w, h = img.size
+            if max(w, h) > max_dimension:
+                ratio = max_dimension / max(w, h)
+                new_w = int(w * ratio)
+                new_h = int(h * ratio)
+                img = img.resize((new_w, new_h), Image.LANCZOS)
+
+            output = io.BytesIO()
+            if img.mode == 'RGBA':
+                img.save(output, format='PNG', optimize=True)
+                new_mime = 'image/png'
+            else:
+                img.save(output, format='JPEG', quality=quality, optimize=True)
+                new_mime = 'image/jpeg'
+
+            result_bytes = output.getvalue()
+            result_size_kb = len(result_bytes) / 1024
+
+            if result_size_kb > max_size_kb and new_mime == 'image/jpeg':
+                while quality > 30 and result_size_kb > max_size_kb:
+                    quality -= 10
+                    output = io.BytesIO()
+                    img.save(output, format='JPEG', quality=quality, optimize=True)
+                    result_bytes = output.getvalue()
+                    result_size_kb = len(result_bytes) / 1024
+
+            result_b64 = base64.b64encode(result_bytes).decode('ascii')
+            new_header = f'data:{new_mime};base64,'
+
+            logger.info(f"Image processed: {original_size_kb:.0f}KB -> {result_size_kb:.0f}KB, {w}x{h} -> {img.size[0]}x{img.size[1]}")
+
+            return {
+                'success': True,
+                'data': new_header + result_b64,
+                'original_size_kb': round(original_size_kb, 1),
+                'processed_size_kb': round(result_size_kb, 1),
+                'original_dimensions': f'{w}x{h}',
+                'processed_dimensions': f'{img.size[0]}x{img.size[1]}',
+                'mime_type': new_mime
+            }
+        except ImportError:
+            logger.warning("PIL not available, returning original image data")
+            return {
+                'success': True,
+                'data': base64_data,
+                'original_size_kb': round(original_size_kb, 1),
+                'processed_size_kb': round(original_size_kb, 1),
+                'original_dimensions': 'unknown',
+                'processed_dimensions': 'unknown',
+                'mime_type': original_mime,
+                'warning': 'PIL not available, image not optimized'
+            }
+    except Exception as e:
+        logger.error(f"Image processing error: {e}")
+        return {'success': False, 'error': str(e)}
+
+
+@app.route('/api/process-image', methods=['POST'])
+def process_image():
+    try:
+        data = request.get_json()
+        base64_data = data.get('data', '')
+        max_dimension = data.get('maxDimension', IMAGE_MAX_DIMENSION)
+        quality = data.get('quality', IMAGE_QUALITY)
+        max_size_kb = data.get('maxSizeKb', IMAGE_MAX_SIZE_KB)
+
+        if not base64_data:
+            return jsonify({'success': False, 'error': 'No image data provided'}), 400
+
+        result = process_image_data(base64_data, max_dimension, quality, max_size_kb)
+        return jsonify(result)
+    except Exception as e:
+        logger.error(f"Process image API error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
+
+
 @app.route('/examples/<path:filename>')
+@app.route('/api/examples/<path:filename>')
 def serve_examples(filename):
     filename = unquote(filename)
     path_parts = filename.split('/')
@@ -548,4 +778,15 @@ def serve_examples(filename):
 if __name__ == '__main__':
     logger.info(f"Starting PPT Master server on port {PORT}")
     logger.info(f"Access: http://localhost:{PORT}/viewer.html")
-    app.run(host='localhost', port=PORT, debug=False, threaded=True)
+
+    def warmup():
+        import urllib.request
+        time.sleep(1.5)
+        try:
+            urllib.request.urlopen(f'http://127.0.0.1:{PORT}/api/scan-projects', timeout=5)
+            logger.info('Server warmup complete')
+        except Exception as e:
+            logger.warning(f'Warmup failed: {e}')
+
+    threading.Thread(target=warmup, daemon=True).start()
+    app.run(host='0.0.0.0', port=PORT, debug=False, threaded=True)

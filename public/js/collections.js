@@ -260,11 +260,17 @@ const collectionsData = [
             { file: 'P01_封面.svg', title: '封面', desc: '金刚经研究' },
             { file: 'P02_目录导航.svg', title: '目录导航', desc: '内容概览' },
             { file: 'P03_金刚经概述.svg', title: '金刚经概述', desc: '经典介绍' },
-            { file: 'P04_第一品研究意义.svg', title: '第一品研究意义', desc: '研究价值' },
-            { file: 'P05_场景与人物.svg', title: '场景与人物', desc: '背景' },
-            { file: 'P06_细节深度分析.svg', title: '细节深度分析', desc: '文本分析' },
-            { file: 'P07_启示与感悟.svg', title: '启示与感悟', desc: '个人体悟' },
-            { file: 'P08_总结与讨论.svg', title: '总结与讨论', desc: '讨论' }
+            { file: 'P04_第一品研究意义.svg', title: '第一品研究意义', desc: '研究价值' },            { file: 'P05_场景与人物.svg', title: '场景与人物', desc: '背景' },
+            { file: 'P06_佛陀日常行为.svg', title: '佛陀日常行为', desc: '日常行为' },
+            { file: 'P07_隐含的教法.svg', title: '隐含的教法', desc: '教法' },
+            { file: 'P08_序幕功能.svg', title: '序幕功能', desc: '功能' },
+            { file: 'P09_道在平常.svg', title: '道在平常', desc: '平常之道' },
+            { file: 'P10_译本比较.svg', title: '译本比较', desc: '版本比较' },
+            { file: 'P11_注疏流变.svg', title: '注疏流变', desc: '注疏演变' },
+            { file: 'P12_禅宗视角.svg', title: '禅宗视角', desc: '禅宗解读' },
+            { file: 'P13_研究发现.svg', title: '研究发现', desc: '研究成果' },
+            { file: 'P14_深层启示.svg', title: '深层启示', desc: '启示' },
+            { file: 'P15_结语.svg', title: '结语', desc: '总结' }
         ]
     },
     {
@@ -278,13 +284,15 @@ const collectionsData = [
         folder: 'examples/ppt169_像素风_git_introduction/svg_final',
         slides: [
             { file: 'slide_01_cover.svg', title: '封面', desc: 'Git入门' },
-            { file: 'slide_02_what_is_git.svg', title: '什么是Git', desc: '版本控制' },
-            { file: 'slide_03_install.svg', title: '安装指南', desc: '安装配置' },
-            { file: 'slide_04_basic_commands.svg', title: '基本命令', desc: '核心命令' },
-            { file: 'slide_05_branching.svg', title: '分支管理', desc: '分支操作' },
-            { file: 'slide_06_merge_conflicts.svg', title: '合并冲突', desc: '冲突处理' },
-            { file: 'slide_07_github.svg', title: 'GitHub使用', desc: '远程协作' },
-            { file: 'slide_08_tips.svg', title: '实用技巧', desc: '技巧总结' }
+            { file: 'slide_02_navigation.svg', title: '导航', desc: '内容概览' },
+            { file: 'slide_03_what_is_git.svg', title: '什么是Git', desc: '版本控制' },
+            { file: 'slide_04_vcs_features.svg', title: 'VCS特性', desc: '版本控制特性' },
+            { file: 'slide_05_save_point.svg', title: '存档点', desc: '保存机制' },
+            { file: 'slide_06_version_hell.svg', title: '版本地狱', desc: '版本混乱' },
+            { file: 'slide_07_workflow.svg', title: '工作流', desc: '工作流程' },
+            { file: 'slide_08_history.svg', title: '历史记录', desc: '版本历史' },
+            { file: 'slide_09_git_vs_github.svg', title: 'Git vs GitHub', desc: '区别对比' },
+            { file: 'slide_10_summary.svg', title: '总结', desc: '技巧总结' }
         ]
     },
     {
@@ -299,27 +307,43 @@ const collectionsData = [
         slides: [
             { file: 'P01_封面.svg', title: '封面', desc: '市场分析' },
             { file: 'P02_目录.svg', title: '目录', desc: '内容概览' },
+            { file: 'P02a_品类边界说明.svg', title: '品类边界说明', desc: '分类定义' },
+            { file: 'P03_CH01_章节页.svg', title: '市场现状与行业趋势', desc: 'Chapter 01' },
             { file: 'P03_市场分析_章节页.svg', title: '工装文化核心定义', desc: 'Chapter 01' },
-            { file: 'P04_历史演变_时间轴.svg', title: '分阶段历史演变', desc: 'Chapter 02' },
-            { file: 'P04a_核心文化属性.svg', title: '核心文化属性', desc: 'Chapter 02' },
-            { file: 'P04b_市场核心数据.svg', title: '市场核心数据', desc: 'Chapter 02' },
-            { file: 'P05_辅料五金_拉链扣具.svg', title: '拉链与扣具', desc: 'Chapter 03' },
-            { file: 'P05a_辅料五金_织带魔术贴.svg', title: '织带与魔术贴', desc: 'Chapter 03' },
-            { file: 'P06_视觉呈现_军规户外.svg', title: '军规与户外', desc: 'Chapter 04' },
-            { file: 'P06a_视觉呈现_执法机能.svg', title: '执法与机能', desc: 'Chapter 04' },
-            { file: 'P07_品牌竞争_大众中端.svg', title: '大众与中端', desc: 'Chapter 05' },
-            { file: 'P07a_品牌竞争_专业顶级.svg', title: '专业与顶级', desc: 'Chapter 05' },
+            { file: 'P04_历史演变_时间轴.svg', title: '分阶段历史演变', desc: 'Chapter 01' },
+            { file: 'P04a_核心文化属性.svg', title: '核心文化属性', desc: 'Chapter 01' },
+            { file: 'P04b_市场核心数据.svg', title: '市场核心数据', desc: 'Chapter 01' },
+            { file: 'P04c_市场规模增速.svg', title: '市场规模增速', desc: 'Chapter 01' },
+            { file: 'P04d_巴恩风解读.svg', title: '巴恩风解读', desc: 'Chapter 01' },
+            { file: 'P05_CH02_章节页.svg', title: '核心产品设计DNA', desc: 'Chapter 02' },
+            { file: 'P05_辅料五金_拉链扣具.svg', title: '拉链与扣具', desc: 'Chapter 02' },
+            { file: 'P05a_辅料五金_织带魔术贴.svg', title: '织带与魔术贴', desc: 'Chapter 02' },
+            { file: 'P06_CH03_章节页.svg', title: '产品视觉与电商呈现', desc: 'Chapter 03' },
+            { file: 'P06_视觉呈现_军规户外.svg', title: '军规与户外', desc: 'Chapter 03' },
+            { file: 'P06a_视觉呈现_执法机能.svg', title: '执法与机能', desc: 'Chapter 03' },
+            { file: 'P06b_色彩体系.svg', title: '色彩体系', desc: 'Chapter 03' },
+            { file: 'P06c_Listing规范.svg', title: 'Listing规范', desc: 'Chapter 03' },
+            { file: 'P06d_摄影美学.svg', title: '摄影美学', desc: 'Chapter 03' },
+            { file: 'P07_CH04_章节页.svg', title: '消费者人群与需求演变', desc: 'Chapter 04' },
+            { file: 'P07a_人群画像.svg', title: '四大核心人群画像', desc: 'Chapter 04' },
+            { file: 'P07b_需求演变.svg', title: '五大消费需求演变', desc: 'Chapter 04' },
+            { file: 'P07_品牌竞争_大众中端.svg', title: '大众与中端品牌', desc: 'Chapter 04' },
+            { file: 'P07a_品牌竞争_专业顶级.svg', title: '专业与顶级品牌', desc: 'Chapter 04' },
+            { file: 'P08_CH05_章节页.svg', title: '品牌竞争格局', desc: 'Chapter 05' },
+            { file: 'P08a_品牌矩阵.svg', title: '品牌矩阵', desc: 'Chapter 05' },
+            { file: 'P08b_头部品牌策略.svg', title: '头部品牌策略', desc: 'Chapter 05' },
+            { file: 'P09_CH06_章节页.svg', title: '未来机遇与入局战略', desc: 'Chapter 06' },
             { file: 'P08_未来机遇_战略窗口.svg', title: '战略机遇窗口', desc: 'Chapter 06' },
             { file: 'P08a_未来机遇_市场建议.svg', title: '市场进入建议', desc: 'Chapter 06' },
-            { file: 'P09_消费人群_潮流实用.svg', title: '潮流与实用', desc: '消费者洞察' },
-            { file: 'P09a_消费人群_通勤环保.svg', title: '通勤与环保', desc: '消费者洞察' },
-            { file: 'P10_需求演变_时尚个性环保.svg', title: '时尚个性环保', desc: '五大核心需求' },
-            { file: 'P10a_需求演变_功能品牌.svg', title: '功能与品牌', desc: '五大核心需求' },
-            { file: 'P11_风格趋势_复古军事.svg', title: '复古与军事', desc: '四大核心风格' },
-            { file: 'P11a_风格趋势_机能轻工.svg', title: '机能与轻工', desc: '四大核心风格' },
-            { file: 'P12_风格总结.svg', title: '风格趋势总结', desc: '策略方向' },
-            { file: 'P13_生命周期.svg', title: '生命周期分析', desc: '市场阶段判断' },
-            { file: 'P14_感谢.svg', title: '感谢页', desc: '结束页' }
+            { file: 'P09a_机遇与切入.svg', title: '三大核心市场机遇', desc: 'Chapter 06' },
+            { file: 'P09b_落地建议与风险.svg', title: '落地建议与风险', desc: 'Chapter 06' },
+            { file: 'P11_风格趋势_复古军事.svg', title: '复古与军事', desc: 'Chapter 02' },
+            { file: 'P11a_风格趋势_机能轻工.svg', title: '机能与轻工', desc: 'Chapter 02' },
+            { file: 'P12_风格总结.svg', title: '风格趋势总结', desc: 'Chapter 02' },
+            { file: 'P12a_面料科技.svg', title: '面料科技', desc: 'Chapter 02' },
+            { file: 'P12b_版型工学.svg', title: '版型工学', desc: 'Chapter 02' },
+            { file: 'P13_生命周期.svg', title: '生命周期分析', desc: 'Chapter 06' },
+            { file: 'P99_感谢页.svg', title: '感谢页', desc: '结束页' }
         ]
     },
     {
@@ -333,12 +357,15 @@ const collectionsData = [
         folder: 'examples/demo_project_intro_ppt169_20251211/svg_final',
         slides: [
             { file: 'slide_01_cover.svg', title: '封面', desc: '项目介绍' },
-            { file: 'slide_02_toc.svg', title: '目录', desc: '内容概览' },
-            { file: 'slide_03_overview.svg', title: '项目概述', desc: '背景' },
-            { file: 'slide_04_features.svg', title: '核心功能', desc: '功能' },
-            { file: 'slide_05_tech.svg', title: '技术架构', desc: '技术' },
-            { file: 'slide_06_demo.svg', title: '演示', desc: '示例' },
-            { file: 'slide_07_summary.svg', title: '总结', desc: '结束' }
+            { file: 'slide_02_pain_points.svg', title: '痛点分析', desc: '问题' },
+            { file: 'slide_03_solution.svg', title: '解决方案', desc: '方案' },
+            { file: 'slide_04_architecture.svg', title: '架构设计', desc: '架构' },
+            { file: 'slide_05_roles.svg', title: '角色分工', desc: '角色' },
+            { file: 'slide_06_features.svg', title: '核心功能', desc: '功能' },
+            { file: 'slide_07_formats.svg', title: '格式支持', desc: '格式' },
+            { file: 'slide_08_tools.svg', title: '工具链', desc: '工具' },
+            { file: 'slide_09_quickstart.svg', title: '快速开始', desc: '入门' },
+            { file: 'slide_10_cta.svg', title: '行动号召', desc: '结束' }
         ]
     },
     {
@@ -351,13 +378,16 @@ const collectionsData = [
         color: '#18181b',
         folder: 'examples/ppt169_general_dark_tech_claude_code_auto_mode/svg_final',
         slides: [
-            { file: 'slide_01_cover.svg', title: '封面', desc: 'Claude Code' },
-            { file: 'slide_02_agenda.svg', title: '目录', desc: '议程' },
-            { file: 'slide_03_intro.svg', title: '简介', desc: '介绍' },
-            { file: 'slide_04_setup.svg', title: '安装配置', desc: '设置' },
-            { file: 'slide_05_usage.svg', title: '使用方法', desc: '用法' },
-            { file: 'slide_06_tips.svg', title: '技巧', desc: '提示' },
-            { file: 'slide_07_summary.svg', title: '总结', desc: '结束' }
+            { file: '01_cover.svg', title: '封面', desc: 'Claude Code' },
+            { file: '02_approval_fatigue.svg', title: '审批疲劳', desc: '问题' },
+            { file: '03_auto_mode.svg', title: '自动模式', desc: '方案' },
+            { file: '04_architecture.svg', title: '架构', desc: '技术架构' },
+            { file: '05_threat_model.svg', title: '威胁模型', desc: '安全' },
+            { file: '06_permissions.svg', title: '权限设计', desc: '权限' },
+            { file: '07_classifier.svg', title: '分类器', desc: '分类' },
+            { file: '08_results.svg', title: '结果', desc: '评估' },
+            { file: '09_design_decisions.svg', title: '设计决策', desc: '决策' },
+            { file: '10_closing.svg', title: '结语', desc: '结束' }
         ]
     },
     {
@@ -371,12 +401,15 @@ const collectionsData = [
         folder: 'examples/ppt169_谷歌风_google_annual_report/svg_final',
         slides: [
             { file: 'slide_01_cover.svg', title: '封面', desc: '年度报告' },
-            { file: 'slide_02_toc.svg', title: '目录', desc: '内容' },
-            { file: 'slide_03_highlights.svg', title: '亮点', desc: '业绩亮点' },
-            { file: 'slide_04_financial.svg', title: '财务', desc: '财务数据' },
-            { file: 'slide_05_products.svg', title: '产品', desc: '产品线' },
-            { file: 'slide_06_outlook.svg', title: '展望', desc: '未来' },
-            { file: 'slide_07_thank.svg', title: '感谢', desc: '结束' }
+            { file: 'slide_02_year_overview.svg', title: '年度概览', desc: '年度总结' },
+            { file: 'slide_03_projects_summary.svg', title: '项目汇总', desc: '项目概览' },
+            { file: 'slide_04_project_smart_scheduler.svg', title: 'Smart Scheduler', desc: '项目详情' },
+            { file: 'slide_05_projects_other.svg', title: '其他项目', desc: '更多项目' },
+            { file: 'slide_06_technical_growth.svg', title: '技术成长', desc: '技术发展' },
+            { file: 'slide_07_team_collaboration.svg', title: '团队协作', desc: '协作' },
+            { file: 'slide_08_impact_dashboard.svg', title: '影响力仪表盘', desc: '影响力' },
+            { file: 'slide_09_future_plans.svg', title: '未来计划', desc: '规划' },
+            { file: 'slide_10_thanks.svg', title: '感谢', desc: '结束' }
         ]
     },
     {
@@ -390,15 +423,15 @@ const collectionsData = [
         folder: 'examples/ppt169_通用灵活+代码_debug六步法/svg_final',
         slides: [
             { file: 'slide_01_cover.svg', title: '封面', desc: 'Debug六步法' },
-            { file: 'slide_02_what.svg', title: '什么是Debug', desc: '概念' },
-            { file: 'slide_03_step1.svg', title: '步骤一', desc: '复现问题' },
-            { file: 'slide_04_step2.svg', title: '步骤二', desc: '定位问题' },
-            { file: 'slide_05_step3.svg', title: '步骤三', desc: '分析问题' },
-            { file: 'slide_06_step4.svg', title: '步骤四', desc: '修复问题' },
-            { file: 'slide_07_step5.svg', title: '步骤五', desc: '验证修复' },
-            { file: 'slide_08_step6.svg', title: '步骤六', desc: '总结预防' },
-            { file: 'slide_09_tools.svg', title: '工具推荐', desc: '工具' },
-            { file: 'slide_10_summary.svg', title: '总结', desc: '结束' }
+            { file: 'slide_02_core_concept.svg', title: '核心概念', desc: '概念' },
+            { file: 'slide_03_step1_clarify_flow.svg', title: '步骤一：理清流程', desc: '复现问题' },
+            { file: 'slide_04_step2_locate_bug.svg', title: '步骤二：定位Bug', desc: '定位问题' },
+            { file: 'slide_05_step3_elimination.svg', title: '步骤三：排除法', desc: '分析问题' },
+            { file: 'slide_06_step4_verify.svg', title: '步骤四：验证修复', desc: '修复验证' },
+            { file: 'slide_07_step5_side_effects.svg', title: '步骤五：副作用检查', desc: '副作用' },
+            { file: 'slide_08_step6_test_document.svg', title: '步骤六：测试与文档', desc: '总结预防' },
+            { file: 'slide_09_summary.svg', title: '总结', desc: '结束' },
+            { file: 'slide_10_end.svg', title: '结束', desc: '完' }
         ]
     },
     {
@@ -412,13 +445,16 @@ const collectionsData = [
         folder: 'examples/ppt169_通过灵活+代码_三大AI编程神器横向对比/svg_final',
         slides: [
             { file: 'slide_01_cover.svg', title: '封面', desc: 'AI编程神器对比' },
-            { file: 'slide_02_intro.svg', title: 'AI编程概述', desc: '介绍' },
-            { file: 'slide_03_tool1.svg', title: '工具一', desc: '工具A' },
-            { file: 'slide_04_tool2.svg', title: '工具二', desc: '工具B' },
-            { file: 'slide_05_tool3.svg', title: '工具三', desc: '工具C' },
+            { file: 'slide_02_positioning.svg', title: '定位分析', desc: '定位' },
+            { file: 'slide_03_speckit.svg', title: 'SpecKit', desc: '工具A' },
+            { file: 'slide_04_openspec.svg', title: 'OpenSpec', desc: '工具B' },
+            { file: 'slide_05_zcf.svg', title: 'ZCF', desc: '工具C' },
             { file: 'slide_06_comparison.svg', title: '横向对比', desc: '对比' },
-            { file: 'slide_07_usecases.svg', title: '适用场景', desc: '场景' },
-            { file: 'slide_08_summary.svg', title: '总结', desc: '结论' }
+            { file: 'slide_07_efficiency.svg', title: '效率分析', desc: '效率' },
+            { file: 'slide_08_combination.svg', title: '组合策略', desc: '组合' },
+            { file: 'slide_09_decision.svg', title: '决策指南', desc: '决策' },
+            { file: 'slide_10_table.svg', title: '对比表格', desc: '表格' },
+            { file: 'slide_11_summary.svg', title: '总结', desc: '结论' }
         ]
     },
     {
