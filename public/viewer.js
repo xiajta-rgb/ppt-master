@@ -122,6 +122,20 @@ function showHotReloadNotification(changedFiles) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const t0 = performance.now();
+
+    if (document.getElementById('homeView')) {
+        hotReloadEnabled = true;
+        setInterval(checkForChanges, 3000);
+
+        const fileInput = document.getElementById('imageUploadInput');
+        if (fileInput) {
+            fileInput.addEventListener('change', onImageFileSelected);
+        }
+
+        document.addEventListener('paste', handleClipboardPaste);
+        return;
+    }
+
     const urlParams = new URLSearchParams(window.location.search);
     const collectionId = urlParams.get('project');
 
@@ -344,6 +358,7 @@ function renderCollections() {
 
 function renderFilteredCollections() {
     const grid = document.getElementById('collectionsGrid');
+    if (!grid) return;
     const emptyState = document.getElementById('emptyState');
 
     if (filteredCollections.length === 0) {
@@ -457,7 +472,13 @@ function openCollection(collection) {
     url.searchParams.set('project', projectId);
     window.history.pushState({}, '', url);
 
-    document.getElementById('libraryView').classList.add('hidden');
+    const isSPA = !!document.getElementById('homeView');
+    if (isSPA) {
+        document.getElementById('homeView').classList.add('hidden');
+        document.getElementById('viewerSection').classList.remove('hidden');
+    } else {
+        document.getElementById('libraryView').classList.add('hidden');
+    }
     document.getElementById('viewerView').classList.remove('hidden');
     document.getElementById('collectionSelector').classList.remove('hidden');
     document.getElementById('keyboardHints').classList.add('hidden');
@@ -472,7 +493,8 @@ function openCollection(collection) {
     document.getElementById('currentCollectionName').textContent = collection.title;
 
     document.getElementById('viewerTitle').innerHTML = `<span class="seq-id-badge" style="vertical-align: middle;">${extractSeqNumber(collection.seqId) || '--'}</span> ${collection.title}`;
-    document.getElementById('viewerDescription').textContent = collection.description;
+    const descEl = document.getElementById('viewerDescription');
+    if (descEl) descEl.textContent = collection.description;
     document.getElementById('totalPages').textContent = collection.slides.length;
     document.getElementById('fullscreenTotal').textContent = collection.slides.length;
 
@@ -500,7 +522,14 @@ function backToLibrary() {
     url.searchParams.delete('project');
     window.history.pushState({}, '', url);
 
-    document.getElementById('libraryView').classList.remove('hidden');
+    const isSPA = !!document.getElementById('homeView');
+    if (isSPA) {
+        document.getElementById('homeView').classList.remove('hidden');
+        document.getElementById('viewerSection').classList.add('hidden');
+        document.title = 'PPT Master — AI generates natively editable PPTX from any document';
+    } else {
+        document.getElementById('libraryView').classList.remove('hidden');
+    }
     document.getElementById('viewerView').classList.add('hidden');
     document.getElementById('collectionSelector').classList.add('hidden');
     document.getElementById('keyboardHints').classList.add('hidden');
@@ -512,7 +541,7 @@ function backToLibrary() {
     document.getElementById('slideViewerContainer').classList.remove('theater-mode');
 
     const grid = document.getElementById('collectionsGrid');
-    if (!grid.children.length) {
+    if (grid && !grid.children.length) {
         renderCollections();
     }
 
@@ -3304,8 +3333,10 @@ function performSlideUpdate() {
                 throw new Error('Invalid SVG content: expected svg element, got ' + (svgEl?.tagName || 'null'));
             }
             
-            svgEl.classList.add('w-full', 'h-full', 'rounded-lg', 'fade-in', 'cursor-pointer');
-            svgEl.style.aspectRatio = '16/9';
+            svgEl.classList.add('rounded-lg', 'fade-in', 'cursor-pointer');
+            svgEl.removeAttribute('width');
+            svgEl.removeAttribute('height');
+            svgEl.setAttribute('preserveAspectRatio', 'xMidYMid meet');
             svgEl.setAttribute('data-slide-path', slidePath);
 
             slideWrapper.insertBefore(svgEl, slideWrapper.firstChild);

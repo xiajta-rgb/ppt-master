@@ -562,7 +562,7 @@ def handle_static_file(path):
     path_clean = path.lstrip('/').split('?')[0]
     path_parts = path_clean.split('/')
 
-    if path_clean in ['viewer.html', 'index.html'] or '/' not in path_clean:
+    if path_clean in ['index.html'] or '/' not in path_clean:
         static_file = STATIC_DIR / path_clean
         if static_file.exists() and static_file.is_file():
             return static_file.read_bytes(), '200 OK'

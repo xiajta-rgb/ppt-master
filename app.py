@@ -634,13 +634,6 @@ def index():
         return send_from_directory(STATIC_DIR, 'index.html')
     return '<html><body><h1>index.html not found</h1></body></html>', 404
 
-@app.route('/viewer.html')
-def viewer():
-    viewer_file = STATIC_DIR / 'viewer.html'
-    if viewer_file.exists():
-        return send_from_directory(STATIC_DIR, 'viewer.html')
-    return '<html><body><h1>viewer.html not found</h1></body></html>', 404
-
 IMAGE_MAX_DIMENSION = 1920
 IMAGE_QUALITY = 82
 IMAGE_MAX_SIZE_KB = 500
@@ -777,7 +770,7 @@ def serve_examples(filename):
 
 if __name__ == '__main__':
     logger.info(f"Starting PPT Master server on port {PORT}")
-    logger.info(f"Access: http://localhost:{PORT}/viewer.html")
+    logger.info(f"Access: http://localhost:{PORT}/")
 
     def warmup():
         import urllib.request

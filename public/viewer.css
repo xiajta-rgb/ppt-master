@@ -83,22 +83,18 @@
 
 /* SVG Display */
 #slideWrapper {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;
 }
 
 #slideWrapper svg {
     width: 100% !important;
-    height: auto !important;
-    max-height: 100%;
-    aspect-ratio: 16 / 9;
+    height: 100% !important;
+    display: block;
+    background: #0a0a0f;
 }
 
 #slideViewer {
-    padding: 0.5rem;
+    padding: 0;
 }
 
 /* Custom Theme Variables */
@@ -140,8 +136,11 @@ body {
     background-clip: text;
 }
 
-.viewer-expanded {
-    max-width: 100%;
+.main.viewer-expanded {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
 }
 
 .theater-mode {

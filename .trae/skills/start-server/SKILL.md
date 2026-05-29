@@ -42,9 +42,10 @@ npm run dev
 
 ## 访问地址
 
-- **前端主页：** http://localhost:5373/ （即 index.html，用于项目浏览）
+- **主页：** http://localhost:5001/ （SPA 单页应用，包含项目列表和幻灯片查看器）
+- **项目预览：** http://localhost:5001/?project=<projectId> （通过 URL 参数直接打开指定项目）
+- **前端开发：** http://localhost:5373/ （Vite 热重载开发服务器）
 - **后端 API：** http://localhost:5001/api/scan-projects
-- **预览页面：** viewer.html
 
 ## 重启步骤
 
