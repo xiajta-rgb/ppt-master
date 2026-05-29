@@ -6,15 +6,17 @@ import threading
 import json
 import base64
 import io
+import secrets
 from pathlib import Path
 from urllib.parse import unquote
 
-from flask import Flask, request, jsonify, send_from_directory, Response
+from flask import Flask, request, jsonify, send_from_directory, Response, session
 
 sys.path.insert(0, str(Path(__file__).parent.resolve()))
 from config import PROJECT_DIR, STATIC_DIR, SCRIPTS_DIR, PROJECT_ALIASES, PORT
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path='')
+app.secret_key = os.environ.get('SECRET_KEY', 'ppt-master-dev-secret-key-change-in-prod')
 
 import gzip
 GZIP_MIN_SIZE = 500
@@ -101,6 +103,15 @@ USERS = {
     'lasen': '123456'
 }
 
+def require_auth(f):
+    from functools import wraps
+    @wraps(f)
+    def decorated(*args, **kwargs):
+        if not session.get('logged_in'):
+            return jsonify({'success': False, 'error': 'Authentication required'}), 401
+        return f(*args, **kwargs)
+    return decorated
+
 TAG_COLORS = {
     'consulting': {'bg': 'rgba(99, 102, 241, 0.2)', 'border': 'rgba(99, 102, 241, 0.5)'},
     'general': {'bg': 'rgba(6, 182, 212, 0.2)', 'border': 'rgba(6, 182, 212, 0.5)'},
@@ -134,6 +145,12 @@ def find_best_matching_folder(target_name, examples_dir):
     best_match = None
     best_score = -1
 
+    def _normalize(name):
+        return name.lower().replace('_', ' ').replace('-', ' ')
+
+    target_norm = _normalize(target_name)
+    target_words = set(target_norm.split())
+
     for item in examples_dir.iterdir():
         if not item.is_dir():
             continue
@@ -147,11 +164,12 @@ def find_best_matching_folder(target_name, examples_dir):
             item_suffix = item.name[len('ppt169_'):]
             if target_suffix.split('_')[0] == item_suffix.split('_')[0]:
                 score = 50
-        elif '顶级咨询风' in target_name and '顶级咨询风' in item.name:
-            target_key = target_name.split('_')[2] if len(target_name.split('_')) > 2 else ''
-            item_key = item.name.split('_')[2] if len(item.name.split('_')) > 2 else ''
-            if target_key and item_key and (target_key in item.name or item.name in target_name):
-                score = 30
+        else:
+            item_norm = _normalize(item.name)
+            item_words = set(item_norm.split())
+            common = target_words & item_words
+            if common:
+                score = int(len(common) / max(len(target_words), len(item_words)) * 40)
 
         if score > best_score:
             best_score = score
@@ -251,7 +269,7 @@ def invalidate_cache():
 def scan_projects():
     cached = _get_valid_cache()
     if cached is not None:
-        return Response(cached, mimetype='application/json')
+        return Response(cached, mimetype='application/json', headers={'Cache-Control': 'no-cache'})
 
     examples_dir = PROJECT_DIR / 'examples'
     projects = []
@@ -338,6 +356,8 @@ def login():
         logger.info(f"Login attempt: username={username}")
 
         if username in USERS and USERS[username] == password:
+            session['logged_in'] = True
+            session['username'] = username
             return jsonify({'success': True, 'username': username})
         else:
             return jsonify({'success': False, 'error': 'Invalid credentials'}), 401
@@ -347,10 +367,17 @@ def login():
 
 @app.route('/api/logout', methods=['POST'])
 def logout():
+    session.clear()
     return jsonify({'success': True})
 
-@app.route('/api/tags', methods=['GET', 'POST'])
-def tags():
+@app.route('/api/check-auth')
+def check_auth():
+    if session.get('logged_in'):
+        return jsonify({'logged_in': True, 'username': session.get('username')})
+    return jsonify({'logged_in': False})
+
+@app.route('/api/tags', methods=['GET'])
+def get_tags():
     try:
         import json
         data_file = PROJECT_DIR / 'examples' / 'tags.json'
@@ -358,34 +385,45 @@ def tags():
             tags_data = json.loads(data_file.read_text(encoding='utf-8'))
         else:
             tags_data = {'tags': ['consulting', 'general', 'creative']}
+        return jsonify({'success': True, 'tags': tags_data['tags']})
+    except Exception as e:
+        logger.error(f"Tags error: {e}")
+        return jsonify({'success': False, 'error': str(e)}), 500
 
-        if request.method == 'POST':
-            data = request.get_json()
-            action = data.get('action')
-            if action == 'add':
-                new_tag = data.get('tag', '').strip().lower()
-                if new_tag and new_tag not in tags_data['tags']:
-                    tags_data['tags'].append(new_tag)
-                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
-                return jsonify({'success': True, 'tags': tags_data['tags']})
-            elif action == 'delete':
-                del_tag = data.get('tag', '').strip().lower()
-                if del_tag in tags_data['tags']:
-                    tags_data['tags'].remove(del_tag)
-                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
-                return jsonify({'success': True, 'tags': tags_data['tags']})
-            elif action == 'update':
-                old_tag = data.get('oldTag', '').strip().lower()
-                new_tag = data.get('newTag', '').strip().lower()
-                if old_tag in tags_data['tags']:
-                    idx = tags_data['tags'].index(old_tag)
-                    tags_data['tags'][idx] = new_tag
-                    data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
-                return jsonify({'success': True, 'tags': tags_data['tags']})
-            else:
-                return jsonify({'success': False, 'error': 'Unknown action'}), 400
+@app.route('/api/tags', methods=['POST'])
+def update_tags():
+    try:
+        import json
+        data = request.get_json()
+        data_file = PROJECT_DIR / 'examples' / 'tags.json'
+        if data_file.exists():
+            tags_data = json.loads(data_file.read_text(encoding='utf-8'))
         else:
+            tags_data = {'tags': ['consulting', 'general', 'creative']}
+
+        action = data.get('action')
+        if action == 'add':
+            new_tag = data.get('tag', '').strip().lower()
+            if new_tag and new_tag not in tags_data['tags']:
+                tags_data['tags'].append(new_tag)
+                data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
             return jsonify({'success': True, 'tags': tags_data['tags']})
+        elif action == 'delete':
+            del_tag = data.get('tag', '').strip().lower()
+            if del_tag in tags_data['tags']:
+                tags_data['tags'].remove(del_tag)
+                data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
+            return jsonify({'success': True, 'tags': tags_data['tags']})
+        elif action == 'update':
+            old_tag = data.get('oldTag', '').strip().lower()
+            new_tag = data.get('newTag', '').strip().lower()
+            if old_tag in tags_data['tags']:
+                idx = tags_data['tags'].index(old_tag)
+                tags_data['tags'][idx] = new_tag
+                data_file.write_text(json.dumps(tags_data, ensure_ascii=False, indent=2), encoding='utf-8')
+            return jsonify({'success': True, 'tags': tags_data['tags']})
+        else:
+            return jsonify({'success': False, 'error': 'Unknown action'}), 400
     except Exception as e:
         logger.error(f"Tags error: {e}")
         return jsonify({'success': False, 'error': str(e)}), 500
@@ -451,9 +489,18 @@ def edit_svg():
                     backup_path.rename(svg_path)
                     return jsonify({'success': False, 'error': f'Invalid element index: {idx}'}), 400
             else:
-                content_svg = content_svg.replace(old_text, new_text)
+                count = content_svg.count(old_text)
+                if count == 0:
+                    backup_path.rename(svg_path)
+                    return jsonify({'success': False, 'error': 'Text not found in file'}), 400
+                if count > 1:
+                    backup_path.rename(svg_path)
+                    return jsonify({'success': False, 'error': f'Found {count} matches, please use element index for precise editing'}), 400
+                content_svg = content_svg.replace(old_text, new_text, 1)
 
             svg_path.write_text(content_svg, encoding='utf-8')
+            if backup_path.exists():
+                backup_path.unlink()
             invalidate_scan_cache()
 
             return jsonify({'success': True, 'message': 'Text updated successfully'})
@@ -502,12 +549,24 @@ def save_svg():
 
         if svg_path.exists():
             backup_path = svg_path.with_suffix('.svg.bak')
-            if not backup_path.exists():
-                svg_path.rename(backup_path)
+            if backup_path.exists():
+                backup_path.unlink()
+            svg_path.rename(backup_path)
         else:
+            backup_path = None
             svg_path.parent.mkdir(parents=True, exist_ok=True)
 
-        svg_path.write_text(content, encoding='utf-8')
+        try:
+            svg_path.write_text(content, encoding='utf-8')
+        except Exception as write_err:
+            logger.error(f"Write error, restoring backup: {write_err}")
+            if backup_path and backup_path.exists() and not svg_path.exists():
+                backup_path.rename(svg_path)
+            raise
+
+        if backup_path and backup_path.exists():
+            backup_path.unlink()
+
         invalidate_scan_cache()
 
         return jsonify({'success': True, 'message': 'SVG saved successfully'})
@@ -527,13 +586,13 @@ def delete_svg():
         if not file_path:
             return jsonify({'success': False, 'error': 'Missing file path'}), 400
         
-        if '..' in file_path:
-            return jsonify({'success': False, 'error': 'Invalid path'}), 400
-        
         if file_path.startswith('/'):
             file_path = file_path[1:]
         
         file_path = unquote(file_path)
+        
+        if '..' in file_path:
+            return jsonify({'success': False, 'error': 'Invalid path'}), 400
         
         full_path = PROJECT_DIR / file_path
         
@@ -743,6 +802,10 @@ def process_image():
 @app.route('/api/examples/<path:filename>')
 def serve_examples(filename):
     filename = unquote(filename)
+
+    if '..' in filename:
+        return jsonify({'error': 'Invalid path'}), 400
+
     path_parts = filename.split('/')
 
     if len(path_parts) >= 2:
@@ -755,6 +818,9 @@ def serve_examples(filename):
         examples_file = PROJECT_DIR / 'examples' / path_parts[0] / '/'.join(path_parts[1:])
     else:
         examples_file = PROJECT_DIR / 'examples' / filename
+
+    if not validate_path_safety(examples_file):
+        return jsonify({'error': 'Path not allowed'}), 403
 
     if examples_file.exists() and examples_file.is_file():
         suffix = examples_file.suffix

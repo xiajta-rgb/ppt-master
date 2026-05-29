@@ -36,6 +36,8 @@ class ConvertContext:
     rel_id_counter: int = 2  # rId1 reserved for slideLayout
     svg_dir: Path | None = None
     inherited_styles: dict[str, str] = field(default_factory=dict)
+    svg_width: float = 1280.0
+    svg_height: float = 720.0
 
     def next_id(self) -> int:
         """Allocate the next shape ID."""
@@ -102,6 +104,8 @@ class ConvertContext:
             rel_id_counter=self.rel_id_counter,
             svg_dir=self.svg_dir,
             inherited_styles=merged,
+            svg_width=self.svg_width,
+            svg_height=self.svg_height,
         )
 
     def sync_from_child(self, child_ctx: ConvertContext) -> None:

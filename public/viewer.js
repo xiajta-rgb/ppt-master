@@ -56,19 +56,29 @@ const _overlaySlideWrapperMap = new WeakMap();
 const _overlaySvgMap = new WeakMap();
 let _overlayResizeHandler = null;
 
+function escapeHtml(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
 // Hot reload check
 let hotReloadInFlight = false;
 let hotReloadSeq = 0;
 let hotReloadFailCount = 0;
 const HOT_RELOAD_MAX_FAILS = 3;
 const HOT_RELOAD_RETRY_INTERVAL = 30000;
+let hotReloadAbortController = null;
+let hotReloadIntervalId = null;
 
 async function checkForChanges() {
     if (!hotReloadEnabled || hotReloadInFlight) return;
     hotReloadInFlight = true;
     const seq = ++hotReloadSeq;
+    if (hotReloadAbortController) hotReloadAbortController.abort();
+    hotReloadAbortController = new AbortController();
     try {
-        const response = await fetch('/api/check-changes', { cache: 'no-store' });
+        const response = await fetch('/api/check-changes', { cache: 'no-store', signal: hotReloadAbortController.signal });
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
         if (!response.ok) {
             hotReloadFailCount++;
@@ -91,6 +101,7 @@ async function checkForChanges() {
         }
     } catch (e) {
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
+        if (e.name === 'AbortError') { hotReloadInFlight = false; return; }
         hotReloadFailCount++;
         if (hotReloadFailCount >= HOT_RELOAD_MAX_FAILS) {
             hotReloadEnabled = false;
@@ -122,22 +133,30 @@ function showHotReloadNotification(changedFiles) {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const t0 = performance.now();
+    const isSPA = !!document.getElementById('homeView');
+    const urlParams = new URLSearchParams(window.location.search);
+    const collectionId = urlParams.get('project');
 
-    if (document.getElementById('homeView')) {
+    if (isSPA && !collectionId) {
         hotReloadEnabled = true;
-        setInterval(checkForChanges, 3000);
-
+        hotReloadIntervalId = setInterval(checkForChanges, 3000);
         const fileInput = document.getElementById('imageUploadInput');
-        if (fileInput) {
-            fileInput.addEventListener('change', onImageFileSelected);
-        }
-
+        if (fileInput) fileInput.addEventListener('change', onImageFileSelected);
         document.addEventListener('paste', handleClipboardPaste);
         return;
     }
 
-    const urlParams = new URLSearchParams(window.location.search);
-    const collectionId = urlParams.get('project');
+    if (isSPA && collectionId) {
+        if (typeof window.openProjectViewer === 'function') {
+            window.openProjectViewer(collectionId);
+        }
+        hotReloadEnabled = true;
+        hotReloadIntervalId = setInterval(checkForChanges, 3000);
+        const fileInput = document.getElementById('imageUploadInput');
+        if (fileInput) fileInput.addEventListener('change', onImageFileSelected);
+        document.addEventListener('paste', handleClipboardPaste);
+        return;
+    }
 
     if (collectionId) {
         const t1 = performance.now();
@@ -170,13 +189,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log(`[perf] DOMContentLoaded total: ${(performance.now() - t0).toFixed(0)}ms`);
 
     hotReloadEnabled = true;
-    setInterval(checkForChanges, 3000);
-
+    hotReloadIntervalId = setInterval(checkForChanges, 3000);
     const fileInput = document.getElementById('imageUploadInput');
-    if (fileInput) {
-        fileInput.addEventListener('change', onImageFileSelected);
-    }
-
+    if (fileInput) fileInput.addEventListener('change', onImageFileSelected);
     document.addEventListener('paste', handleClipboardPaste);
 });
 
@@ -249,6 +264,13 @@ async function loadDynamicCollections() {
         for (const c of staticMap.values()) {
             if (!apiIds.has(c.id) && !apiIds.has(c.alias)) {
                 collections.push(c);
+            }
+        }
+
+        if (currentCollection) {
+            const updated = collections.find(c => c.id === currentCollection.id || c.alias === currentCollection.id);
+            if (updated) {
+                currentCollection = updated;
             }
         }
     } catch (e) {
@@ -388,7 +410,7 @@ function renderFilteredCollections() {
 
         return `
         <div class="collection-card cursor-pointer group" onclick='openCollection(${JSON.stringify(collection).replace(/'/g, "&#39;")})'>
-            <div class="relative h-48 bg-dark-900 overflow-hidden">
+            <div class="relative h-48 bg-surface-900 overflow-hidden">
                 ${firstSlide ? `
                     <img src="${coverPath}" class="w-full h-full object-contain p-4 transition-transform duration-300 group-hover:scale-105" loading="lazy" alt="${collection.title}"
                         onerror="this.parentElement.innerHTML='<div class=\\'flex items-center justify-center h-full text-gray-600\\'><i class=\\'fas fa-image text-4xl\\'></i></div>'">
@@ -463,21 +485,25 @@ document.addEventListener('click', (e) => {
     }
 });
 
-function openCollection(collection) {
+function openCollection(collection, skipViewToggle) {
     currentCollection = collection;
     currentSlide = 0;
 
-    const projectId = collection.alias || collection.id;
-    const url = new URL(window.location);
-    url.searchParams.set('project', projectId);
-    window.history.pushState({}, '', url);
+    if (!skipViewToggle) {
+        const projectId = collection.alias || collection.id;
+        const url = new URL(window.location);
+        url.searchParams.set('project', projectId);
+        window.history.pushState({}, '', url);
+    }
 
     const isSPA = !!document.getElementById('homeView');
-    if (isSPA) {
-        document.getElementById('homeView').classList.add('hidden');
-        document.getElementById('viewerSection').classList.remove('hidden');
-    } else {
-        document.getElementById('libraryView').classList.add('hidden');
+    if (!skipViewToggle) {
+        if (isSPA) {
+            document.getElementById('homeView').classList.add('hidden');
+            document.getElementById('viewerSection').classList.remove('hidden');
+        } else {
+            document.getElementById('libraryView').classList.add('hidden');
+        }
     }
     document.getElementById('viewerView').classList.remove('hidden');
     document.getElementById('collectionSelector').classList.remove('hidden');
@@ -492,7 +518,7 @@ function openCollection(collection) {
     document.getElementById('currentCollectionIcon').textContent = extractSeqNumber(collection.seqId) || '--';
     document.getElementById('currentCollectionName').textContent = collection.title;
 
-    document.getElementById('viewerTitle').innerHTML = `<span class="seq-id-badge" style="vertical-align: middle;">${extractSeqNumber(collection.seqId) || '--'}</span> ${collection.title}`;
+    document.getElementById('viewerTitle').innerHTML = `<span class="seq-id-badge" style="vertical-align: middle;">${extractSeqNumber(collection.seqId) || '--'}</span> ${escapeHtml(collection.title)}`;
     const descEl = document.getElementById('viewerDescription');
     if (descEl) descEl.textContent = collection.description;
     document.getElementById('totalPages').textContent = collection.slides.length;
@@ -515,12 +541,14 @@ function switchCollection(collection) {
     openCollection(collection);
 }
 
-function backToLibrary() {
+function backToLibrary(skipPushState) {
     currentCollection = null;
 
-    const url = new URL(window.location);
-    url.searchParams.delete('project');
-    window.history.pushState({}, '', url);
+    if (!skipPushState) {
+        const url = new URL(window.location);
+        url.searchParams.delete('project');
+        window.history.pushState({}, '', url);
+    }
 
     const isSPA = !!document.getElementById('homeView');
     if (isSPA) {
@@ -752,7 +780,7 @@ function showTextEditOverlay(textElement, elementIndex) {
 
     const overlay = document.createElement('div');
     overlay.id = 'textEditOverlay';
-    overlay.className = 'absolute bg-dark-900/95 backdrop-blur rounded-lg shadow-2xl z-50 p-4 w-80 border border-white/10';
+    overlay.className = 'absolute bg-surface-900-95 backdrop-blur rounded-lg shadow-2xl z-50 p-4 w-80 border border-white/10';
     overlay.style.cssText = `
         left: ${rect.left - wrapperRect.left + slideWrapper.scrollLeft}px;
         top: ${rect.top - wrapperRect.top + slideWrapper.scrollTop}px;
@@ -786,12 +814,6 @@ function showTextEditOverlay(textElement, elementIndex) {
     textarea.focus();
     textarea.select();
 
-    function escapeHtml(str) {
-        const div = document.createElement('div');
-        div.textContent = str;
-        return div.innerHTML;
-    }
-
     textarea.addEventListener('input', function() {
         this.style.height = 'auto';
         this.style.height = Math.max(60, this.scrollHeight) + 'px';
@@ -821,7 +843,7 @@ function showImageUploadDialog(placeholderEl) {
 
     const dialog = document.createElement('div');
     dialog.id = 'imageUploadDialog';
-    dialog.className = 'absolute bg-dark-900/95 backdrop-blur rounded-lg shadow-2xl z-[60] p-4 w-96 border border-blue-500/30';
+    dialog.className = 'absolute bg-surface-900-95 backdrop-blur rounded-lg shadow-2xl z-[60] p-4 w-96 border border-blue-500/30';
     dialog.style.cssText = `
         left: ${Math.max(0, rect.left - wrapperRect.left + slideWrapper.scrollLeft - 80)}px;
         top: ${Math.max(0, rect.top - wrapperRect.top + slideWrapper.scrollTop - 50)}px;
@@ -1226,7 +1248,7 @@ function showToast(message, type = 'success') {
 
     const toast = document.createElement('div');
     toast.id = 'toastNotification';
-    toast.className = `fixed bottom-6 right-6 px-6 py-3 rounded-lg shadow-xl z-50 flex items-center space-x-3 transform transition-all duration-300 translate-y-0 opacity-0`;
+    toast.className = `fixed bottom-6 right-6 px-6 py-3 rounded-lg shadow-xl z-50 flex items-center gap-3 transform transition-all duration-300 translate-y-0 opacity-0`;
 
     const bgColor = type === 'success' ? 'bg-green-500' : type === 'error' ? 'bg-red-500' : 'bg-blue-500';
     const icon = type === 'success' ? 'fa-check-circle' : type === 'error' ? 'fa-exclamation-circle' : 'fa-info-circle';
@@ -2229,27 +2251,32 @@ window.addEventListener('resize', () => {
     removeOutOfBoundsIndicator();
 });
 
-function getImageIndex(img) {
-    const svgEl = img.closest('svg');
-    if (!svgEl) return -1;
-    const images = svgEl.querySelectorAll('image');
-    return Array.from(images).indexOf(img);
+let _editIdCounter = 0;
+
+function ensureEditId(el) {
+    if (!el.dataset.editId) {
+        el.dataset.editId = 'eid_' + (++_editIdCounter) + '_' + Date.now().toString(36);
+    }
+    return el.dataset.editId;
 }
 
-function findImageByIndex(index) {
+function getImageEditId(img) {
+    return ensureEditId(img);
+}
+
+function findImageByEditId(editId) {
     const slideWrapper = document.getElementById('slideWrapper');
     if (!slideWrapper) return null;
     const svgEl = slideWrapper.querySelector('svg');
     if (!svgEl) return null;
-    const images = svgEl.querySelectorAll('image');
-    return images[index] || null;
+    return svgEl.querySelector(`image[data-edit-id="${editId}"]`) || null;
 }
 
 function pushUndoState(type, element, data) {
     undoStack.push({
         type: type,
         slidePath: currentEditingSlidePath,
-        elementIndex: getImageIndex(element),
+        editId: getImageEditId(element),
         data: data,
         timestamp: Date.now()
     });
@@ -2266,7 +2293,7 @@ async function undoLastEdit() {
     redoStack.push(last);
 
     if (last.type === 'move') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             img.setAttribute('x', last.data.oldX);
             img.setAttribute('y', last.data.oldY);
@@ -2274,7 +2301,7 @@ async function undoLastEdit() {
             selectImage(img);
         }
     } else if (last.type === 'resize') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             img.setAttribute('x', last.data.oldX);
             img.setAttribute('y', last.data.oldY);
@@ -2284,7 +2311,7 @@ async function undoLastEdit() {
             selectImage(img);
         }
     } else if (last.type === 'transform') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             if (last.data.oldTransform) {
                 img.setAttribute('transform', last.data.oldTransform);
@@ -2311,13 +2338,13 @@ async function undoLastEdit() {
             selectImage(restored);
         }
     } else if (last.type === 'replace') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img && last.data.oldHref) {
             img.setAttribute('href', last.data.oldHref);
             selectImage(img);
         }
     } else if (last.type === 'insert') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             img.remove();
             clearImageSelection();
@@ -2358,7 +2385,7 @@ async function redoLastEdit() {
     undoStack.push(last);
 
     if (last.type === 'move') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             img.setAttribute('x', last.data.newX);
             img.setAttribute('y', last.data.newY);
@@ -2366,7 +2393,7 @@ async function redoLastEdit() {
             selectImage(img);
         }
     } else if (last.type === 'resize') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             img.setAttribute('x', last.data.newX);
             img.setAttribute('y', last.data.newY);
@@ -2393,13 +2420,13 @@ async function redoLastEdit() {
             selectImage(restored);
         }
     } else if (last.type === 'replace') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img && last.data.newHref) {
             img.setAttribute('href', last.data.newHref);
             selectImage(img);
         }
     } else if (last.type === 'transform') {
-        const img = findImageByIndex(last.elementIndex);
+        const img = findImageByEditId(last.editId);
         if (img) {
             if (last.data.newTransform) {
                 img.setAttribute('transform', last.data.newTransform);
@@ -3127,11 +3154,11 @@ function generateThumbnails() {
         <div class="thumbnail rounded-lg overflow-hidden border-2 ${index === 0 ? 'border-brand-500' : 'border-transparent'}"
              onclick="goToSlide(${index})"
              id="thumb-${index}">
-            <div class="relative bg-dark-800 animate-pulse">
+            <div class="relative bg-surface-900 animate-pulse">
                 <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full lazy-thumb" alt="${slide.title}"
-                     onload="this.parentElement.classList.remove('animate-pulse', 'bg-dark-800')"
+                     onload="this.parentElement.classList.remove('animate-pulse', 'bg-surface-900')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="hidden w-full h-16 flex items-center justify-center bg-dark-900 text-gray-600">
+                <div class="hidden w-full h-16 flex items-center justify-center bg-surface-900 text-gray-600">
                     <i class="fas fa-image"></i>
                 </div>
             </div>
@@ -3188,11 +3215,11 @@ function generateOverview() {
         return `
         <div class="rounded-xl p-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
              onclick="goToSlide(${index}); window.scrollTo({top: 0, behavior: 'smooth'})">
-            <div class="relative bg-dark-800 rounded-lg animate-pulse">
+            <div class="relative bg-surface-900 rounded-lg animate-pulse">
                 <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full rounded-lg lazy-overview" alt="${slide.title}"
-                     onload="this.parentElement.classList.remove('animate-pulse', 'bg-dark-800')"
+                     onload="this.parentElement.classList.remove('animate-pulse', 'bg-surface-900')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
-                <div class="hidden w-full h-24 flex items-center justify-center bg-dark-900 rounded-lg text-gray-600">
+                <div class="hidden w-full h-24 flex items-center justify-center bg-surface-900 rounded-lg text-gray-600">
                     <i class="fas fa-image"></i>
                 </div>
             </div>
@@ -3365,6 +3392,12 @@ function performSlideUpdate() {
             const spinner = document.getElementById('slideLoadingSpinner');
             if (spinner) spinner.remove();
             isSlideUpdating = false;
+
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'absolute inset-0 flex flex-col items-center justify-center bg-gray-50 rounded-lg';
+            errorDiv.innerHTML = '<div class="text-red-400 text-5xl mb-4"><i class="fas fa-exclamation-triangle"></i></div><div class="text-gray-600 text-lg font-medium">SVG 加载失败</div><div class="text-gray-400 text-sm mt-2">' + escapeHtml(err.message || '未知错误') + '</div>';
+            slideWrapper.insertBefore(errorDiv, slideWrapper.firstChild);
+
             if (pendingSlideIndex !== null) {
                 const nextIndex = pendingSlideIndex;
                 pendingSlideIndex = null;
@@ -3498,7 +3531,7 @@ async function deleteCurrentPage() {
             const projectData = await projectResponse.json();
             projectData.slides.splice(slideIndex, 1);
             
-            const folder = currentCollection.folder.replace(/^examples\//, '').replace(/\/svg_final$/, '');
+            const folder = currentCollection.folder.replace(/\/svg_final$/, '');
             const saveRes = await fetch('/api/save-svg', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
@@ -3559,13 +3592,13 @@ async function showToastConfirmDelete(slideName) {
     return new Promise((resolve) => {
         const toast = document.createElement('div');
         toast.id = 'deleteConfirmToast';
-        toast.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-dark-800 border border-red-500/50 rounded-xl p-5 shadow-2xl w-80';
+        toast.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50 bg-surface-900 border border-red-500/50 rounded-xl p-5 shadow-2xl w-80';
         toast.innerHTML = `
             <div class="text-center">
                 <i class="fas fa-trash-alt text-red-500 text-3xl mb-3"></i>
                 <p class="text-gray-100 font-semibold text-lg mb-2">确定删除此页面？</p>
                 <p class="text-gray-400 text-sm mb-4">${slideName}</p>
-                <div class="flex justify-center space-x-3">
+                <div class="flex justify-center gap-3">
                     <button id="confirmDeleteBtn" class="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-all font-medium">
                         确认删除
                     </button>
@@ -3594,7 +3627,7 @@ function showToastWithUndo(slideName) {
     }
     
     const toast = document.createElement('div');
-    toast.className = 'fixed bottom-6 right-6 z-50 bg-dark-800 border border-green-500/50 rounded-lg p-4 shadow-xl flex items-center space-x-3';
+    toast.className = 'fixed bottom-6 right-6 z-50 bg-surface-900 border border-green-500/50 rounded-lg p-4 shadow-xl flex items-center gap-3';
     toast.innerHTML = `
         <i class="fas fa-check-circle text-green-500 text-lg"></i>
         <span class="text-gray-100">页面 "${slideName}" 已删除</span>
@@ -3630,8 +3663,7 @@ async function undoDelete() {
     try {
         const basePath = '/' + encodePath(currentCollection.folder) + '/';
         const svgPath = basePath + encodeURIComponent(lastDelete.slide.file);
-        // folder 应该是项目根目录（去掉 examples/ 前缀，且去掉 /svg_final）
-        const folder = currentCollection.folder.replace(/^examples\//, '').replace(/\/svg_final$/, '');
+        const folder = currentCollection.folder.replace(/\/svg_final$/, '');
         
         // 1. 恢复SVG文件
         if (lastDelete.svgContent) {
@@ -3790,9 +3822,9 @@ window.addEventListener('popstate', () => {
         let collection = collections.find(c => c.id === collectionId);
         if (!collection) collection = collections.find(c => c.alias === collectionId);
         if (!collection) collection = collections.find(c => c.id.includes(collectionId) || (c.alias && c.alias.includes(collectionId)));
-        if (collection) openCollection(collection);
+        if (collection) openCollection(collection, true);
     } else {
-        backToLibrary();
+        backToLibrary(true);
     }
 });
 

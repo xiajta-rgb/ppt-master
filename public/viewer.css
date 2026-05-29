@@ -180,3 +180,193 @@ body {
     0%, 100% { opacity: 1; }
     50% { opacity: 0.5; }
 }
+
+.btn-toolbar {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-toolbar::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 100%);
+    pointer-events: none;
+}
+
+.btn-toolbar:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn-toolbar:active {
+    transform: translateY(0);
+    filter: brightness(0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-toolbar:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+    box-shadow: none;
+}
+
+.btn-brand {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+}
+.btn-brand:hover {
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
+}
+
+.btn-green {
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+}
+.btn-green:hover {
+    box-shadow: 0 4px 16px rgba(34, 197, 94, 0.4);
+}
+
+.btn-red {
+    background: linear-gradient(135deg, #dc2626, #ef4444);
+}
+.btn-red:hover {
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-purple {
+    background: linear-gradient(135deg, #9333ea, #a855f7);
+}
+.btn-purple:hover {
+    box-shadow: 0 4px 16px rgba(168, 85, 247, 0.4);
+}
+
+.kbd-hint {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    padding: 2px 6px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    font-size: 11px;
+    font-family: inherit;
+    color: inherit;
+    line-height: 1.4;
+}
+
+.nav-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.nav-pill button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 6px;
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+.nav-pill button:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f3f4f6;
+}
+.nav-pill button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.seq-id-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 24px;
+    padding: 0 6px;
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1;
+}
+
+.bg-surface-950-85 {
+    background: rgba(2, 6, 23, 0.85);
+}
+
+.bg-surface-900-95 {
+    background: rgba(15, 23, 42, 0.95);
+}
+
+.bg-surface-950-60 {
+    background: rgba(2, 6, 23, 0.6);
+}
+
+.bg-surface-950 {
+    background: #020617;
+}
+
+.bg-surface-900 {
+    background: #0f172a;
+}
+
+.bg-brand-gradient {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+}
+
+.bg-brand-gradient-r {
+    background: linear-gradient(to right, #6366f1, #818cf8);
+}
+
+.shadow-brand-glow {
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+
+.progress-bar-brand {
+    background: linear-gradient(to right, #6366f1, #818cf8);
+    box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+}
+
+.collection-card {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.collection-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.4);
+    box-shadow: 0 12px 40px rgba(99, 102, 241, 0.12);
+}

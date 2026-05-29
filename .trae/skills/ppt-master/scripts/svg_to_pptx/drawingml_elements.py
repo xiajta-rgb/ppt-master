@@ -70,7 +70,7 @@ def convert_rect(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
 
     fill_op = get_fill_opacity(elem, ctx)
     stroke_op = get_stroke_opacity(elem, ctx)
-    fill = build_fill_xml(elem, ctx, fill_op)
+    fill = build_fill_xml(elem, ctx, fill_op, shape_x=x, shape_y=y, shape_w=w, shape_h=h)
     stroke = build_stroke_xml(elem, ctx, stroke_op)
 
     effect = ''
@@ -245,7 +245,7 @@ def convert_circle(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
         op = get_fill_opacity(elem, ctx)
         grad_id = resolve_url_id(stroke_val) if stroke_val else None
         if grad_id and grad_id in ctx.defs:
-            fill = build_gradient_fill(ctx.defs[grad_id], op)
+            fill = build_gradient_fill(ctx.defs[grad_id], op, ctx=ctx)
         elif stroke_val:
             color = parse_hex_color(stroke_val)
             fill = build_solid_fill(color, op) if color else '<a:noFill/>'
@@ -482,7 +482,7 @@ def convert_path(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
 
     fill_op = get_fill_opacity(elem, ctx)
     stroke_op = get_stroke_opacity(elem, ctx)
-    fill = build_fill_xml(elem, ctx, fill_op)
+    fill = build_fill_xml(elem, ctx, fill_op, shape_x=min_x, shape_y=min_y, shape_w=width, shape_h=height)
     stroke = build_stroke_xml(elem, ctx, stroke_op)
 
     effect = ''
@@ -547,7 +547,7 @@ def convert_polygon(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None
 
     fill_op = get_fill_opacity(elem, ctx)
     stroke_op = get_stroke_opacity(elem, ctx)
-    fill = build_fill_xml(elem, ctx, fill_op)
+    fill = build_fill_xml(elem, ctx, fill_op, shape_x=min_x, shape_y=min_y, shape_w=width, shape_h=height)
     stroke = build_stroke_xml(elem, ctx, stroke_op)
 
     rot = 0
@@ -601,7 +601,7 @@ def convert_polyline(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | Non
 
     fill_op = get_fill_opacity(elem, ctx)
     stroke_op = get_stroke_opacity(elem, ctx)
-    fill = build_fill_xml(elem, ctx, fill_op)
+    fill = build_fill_xml(elem, ctx, fill_op, shape_x=min_x, shape_y=min_y, shape_w=width, shape_h=height)
     stroke = build_stroke_xml(elem, ctx, stroke_op)
 
     rot = 0
@@ -713,7 +713,7 @@ def _build_run_xml(
     # Build fill XML - gradient or solid
     grad_id = resolve_url_id(fill_raw)
     if grad_id and ctx and grad_id in ctx.defs:
-        fill_xml = build_gradient_fill(ctx.defs[grad_id], opacity)
+        fill_xml = build_gradient_fill(ctx.defs[grad_id], opacity, ctx=ctx)
     else:
         alpha_xml = ''
         if opacity is not None and opacity < 1.0:
@@ -1139,7 +1139,7 @@ def convert_ellipse(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None
 
     fill_op = get_fill_opacity(elem, ctx)
     stroke_op = get_stroke_opacity(elem, ctx)
-    fill = build_fill_xml(elem, ctx, fill_op)
+    fill = build_fill_xml(elem, ctx, fill_op, shape_x=x, shape_y=y, shape_w=w, shape_h=h)
     stroke = build_stroke_xml(elem, ctx, stroke_op)
 
     geom = '<a:prstGeom prst="ellipse"><a:avLst/></a:prstGeom>'

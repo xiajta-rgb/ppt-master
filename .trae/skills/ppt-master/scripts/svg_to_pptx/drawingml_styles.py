@@ -10,7 +10,7 @@ from .drawingml_context import ConvertContext
 from .drawingml_utils import (
     SVG_NS, ANGLE_UNIT, DASH_PRESETS,
     px_to_emu, _f, _get_attr,
-    parse_hex_color, parse_stop_style, resolve_url_id,
+    parse_hex_color, parse_color_with_alpha, parse_stop_style, resolve_url_id,
 )
 
 
@@ -22,12 +22,42 @@ def build_solid_fill(color: str, opacity: float | None = None) -> str:
     return f'<a:solidFill><a:srgbClr val="{color}">{alpha}</a:srgbClr></a:solidFill>'
 
 
+def _parse_grad_coord(val_str: str, default: float = 0.0) -> float:
+    val_str = val_str.strip()
+    if not val_str:
+        return default
+    if val_str.endswith('%'):
+        return float(val_str.rstrip('%')) / 100.0
+    v = float(val_str)
+    return v / 100.0 if v > 1.0 else v
+
+
 def build_gradient_fill(
     grad_elem: ET.Element,
     opacity: float | None = None,
+    ctx: ConvertContext | None = None,
+    shape_x: float = 0.0,
+    shape_y: float = 0.0,
+    shape_w: float = 0.0,
+    shape_h: float = 0.0,
 ) -> str:
-    """Build <a:gradFill> from SVG linearGradient or radialGradient element."""
+    """Build <a:gradFill> from SVG linearGradient or radialGradient element.
+
+    Coordinate mapping notes:
+    - SVG linearGradient: direction defined by (x1,y1)->(x2,y2) vector.
+      DrawingML <a:lin ang=> uses clockwise degrees from the positive-X axis
+      (screen coordinates where Y points downward). atan2(dy,dx) in screen
+      space already yields the correct clockwise angle.
+    - SVG radialGradient: center defined by cx/cy, radius by r.
+      DrawingML <a:path path="circle"> with <a:fillToRect> positions the
+      gradient center. fillToRect values are insets from shape edges in
+      1/1000ths of a percent. The gradient radiates from the center of
+      fillToRect outward to the shape edges.
+    - gradientUnits="userSpaceOnUse": coordinates are in SVG user space (px).
+      We convert them to relative [0,1] using shape bounds and SVG canvas size.
+    """
     tag = grad_elem.tag.replace(f'{{{SVG_NS}}}', '')
+    is_user_space = grad_elem.get('gradientUnits', 'objectBoundingBox') == 'userSpaceOnUse'
 
     stops_xml = []
     for child in grad_elem:
@@ -44,13 +74,19 @@ def build_gradient_fill(
             offset = 0.0
         pos = int(offset * 100000)
 
-        # Parse color from style attribute or direct attributes
         style = child.get('style', '')
         color, stop_opacity = parse_stop_style(style)
         if not color:
-            color = parse_hex_color(child.get('stop-color', '#000000'))
+            stop_color_attr = child.get('stop-color', '#000000')
+            color, attr_alpha = parse_color_with_alpha(stop_color_attr)
+            if attr_alpha < 1.0:
+                stop_opacity = attr_alpha
         if color is None:
-            color = '000000'
+            if stops_xml and stop_opacity < 1e-6:
+                prev_match = re.search(r'val="([A-Fa-f0-9]{6})"', stops_xml[-1])
+                color = prev_match.group(1) if prev_match else 'FFFFFF'
+            else:
+                color = '000000'
 
         direct_stop_op = child.get('stop-opacity')
         if direct_stop_op is not None:
@@ -75,22 +111,45 @@ def build_gradient_fill(
 
     gs_list = '\n'.join(stops_xml)
 
+    def _to_relative(px_val: float, origin: float, size: float) -> float:
+        if is_user_space and size > 0:
+            return (px_val - origin) / size
+        return px_val
+
     if tag == 'linearGradient':
-        def parse_grad_coord(val_str: str, default: float = 0.0) -> float:
-            val_str = val_str.strip()
-            if val_str.endswith('%'):
-                return float(val_str.rstrip('%')) / 100.0
-            v = float(val_str)
-            return v / 100.0 if v > 1.0 else v
+        if is_user_space:
+            svg_w = ctx.svg_width if ctx else 1280.0
+            svg_h = ctx.svg_height if ctx else 720.0
+            ref_w = shape_w if shape_w > 0 else svg_w
+            ref_h = shape_h if shape_h > 0 else svg_h
+            ref_x = shape_x
+            ref_y = shape_y
 
-        x1 = parse_grad_coord(grad_elem.get('x1', '0'))
-        y1 = parse_grad_coord(grad_elem.get('y1', '0'))
-        x2 = parse_grad_coord(grad_elem.get('x2', '1'))
-        y2 = parse_grad_coord(grad_elem.get('y2', '1'))
+            x1_raw = _parse_grad_coord(grad_elem.get('x1', '0'), 0.0)
+            y1_raw = _parse_grad_coord(grad_elem.get('y1', '0'), 0.0)
+            x2_raw = _parse_grad_coord(grad_elem.get('x2', '1'), 1.0)
+            y2_raw = _parse_grad_coord(grad_elem.get('y2', '1'), 1.0)
 
-        angle_rad = math.atan2(y2 - y1, x2 - x1)
-        angle_deg = math.degrees(angle_rad)
-        dml_angle = int((angle_deg % 360) * ANGLE_UNIT)
+            x1 = _to_relative(x1_raw * svg_w, ref_x, ref_w)
+            y1 = _to_relative(y1_raw * svg_h, ref_y, ref_h)
+            x2 = _to_relative(x2_raw * svg_w, ref_x, ref_w)
+            y2 = _to_relative(y2_raw * svg_h, ref_y, ref_h)
+        else:
+            x1 = _parse_grad_coord(grad_elem.get('x1', '0'), 0.0)
+            y1 = _parse_grad_coord(grad_elem.get('y1', '0'), 0.0)
+            x2 = _parse_grad_coord(grad_elem.get('x2', '1'), 1.0)
+            y2 = _parse_grad_coord(grad_elem.get('y2', '1'), 1.0)
+
+        dx = x2 - x1
+        dy = y2 - y1
+
+        if abs(dx) < 1e-6 and abs(dy) < 1e-6:
+            dx = 1.0
+            dy = 0.0
+
+        angle_rad = math.atan2(dy, dx)
+        angle_deg = math.degrees(angle_rad) % 360
+        dml_angle = int(angle_deg * ANGLE_UNIT)
 
         return f'''<a:gradFill>
 <a:gsLst>{gs_list}</a:gsLst>
@@ -98,10 +157,44 @@ def build_gradient_fill(
 </a:gradFill>'''
 
     elif tag == 'radialGradient':
+        if is_user_space:
+            svg_w = ctx.svg_width if ctx else 1280.0
+            svg_h = ctx.svg_height if ctx else 720.0
+            ref_w = shape_w if shape_w > 0 else svg_w
+            ref_h = shape_h if shape_h > 0 else svg_h
+            ref_x = shape_x
+            ref_y = shape_y
+
+            cx_raw = _parse_grad_coord(grad_elem.get('cx', '50%'), 0.5)
+            cy_raw = _parse_grad_coord(grad_elem.get('cy', '50%'), 0.5)
+            r_raw = _parse_grad_coord(grad_elem.get('r', '50%'), 0.5)
+
+            cx = _to_relative(cx_raw * svg_w, ref_x, ref_w)
+            cy = _to_relative(cy_raw * svg_h, ref_y, ref_h)
+            r = r_raw * svg_w / ref_w if ref_w > 0 else r_raw
+        else:
+            cx = _parse_grad_coord(grad_elem.get('cx', '50%'), 0.5)
+            cy = _parse_grad_coord(grad_elem.get('cy', '50%'), 0.5)
+            r = _parse_grad_coord(grad_elem.get('r', '50%'), 0.5)
+
+        fx_str = grad_elem.get('fx')
+        fy_str = grad_elem.get('fy')
+        if fx_str is not None or fy_str is not None:
+            fx = _parse_grad_coord(fx_str, cx) if fx_str else cx
+            fy = _parse_grad_coord(fy_str, cy) if fy_str else cy
+        else:
+            fx = cx
+            fy = cy
+
+        l_val = int(fx * 100000)
+        t_val = int(fy * 100000)
+        r_val = int((1.0 - fx) * 100000)
+        b_val = int((1.0 - fy) * 100000)
+
         return f'''<a:gradFill>
 <a:gsLst>{gs_list}</a:gsLst>
 <a:path path="circle">
-<a:fillToRect l="50000" t="50000" r="50000" b="50000"/>
+<a:fillToRect l="{l_val}" t="{t_val}" r="{r_val}" b="{b_val}"/>
 </a:path>
 </a:gradFill>'''
 
@@ -112,22 +205,39 @@ def build_fill_xml(
     elem: ET.Element,
     ctx: ConvertContext,
     opacity: float | None = None,
+    shape_x: float = 0.0,
+    shape_y: float = 0.0,
+    shape_w: float = 0.0,
+    shape_h: float = 0.0,
 ) -> str:
     """Build fill XML for a shape element, with inherited style support."""
     fill = _get_attr(elem, 'fill', ctx)
     if fill is None:
-        fill = '#000000'  # SVG default fill is black
+        fill = '#000000'
 
-    if fill == 'none':
+    if fill == 'none' or fill == 'transparent':
         return '<a:noFill/>'
 
     grad_id = resolve_url_id(fill)
     if grad_id and grad_id in ctx.defs:
-        return build_gradient_fill(ctx.defs[grad_id], opacity)
+        grad_elem = ctx.defs[grad_id]
+        grad_tag = grad_elem.tag.replace(f'{{{SVG_NS}}}', '')
+        if grad_tag in ('linearGradient', 'radialGradient'):
+            return build_gradient_fill(
+                grad_elem, opacity,
+                ctx=ctx, shape_x=shape_x, shape_y=shape_y,
+                shape_w=shape_w, shape_h=shape_h,
+            )
+        return '<a:noFill/>'
 
-    color = parse_hex_color(fill)
+    color, color_alpha = parse_color_with_alpha(fill)
     if color:
-        return build_solid_fill(color, opacity)
+        effective_opacity = color_alpha
+        if opacity is not None:
+            effective_opacity *= opacity
+        if effective_opacity < 1e-6:
+            return '<a:noFill/>'
+        return build_solid_fill(color, effective_opacity)
 
     return '<a:noFill/>'
 
@@ -342,7 +452,7 @@ def build_stroke_xml(
     # Gradient stroke
     grad_id = resolve_url_id(stroke)
     if grad_id and grad_id in ctx.defs:
-        grad_fill = build_gradient_fill(ctx.defs[grad_id], opacity)
+        grad_fill = build_gradient_fill(ctx.defs[grad_id], opacity, ctx=ctx)
         return f'<a:ln w="{width_emu}"{cap_attr}>{grad_fill}{dash_xml}{join_xml}{line_ends}</a:ln>'
 
     # Solid color stroke

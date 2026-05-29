@@ -66,7 +66,15 @@ def convert_g(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
 
     Uses identity coordinate mapping (chOff/chExt == off/ext) so child shapes
     keep their absolute slide coordinates unchanged.
+
+    Groups with SVG mask attributes are skipped entirely since DrawingML
+    has no equivalent for SVG masks — rendering masked content without the
+    mask would produce incorrect visible artifacts.
     """
+    mask_attr = elem.get('mask')
+    if mask_attr:
+        return None
+
     transform = elem.get('transform', '')
     dx, dy, sx, sy, angle_deg = parse_transform(transform)
 
@@ -160,25 +168,71 @@ _CONVERTERS = {
 
 
 def collect_defs(root: ET.Element) -> dict[str, ET.Element]:
-    """Collect all <defs> children into an {id: element} dictionary."""
+    """Collect all <defs> children into an {id: element} dictionary.
+
+    Also resolves xlink:href references on gradient elements so that
+    stops are inherited from the referenced gradient.
+    """
     defs: dict[str, ET.Element] = {}
     for defs_elem in root.iter(f'{{{SVG_NS}}}defs'):
         for child in defs_elem:
             elem_id = child.get('id')
             if elem_id:
                 defs[elem_id] = child
-    # Also check for defs without namespace
     for defs_elem in root.iter('defs'):
         for child in defs_elem:
             elem_id = child.get('id')
             if elem_id:
                 defs[elem_id] = child
+
+    _resolve_gradient_refs(defs, root)
+
     return defs
+
+
+def _resolve_gradient_refs(defs: dict[str, ET.Element], root: ET.Element) -> None:
+    """Resolve xlink:href on gradient elements, merging stops from referenced gradients."""
+    XLINK_NS = 'http://www.w3.org/1999/xlink'
+    grad_tags = {f'{{{SVG_NS}}}linearGradient', f'{{{SVG_NS}}}radialGradient',
+                 'linearGradient', 'radialGradient'}
+
+    for elem_id, elem in list(defs.items()):
+        if elem.tag not in grad_tags:
+            continue
+
+        href = elem.get(f'{{{XLINK_NS}}}href') or elem.get('href')
+        if not href or not href.startswith('#'):
+            continue
+
+        ref_id = href[1:]
+        if ref_id not in defs:
+            continue
+        ref_elem = defs[ref_id]
+
+        has_stops = any(
+            c.tag.replace(f'{{{SVG_NS}}}', '') == 'stop' or c.tag == 'stop'
+            for c in elem
+        )
+        if has_stops:
+            continue
+
+        for ref_child in ref_elem:
+            ref_child_tag = ref_child.tag.replace(f'{{{SVG_NS}}}', '')
+            if ref_child_tag == 'stop':
+                elem.append(ref_child)
+
+        for attr in ('x1', 'y1', 'x2', 'y2', 'cx', 'cy', 'r', 'fx', 'fy',
+                      'gradientUnits', 'gradientTransform', 'spreadMethod'):
+            if elem.get(attr) is None and ref_elem.get(attr) is not None:
+                elem.set(attr, ref_elem.get(attr))
 
 
 def convert_element(elem: ET.Element, ctx: ConvertContext) -> ShapeResult | None:
     """Dispatch an SVG element to the appropriate converter."""
     tag = elem.tag.replace(f'{{{SVG_NS}}}', '')
+
+    if elem.get('mask'):
+        return None
 
     converter = _CONVERTERS.get(tag)
     if converter:
@@ -216,7 +270,36 @@ def convert_svg_to_slide_shapes(
     root = tree.getroot()
 
     defs = collect_defs(root)
-    ctx = ConvertContext(defs=defs, slide_num=slide_num, svg_dir=Path(svg_path).parent)
+
+    svg_w = 1280.0
+    svg_h = 720.0
+    vb = root.get('viewBox')
+    if vb:
+        parts = vb.strip().split()
+        if len(parts) >= 4:
+            try:
+                svg_w = float(parts[2])
+                svg_h = float(parts[3])
+            except ValueError:
+                pass
+    w_attr = root.get('width')
+    h_attr = root.get('height')
+    if w_attr:
+        try:
+            svg_w = float(w_attr)
+        except ValueError:
+            pass
+    if h_attr:
+        try:
+            svg_h = float(h_attr)
+        except ValueError:
+            pass
+
+    ctx = ConvertContext(
+        defs=defs, slide_num=slide_num,
+        svg_dir=Path(svg_path).parent,
+        svg_width=svg_w, svg_height=svg_h,
+    )
 
     shapes: list[str] = []
     converted = 0
