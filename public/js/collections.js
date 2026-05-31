@@ -343,6 +343,7 @@ const collectionsData = [
             { file: 'P12a_面料科技.svg', title: '面料科技', desc: 'Chapter 02' },
             { file: 'P12b_版型工学.svg', title: '版型工学', desc: 'Chapter 02' },
             { file: 'P13_生命周期.svg', title: '生命周期分析', desc: 'Chapter 06' },
+            { file: 'P14_我司老品分析.svg', title: '我司老品分析', desc: '核心问题诊断与优化方向' },
             { file: 'P99_感谢页.svg', title: '感谢页', desc: '结束页' }
         ]
     },

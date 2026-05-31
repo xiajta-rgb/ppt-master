@@ -526,6 +526,11 @@ function openCollection(collection, skipViewToggle) {
 
     document.getElementById('progressBar').style.background = '#4a4a5a';
 
+    const searchInput = document.getElementById('slideSearchInput');
+    if (searchInput) searchInput.value = '';
+    const searchClear = document.getElementById('slideSearchClear');
+    if (searchClear) searchClear.classList.add('hidden');
+
     updateSlide();
     _overviewDirty = true;
     requestAnimationFrame(() => {
@@ -3147,11 +3152,34 @@ function generateThumbnails() {
     if (!currentCollection) return;
 
     const container = document.getElementById('thumbnailContainer');
+    const searchInput = document.getElementById('slideSearchInput');
+    const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
+
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
 
-    container.innerHTML = currentCollection.slides.map((slide, index) => {
+    const filteredSlides = currentCollection.slides.map((slide, index) => ({ slide, index }))
+        .filter(({ slide, index }) => {
+            if (!query) return true;
+            const title = (slide.title || '').toLowerCase();
+            const desc = (slide.desc || '').toLowerCase();
+            const file = (slide.file || '').toLowerCase();
+            const num = String(index + 1);
+            return title.includes(query) || desc.includes(query) || file.includes(query) || num === query;
+        });
+
+    if (filteredSlides.length === 0 && query) {
+        container.innerHTML = `
+            <div class="flex flex-col items-center justify-center py-6 px-2 text-center">
+                <i class="fas fa-search text-gray-600 text-lg mb-2"></i>
+                <p class="text-gray-500 text-[11px] leading-relaxed">未找到匹配的页面</p>
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = filteredSlides.map(({ slide, index }) => {
+        const isCurrent = index === currentSlide;
         return `
-        <div class="thumbnail rounded-lg overflow-hidden border-2 ${index === 0 ? 'border-brand-500' : 'border-transparent'}"
+        <div class="thumbnail rounded-lg overflow-hidden border-2 ${isCurrent ? 'border-brand-500' : 'border-transparent'}"
              onclick="goToSlide(${index})"
              id="thumb-${index}">
             <div class="relative bg-surface-900 animate-pulse">
@@ -3169,6 +3197,23 @@ function generateThumbnails() {
     `}).join('');
 
     initLazyThumbnails(container);
+}
+
+function filterSlides(query) {
+    const clearBtn = document.getElementById('slideSearchClear');
+    if (clearBtn) {
+        clearBtn.classList.toggle('hidden', !query);
+    }
+    generateThumbnails();
+}
+
+function clearSlideSearch() {
+    const searchInput = document.getElementById('slideSearchInput');
+    if (searchInput) {
+        searchInput.value = '';
+        filterSlides('');
+        searchInput.focus();
+    }
 }
 
 let _thumbObserver = null;
