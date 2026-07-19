@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">EXPLORE · LAYER 02</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">消费者需求洞察：创新价值定调</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">拆解趋势背后的用户隐性诉求，杜绝无依据的趋势跟风与无效功能堆砌。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="162" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M0 1H16V13H11L8 16L5 13H0V1Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">AI采集数据维度</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 社媒用户场景吐槽与新兴穿搭讨论</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 新生活方式对应的穿搭痛点</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 海外新生代审美趋势</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 小众场景穿搭诉求</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 跨品类需求交叉分析</text>
+  </g>
+  <g transform="translate(970, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/><path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/><path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">核心输出产物</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 新兴用户隐性刚需层级字段库</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 核心创新刚需：轻量化、防水、无夸张logo</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 场景加分项：通勤户外双适配</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 无效趋势黑名单：硬核设计</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 创新价值量化评估模型</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">12</text>
+  </g>
+  <!-- icon: chunk/users -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M8 3.5C8 4.88071 6.88071 6 5.5 6C4.11929 6 3 4.88071 3 3.5C3 2.11929 4.11929 1 5.5 1C6.88071 1 8 2.11929 8 3.5Z"/>
+    <path d="M3 8C1.34315 8 0 9.34315 0 11V15H8V8H3Z"/>
+    <path d="M13 8H10V15H16V11C16 9.34315 14.6569 8 13 8Z"/>
+    <path d="M12 6C13.1046 6 14 5.10457 14 4C14 2.89543 13.1046 2 12 2C10.8954 2 10 2.89543 10 4C10 5.10457 10.8954 6 12 6Z"/>
+  </g>
+</svg>

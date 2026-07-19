@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">VALUE · 核心价值</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">双引擎AI研发核心赋能逻辑</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="576" height="660" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(264, 56) scale(3)" fill="#4F46E5">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM6 8C6 6.89543 6.89543 6 8 6C9.10457 6 10 6.89543 10 8C10 9.10457 9.10457 10 8 10C6.89543 10 6 9.10457 6 8Z"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8Z"/>
+    </g>
+    <text x="288" y="148" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="26" font-weight="800" fill="#0F172A">战略破局</text>
+    <text x="40" y="210" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">双向覆盖短期盈利与长期增长。爆款引擎</text>
+    <text x="40" y="238" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">保障当下存量收益，创新引擎布局未来赛</text>
+    <text x="40" y="266" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">道，彻底摆脱同质化低价内卷，构建稳存</text>
+    <text x="40" y="294" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">量、拓增量的产品矩阵。</text>
+    <rect x="40" y="360" width="496" height="1" fill="#E2E8F0"/>
+    <text x="40" y="410" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" fill="#4F46E5">核心收益</text>
+    <text x="40" y="448" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 摆脱同质化竞争困局</text>
+    <text x="40" y="478" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 构建双轮驱动增长模型</text>
+    <text x="40" y="508" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 抢占未来赛道先发优势</text>
+    <text x="40" y="538" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 提升企业长期抗风险能力</text>
+  </g>
+
+  <g transform="translate(672, 230)">
+    <rect width="576" height="660" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(264, 56) scale(3)" fill="#4F46E5">
+      <path d="M9 7L10 0H8L2 7V9H7L6 16H8L14 9L14 7H9Z"/>
+    </g>
+    <text x="288" y="148" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="26" font-weight="800" fill="#0F172A">研发提效降本</text>
+    <text x="40" y="210" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">AI替代人工海量趋势筛查、爆款拆解、</text>
+    <text x="40" y="238" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">需求整理、风险研判工作，压缩80%前置</text>
+    <text x="40" y="266" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">调研时间，双路径精准锁定研发方向，</text>
+    <text x="40" y="294" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">大幅减少无效立项、盲目改版、试错损耗。</text>
+    <rect x="40" y="360" width="496" height="1" fill="#E2E8F0"/>
+    <text x="40" y="410" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" fill="#4F46E5">核心收益</text>
+    <text x="40" y="448" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 前置调研时间压缩80%</text>
+    <text x="40" y="478" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 无效立项率显著下降</text>
+    <text x="40" y="508" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 试错成本大幅降低</text>
+    <text x="40" y="538" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 研发人效倍数级提升</text>
+  </g>
+
+  <g transform="translate(1264, 230)">
+    <rect width="576" height="660" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(264, 56) scale(3)" fill="#4F46E5">
+      <path d="M5 0C3.34315 0 2 1.34315 2 3V13C2 14.6569 3.34315 16 5 16H14V14H4V12H14V0H5Z"/>
+    </g>
+    <text x="288" y="148" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="26" font-weight="800" fill="#0F172A">标准化沉淀</text>
+    <text x="40" y="210" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">两类路径均有可溯源数据、可复现推理</text>
+    <text x="40" y="238" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">链路、可复用物料台账、差异化评价标</text>
+    <text x="40" y="266" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">准，形成企业专属分层研发数字资产，</text>
+    <text x="40" y="294" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">彻底告别经验化、碎片化传统研发模式。</text>
+    <rect x="40" y="360" width="496" height="1" fill="#E2E8F0"/>
+    <text x="40" y="410" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" fill="#4F46E5">核心收益</text>
+    <text x="40" y="448" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 决策全链路可追溯</text>
+    <text x="40" y="478" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 研发资产持续积累</text>
+    <text x="40" y="508" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 新人上手周期缩短</text>
+    <text x="40" y="538" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">• 知识沉淀形成壁垒</text>
+  </g>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第一章：认知破局</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">07 / 39</text>
+  </g>
+  <!-- icon: chunk/target -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM6 8C6 6.89543 6.89543 6 8 6C9.10457 6 10 6.89543 10 8C10 9.10457 9.10457 10 8 10C6.89543 10 6 9.10457 6 8Z"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8Z"/>
+  </g>
+</svg>

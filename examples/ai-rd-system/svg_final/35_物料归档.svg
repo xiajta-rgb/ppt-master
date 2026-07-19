@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">ARCHIVE · 物料归档</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">双路径标准化研发物料归档</text>
+  <g transform="translate(80, 210)">
+    <rect width="860" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <rect width="860" height="64" rx="12" fill="#ECFEFF" stroke="transparent"/>
+        <!-- icon: chunk/folder -->
+    <g transform="translate(24, 18) scale(1.75)" fill="#0891B2"><path d="M0 1H6L9 4H16V14H0V1Z"/></g>
+    <text x="68" y="40" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">创新引擎归档物料</text>
+    <g transform="translate(24, 100)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">趋势研判报告：行业趋势、品类趋势、技术趋势</text>
+    </g>
+    <g transform="translate(24, 192)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">隐性需求图谱：用户痛点、未被满足需求、情绪价值</text>
+    </g>
+    <g transform="translate(24, 284)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">供需缺口矩阵：市场空白点、竞争薄弱区、差异化机会</text>
+    </g>
+    <g transform="translate(24, 376)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">创新避坑清单：前人踩坑记录、失败案例复盘、风险提示</text>
+    </g>
+    <g transform="translate(24, 468)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">产品定型方案：概念稿、参数定义、原型验证结果</text>
+    </g>
+    <g transform="translate(24, 560)">
+      <rect width="6" height="6" rx="1" fill="#0891B2" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#0891B2"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">创新立项评分报告：多维度评分、决策依据、风险评级</text>
+    </g>
+  </g>
+  <g transform="translate(980, 210)">
+    <rect width="860" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <rect width="860" height="64" rx="12" fill="#FFFBEB" stroke="transparent"/>
+        <!-- icon: chunk/archive-box -->
+    <g transform="translate(24, 18) scale(1.75)" fill="#D97706"><path d="M16 2H0V5H16V2Z"/><path d="M1 7H5V9H11V7H15V15H1V7Z"/></g>
+    <text x="68" y="40" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">爆款引擎归档物料</text>
+    <g transform="translate(24, 100)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">爆款资质筛选报告：爆款基因检测、市场容量评估</text>
+    </g>
+    <g transform="translate(24, 192)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">产品DNA拆解库：爆款元素拆解、成功因子提取</text>
+    </g>
+    <g transform="translate(24, 284)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">因果需求挖掘报告：用户真实需求、购买驱动因素</text>
+    </g>
+    <g transform="translate(24, 376)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">迭代优化方案库：AB测试结果、优化路径、效果数据</text>
+    </g>
+    <g transform="translate(24, 468)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">爆款定型参数：最终版本参数、供应链配置、成本结构</text>
+    </g>
+    <g transform="translate(24, 560)">
+      <rect width="6" height="6" rx="1" fill="#D97706" opacity="0.2"/>
+      <rect width="6" height="6" rx="1" fill="#D97706"/>
+      <text x="20" y="10" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#334155">爆款立项评分报告：收益预测、风险评估、投入产出比</text>
+    </g>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第六章：终审与归档</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">35</text>
+  </g>
+    <!-- icon: chunk/archive-box -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M16 2H0V5H16V2Z"/><path d="M1 7H5V9H11V7H15V15H1V7Z"/>
+  </g>
+</svg>

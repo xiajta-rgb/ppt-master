@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  
+  <!-- Kicker with icon -->
+  <!-- icon: chunk/gauge-high -->
+  <g transform="translate(80, 83) scale(1.25)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.75463 14C0.656718 12.6304 0 10.8919 0 9C0 4.58172 3.58172 1 8 1C12.4183 1 16 4.58172 16 9C16 10.8919 15.3433 12.6304 14.2454 14H9.20171L12.7343 10.1789L11.2657 8.82118L6.47798 14H1.75463ZM7 4C7 4.55228 7.44771 5 8 5C8.55228 5 9 4.55228 9 4C9 3.44772 8.55228 3 8 3C7.44771 3 7 3.44772 7 4ZM11.5 6.5C10.9477 6.5 10.5 6.05228 10.5 5.5C10.5 4.94772 10.9477 4.5 11.5 4.5C12.0523 4.5 12.5 4.94772 12.5 5.5C12.5 6.05228 12.0523 6.5 11.5 6.5ZM2 9C2 9.55229 2.44771 10 3 10C3.55229 10 4 9.55229 4 9C4 8.44772 3.55229 8 3 8C2.44771 8 2 8.44772 2 9ZM4.5 6.5C3.94772 6.5 3.5 6.05228 3.5 5.5C3.5 4.94772 3.94772 4.5 4.5 4.5C5.05229 4.5 5.5 4.94772 5.5 5.5C5.5 6.05228 5.05229 6.5 4.5 6.5Z"/>
+  </g>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">SCORING · 双模型权重</text>
+  
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">双模型核心权重体系</text>
+  
+  <g transform="translate(960, 520)">
+    <circle cx="0" cy="0" r="250" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="0" cy="0" r="150" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="0" cy="0" r="50" fill="none" stroke="#CBD5E1" stroke-width="1"/>
+    <line x1="0" y1="-250" x2="0" y2="250" stroke="#CBD5E1" stroke-width="1"/>
+    <line x1="-217" y1="-125" x2="217" y2="125" stroke="#CBD5E1" stroke-width="1"/>
+    <line x1="-217" y1="125" x2="217" y2="-125" stroke="#CBD5E1" stroke-width="1"/>
+    
+    <polygon points="0,-237 204,-88 177,158 0,182 -177,158 -204,-88" fill="rgba(79,70,229,0.18)" stroke="#4F46E5" stroke-width="3"/>
+    <polygon points="0,-225 212,-80 156,184 0,162 -156,184 -212,-80" fill="rgba(217,119,6,0.15)" stroke="#D97706" stroke-width="3"/>
+    
+    <text x="0" y="-280" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">趋势势能/市场验证</text>
+    <text x="260" y="-100" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">需求强度/基因匹配</text>
+    <text x="240" y="180" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">供需缺口/竞争空间</text>
+    <text x="0" y="290" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">技术可行性/优化空间</text>
+    <text x="-260" y="180" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">未来增长空间</text>
+    <text x="-260" y="-100" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">利润/落地收益</text>
+  </g>
+  
+  <g transform="translate(480, 850)">
+    <rect width="20" height="20" rx="4" fill="#4F46E5"/>
+    <text x="32" y="15" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" fill="#0F172A">创新选品模型</text>
+    <text x="32" y="38" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#475569">趋势势能 95, 需求强度 90, 供需缺口 92</text>
+  </g>
+  <g transform="translate(1100, 850)">
+    <rect width="20" height="20" rx="4" fill="#D97706"/>
+    <text x="32" y="15" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" fill="#0F172A">爆款选品模型</text>
+    <text x="32" y="38" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#475569">市场验证 90, 爆款基因 92, 竞争空间 78</text>
+  </g>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第三章：工程化打分体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">24 / 39</text>
+  </g>
+  <!-- icon: chunk/gauge-high -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M1.75463 14C0.656718 12.6304 0 10.8919 0 9C0 4.58172 3.58172 1 8 1C12.4183 1 16 4.58172 16 9C16 10.8919 15.3433 12.6304 14.2454 14H9.20171L12.7343 10.1789L11.2657 8.82118L6.47798 14H1.75463ZM7 4C7 4.55228 7.44771 5 8 5C8.55228 5 9 4.55228 9 4C9 3.44772 8.55228 3 8 3C7.44771 3 7 3.44772 7 4ZM11.5 6.5C10.9477 6.5 10.5 6.05228 10.5 5.5C10.5 4.94772 10.9477 4.5 11.5 4.5C12.0523 4.5 12.5 4.94772 12.5 5.5C12.5 6.05228 12.0523 6.5 11.5 6.5ZM2 9C2 9.55229 2.44771 10 3 10C3.55229 10 4 9.55229 4 9C4 8.44772 3.55229 8 3 8C2.44771 8 2 8.44772 2 9ZM4.5 6.5C3.94772 6.5 3.5 6.05228 3.5 5.5C3.5 4.94772 3.94772 4.5 4.5 4.5C5.05229 4.5 5.5 4.94772 5.5 5.5C5.5 6.05228 5.05229 6.5 4.5 6.5Z"/>
+  </g>
+</svg>

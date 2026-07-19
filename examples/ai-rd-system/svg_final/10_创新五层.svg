@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+    <!-- icon: chunk/magnifying-glass -->
+  <g transform="translate(80.0, 83.0) scale(1.0)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M11.1922 12.6064C10.0236 13.4816 8.57234 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7C14 8.57234 13.4816 10.0236 12.6064 11.1922L15.7071 14.2929L14.2929 15.7071L11.1922 12.6064ZM5.58579 8.41421L4.17157 9.82843C2.60948 8.26633 2.60948 5.73367 4.17157 4.17157C5.73367 2.60948 8.26633 2.60948 9.82843 4.17157L8.41421 5.58579C7.63316 4.80474 6.36683 4.80474 5.58579 5.58579C4.80474 6.36684 4.80474 7.63316 5.58579 8.41421Z"/>
+  </g>
+<text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">EXPLORE ENGINE · 创新引擎</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">创新选品引擎五层结构化洞察流程</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="336" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="36" cy="36" r="24" fill="#4F46E5"/>
+    <text x="36" y="44" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">1</text>
+    <text x="24" y="96" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">市场趋势洞察</text>
+    <text x="24" y="136" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">捕捉海外新兴穿搭趋势、生活方式变</text>
+    <text x="24" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">化、面料技术风口，识别增量萌芽赛道。</text>
+    <rect x="24" y="620" width="80" height="28" rx="14" fill="#EEF2FF"/>
+    <text x="64" y="638" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="11" font-weight="700" fill="#4F46E5">趋势取舍</text>
+  </g>
+
+  <g transform="translate(436, 230)">
+    <rect width="336" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="36" cy="36" r="24" fill="#4F46E5"/>
+    <text x="36" y="44" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">2</text>
+    <text x="24" y="96" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">消费者需求洞察</text>
+    <text x="24" y="136" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">拆解趋势背后的用户隐性诉求、场景</text>
+    <text x="24" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">痛点、审美偏好，杜绝自嗨式创新。</text>
+    <rect x="24" y="620" width="80" height="28" rx="14" fill="#EEF2FF"/>
+    <text x="64" y="638" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="11" font-weight="700" fill="#4F46E5">价值定调</text>
+  </g>
+
+  <g transform="translate(792, 230)">
+    <rect width="336" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="36" cy="36" r="24" fill="#4F46E5"/>
+    <text x="36" y="44" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">3</text>
+    <text x="24" y="96" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">市场缺口洞察</text>
+    <text x="24" y="136" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">对比市场供给，挖掘高刚需、低供给</text>
+    <text x="24" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">空白赛道，锁定独家差异化。</text>
+    <rect x="24" y="620" width="80" height="28" rx="14" fill="#EEF2FF"/>
+    <text x="64" y="638" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="11" font-weight="700" fill="#4F46E5">蓝海定位</text>
+  </g>
+
+  <g transform="translate(1148, 230)">
+    <rect width="336" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="36" cy="36" r="24" fill="#4F46E5"/>
+    <text x="36" y="44" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">4</text>
+    <text x="24" y="96" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">竞品趋势洞察</text>
+    <text x="24" y="136" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">研判行业创新短板与跟风误区，明确</text>
+    <text x="24" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">可借鉴趋势与必须规避的设计。</text>
+    <rect x="24" y="620" width="80" height="28" rx="14" fill="#EEF2FF"/>
+    <text x="64" y="638" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="11" font-weight="700" fill="#4F46E5">避坑策略</text>
+  </g>
+
+  <g transform="translate(1504, 230)">
+    <rect width="336" height="680" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="36" cy="36" r="24" fill="#4F46E5"/>
+    <text x="36" y="44" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#FFFFFF">5</text>
+    <text x="24" y="96" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="800" fill="#0F172A">创新产品定型</text>
+    <text x="24" y="136" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">整合前四层数据，结合供应链能力，</text>
+    <text x="24" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#475569">输出原创创新产品方案。</text>
+    <rect x="24" y="620" width="80" height="28" rx="14" fill="#EEF2FF"/>
+    <text x="64" y="638" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="11" font-weight="700" fill="#4F46E5">落地执行</text>
+  </g>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">10 / 39</text>
+  </g>
+  <!-- icon: chunk/layers -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/>
+    <path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/>
+    <path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/>
+  </g>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+    <!-- icon: chunk/arrows-repeat -->
+  <g transform="translate(80.0, 83.0) scale(1.0)" fill="#4F46E5">
+    <path d="M10 8H9V4.8198L5.15728 4.05126C4.98683 4.01717 4.81343 4 4.63961 4C3.18179 4 2 5.18179 2 6.63961V9H0V6.63961C0 4.07722 2.07722 2 4.63961 2C4.94514 2 5.24992 2.03018 5.54951 2.0901L9 2.7802V0H10L14 4L10 8Z"/><path d="M16 7V9.36039C16 11.9228 13.9228 14 11.3604 14C11.0549 14 10.7501 13.9698 10.4505 13.9099L7 13.2198V16H6L2 12L6 8H7V11.1802L10.8427 11.9487C11.0132 11.9828 11.1866 12 11.3604 12C12.8182 12 14 10.8182 14 9.36039V7H16Z"/>
+  </g>
+<text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">BEFORE · 传统模式</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">传统单一研发/单模型AI缺陷闭环</text>
+  <g transform="translate(80.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/list -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#4F46E5"><path d="M3 1H1V3H3V1Z"/><path d="M3 5H1V7H3V5Z"/><path d="M1 9H3V11H1V9Z"/><path d="M3 13H1V15H3V13Z"/><path d="M15 1H5V3H15V1Z"/><path d="M15 5H5V7H15V5Z"/><path d="M5 9H15V11H5V9Z"/><path d="M15 13H5V15H15V13Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">单一逻辑覆盖</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">一套研发逻辑服务所有品类</text>
+  </g>
+  <text x="364.0" y="338.0" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="28" fill="#CBD5E1">→</text>
+  <g transform="translate(378.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/circle-x -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#DC2626"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM4.29289 5.70711L6.58579 8L4.29289 10.2929L5.70711 11.7071L8 9.41421L10.2929 11.7071L11.7071 10.2929L9.41421 8L11.7071 5.70711L10.2929 4.29289L8 6.58579L5.70711 4.29289L4.29289 5.70711Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">创新错杀/爆款跟风</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">创新机会被误判 爆款机会被追高</text>
+  </g>
+  <text x="662.0" y="338.0" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="28" fill="#CBD5E1">→</text>
+  <g transform="translate(676.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/chart-pie -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#4F46E5"><path d="M7 0.0618896V9H15.9381C15.446 12.9463 12.0796 16 8 16C3.58172 16 0 12.4183 0 8C0 3.92038 3.05369 0.553988 7 0.0618896Z"/><path d="M9 0.0618897V7H15.9381C15.4869 3.38128 12.6187 0.513137 9 0.0618897Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">产品无竞争力</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">差异化不足 同质化严重</text>
+  </g>
+  <text x="960.0" y="338.0" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="28" fill="#CBD5E1">→</text>
+  <g transform="translate(974.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/arrow-trend-down -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#DC2626"><path d="M10 13L9.00001 12L11.2929 9.70712L8.50001 6.91423L5.50001 9.91423L0.292908 4.70712L1.70712 3.29291L5.50001 7.0858L8.50001 4.0858L12.7071 8.29291L15 6.00001L16 7.00001L16 13H10Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">上市陷入内卷</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">红海竞争 价格战不断</text>
+  </g>
+  <text x="1258.0" y="338.0" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="28" fill="#CBD5E1">→</text>
+  <g transform="translate(1272.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/dollar -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#4F46E5"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM9 5H7V11H9V5Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">利润无法覆盖成本</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">营收下滑 研发投入打水漂</text>
+  </g>
+  <text x="1556.0" y="338.0" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="28" fill="#CBD5E1">→</text>
+  <g transform="translate(1570.0, 230)">
+    <rect width="270" height="200" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+        <!-- icon: chunk/arrows-repeat -->
+    <g transform="translate(117.0, 30) scale(2.25)" fill="#4F46E5"><path d="M10 8H9V4.8198L5.15728 4.05126C4.98683 4.01717 4.81343 4 4.63961 4C3.18179 4 2 5.18179 2 6.63961V9H0V6.63961C0 4.07722 2.07722 2 4.63961 2C4.94514 2 5.24992 2.03018 5.54951 2.0901L9 2.7802V0H10L14 4L10 8Z"/><path d="M16 7V9.36039C16 11.9228 13.9228 14 11.3604 14C11.0549 14 10.7501 13.9698 10.4505 13.9099L7 13.2198V16H6L2 12L6 8H7V11.1802L10.8427 11.9487C11.0132 11.9828 11.1866 12 11.3604 12C12.8182 12 14 10.8182 14 9.36039V7H16Z"/></g>
+    <text x="135.0" y="100" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="800" fill="#0F172A">盲目迭代试错</text>
+    <text x="135.0" y="128" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#64748B">凭经验拍脑袋 资源持续错配</text>
+  </g>
+  <g transform="translate(80, 470)">
+    <rect width="1760" height="84" rx="8" fill="#FEF2F2"/>
+    <rect width="4" height="84" rx="2" fill="#DC2626"/>
+    <text x="24" y="38" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#991B1B">核心问题</text>
+    <text x="24" y="66" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">单链路模型无法同时服务创新与爆款两类任务，最终导致研发资源错配与战略停滞。</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第四章：流程对比</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">27</text>
+  </g>
+    <!-- icon: chunk/arrows-repeat -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M10 8H9V4.8198L5.15728 4.05126C4.98683 4.01717 4.81343 4 4.63961 4C3.18179 4 2 5.18179 2 6.63961V9H0V6.63961C0 4.07722 2.07722 2 4.63961 2C4.94514 2 5.24992 2.03018 5.54951 2.0901L9 2.7802V0H10L14 4L10 8Z"/><path d="M16 7V9.36039C16 11.9228 13.9228 14 11.3604 14C11.0549 14 10.7501 13.9698 10.4505 13.9099L7 13.2198V16H6L2 12L6 8H7V11.1802L10.8427 11.9487C11.0132 11.9828 11.1866 12 11.3604 12C12.8182 12 14 10.8182 14 9.36039V7H16Z"/>
+  </g>
+</svg>

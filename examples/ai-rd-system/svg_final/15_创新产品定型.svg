@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">EXPLORE · LAYER 05</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">创新产品定型：未来产品落地</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">整合前四层数据，结合供应链技术能力，定型原创创新产品方案。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="218" height="32" rx="8" fill="#EEF2FF"/>
+            <!-- icon: chunk/shirt -->
+<g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M3 1H6L8 3L10 1H13H16V5L13 6V16H3V6L0 5V1H3Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">案例：城市轻户外通勤外套</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 面料：轻量化防泼水面料</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 设计：简约无logo设计</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 版型：通勤包容版型</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 工艺：双场景适配工艺</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 场景：城市通勤 + 轻户外活动</text>
+  </g>
+  <g transform="translate(970, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+            <!-- icon: chunk/layers -->
+<g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/><path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/><path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">核心输出产物</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 创新产品全参数结构化定型模型</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 面料参数、工艺参数、版型参数</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 审美参数、场景参数、成本定价</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 供应链可行性评估报告</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 产品量产落地路线图</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">15</text>
+  </g>
+  <!-- icon: chunk/flag -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M1 1V16H3V10H7L9 12H15V3H9L7 1H1Z"/>
+  </g>
+</svg>

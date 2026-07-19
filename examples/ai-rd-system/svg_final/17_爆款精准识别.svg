@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">UTILIZE · LAYER 01</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">爆款精准识别：成熟赛道取舍</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">摒弃销量高即爆款的浅层判定，通过多维度数据筛选真实优质爆款。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="162" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M13.1371 6.91018C13.4184 6.7695 13.7123 6.59981 14 6.40001V8C14 9.65685 11.3137 11 8 11C4.68629 11 2 9.65685 2 8V6.40001C2.28772 6.59981 2.58158 6.7695 2.86293 6.91018C4.28096 7.61919 6.09998 8 8 8C9.90002 8 11.719 7.61919 13.1371 6.91018Z"/><path d="M2 11.4V13C2 14.6569 4.68629 16 8 16C11.3137 16 14 14.6569 14 13V11.4C13.7123 11.5998 13.4184 11.7695 13.1371 11.9102C11.719 12.6192 9.90002 13 8 13C6.09998 13 4.28096 12.6192 2.86293 11.9102C2.58158 11.7695 2.28772 11.5998 2 11.4Z"/><path d="M8 0C11.3137 0 14 1.34315 14 3C14 4.65685 11.3137 6 8 6C4.68629 6 2 4.65685 2 3C2 1.34315 4.68629 0 8 0Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">AI采集数据维度</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 亚马逊BSR排名与长期销量稳定性</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 增长速率与类目竞争密度</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 产品生命周期与价格利润空间</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 评论质量与更新趋势</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 星级分布与高频差评关键词</text>
+  </g>
+  <g transform="translate(970, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M16 1H12V15H16V1Z"/><path d="M6 5H10V15H6V5Z"/><path d="M0 9H4V15H0V9Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">核心输出产物</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 优质爆款资质判定数值矩阵</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 稳定性分值: 稳定</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 增长分值: 增长</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 利润分值: 利润</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 竞争分值: 中高</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">17</text>
+  </g>
+  <!-- icon: chunk/crosshairs -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M9 8C9 8.55229 8.55229 9 8 9C7.44772 9 7 8.55229 7 8C7 7.44772 7.44772 7 8 7C8.55229 7 9 7.44772 9 8Z"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9 1.57645V0H7V1.57645C4.21088 2.00712 2.00712 4.21088 1.57645 7H0V9H1.57645C2.00712 11.7891 4.21088 13.9929 7 14.4236V16H9V14.4236C11.7891 13.9929 13.9929 11.7891 14.4236 9H16V7H14.4236C13.9929 4.21088 11.7891 2.00712 9 1.57645ZM7 3.61151V5H9V3.61151C10.6824 3.99326 12.0067 5.31762 12.3885 7H11V9H12.3885C12.0067 10.6824 10.6824 12.0067 9 12.3885V11H7V12.3885C5.31762 12.0067 3.99326 10.6824 3.61151 9H5V7H3.61151C3.99326 5.31762 5.31762 3.99326 7 3.61151Z"/>
+  </g>
+</svg>

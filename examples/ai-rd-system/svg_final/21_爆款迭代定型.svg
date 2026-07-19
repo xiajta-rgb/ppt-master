@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">UTILIZE · LAYER 05</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">爆款迭代定型：成熟产品落地</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">整合爆款成功基因、用户痛点优化、竞品错位优势与供应链能力，定型爆款迭代新品方案。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="190" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M2 15L0 4H2L5 7L7 1H9L11 7L14 4H16L14 15H2ZM7.5 9L6 11L7.5 13H8.5L10 11L8.5 9H7.5Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">案例：升级款凉感T恤</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 复用：原有凉感面料、合身版型优势</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 优化：高密度不透肉工艺、加固领型</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 结果：打造优于市面爆款的迭代产品</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 上市测试方案</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 推广策略建议</text>
+  </g>
+  <g transform="translate(970, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/><path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/><path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">核心输出产物</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 爆款迭代全参数优化定型模型</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 复用参数、优化参数、创新参数</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 落地工艺参数</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 成本定价测算</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 供应链排产计划</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">21</text>
+  </g>
+  <!-- icon: chunk/arrows-rotate-clockwise -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M10 7L9 6L11.2929 3.70711L10.7071 3.12132C9.98914 2.40335 9.01536 2 8 2C6.98464 2 6.01086 2.40335 5.29289 3.12132L5.20711 3.20711C4.43421 3.98 4 5.02828 4 6.12132L4 7L2 7V6.12132C2 4.49785 2.64492 2.94086 3.79289 1.79289L3.87868 1.70711C4.97172 0.614064 6.4542 0 8 0C9.54579 0 11.0283 0.614064 12.1213 1.70711L12.7071 2.29289L15 0L16 1V7H10Z"/>
+    <path d="M5.29289 12.8787C6.01086 13.5966 6.98464 14 8 14C9.01536 14 9.98914 13.5967 10.7071 12.8787L10.7929 12.7929C11.5658 12.02 12 10.9717 12 9.87868V9L14 9V9.87868C14 11.5022 13.3551 13.0591 12.2071 14.2071L12.1213 14.2929C11.0283 15.3859 9.5458 16 8 16C6.45421 16 4.97172 15.3859 3.87868 14.2929L3.29289 13.7071L1 16L0 15L9.53674e-07 9L6 9L7 10L4.70711 12.2929L5.29289 12.8787Z"/>
+  </g>
+</svg>

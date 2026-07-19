@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">CORE ENGINE · 认知计算大脑</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">双引擎数据融合 + 统一交叉推理建模</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">用可见的架构场景呈现数据从双路径进入，再进入统一决策的过程。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="865" height="750" rx="12" fill="#0F172A"/>
+    <text x="40" y="50" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#A5B4FC">架构总览</text>
+    <text x="40" y="85" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">双引擎数据流架构</text>
+    
+    <g transform="translate(40, 130)">
+      <g transform="translate(0, 0) scale(1.25)" fill="#818CF8"><path d="M13.1371 6.91018C13.4184 6.7695 13.7123 6.59981 14 6.40001V8C14 9.65685 11.3137 11 8 11C4.68629 11 2 9.65685 2 8V6.40001C2.28772 6.59981 2.58158 6.7695 2.86293 6.91018C4.28096 7.61919 6.09998 8 8 8C9.90002 8 11.719 7.61919 13.1371 6.91018Z"/><path d="M2 11.4V13C2 14.6569 4.68629 16 8 16C11.3137 16 14 14.6569 14 13V11.4C13.7123 11.5998 13.4184 11.7695 13.1371 11.9102C11.719 12.6192 9.90002 13 8 13C6.09998 13 4.28096 12.6192 2.86293 11.9102C2.58158 11.7695 2.28772 11.5998 2 11.4Z"/><path d="M8 0C11.3137 0 14 1.34315 14 3C14 4.65685 11.3137 6 8 6C4.68629 6 2 4.65685 2 3C2 1.34315 4.68629 0 8 0Z"/></g>
+      <text x="36" y="16" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="600" fill="#E2E8F0">创新探索引擎</text>
+      <text x="0" y="50" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">趋势数据 · 消费者洞察 · 竞品分析</text>
+    </g>
+    
+    <g transform="translate(40, 210)">
+      <g transform="translate(0, 0) scale(1.25)" fill="#818CF8"><path d="M5 4.79198C5.88295 4.4062 6.5 3.52516 6.5 2.5C6.5 1.11929 5.38071 0 4 0C2.61929 0 1.5 1.11929 1.5 2.5C1.5 3.52516 2.11705 4.4062 3 4.79198V11.208C2.11705 11.5938 1.5 12.4748 1.5 13.5C1.5 14.8807 2.61929 16 4 16C5.38071 16 6.5 14.8807 6.5 13.5C6.5 12.4748 5.88295 11.5938 5 11.208V9H13V4.79198C13.883 4.4062 14.5 3.52516 14.5 2.5C14.5 1.11929 13.3807 0 12 0C10.6193 0 9.5 1.11929 9.5 2.5C9.5 3.52516 10.117 4.4062 11 4.79198V7H5V4.79198Z"/></g>
+      <text x="36" y="16" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="600" fill="#E2E8F0">爆款复用引擎</text>
+      <text x="0" y="50" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">爆款拆解 · 因果挖掘 · 对标超车</text>
+    </g>
+    
+    <g transform="translate(40, 310)">
+      <line x1="40" y1="0" x2="40" y2="60" stroke="#4F46E5" stroke-width="2" stroke-dasharray="4,4"/>
+      <g transform="translate(30, 70) scale(1.25)" fill="#C7D2FE"><path d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM6 8C6 6.89543 6.89543 6 8 6C9.10457 6 10 6.89543 10 8C10 9.10457 9.10457 10 8 10C6.89543 10 6 9.10457 6 8Z"/><path d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8Z"/></g>
+      <text x="66" y="86" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#FFFFFF">统一决策大脑</text>
+      <text x="30" y="120" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">交叉推理 · 权重融合 · 风险评估</text>
+    </g>
+    
+    <g transform="translate(40, 470)">
+      <g transform="translate(0, 0) scale(1.125)" fill="#34D399"><path d="M11.1922 12.6064C10.0236 13.4816 8.57234 14 7 14C3.13401 14 0 10.866 0 7C0 3.13401 3.13401 0 7 0C10.866 0 14 3.13401 14 7C14 8.57234 13.4816 10.0236 12.6064 11.1922L15.7071 14.2929L14.2929 15.7071L11.1922 12.6064ZM5.58579 8.41421L4.17157 9.82843C2.60948 8.26633 2.60948 5.73367 4.17157 4.17157C5.73367 2.60948 8.26633 2.60948 9.82843 4.17157L8.41421 5.58579C7.63316 4.80474 6.36683 4.80474 5.58579 5.58579C4.80474 6.36684 4.80474 7.63316 5.58579 8.41421Z"/></g>
+      <text x="32" y="15" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" font-weight="600" fill="#6EE7B7">机会发现层</text>
+      <text x="0" y="45" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="12" fill="#94A3B8">发现创新赛道与爆款机会</text>
+    </g>
+    
+    <g transform="translate(300, 470)">
+      <g transform="translate(0, 0) scale(1.125)" fill="#FBBF24"><path d="M10 3.5L13.0581 0.441881C12.4304 0.15802 11.7337 0 11 0C8.23858 0 6 2.23858 6 5C6 5.45802 6.06158 5.90165 6.17692 6.32308L0 12.5L3.5 16L9.67692 9.82308C10.0983 9.93842 10.542 10 11 10C13.7614 10 16 7.76142 16 5C16 4.26633 15.842 3.56956 15.5581 2.94188L12.5 6H10V3.5Z"/></g>
+      <text x="32" y="15" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" font-weight="600" fill="#FDE68A">产品定型层</text>
+      <text x="0" y="45" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="12" fill="#94A3B8">产品参数与方案定型</text>
+    </g>
+    
+    <g transform="translate(560, 470)">
+      <g transform="translate(0, 0) scale(1.125)" fill="#F472B6"><path d="M10 0H6V3H10V0Z"/><path d="M4 2H2V16H14V2H12V5H4V2Z"/></g>
+      <text x="32" y="15" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" font-weight="600" fill="#FBCFE8">决策输出层</text>
+      <text x="0" y="45" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="12" fill="#94A3B8">量产决策与排产计划</text>
+    </g>
+  </g>
+  <g transform="translate(975, 230)">
+    <rect width="865" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M8 4C5.79086 4 4 5.79086 4 8C4 10.2091 5.79086 12 8 12C10.2091 12 12 10.2091 12 8C12 5.79086 10.2091 4 8 4ZM6 8C6 6.89543 6.89543 6 8 6C9.10457 6 10 6.89543 10 8C10 9.10457 9.10457 10 8 10C6.89543 10 6 9.10457 6 8Z"/><path d="M8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0ZM2 8C2 4.68629 4.68629 2 8 2C11.3137 2 14 4.68629 14 8C14 11.3137 11.3137 14 8 14C4.68629 14 2 11.3137 2 8Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">融合核心价值</text>
+    </g>
+    <text x="48" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 双引擎数据交叉验证，消除单路径偏差</text>
+    <text x="48" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 趋势热度 × 爆款稳定性双重权重计算</text>
+    <text x="48" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 创新差异化 + 成熟可复用平衡决策</text>
+    <text x="48" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 多维度风险控制机制前置介入</text>
+    
+    <g transform="translate(28, 320)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/><path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/><path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">三大输出场景</text>
+    </g>
+    <g transform="translate(40, 380)">
+      <rect width="780" height="100" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="24" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">创新产品定型</text>
+      <text x="24" y="64" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#64748B">探索引擎主导，输出原创方案</text>
+    </g>
+    <g transform="translate(40, 496)">
+      <rect width="780" height="100" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="24" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">爆款迭代定型</text>
+      <text x="24" y="64" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#64748B">复用引擎主导，输出优化方案</text>
+    </g>
+    <g transform="translate(40, 612)">
+      <rect width="780" height="100" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+      <text x="24" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" font-weight="700" fill="#0F172A">双机会池管理</text>
+      <text x="24" y="64" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#64748B">双通道并行，统一决策排序</text>
+    </g>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">22</text>
+  </g>
+  <!-- icon: chunk/database -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M13.1371 6.91018C13.4184 6.7695 13.7123 6.59981 14 6.40001V8C14 9.65685 11.3137 11 8 11C4.68629 11 2 9.65685 2 8V6.40001C2.28772 6.59981 2.58158 6.7695 2.86293 6.91018C4.28096 7.61919 6.09998 8 8 8C9.90002 8 11.719 7.61919 13.1371 6.91018Z"/>
+    <path d="M2 11.4V13C2 14.6569 4.68629 16 8 16C11.3137 16 14 14.6569 14 13V11.4C13.7123 11.5998 13.4184 11.7695 13.1371 11.9102C11.719 12.6192 9.90002 13 8 13C6.09998 13 4.28096 12.6192 2.86293 11.9102C2.58158 11.7695 2.28772 11.5998 2 11.4Z"/>
+    <path d="M8 0C11.3137 0 14 1.34315 14 3C14 4.65685 11.3137 6 8 6C4.68629 6 2 4.65685 2 3C2 1.34315 4.68629 0 8 0Z"/>
+  </g>
+</svg>

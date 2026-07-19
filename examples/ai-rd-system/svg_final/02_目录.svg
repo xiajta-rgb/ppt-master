@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="110" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">CONTENTS · 汇报目录</text>
+  <text x="80" y="185" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="56" font-weight="900" fill="#0F172A">七大章节，体系化呈现</text>
+
+  <g transform="translate(80, 240)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">01</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">认知破局</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">传统AI选品的战略缺陷与研发死局</text>
+  </g>
+
+  <g transform="translate(969, 240)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">02</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">核心体系</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">双引擎五层递进研发洞察体系</text>
+  </g>
+
+  <g transform="translate(80, 388)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">03</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">工程化打分</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">创新/爆款分层量化评审</text>
+  </g>
+
+  <g transform="translate(969, 388)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">04</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">流程对比</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">AI分层研发 VS 传统单一研发</text>
+  </g>
+
+  <g transform="translate(80, 536)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">05</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">企业闭环</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">双引擎全链路流转与战略迭代</text>
+  </g>
+
+  <g transform="translate(969, 536)">
+    <rect width="871" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">06</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">终审归档</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">风控终审与分层物料归档</text>
+  </g>
+
+  <g transform="translate(80, 684)">
+    <rect width="1760" height="130" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="24" y="78" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="52" font-weight="900" fill="#4F46E5">07</text>
+    <text x="110" y="62" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="20" font-weight="800" fill="#0F172A">体系复盘</text>
+    <text x="110" y="92" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" fill="#94A3B8">双引擎分层研发 VS 传统单一研发 终局对比</text>
+  </g>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">AI双引擎产品智能研发体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">目录 / 39</text>
+  </g>
+  <!-- icon: chunk/layers -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M1 5V3L8 0L15 3V5L8 8L1 5Z"/>
+    <path d="M8 16L1 13V11L8 14L15 11V13L8 16Z"/>
+    <path d="M1 9L8 12L15 9V7L8 10L1 7V9Z"/>
+  </g>
+</svg>

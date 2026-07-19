@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">UTILIZE · LAYER 04</text>
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">竞品对标超车：缺陷规避与错位升级</text>
+  <text x="80" y="200" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="18" font-weight="300" fill="#475569">结合自身供应链能力，制定优势全复用、缺陷全优化、差异化微创新的错位研发策略。</text>
+
+  <g transform="translate(80, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="162" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M0 8L3.07945 4.30466C4.29638 2.84434 6.09909 2 8 2C9.90091 2 11.7036 2.84434 12.9206 4.30466L16 8L12.9206 11.6953C11.7036 13.1557 9.90091 14 8 14C6.09909 14 4.29638 13.1557 3.07945 11.6953L0 8ZM8 11C9.65685 11 11 9.65685 11 8C11 6.34315 9.65685 5 8 5C6.34315 5 5 6.34315 5 8C5 9.65685 6.34315 11 8 11Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">AI采集数据维度</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 同类竞品迭代版本与优化款市场表现</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 供应链可实现工艺与成本适配区间</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 竞品升级短板</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 替代款价格带分布</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 消费者升级期望调研</text>
+  </g>
+  <g transform="translate(970, 230)">
+    <rect width="870" height="750" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <g transform="translate(28, 28)">
+      <rect x="0" y="0" width="134" height="32" rx="8" fill="#EEF2FF"/>
+      <g transform="translate(10, 8) scale(1.0)" fill="#4F46E5"><path d="M10 16L12 14V10L13.6569 8.34314C15.1571 6.84285 16 4.80802 16 2.68629V0H13.3137C11.192 0 9.15714 0.842855 7.65685 2.34315L6 4H2L0 6L10 16ZM10.5 7C11.3284 7 12 6.32843 12 5.5C12 4.67157 11.3284 4 10.5 4C9.67157 4 9 4.67157 9 5.5C9 6.32843 9.67157 7 10.5 7Z"/><path d="M4.9274 13.7558L2.24423 11.0726L0 15L1 16L4.9274 13.7558Z"/></g>
+      <text x="36" y="22" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="14" font-weight="700" fill="#4F46E5">核心输出产物</text>
+    </g>
+    <text x="40" y="90" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 爆款迭代升级优化方案库</text>
+    <text x="40" y="138" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 优势复用清单：保留凉感面料、合身版型</text>
+    <text x="40" y="186" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 缺陷整改清单：不透肉工艺、加固领型</text>
+    <text x="40" y="234" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 微创新清单：差异化色彩、细节设计</text>
+    <text x="40" y="282" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" fill="#475569">· 版本迭代路线图</text>
+  </g>
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第二章：核心体系</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">20</text>
+  </g>
+  <!-- icon: chunk/git-compare -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path d="M10.5 0.5H9.5L6.5 3.5L9.5 6.5H10.5V4.5H12V10.208C11.117 10.5938 10.5 11.4748 10.5 12.5C10.5 13.8807 11.6193 15 13 15C14.3807 15 15.5 13.8807 15.5 12.5C15.5 11.4748 14.883 10.5938 14 10.208V2.5H10.5V0.5Z"/>
+    <path d="M6.5 15.5L9.5 12.5L6.5 9.5H5.5V11.5H4V5.79198C4.88295 5.4062 5.5 4.52516 5.5 3.5C5.5 2.11929 4.38071 1 3 1C1.61929 1 0.5 2.11929 0.5 3.5C0.5 4.52516 1.11705 5.4062 2 5.79198V13.5H5.5V15.5H6.5Z"/>
+  </g>
+</svg>

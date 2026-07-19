@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  <text x="960" y="430" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">Chapter · 05</text>
+  <text x="960" y="530" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="72" font-weight="900" fill="#0F172A">企业研发闭环</text>
+  <rect x="924" y="565" width="72" height="4" rx="2" fill="#4F46E5"/>
+  <text x="960" y="640" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="22" font-weight="300" fill="#475569">双引擎全链路流转与战略迭代机制</text>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">CONFIDENTIAL</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">29</text>
+  </g>
+  <!-- icon: chunk/bridge -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#FFFFFF">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 4C1.65685 4 3 2.65685 3 1H5C5 2.65685 6.34315 4 8 4C9.65685 4 11 2.65685 11 1H13C13 2.65685 14.3431 4 16 4V6C14.8744 6 13.8357 5.62805 13 5.00036V10H16V12H13V15H11V12H5V15H3V12H0V10H3V5.00037C2.16434 5.62806 1.12561 6 0 6V4ZM9 5.89998C9.73888 5.75 10.4186 5.43708 11 5.00037V10H9V5.89998ZM7 5.89998C6.26112 5.75 5.58141 5.43708 5 5.00037V10H7V5.89998Z"/>
+  </g>
+</svg>

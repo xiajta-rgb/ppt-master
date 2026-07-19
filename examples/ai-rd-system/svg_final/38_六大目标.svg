@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <rect width="1920" height="1080" fill="#F8FAFC"/>
+  
+  <!-- Kicker with icon -->
+  <!-- icon: chunk/trophy -->
+  <g transform="translate(80, 83) scale(1.25)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0H12V2H16V4C16 6.45641 14.2286 8.49909 11.8936 8.92038C11.5537 10.3637 10.432 11.5054 9 11.874V14H12V16H4V14H7V11.874C5.56796 11.5054 4.44628 10.3637 4.1064 8.92038C1.77136 8.49909 0 6.45641 0 4V2H4V0ZM12 6.82929V4H14C14 5.30622 13.1652 6.41746 12 6.82929ZM4 4H2C2 5.30622 2.83481 6.41746 4 6.82929V4Z"/>
+  </g>
+  <text x="80" y="95" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="15" font-weight="700" letter-spacing="1.2" fill="#4F46E5">SUMMARY · 终极总结</text>
+  
+  <text x="80" y="160" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="42" font-weight="800" fill="#0F172A">体系终极价值：六大核心目标</text>
+
+  <!-- Row 1 -->
+  <g transform="translate(80, 220)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <!-- Icon circle background -->
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/coin -->
+    <g transform="translate(252, 52) scale(3.5)" fill="#4F46E5">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM9 5H7V11H9V5Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">降本</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">减少无效立项盲目改版，压缩80%</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">前置调研时间，降低研发试错成本</text>
+  </g>
+
+  <g transform="translate(680, 220)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/bolt -->
+    <g transform="translate(250, 50) scale(3.75)" fill="#4F46E5">
+      <path d="M9 7L10 0H8L2 7V9H7L6 16H8L14 9L14 7H9Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">提效</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">AI替代人工海量趋势筛查、爆款</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">拆解、需求整理，效率提升10倍</text>
+  </g>
+
+  <g transform="translate(1280, 220)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/shield -->
+    <g transform="translate(248, 48) scale(4.0)" fill="#4F46E5">
+      <path d="M4.35009 13.3929L8 16L11.6499 13.3929C13.7523 11.8912 15 9.46667 15 6.88306V3L8 0L1 3V6.88306C1 9.46667 2.24773 11.8912 4.35009 13.3929Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">提质</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">双路径精准锁定研发方向，兼顾</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">创新突破与爆款优化双重目标</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(80, 580)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/shield (for 避险) - using shield-check style, but we use shield -->
+    <g transform="translate(248, 48) scale(4.0)" fill="#4F46E5">
+      <path d="M4.35009 13.3929L8 16L11.6499 13.3929C13.7523 11.8912 15 9.46667 15 6.88306V3L8 0L1 3V6.88306C1 9.46667 2.24773 11.8912 4.35009 13.3929Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">避险</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">分层前置风控，精准规避创新误区</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">与爆款复刻缺陷，降低研发风险</text>
+  </g>
+
+  <g transform="translate(680, 580)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/archive-box -->
+    <g transform="translate(250, 52) scale(3.5)" fill="#4F46E5">
+      <path d="M16 2H0V5H16V2Z"/>
+      <path d="M1 7H5V9H11V7H15V15H1V7Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">沉淀资产</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">形成企业专属分层研发数字资产</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">可复用、可迭代、可持续进化</text>
+  </g>
+
+  <g transform="translate(1280, 580)">
+    <rect width="560" height="330" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+    <circle cx="280" cy="80" r="48" fill="#4F46E5" fill-opacity="0.12"/>
+    <!-- icon: chunk/rocket -->
+    <g transform="translate(250, 48) scale(3.75)" fill="#4F46E5">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M10 16L12 14V10L13.6569 8.34314C15.1571 6.84285 16 4.80802 16 2.68629V0H13.3137C11.192 0 9.15714 0.842855 7.65685 2.34315L6 4H2L0 6L10 16ZM10.5 7C11.3284 7 12 6.32843 12 5.5C12 4.67157 11.3284 4 10.5 4C9.67157 4 9 4.67157 9 5.5C9 6.32843 9.67157 7 10.5 7Z"/>
+      <path d="M4.9274 13.7558L2.24423 11.0726L0 15L1 16L4.9274 13.7558Z"/>
+    </g>
+    <text x="280" y="160" text-anchor="middle" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="24" font-weight="800" fill="#0F172A">战略升级</text>
+    <text x="40" y="200" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">从单链路黑盒到分场景、可解释</text>
+    <text x="40" y="228" text-anchor="start" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="16" fill="#475569">可复核的科学化造品系统</text>
+  </g>
+
+  <g transform="translate(80, 1025)">
+    <line x1="0" y1="0" x2="1760" y2="0" stroke="#CBD5E1" stroke-width="1"/>
+    <text x="0" y="36" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">第七章：体系复盘</text>
+    <text x="1760" y="36" text-anchor="end" font-family="&quot;Inter&quot;,&quot;Noto Sans SC&quot;,sans-serif" font-size="13" fill="#94A3B8">38 / 39</text>
+  </g>
+  <!-- icon: chunk/trophy -->
+  <g transform="translate(1792.0, 64.0) scale(3.0)" fill="#4F46E5">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M4 0H12V2H16V4C16 6.45641 14.2286 8.49909 11.8936 8.92038C11.5537 10.3637 10.432 11.5054 9 11.874V14H12V16H4V14H7V11.874C5.56796 11.5054 4.44628 10.3637 4.1064 8.92038C1.77136 8.49909 0 6.45641 0 4V2H4V0ZM12 6.82929V4H14C14 5.30622 13.1652 6.41746 12 6.82929ZM4 4H2C2 5.30622 2.83481 6.41746 4 6.82929V4Z"/>
+  </g>
+</svg>
