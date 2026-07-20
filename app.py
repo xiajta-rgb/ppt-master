@@ -269,7 +269,7 @@ def invalidate_cache():
 def scan_projects():
     cached = _get_valid_cache()
     if cached is not None:
-        return Response(cached, mimetype='application/json; charset=utf-8', headers={'Cache-Control': 'no-cache'})
+        return Response(cached, mimetype='application/json', headers={'Cache-Control': 'no-cache'})
 
     examples_dir = PROJECT_DIR / 'examples'
     projects = []
@@ -291,7 +291,7 @@ def scan_projects():
     import json
     content = json.dumps({'projects': projects, 'timestamp': time.time()}, ensure_ascii=False)
     _set_cache(content.encode('utf-8') if isinstance(content, str) else content)
-    return Response(content, mimetype='application/json; charset=utf-8', headers={'Cache-Control': 'no-cache'})
+    return Response(content, mimetype='application/json', headers={'Cache-Control': 'no-cache'})
 
 @app.route('/api/project/<project_id>')
 def get_single_project(project_id):
@@ -341,7 +341,7 @@ def get_projects_data():
             content = data_file.read_text(encoding='utf-8')
         else:
             content = '{}'
-        return Response(content, mimetype='application/json; charset=utf-8', headers={'Cache-Control': 'no-cache'})
+        return Response(content, mimetype='application/json', headers={'Cache-Control': 'no-cache'})
     except Exception as e:
         logger.error(f"Error reading projects data: {e}")
         return jsonify({'error': str(e)}), 500

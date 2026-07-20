@@ -9,7 +9,6 @@ export default defineConfig({
     emptyOutDir: true
   },
   server: {
-    host: true,
     port: 5373,
     strictPort: false,
     proxy: {

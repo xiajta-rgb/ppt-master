@@ -27,7 +27,6 @@ PROJECT_ALIASES = {
     'customer-loyalty': 'ppt169_麦肯锡风_kimsoong_customer_loyalty',
     'tactical-clothing-report': 'TacticalClothingReport',
     'astrology-archetypes': 'ppt169_宇宙深空风_占星学五大底层人性原型',
-    'ai-rd-system': 'ai-rd-system',
 }
 
 SCRIPTS_DIR = PROJECT_DIR / '.trae' / 'skills' / 'ppt-master' / 'scripts'
