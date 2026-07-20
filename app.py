@@ -75,10 +75,12 @@ def add_cache_headers(response):
     content_type = response.content_type or ''
     base_ct = content_type.split(';')[0].strip().lower()
 
-    if base_ct in ('image/svg+xml', 'image/png', 'image/jpeg', 'image/webp', 'image/gif'):
+    if base_ct == 'image/svg+xml':
+        response.headers['Cache-Control'] = 'no-cache'
+    elif base_ct in ('image/png', 'image/jpeg', 'image/webp', 'image/gif'):
         response.headers['Cache-Control'] = 'public, max-age=86400'
-    elif base_ct in ('text/css', 'application/javascript'):
-        response.headers['Cache-Control'] = 'public, max-age=3600'
+    elif base_ct in ('text/css', 'application/javascript', 'text/javascript'):
+        response.headers['Cache-Control'] = 'no-cache'
     elif base_ct == 'text/html':
         response.headers['Cache-Control'] = 'no-cache'
     else:
@@ -188,6 +190,40 @@ def get_project_folder(project_id):
                 return svg_final
     return None
 
+SOURCE_DECKS = {
+    'ai-rd-system': {
+        'path': PROJECT_DIR / 'examples' / 'ai-rd-system' / 'ai-rd-system.html',
+        'slides': 39,
+    }
+}
+
+def get_source_deck_metadata(project_id):
+    source_deck = SOURCE_DECKS.get(project_id)
+    if not source_deck:
+        return {}
+    return {
+        'renderMode': 'html',
+        'sourceHtml': f'/api/source-decks/{project_id}',
+        'sourceMtime': get_file_mtime(source_deck['path']),
+        'sourceSlides': source_deck['slides'],
+    }
+
+def get_project_slides(project_id, project_dir):
+    source_deck = SOURCE_DECKS.get(project_id)
+    if source_deck:
+        return [
+            {'file': f'html-page-{index:02d}', 'mtime': get_file_mtime(source_deck['path'])}
+            for index in range(1, source_deck['slides'] + 1)
+        ]
+
+    svg_final = project_dir / 'svg_final'
+    if not svg_final.exists():
+        return []
+    return [
+        {'file': svg_file.name, 'mtime': get_file_mtime(svg_file)}
+        for svg_file in sorted(svg_final.glob('*.svg'))
+    ]
+
 def get_file_mtime(file_path):
     try:
         return os.path.getmtime(file_path)
@@ -265,6 +301,17 @@ def invalidate_cache():
     invalidate_scan_cache()
     return jsonify({'success': True, 'message': 'Cache invalidated'})
 
+@app.route('/api/source-decks/<project_id>')
+def serve_source_deck(project_id):
+    source_deck = SOURCE_DECKS.get(project_id)
+    if not source_deck or not source_deck['path'].is_file():
+        return jsonify({'error': f'Source deck not found: {project_id}'}), 404
+
+    content = source_deck['path'].read_text(encoding='utf-8')
+    content = content.replace('./_shared/', f'/examples/{project_id}/_shared/')
+    content = content.replace('assets/', f'/examples/{project_id}/assets/')
+    return Response(content, content_type='text/html; charset=utf-8', headers={'Cache-Control': 'no-cache'})
+
 @app.route('/api/scan-projects')
 def scan_projects():
     cached = _get_valid_cache()
@@ -276,16 +323,13 @@ def scan_projects():
     if examples_dir.exists():
         for item in examples_dir.iterdir():
             if item.is_dir():
-                svg_final = item / 'svg_final'
-                slides = []
-                if svg_final.exists():
-                    for svg_file in sorted(svg_final.glob('*.svg')):
-                        slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+                slides = get_project_slides(item.name, item)
                 projects.append({
                     'id': item.name,
                     'folder': f'examples/{item.name}/svg_final',
                     'slides': slides,
-                    'alias': [k for k, v in PROJECT_ALIASES.items() if v == item.name]
+                    'alias': [k for k, v in PROJECT_ALIASES.items() if v == item.name],
+                    **get_source_deck_metadata(item.name)
                 })
 
     import json
@@ -301,34 +345,30 @@ def get_single_project(project_id):
     for search_name in [resolved, project_id]:
         project_dir = examples_dir / search_name
         if project_dir.exists() and project_dir.is_dir():
-            svg_final = project_dir / 'svg_final'
-            slides = []
-            if svg_final.exists():
-                for svg_file in sorted(svg_final.glob('*.svg')):
-                    slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+            slides = get_project_slides(project_dir.name, project_dir)
             return jsonify({
                 'id': project_dir.name,
                 'folder': f'examples/{project_dir.name}/svg_final',
                 'slides': slides,
-                'alias': [k for k, v in PROJECT_ALIASES.items() if v == project_dir.name]
+                'alias': [k for k, v in PROJECT_ALIASES.items() if v == project_dir.name],
+                **get_source_deck_metadata(project_dir.name)
             })
 
     for item in examples_dir.iterdir():
         if not item.is_dir():
             continue
         svg_final = item / 'svg_final'
-        if not svg_final.exists():
+        if not svg_final.exists() and item.name not in SOURCE_DECKS:
             continue
         aliases = [k for k, v in PROJECT_ALIASES.items() if v == item.name]
         if project_id in aliases or project_id.lower() in item.name.lower():
-            slides = []
-            for svg_file in sorted(svg_final.glob('*.svg')):
-                slides.append({'file': svg_file.name, 'mtime': get_file_mtime(svg_file)})
+            slides = get_project_slides(item.name, item)
             return jsonify({
                 'id': item.name,
                 'folder': f'examples/{item.name}/svg_final',
                 'slides': slides,
-                'alias': aliases
+                'alias': aliases,
+                **get_source_deck_metadata(item.name)
             })
 
     return jsonify({'error': f'Project not found: {project_id}'}), 404
@@ -653,20 +693,32 @@ def export():
         return Response(f'Project not found: {project_id}', mimetype='text/plain', status=404)
 
     try:
-        if str(SCRIPTS_DIR) not in sys.path:
-            sys.path.insert(0, str(SCRIPTS_DIR))
-        from svg_to_pptx import create_pptx_with_native_svg
         import tempfile
         from urllib.parse import quote
 
         output_dir = Path(tempfile.mkdtemp())
         output_pptx = output_dir / f'{project_id}.pptx'
-        svg_files = sorted([f for f in project_folder.glob('*.svg')])
+        source_deck = SOURCE_DECKS.get(project_folder.parent.name)
 
-        if not svg_files:
-            return Response('No SVG files found', mimetype='text/plain', status=404)
+        if source_deck:
+            from html_to_pptx import export_html_deck_to_pptx
+            source_url = request.host_url.rstrip('/') + f'/api/source-decks/{project_folder.parent.name}'
+            export_html_deck_to_pptx(
+                source_url,
+                source_deck['slides'],
+                output_pptx,
+                output_dir / 'html-rendered-pages',
+            )
+        else:
+            if str(SCRIPTS_DIR) not in sys.path:
+                sys.path.insert(0, str(SCRIPTS_DIR))
+            from svg_to_pptx import create_pptx_with_native_svg
+            svg_files = sorted([f for f in project_folder.glob('*.svg')])
 
-        create_pptx_with_native_svg(svg_files, str(output_pptx), use_native_shapes=True)
+            if not svg_files:
+                return Response('No SVG files found', mimetype='text/plain', status=404)
+
+            create_pptx_with_native_svg(svg_files, str(output_pptx), use_native_shapes=True)
 
         with open(output_pptx, 'rb') as f:
             pptx_content = f.read()
@@ -687,6 +739,7 @@ def export():
         return Response(f'Export failed: {str(e)}', mimetype='text/plain', status=500)
 
 @app.route('/')
+@app.route('/viewer.html')
 def index():
     index_file = STATIC_DIR / 'index.html'
     if index_file.exists():
@@ -823,14 +876,16 @@ def serve_examples(filename):
         return jsonify({'error': 'Path not allowed'}), 403
 
     if examples_file.exists() and examples_file.is_file():
-        suffix = examples_file.suffix
-        if suffix == '.svg':
-            mimetype = 'image/svg+xml; charset=utf-8'
-        elif suffix == '.png':
-            mimetype = 'image/png'
-        else:
-            mimetype = 'application/octet-stream'
-        return send_from_directory(examples_file.parent, examples_file.name, mimetype=mimetype)
+        suffix = examples_file.suffix.lower()
+        mimetypes = {
+            '.svg': 'image/svg+xml; charset=utf-8',
+            '.css': 'text/css; charset=utf-8',
+            '.js': 'application/javascript; charset=utf-8',
+            '.png': 'image/png',
+            '.jpg': 'image/jpeg',
+            '.jpeg': 'image/jpeg',
+        }
+        return send_from_directory(examples_file.parent, examples_file.name, mimetype=mimetypes.get(suffix, 'application/octet-stream'))
 
     return '<html><body><h1>404: {}</h1></body></html>'.format(filename), 404
 

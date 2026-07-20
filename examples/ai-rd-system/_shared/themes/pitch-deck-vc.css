@@ -1,0 +1,35 @@
+/* theme: product-system — ByteDance product-inspired strategic deck */
+:root{
+  --bg:#F7F8FA;--bg-soft:#F2F3F5;--surface:#FFFFFF;--surface-2:#F2F3F5;
+  --border:#E5E6EB;--border-strong:#C9CDD4;
+  --text-1:#161823;--text-2:#4E5969;--text-3:#86909C;
+  --accent:#1664FF;--accent-2:#6A4CFF;--accent-3:#00B8D9;
+  --good:#00B42A;--warn:#FF8A34;--bad:#F53F3F;
+  --grad:linear-gradient(110deg,#1664FF 0%,#6A4CFF 100%);
+  --grad-soft:linear-gradient(135deg,#EEF4FF 0%,#F4F0FF 100%);
+  --radius:12px;--radius-sm:8px;--radius-lg:18px;
+  --shadow:0 4px 14px rgba(22,24,35,.05);--shadow-lg:0 16px 40px rgba(22,24,35,.10);
+  --font-sans:"Microsoft YaHei",Arial,sans-serif;
+  --font-display:"Microsoft YaHei",Arial,sans-serif;
+}
+.slide{padding:64px 80px;background:var(--bg)}
+h1.title,.h1{font-weight:800;letter-spacing:-.045em}
+h2.title,.h2{font-size:46px;font-weight:800;letter-spacing:-.04em}
+.lede{font-size:20px;font-weight:400;color:var(--text-2)}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.14em;color:var(--accent);-webkit-text-fill-color:var(--accent);background:none}
+.card{border:1px solid var(--border);box-shadow:none;border-radius:12px}
+.card:hover{border-color:#BED0FF;box-shadow:var(--shadow)}
+.divider-accent{width:72px;height:5px;border-radius:99px;background:var(--grad)}
+.deck-footer{font-family:"Microsoft YaHei",Arial,sans-serif}
+.cover-scrim{background:linear-gradient(90deg,rgba(8,18,48,.86) 0%,rgba(8,18,48,.62) 46%,rgba(8,18,48,.16) 100%)}
+.section-content{align-items:flex-start;text-align:left;padding-left:120px}
+.section-content .h1{font-size:92px;color:var(--text-1)}
+.pill{border-radius:8px;background:rgba(22,100,255,.12);border:1px solid rgba(22,100,255,.22);color:#1664FF}
+.steps{gap:16px}.step{border-radius:12px;box-shadow:none}.step .num{border-radius:10px;background:var(--grad)}
+.flow{gap:10px}.flow .node{border-radius:12px;box-shadow:none}.flow .node.hl{border-color:var(--accent);box-shadow:0 0 0 3px rgba(22,100,255,.10)}
+.arch .tname{border-radius:10px;background:#EEF4FF;color:#1664FF}.arch .cell{border-radius:10px;box-shadow:none}
+.kpi-card,.goal-card{box-shadow:none;border-radius:12px}.kpi-card{border-top-width:4px}
+.visual-panel{border-radius:16px}.insight-card{border-radius:12px;box-shadow:none}
+.pain-matrix .pain-card{border-radius:12px;box-shadow:none}
+.mini-cell{border-radius:8px;background:#F7F8FA}
+.table-wrap{box-shadow:none;border-radius:12px}

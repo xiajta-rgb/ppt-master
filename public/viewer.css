@@ -86,6 +86,19 @@
     overflow: hidden;
 }
 
+#slideWrapper.source-deck-stage {
+    background: #0a0a0f;
+}
+
+#slideWrapper .source-deck-frame {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1920px;
+    height: 1080px;
+    transform-origin: center;
+}
+
 #slideWrapper svg {
     width: 100% !important;
     height: 100% !important;

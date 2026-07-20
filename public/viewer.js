@@ -97,6 +97,7 @@ async function checkForChanges() {
         if (seq !== hotReloadSeq) { hotReloadInFlight = false; return; }
         if (data.changed && data.timestamp > lastCheckTime) {
             lastCheckTime = data.timestamp;
+            svgCache.clear();
             showHotReloadNotification(data.files);
         }
     } catch (e) {
@@ -204,6 +205,18 @@ async function loadSingleProject(projectId) {
 
         const staticData = collections.find(c => c.id === p.id || c.alias === p.alias?.[0]);
 
+        const isHtmlDeck = p.renderMode === 'html' && p.sourceHtml;
+        const slides = isHtmlDeck
+            ? Array.from({ length: p.sourceSlides }, (_, index) => ({
+                file: `html-page-${String(index + 1).padStart(2, '0')}`,
+                title: `第 ${index + 1} 页`,
+                desc: '原始 HTML 页面',
+                mtime: p.sourceMtime
+            }))
+            : p.slides.map(s => {
+                const staticSlide = staticData?.slides?.find(ss => ss.file === s.file);
+                return { ...(staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' }), mtime: s.mtime };
+            });
         return {
             id: p.id,
             seqId: staticData?.seqId || '',
@@ -213,10 +226,11 @@ async function loadSingleProject(projectId) {
             icon: staticData?.icon || '📊',
             color: staticData?.color || '#6366f1',
             folder: staticData?.folder || p.folder,
-            slides: p.slides.map(s => {
-                const staticSlide = staticData?.slides?.find(ss => ss.file === s.file);
-                return staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' };
-            })
+            renderMode: p.renderMode,
+            sourceHtml: p.sourceHtml,
+            sourceMtime: p.sourceMtime,
+            sourceSlides: p.sourceSlides,
+            slides: slides
         };
     } catch (e) {
         return null;
@@ -234,17 +248,26 @@ async function loadDynamicCollections() {
 
         collections = data.projects.map(p => {
             const staticData = staticMap.get(p.id) || staticAliasMap.get(p.alias?.[0]) || staticMap.get(p.alias?.[0]);
+            const isHtmlDeck = p.renderMode === 'html' && p.sourceHtml;
             let slides;
-            if (staticData?.slides?.length) {
+            if (isHtmlDeck) {
+                slides = Array.from({ length: p.sourceSlides }, (_, index) => ({
+                    file: `html-page-${String(index + 1).padStart(2, '0')}`,
+                    title: `第 ${index + 1} 页`,
+                    desc: '原始 HTML 页面',
+                    mtime: p.sourceMtime
+                }));
+            } else if (staticData?.slides?.length) {
                 slides = p.slides.map(s => {
                     const staticSlide = staticData.slides.find(ss => ss.file === s.file);
-                    return staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' };
+                    return { ...(staticSlide || { file: s.file, title: s.file.replace('.svg', ''), desc: '' }), mtime: s.mtime };
                 });
             } else {
                 slides = p.slides.map(s => ({
                     file: s.file,
                     title: s.file.replace('.svg', ''),
-                    desc: ''
+                    desc: '',
+                    mtime: s.mtime
                 }));
             }
             return {
@@ -256,6 +279,10 @@ async function loadDynamicCollections() {
                 icon: staticData?.icon || '📊',
                 color: staticData?.color || '#6366f1',
                 folder: staticData?.folder || p.folder,
+                renderMode: p.renderMode,
+                sourceHtml: p.sourceHtml,
+                sourceMtime: p.sourceMtime,
+                sourceSlides: p.sourceSlides,
                 slides: slides
             };
         });
@@ -486,6 +513,7 @@ document.addEventListener('click', (e) => {
 });
 
 function openCollection(collection, skipViewToggle) {
+    if (isEditMode) toggleEditMode();
     currentCollection = collection;
     currentSlide = 0;
 
@@ -603,6 +631,7 @@ function toggleViewMode() {
 }
 
 function toggleEditMode() {
+    if (currentCollection?.sourceHtml) return;
     isEditMode = !isEditMode;
     const toolbar = document.getElementById('editToolbar');
     const editHint = document.getElementById('editHint');
@@ -3156,6 +3185,11 @@ function generateThumbnails() {
     const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
 
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
+    const sourcePreviewUrl = (index) => {
+        const params = new URLSearchParams({ preview: String(index + 1) });
+        if (currentCollection.sourceMtime) params.set('v', currentCollection.sourceMtime);
+        return `${currentCollection.sourceHtml}?${params}`;
+    };
 
     const filteredSlides = currentCollection.slides.map((slide, index) => ({ slide, index }))
         .filter(({ slide, index }) => {
@@ -3178,25 +3212,35 @@ function generateThumbnails() {
 
     container.innerHTML = filteredSlides.map(({ slide, index }) => {
         const isCurrent = index === currentSlide;
-        return `
-        <div class="thumbnail rounded-lg overflow-hidden border-2 ${isCurrent ? 'border-brand-500' : 'border-transparent'}"
-             onclick="goToSlide(${index})"
-             id="thumb-${index}">
-            <div class="relative bg-surface-900 animate-pulse">
+        const preview = currentCollection.sourceHtml
+            ? `<div class="w-full aspect-video overflow-hidden bg-surface-900 pointer-events-none">
+                <iframe class="source-preview-frame w-[1920px] h-[1080px] origin-top-left border-0"
+                    src="${sourcePreviewUrl(index)}" title="第 ${index + 1} 页缩略图" tabindex="-1" loading="lazy"></iframe>
+            </div>`
+            : `<div class="relative bg-surface-900 animate-pulse">
                 <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full lazy-thumb" alt="${slide.title}"
                      onload="this.parentElement.classList.remove('animate-pulse', 'bg-surface-900')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-full h-16 flex items-center justify-center bg-surface-900 text-gray-600">
                     <i class="fas fa-image"></i>
                 </div>
-            </div>
+            </div>`;
+        return `
+        <div class="thumbnail rounded-lg overflow-hidden border-2 ${isCurrent ? 'border-brand-500' : 'border-transparent'}"
+             onclick="goToSlide(${index})"
+             id="thumb-${index}">
+            ${preview}
             <div class="px-2 py-1 bg-transparent text-xs text-gray-400 truncate">
                 ${index + 1}. ${slide.title}
             </div>
         </div>
     `}).join('');
 
-    initLazyThumbnails(container);
+    if (currentCollection.sourceHtml) {
+        requestAnimationFrame(fitSourcePreviewFrames);
+    } else {
+        initLazyThumbnails(container);
+    }
 }
 
 function filterSlides(query) {
@@ -3255,19 +3299,30 @@ function generateOverview() {
 
     const container = document.getElementById('overviewGrid');
     const basePath = '/' + encodePath(currentCollection.folder) + '/';
+    const sourcePreviewUrl = (index) => {
+        const params = new URLSearchParams({ preview: String(index + 1) });
+        if (currentCollection.sourceMtime) params.set('v', currentCollection.sourceMtime);
+        return `${currentCollection.sourceHtml}?${params}`;
+    };
 
     container.innerHTML = currentCollection.slides.map((slide, index) => {
-        return `
-        <div class="rounded-xl p-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
-             onclick="goToSlide(${index}); window.scrollTo({top: 0, behavior: 'smooth'})">
-            <div class="relative bg-surface-900 rounded-lg animate-pulse">
+        const preview = currentCollection.sourceHtml
+            ? `<div class="w-full aspect-video overflow-hidden bg-surface-900 rounded-lg pointer-events-none">
+                <iframe class="source-preview-frame w-[1920px] h-[1080px] origin-top-left border-0"
+                    src="${sourcePreviewUrl(index)}" title="第 ${index + 1} 页缩略图" tabindex="-1" loading="lazy"></iframe>
+            </div>`
+            : `<div class="relative bg-surface-900 rounded-lg animate-pulse">
                 <img data-src="${basePath}${encodeURIComponent(slide.file)}" class="w-full rounded-lg lazy-overview" alt="${slide.title}"
                      onload="this.parentElement.classList.remove('animate-pulse', 'bg-surface-900')"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div class="hidden w-full h-24 flex items-center justify-center bg-surface-900 rounded-lg text-gray-600">
                     <i class="fas fa-image"></i>
                 </div>
-            </div>
+            </div>`;
+        return `
+        <div class="rounded-xl p-2 shadow-md hover:shadow-lg transition-shadow cursor-pointer"
+             onclick="goToSlide(${index}); window.scrollTo({top: 0, behavior: 'smooth'})">
+            ${preview}
             <div class="mt-2 px-1">
                 <p class="text-sm font-medium text-gray-100 truncate">${index + 1}. ${slide.title}</p>
                 <p class="text-xs text-gray-500 truncate">${slide.desc}</p>
@@ -3275,7 +3330,11 @@ function generateOverview() {
         </div>
     `}).join('');
 
-    initLazyOverview(container);
+    if (currentCollection.sourceHtml) {
+        requestAnimationFrame(fitSourcePreviewFrames);
+    } else {
+        initLazyOverview(container);
+    }
 }
 
 let _overviewObserver = null;
@@ -3338,8 +3397,87 @@ function encodePath(path) {
     return path.split('/').map(p => encodeURIComponent(p)).join('/');
 }
 
+function getSlideSvgUrl(collection, slide) {
+    const url = '/' + encodePath(collection.folder) + '/' + encodeURIComponent(slide.file);
+    return slide.mtime !== undefined && slide.mtime !== null ? `${url}?v=${encodeURIComponent(slide.mtime)}` : url;
+}
+
+function getSourceDeckUrl(collection, slideIndex) {
+    const params = new URLSearchParams({ preview: String(slideIndex + 1) });
+    if (collection.sourceMtime !== undefined && collection.sourceMtime !== null) params.set('v', collection.sourceMtime);
+    return `${collection.sourceHtml}?${params}`;
+}
+
+function fitSourceDeckFrame() {
+    const stage = document.getElementById('slideWrapper');
+    const frame = stage?.querySelector('.source-deck-frame');
+    if (!stage || !frame) return;
+    const { width, height } = stage.getBoundingClientRect();
+    const scale = Math.min(width / 1920, height / 1080);
+    frame.style.transform = `translate(-50%, -50%) scale(${scale})`;
+}
+
+function fitSourcePreviewFrames() {
+    document.querySelectorAll('.source-preview-frame').forEach((frame) => {
+        const module = frame.parentElement;
+        const { width } = module.getBoundingClientRect();
+        if (!width) return;
+        frame.style.transform = `scale(${width / 1920})`;
+    });
+}
+
+window.addEventListener('resize', () => {
+    fitSourceDeckFrame();
+    fitSourcePreviewFrames();
+});
+
+function updateFullscreenSourceDeck() {
+    const fullscreenImage = document.getElementById('fullscreenImage');
+    let frame = document.getElementById('fullscreenSourceDeck');
+    if (!frame) {
+        frame = document.createElement('iframe');
+        frame.id = 'fullscreenSourceDeck';
+        frame.className = 'w-full h-full border-0';
+        frame.setAttribute('title', '演示文稿全屏预览');
+        document.getElementById('fullscreenOverlay').insertBefore(frame, fullscreenImage);
+    }
+    frame.src = getSourceDeckUrl(currentCollection, currentSlide);
+    frame.classList.remove('hidden');
+    fullscreenImage.classList.add('hidden');
+}
+
 function performSlideUpdate() {
     if (!currentCollection) return;
+
+    if (currentCollection.sourceHtml) {
+        if (isEditMode) toggleEditMode();
+        const slideWrapper = document.getElementById('slideWrapper');
+        slideWrapper.classList.add('source-deck-stage');
+        slideWrapper.querySelectorAll('svg, .source-deck-frame, #slideLoadingSpinner').forEach(el => el.remove());
+        const frame = document.createElement('iframe');
+        frame.className = 'source-deck-frame border-0';
+        frame.setAttribute('title', `演示文稿第 ${currentSlide + 1} 页`);
+        frame.src = getSourceDeckUrl(currentCollection, currentSlide);
+        slideWrapper.appendChild(frame);
+        fitSourceDeckFrame();
+        if (isFullscreen) updateFullscreenSourceDeck();
+        document.getElementById('currentPage').textContent = currentSlide + 1;
+        document.getElementById('fullscreenPage').textContent = currentSlide + 1;
+        document.getElementById('progressBar').style.width = `${((currentSlide + 1) / currentCollection.slides.length) * 100}%`;
+        document.getElementById('prevBtn').disabled = currentSlide === 0;
+        document.getElementById('nextBtn').disabled = currentSlide === currentCollection.slides.length - 1;
+        currentCollection.slides.forEach((_, i) => {
+            const thumb = document.getElementById(`thumb-${i}`);
+            if (thumb) thumb.classList.toggle('border-brand-500', i === currentSlide);
+            if (thumb) thumb.classList.toggle('border-transparent', i !== currentSlide);
+        });
+        return;
+    }
+
+    const fullscreenSourceDeck = document.getElementById('fullscreenSourceDeck');
+    if (fullscreenSourceDeck) fullscreenSourceDeck.classList.add('hidden');
+    document.getElementById('fullscreenImage').classList.remove('hidden');
+    document.getElementById('slideWrapper')?.classList.remove('source-deck-stage');
 
     clearImageSelection();
     removeEditOverlay();
@@ -3351,8 +3489,7 @@ function performSlideUpdate() {
     }
 
     const slide = currentCollection.slides[currentSlide];
-    const basePath = '/' + encodePath(currentCollection.folder) + '/';
-    const slidePath = basePath + encodeURIComponent(slide.file);
+    const slidePath = getSlideSvgUrl(currentCollection, slide);
 
     const slideWrapper = document.getElementById('slideWrapper');
     const fullscreenImage = document.getElementById('fullscreenImage');
@@ -3478,7 +3615,6 @@ function performSlideUpdate() {
 
 function preloadAdjacentSlides() {
     if (!currentCollection) return;
-    const basePath = '/' + encodePath(currentCollection.folder) + '/';
     const preloadRange = 2;
 
     for (let offset = -preloadRange; offset <= preloadRange; offset++) {
@@ -3486,7 +3622,7 @@ function preloadAdjacentSlides() {
         const idx = currentSlide + offset;
         if (idx < 0 || idx >= currentCollection.slides.length) continue;
 
-        const slidePath = basePath + encodeURIComponent(currentCollection.slides[idx].file);
+        const slidePath = getSlideSvgUrl(currentCollection, currentCollection.slides[idx]);
         if (!svgCache.has(slidePath)) {
             fetch(slidePath)
                 .then(res => res.ok ? res.text() : null)
@@ -3787,6 +3923,7 @@ function toggleFullscreen() {
     isFullscreen = !isFullscreen;
 
     if (isFullscreen) {
+        if (currentCollection?.sourceHtml) updateFullscreenSourceDeck();
         overlay.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
     } else {
@@ -4010,8 +4147,7 @@ async function copyOutlineToClipboard() {
             
             lines.push(`━━━ 第${pageNum}页：${title} ━━━`);
 
-            const basePath = '/' + encodePath(currentCollection.folder) + '/';
-            const slidePath = basePath + encodeURIComponent(slide.file);
+            const slidePath = getSlideSvgUrl(currentCollection, slide);
             
             try {
                 const response = await fetch(slidePath);
